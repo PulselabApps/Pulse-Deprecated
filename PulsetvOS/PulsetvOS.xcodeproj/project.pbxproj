@@ -1,0 +1,495 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		12D31D691BEE792200B03E7C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12D31D681BEE792200B03E7C /* AppDelegate.swift */; };
+		12D31D6B1BEE792200B03E7C /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12D31D6A1BEE792200B03E7C /* ViewController.swift */; };
+		12D31D6E1BEE792200B03E7C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 12D31D6C1BEE792200B03E7C /* Main.storyboard */; };
+		12D31D701BEE792200B03E7C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 12D31D6F1BEE792200B03E7C /* Assets.xcassets */; };
+		12D31D7B1BEE792200B03E7C /* PulsetvOSTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12D31D7A1BEE792200B03E7C /* PulsetvOSTests.swift */; };
+		12D31D861BEE792200B03E7C /* PulsetvOSUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12D31D851BEE792200B03E7C /* PulsetvOSUITests.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		12D31D771BEE792200B03E7C /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 12D31D5D1BEE792200B03E7C /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 12D31D641BEE792200B03E7C;
+			remoteInfo = PulsetvOS;
+		};
+		12D31D821BEE792200B03E7C /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 12D31D5D1BEE792200B03E7C /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 12D31D641BEE792200B03E7C;
+			remoteInfo = PulsetvOS;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		12D31D651BEE792200B03E7C /* PulsetvOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PulsetvOS.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		12D31D681BEE792200B03E7C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		12D31D6A1BEE792200B03E7C /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		12D31D6D1BEE792200B03E7C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		12D31D6F1BEE792200B03E7C /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		12D31D711BEE792200B03E7C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		12D31D761BEE792200B03E7C /* PulsetvOSTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PulsetvOSTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		12D31D7A1BEE792200B03E7C /* PulsetvOSTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PulsetvOSTests.swift; sourceTree = "<group>"; };
+		12D31D7C1BEE792200B03E7C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		12D31D811BEE792200B03E7C /* PulsetvOSUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PulsetvOSUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		12D31D851BEE792200B03E7C /* PulsetvOSUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PulsetvOSUITests.swift; sourceTree = "<group>"; };
+		12D31D871BEE792200B03E7C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		12D31D621BEE792200B03E7C /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		12D31D731BEE792200B03E7C /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		12D31D7E1BEE792200B03E7C /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		12D31D5C1BEE792200B03E7C = {
+			isa = PBXGroup;
+			children = (
+				12D31D671BEE792200B03E7C /* PulsetvOS */,
+				12D31D791BEE792200B03E7C /* PulsetvOSTests */,
+				12D31D841BEE792200B03E7C /* PulsetvOSUITests */,
+				12D31D661BEE792200B03E7C /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		12D31D661BEE792200B03E7C /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				12D31D651BEE792200B03E7C /* PulsetvOS.app */,
+				12D31D761BEE792200B03E7C /* PulsetvOSTests.xctest */,
+				12D31D811BEE792200B03E7C /* PulsetvOSUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		12D31D671BEE792200B03E7C /* PulsetvOS */ = {
+			isa = PBXGroup;
+			children = (
+				12D31D681BEE792200B03E7C /* AppDelegate.swift */,
+				12D31D6A1BEE792200B03E7C /* ViewController.swift */,
+				12D31D6C1BEE792200B03E7C /* Main.storyboard */,
+				12D31D6F1BEE792200B03E7C /* Assets.xcassets */,
+				12D31D711BEE792200B03E7C /* Info.plist */,
+			);
+			path = PulsetvOS;
+			sourceTree = "<group>";
+		};
+		12D31D791BEE792200B03E7C /* PulsetvOSTests */ = {
+			isa = PBXGroup;
+			children = (
+				12D31D7A1BEE792200B03E7C /* PulsetvOSTests.swift */,
+				12D31D7C1BEE792200B03E7C /* Info.plist */,
+			);
+			path = PulsetvOSTests;
+			sourceTree = "<group>";
+		};
+		12D31D841BEE792200B03E7C /* PulsetvOSUITests */ = {
+			isa = PBXGroup;
+			children = (
+				12D31D851BEE792200B03E7C /* PulsetvOSUITests.swift */,
+				12D31D871BEE792200B03E7C /* Info.plist */,
+			);
+			path = PulsetvOSUITests;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		12D31D641BEE792200B03E7C /* PulsetvOS */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 12D31D8A1BEE792200B03E7C /* Build configuration list for PBXNativeTarget "PulsetvOS" */;
+			buildPhases = (
+				12D31D611BEE792200B03E7C /* Sources */,
+				12D31D621BEE792200B03E7C /* Frameworks */,
+				12D31D631BEE792200B03E7C /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = PulsetvOS;
+			productName = PulsetvOS;
+			productReference = 12D31D651BEE792200B03E7C /* PulsetvOS.app */;
+			productType = "com.apple.product-type.application";
+		};
+		12D31D751BEE792200B03E7C /* PulsetvOSTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 12D31D8D1BEE792200B03E7C /* Build configuration list for PBXNativeTarget "PulsetvOSTests" */;
+			buildPhases = (
+				12D31D721BEE792200B03E7C /* Sources */,
+				12D31D731BEE792200B03E7C /* Frameworks */,
+				12D31D741BEE792200B03E7C /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				12D31D781BEE792200B03E7C /* PBXTargetDependency */,
+			);
+			name = PulsetvOSTests;
+			productName = PulsetvOSTests;
+			productReference = 12D31D761BEE792200B03E7C /* PulsetvOSTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		12D31D801BEE792200B03E7C /* PulsetvOSUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 12D31D901BEE792200B03E7C /* Build configuration list for PBXNativeTarget "PulsetvOSUITests" */;
+			buildPhases = (
+				12D31D7D1BEE792200B03E7C /* Sources */,
+				12D31D7E1BEE792200B03E7C /* Frameworks */,
+				12D31D7F1BEE792200B03E7C /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				12D31D831BEE792200B03E7C /* PBXTargetDependency */,
+			);
+			name = PulsetvOSUITests;
+			productName = PulsetvOSUITests;
+			productReference = 12D31D811BEE792200B03E7C /* PulsetvOSUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		12D31D5D1BEE792200B03E7C /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 0710;
+				LastUpgradeCheck = 0710;
+				ORGANIZATIONNAME = pulse;
+				TargetAttributes = {
+					12D31D641BEE792200B03E7C = {
+						CreatedOnToolsVersion = 7.1;
+					};
+					12D31D751BEE792200B03E7C = {
+						CreatedOnToolsVersion = 7.1;
+						TestTargetID = 12D31D641BEE792200B03E7C;
+					};
+					12D31D801BEE792200B03E7C = {
+						CreatedOnToolsVersion = 7.1;
+						TestTargetID = 12D31D641BEE792200B03E7C;
+					};
+				};
+			};
+			buildConfigurationList = 12D31D601BEE792200B03E7C /* Build configuration list for PBXProject "PulsetvOS" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 12D31D5C1BEE792200B03E7C;
+			productRefGroup = 12D31D661BEE792200B03E7C /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				12D31D641BEE792200B03E7C /* PulsetvOS */,
+				12D31D751BEE792200B03E7C /* PulsetvOSTests */,
+				12D31D801BEE792200B03E7C /* PulsetvOSUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		12D31D631BEE792200B03E7C /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				12D31D701BEE792200B03E7C /* Assets.xcassets in Resources */,
+				12D31D6E1BEE792200B03E7C /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		12D31D741BEE792200B03E7C /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		12D31D7F1BEE792200B03E7C /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		12D31D611BEE792200B03E7C /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				12D31D6B1BEE792200B03E7C /* ViewController.swift in Sources */,
+				12D31D691BEE792200B03E7C /* AppDelegate.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		12D31D721BEE792200B03E7C /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				12D31D7B1BEE792200B03E7C /* PulsetvOSTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		12D31D7D1BEE792200B03E7C /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				12D31D861BEE792200B03E7C /* PulsetvOSUITests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		12D31D781BEE792200B03E7C /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 12D31D641BEE792200B03E7C /* PulsetvOS */;
+			targetProxy = 12D31D771BEE792200B03E7C /* PBXContainerItemProxy */;
+		};
+		12D31D831BEE792200B03E7C /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 12D31D641BEE792200B03E7C /* PulsetvOS */;
+			targetProxy = 12D31D821BEE792200B03E7C /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		12D31D6C1BEE792200B03E7C /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				12D31D6D1BEE792200B03E7C /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		12D31D881BEE792200B03E7C /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = appletvos;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				TARGETED_DEVICE_FAMILY = 3;
+				TVOS_DEPLOYMENT_TARGET = 9.0;
+			};
+			name = Debug;
+		};
+		12D31D891BEE792200B03E7C /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = appletvos;
+				TARGETED_DEVICE_FAMILY = 3;
+				TVOS_DEPLOYMENT_TARGET = 9.0;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		12D31D8B1BEE792200B03E7C /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = "App Icon & Top Shelf Image";
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				INFOPLIST_FILE = PulsetvOS/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.pulse.PulsetvOS;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		12D31D8C1BEE792200B03E7C /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = "App Icon & Top Shelf Image";
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				INFOPLIST_FILE = PulsetvOS/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.pulse.PulsetvOS;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
+		12D31D8E1BEE792200B03E7C /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				INFOPLIST_FILE = PulsetvOSTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.pulse.PulsetvOSTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/PulsetvOS.app/PulsetvOS";
+			};
+			name = Debug;
+		};
+		12D31D8F1BEE792200B03E7C /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				INFOPLIST_FILE = PulsetvOSTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.pulse.PulsetvOSTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/PulsetvOS.app/PulsetvOS";
+			};
+			name = Release;
+		};
+		12D31D911BEE792200B03E7C /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				INFOPLIST_FILE = PulsetvOSUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.pulse.PulsetvOSUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_TARGET_NAME = PulsetvOS;
+				USES_XCTRUNNER = YES;
+			};
+			name = Debug;
+		};
+		12D31D921BEE792200B03E7C /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				INFOPLIST_FILE = PulsetvOSUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.pulse.PulsetvOSUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_TARGET_NAME = PulsetvOS;
+				USES_XCTRUNNER = YES;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		12D31D601BEE792200B03E7C /* Build configuration list for PBXProject "PulsetvOS" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				12D31D881BEE792200B03E7C /* Debug */,
+				12D31D891BEE792200B03E7C /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		12D31D8A1BEE792200B03E7C /* Build configuration list for PBXNativeTarget "PulsetvOS" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				12D31D8B1BEE792200B03E7C /* Debug */,
+				12D31D8C1BEE792200B03E7C /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		12D31D8D1BEE792200B03E7C /* Build configuration list for PBXNativeTarget "PulsetvOSTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				12D31D8E1BEE792200B03E7C /* Debug */,
+				12D31D8F1BEE792200B03E7C /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		12D31D901BEE792200B03E7C /* Build configuration list for PBXNativeTarget "PulsetvOSUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				12D31D911BEE792200B03E7C /* Debug */,
+				12D31D921BEE792200B03E7C /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 12D31D5D1BEE792200B03E7C /* Project object */;
+}
