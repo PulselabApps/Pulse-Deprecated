@@ -97,12 +97,10 @@
 		12D31D2D1BEE791100B03E7C /* PulseiOS */ = {
 			isa = PBXGroup;
 			children = (
-				12D31D2E1BEE791100B03E7C /* AppDelegate.swift */,
-				12D31D301BEE791100B03E7C /* ViewController.swift */,
-				12D31D321BEE791100B03E7C /* Main.storyboard */,
-				12D31D351BEE791100B03E7C /* Assets.xcassets */,
-				12D31D371BEE791100B03E7C /* LaunchScreen.storyboard */,
-				12D31D3A1BEE791100B03E7C /* Info.plist */,
+				F111DD621BEE7D8700E10C7F /* Model */,
+				F111DD631BEE7D9D00E10C7F /* View */,
+				F111DD641BEE7DC500E10C7F /* Controller */,
+				F111DD651BEE7DCC00E10C7F /* Supporting Files */,
 			);
 			path = PulseiOS;
 			sourceTree = "<group>";
@@ -123,6 +121,40 @@
 				12D31D501BEE791100B03E7C /* Info.plist */,
 			);
 			path = PulseiOSUITests;
+			sourceTree = "<group>";
+		};
+		F111DD621BEE7D8700E10C7F /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Model;
+			sourceTree = "<group>";
+		};
+		F111DD631BEE7D9D00E10C7F /* View */ = {
+			isa = PBXGroup;
+			children = (
+				12D31D321BEE791100B03E7C /* Main.storyboard */,
+			);
+			name = View;
+			sourceTree = "<group>";
+		};
+		F111DD641BEE7DC500E10C7F /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				12D31D301BEE791100B03E7C /* ViewController.swift */,
+			);
+			name = Controller;
+			sourceTree = "<group>";
+		};
+		F111DD651BEE7DCC00E10C7F /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				12D31D2E1BEE791100B03E7C /* AppDelegate.swift */,
+				12D31D371BEE791100B03E7C /* LaunchScreen.storyboard */,
+				12D31D351BEE791100B03E7C /* Assets.xcassets */,
+				12D31D3A1BEE791100B03E7C /* Info.plist */,
+			);
+			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -484,6 +516,7 @@
 				12D31D551BEE791100B03E7C /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		12D31D561BEE791100B03E7C /* Build configuration list for PBXNativeTarget "PulseiOSTests" */ = {
 			isa = XCConfigurationList;
@@ -492,6 +525,7 @@
 				12D31D581BEE791100B03E7C /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		12D31D591BEE791100B03E7C /* Build configuration list for PBXNativeTarget "PulseiOSUITests" */ = {
 			isa = XCConfigurationList;
@@ -500,6 +534,7 @@
 				12D31D5B1BEE791100B03E7C /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
