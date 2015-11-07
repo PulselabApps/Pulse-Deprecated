@@ -5,6 +5,7 @@ use_frameworks!
 
 target 'PulsetvOS' do
     pod 'Parse', :git => 'git@github.com:ParsePlatform/Parse-SDK-iOS-OSX.git', :branch => 'nlutsenko.tvos.podtest'
+    pod 'Charts'
 end
 
 target 'PulsetvOSTests' do
