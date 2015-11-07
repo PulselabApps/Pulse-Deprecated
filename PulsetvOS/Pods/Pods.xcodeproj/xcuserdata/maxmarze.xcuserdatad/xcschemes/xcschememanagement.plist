@@ -9,6 +9,11 @@
 			<key>isShown</key>
 			<false/>
 		</dict>
+		<key>Charts.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
 		<key>Parse.xcscheme</key>
 		<dict>
 			<key>isShown</key>
@@ -22,7 +27,7 @@
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
-		<key>703F3480DCAFF306736E224E41187368</key>
+		<key>24090FBCEF7A50AE384678B5C071804B</key>
 		<dict>
 			<key>primary</key>
 			<true/>
@@ -33,6 +38,11 @@
 			<true/>
 		</dict>
 		<key>BF7258311F2D078681046B49C3B40F02</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>F4F17CBCF58C58881E208529F32FB2C0</key>
 		<dict>
 			<key>primary</key>
 			<true/>

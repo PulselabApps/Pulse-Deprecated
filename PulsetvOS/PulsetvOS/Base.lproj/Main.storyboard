@@ -63,6 +63,7 @@
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="questionView" destination="Fb7-aH-e8Q" id="kaO-9O-cdS"/>
                         <outlet property="statsView" destination="gIT-Ad-Tgt" id="GJt-ab-Bml"/>
                     </connections>
                 </viewController>

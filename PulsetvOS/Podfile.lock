@@ -1,9 +1,11 @@
 PODS:
   - Bolts/Tasks (1.4.0)
+  - Charts (2.1.6)
   - Parse (1.9.1):
     - Bolts/Tasks (>= 1.4.0)
 
 DEPENDENCIES:
+  - Charts
   - Parse (from `git@github.com:ParsePlatform/Parse-SDK-iOS-OSX.git`, branch `nlutsenko.tvos.podtest`)
 
 EXTERNAL SOURCES:
@@ -18,6 +20,7 @@ CHECKOUT OPTIONS:
 
 SPEC CHECKSUMS:
   Bolts: 0e9bce58b9b9f5e8a7a4d47b16d2fabec289072b
+  Charts: 5e1e5ac23898e5b09d226a2fc3e9d86bc281937e
   Parse: f7cf7335deb71a78aae092254bb630aa1c6fcf7c
 
 COCOAPODS: 0.39.0
