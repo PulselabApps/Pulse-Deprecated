@@ -13,6 +13,7 @@
 		12D31D701BEE792200B03E7C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 12D31D6F1BEE792200B03E7C /* Assets.xcassets */; };
 		12D31D7B1BEE792200B03E7C /* PulsetvOSTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12D31D7A1BEE792200B03E7C /* PulsetvOSTests.swift */; };
 		12D31D861BEE792200B03E7C /* PulsetvOSUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12D31D851BEE792200B03E7C /* PulsetvOSUITests.swift */; };
+		1C8E2030F014E21B07EA74AA /* Pods_PulsetvOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B7A1133B144BA89464DD1CC8 /* Pods_PulsetvOS.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -33,6 +34,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		0C16D5D6B98F149EAFCA33A9 /* Pods-PulsetvOS.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PulsetvOS.debug.xcconfig"; path = "Pods/Target Support Files/Pods-PulsetvOS/Pods-PulsetvOS.debug.xcconfig"; sourceTree = "<group>"; };
 		12D31D651BEE792200B03E7C /* PulsetvOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PulsetvOS.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		12D31D681BEE792200B03E7C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		12D31D6A1BEE792200B03E7C /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -45,6 +47,8 @@
 		12D31D811BEE792200B03E7C /* PulsetvOSUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PulsetvOSUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		12D31D851BEE792200B03E7C /* PulsetvOSUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PulsetvOSUITests.swift; sourceTree = "<group>"; };
 		12D31D871BEE792200B03E7C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		5E6D43062EF75820D5DE0BAE /* Pods-PulsetvOS.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PulsetvOS.release.xcconfig"; path = "Pods/Target Support Files/Pods-PulsetvOS/Pods-PulsetvOS.release.xcconfig"; sourceTree = "<group>"; };
+		B7A1133B144BA89464DD1CC8 /* Pods_PulsetvOS.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_PulsetvOS.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -52,6 +56,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1C8E2030F014E21B07EA74AA /* Pods_PulsetvOS.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -79,6 +84,8 @@
 				12D31D791BEE792200B03E7C /* PulsetvOSTests */,
 				12D31D841BEE792200B03E7C /* PulsetvOSUITests */,
 				12D31D661BEE792200B03E7C /* Products */,
+				F1A75F3F344C8690F6A592A4 /* Pods */,
+				F58BA9099D5CC3D7DFA3F72D /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -122,6 +129,23 @@
 			path = PulsetvOSUITests;
 			sourceTree = "<group>";
 		};
+		F1A75F3F344C8690F6A592A4 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				0C16D5D6B98F149EAFCA33A9 /* Pods-PulsetvOS.debug.xcconfig */,
+				5E6D43062EF75820D5DE0BAE /* Pods-PulsetvOS.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		F58BA9099D5CC3D7DFA3F72D /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				B7A1133B144BA89464DD1CC8 /* Pods_PulsetvOS.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -129,9 +153,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 12D31D8A1BEE792200B03E7C /* Build configuration list for PBXNativeTarget "PulsetvOS" */;
 			buildPhases = (
+				205FC2AE00007F68FA8B318C /* Check Pods Manifest.lock */,
 				12D31D611BEE792200B03E7C /* Sources */,
 				12D31D621BEE792200B03E7C /* Frameworks */,
 				12D31D631BEE792200B03E7C /* Resources */,
+				DEE98390F896D25072BC84C3 /* Embed Pods Frameworks */,
+				26F0480161ADF9F25B4B0F09 /* Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -246,6 +273,54 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		205FC2AE00007F68FA8B318C /* Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		26F0480161ADF9F25B4B0F09 /* Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-PulsetvOS/Pods-PulsetvOS-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		DEE98390F896D25072BC84C3 /* Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-PulsetvOS/Pods-PulsetvOS-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		12D31D611BEE792200B03E7C /* Sources */ = {
@@ -383,6 +458,7 @@
 		};
 		12D31D8B1BEE792200B03E7C /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 0C16D5D6B98F149EAFCA33A9 /* Pods-PulsetvOS.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = "App Icon & Top Shelf Image";
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
@@ -395,6 +471,7 @@
 		};
 		12D31D8C1BEE792200B03E7C /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 5E6D43062EF75820D5DE0BAE /* Pods-PulsetvOS.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = "App Icon & Top Shelf Image";
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
@@ -472,6 +549,7 @@
 				12D31D8C1BEE792200B03E7C /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		12D31D8D1BEE792200B03E7C /* Build configuration list for PBXNativeTarget "PulsetvOSTests" */ = {
 			isa = XCConfigurationList;
@@ -480,6 +558,7 @@
 				12D31D8F1BEE792200B03E7C /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		12D31D901BEE792200B03E7C /* Build configuration list for PBXNativeTarget "PulsetvOSUITests" */ = {
 			isa = XCConfigurationList;
@@ -488,6 +567,7 @@
 				12D31D921BEE792200B03E7C /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
