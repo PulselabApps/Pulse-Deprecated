@@ -25,8 +25,10 @@ class LoginViewController: UIViewController {
     }
     
     @IBAction func loginButtonPressed(sender: AnyObject) {
-        let username = usernameTextBox.text ?? ""
-        let password = passwordTextBox.text ?? ""
+        //let username = usernameTextBox.text ?? ""
+        //let password = passwordTextBox.text ?? ""
+        let username = "test_student"
+        let password = "password"
         
         /*"
         test_student"

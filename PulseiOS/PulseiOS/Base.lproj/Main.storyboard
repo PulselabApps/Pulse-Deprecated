@@ -183,7 +183,12 @@
                                                         <rect key="frame" x="0.0" y="0.0" width="264" height="104"/>
                                                         <animations/>
                                                         <fontDescription key="fontDescription" type="system" weight="ultraLight" pointSize="65"/>
-                                                        <state key="normal" title="Button"/>
+                                                        <state key="normal" title="Button">
+                                                            <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                                        </state>
+                                                        <connections>
+                                                            <action selector="multipleChoiceAnswerClicked:" destination="BYZ-38-t0r" eventType="touchUpInside" id="MSN-He-AsL"/>
+                                                        </connections>
                                                     </button>
                                                 </subviews>
                                                 <animations/>
@@ -203,8 +208,11 @@
                                                         <animations/>
                                                         <fontDescription key="fontDescription" type="system" weight="ultraLight" pointSize="65"/>
                                                         <state key="normal" title="Button">
-                                                            <color key="titleColor" red="0.0" green="0.50196081400000003" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                                            <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                         </state>
+                                                        <connections>
+                                                            <action selector="multipleChoiceAnswerClicked:" destination="BYZ-38-t0r" eventType="touchUpInside" id="rxM-hY-5O6"/>
+                                                        </connections>
                                                     </button>
                                                 </subviews>
                                                 <animations/>
@@ -223,7 +231,12 @@
                                                         <rect key="frame" x="0.0" y="0.0" width="264" height="104"/>
                                                         <animations/>
                                                         <fontDescription key="fontDescription" type="system" weight="ultraLight" pointSize="65"/>
-                                                        <state key="normal" title="Button"/>
+                                                        <state key="normal" title="Button">
+                                                            <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                                        </state>
+                                                        <connections>
+                                                            <action selector="multipleChoiceAnswerClicked:" destination="BYZ-38-t0r" eventType="touchUpInside" id="jrr-Gm-GF4"/>
+                                                        </connections>
                                                     </button>
                                                 </subviews>
                                                 <animations/>
@@ -242,7 +255,12 @@
                                                         <rect key="frame" x="0.0" y="0.0" width="264" height="104"/>
                                                         <animations/>
                                                         <fontDescription key="fontDescription" type="system" weight="ultraLight" pointSize="65"/>
-                                                        <state key="normal" title="Button"/>
+                                                        <state key="normal" title="Button">
+                                                            <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                                        </state>
+                                                        <connections>
+                                                            <action selector="multipleChoiceAnswerClicked:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Ph2-YG-l65"/>
+                                                        </connections>
                                                     </button>
                                                 </subviews>
                                                 <animations/>
@@ -255,14 +273,20 @@
                                                 </constraints>
                                             </view>
                                             <textField hidden="YES" opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="answer" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="b5J-Zm-qJn">
-                                                <rect key="frame" x="217" y="142" width="150" height="30"/>
+                                                <rect key="frame" x="167" y="119.5" width="250" height="75"/>
                                                 <animations/>
                                                 <constraints>
+                                                    <constraint firstAttribute="height" constant="75" id="Cb3-ds-xMW"/>
                                                     <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="97" id="bUi-Sh-hZM"/>
-                                                    <constraint firstAttribute="width" constant="150" id="sut-Ek-OB2"/>
+                                                    <constraint firstAttribute="width" constant="250" id="sut-Ek-OB2"/>
                                                 </constraints>
-                                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                <fontDescription key="fontDescription" type="system" weight="ultraLight" pointSize="25"/>
                                                 <textInputTraits key="textInputTraits"/>
+                                                <variation key="default">
+                                                    <mask key="constraints">
+                                                        <exclude reference="bUi-Sh-hZM"/>
+                                                    </mask>
+                                                </variation>
                                             </textField>
                                         </subviews>
                                         <animations/>
