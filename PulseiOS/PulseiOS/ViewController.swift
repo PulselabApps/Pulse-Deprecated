@@ -33,6 +33,8 @@ class ViewController: UIViewController {
         super.viewDidLoad()
         let pieChart = PieChartView()
         submitButton.enabled = false
+        rank.text = "0"
+        points.text = "0"
         // drawPieChart(correct, incorrect: incorrect, pieChart: pieChart)
         initialLoad(pieChart)
         initUserScore()
@@ -49,7 +51,7 @@ class ViewController: UIViewController {
         sender.setImage(image, forState: .Normal)
     }
     
-    // NEED A FUNCTION THAT IS ALWAYS CHECKING TO SEE IF THE QUESTION HAS CHANGED
+    // MARK: NEED A FUNCTION THAT IS ALWAYS CHECKING TO SEE IF THE QUESTION HAS CHANGED
     func checkForQuestionChange(){
         if true/*replace true with whether or not the question has changed*/{
             

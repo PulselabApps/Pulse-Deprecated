@@ -210,7 +210,9 @@
                     </view>
                     <connections>
                         <outlet property="answerView" destination="WRx-ig-Tk1" id="l1D-ag-IAW"/>
+                        <outlet property="points" destination="8M3-Pz-geJ" id="vTF-2B-k5K"/>
                         <outlet property="progressPieChart" destination="doA-wU-5XD" id="4Y0-Zf-ycI"/>
+                        <outlet property="rank" destination="WxJ-iO-qk0" id="jeB-pq-lkL"/>
                         <outlet property="submitButton" destination="LF8-Pl-w3p" id="3Xe-6U-WGc"/>
                     </connections>
                 </viewController>
