@@ -18,6 +18,17 @@ struct AnswerTypes {
 
 class ViewController: UIViewController {
     
+    @IBOutlet weak var topLeftMultipleChoice: UIView!
+    @IBOutlet weak var topRightMultipleChoice: UIView!
+    @IBOutlet weak var bottomLeftMultipleChoice: UIView!
+    @IBOutlet weak var bottomRightMultipleChoice: UIView!
+    
+    @IBOutlet weak var topLeftMultipleChoiceButton: UIButton!
+    @IBOutlet weak var bottomLeftMultipleChoiceButton: UIButton!
+    @IBOutlet weak var topRightMultipleChoiceButton: UIButton!
+    @IBOutlet weak var bottomRightMultipleChoiceButton: UIButton!
+
+    
     @IBOutlet weak var progressPieChart: UIView!
     @IBOutlet weak var rank: UILabel!
     @IBOutlet weak var points: UILabel!
@@ -34,6 +45,8 @@ class ViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        
         let pieChart = PieChartView()
         submitButton.enabled = false
         rank.text = "0"
@@ -43,10 +56,27 @@ class ViewController: UIViewController {
         initScene()
     }
     
+    
+    func makeMultipleChoicesRound(){
+        
+         let multipleChoices = [topLeftMultipleChoice,topRightMultipleChoice,bottomLeftMultipleChoice,bottomRightMultipleChoice]
+        
+        for view in multipleChoices{
+            view.layer.cornerRadius = 10.0
+            view.layer.borderColor = UIColor.grayColor().CGColor
+            view.layer.borderWidth = 0.5
+            view.clipsToBounds = true
+        }
+    }
+
+    
     func initScene(){
         //let score = user!["score"] as! Int
         rank.text = "1"
         points.text = "0"
+        
+        makeMultipleChoicesRound()
+
         
         let query = PFQuery(className:"ClassSession")
         
@@ -57,7 +87,7 @@ class ViewController: UIViewController {
             if error == nil {
                 
                 let classSession = objects![0]
-                print(classSession)
+
                 self.questions = classSession.valueForKey("questions") as! NSArray
                 self.currentQuestion = classSession.valueForKey("currentQuestion") as? Int
                 
@@ -73,12 +103,23 @@ class ViewController: UIViewController {
     func initQuestionAnswers(){
         switch questions[currentQuestion!]["questionType"] as! String{
         case "MultipleChoice":
-            
+            showMultipleChoiceOptions()
             break
         case "FillInTheBlank":
             break
             
         default: break
+        }
+    }
+    
+    func showMultipleChoiceOptions(){
+
+        let buttons = [topLeftMultipleChoiceButton, bottomLeftMultipleChoiceButton,topRightMultipleChoiceButton,bottomRightMultipleChoiceButton]
+        
+        for var i = 0; i < 4; i++
+        {
+            let answer = questions[currentQuestion!]["answers"]!![i] as! String
+            buttons[i].setTitle(answer, forState: .Normal)
         }
     }
     
