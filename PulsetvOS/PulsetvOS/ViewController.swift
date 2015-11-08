@@ -33,6 +33,8 @@ class ViewController: UIViewController {
     var swipeLeftCount = 0
     let model = Model.sharedInstance
     let correctColor = UIColor(red: 91.0 / 255, green: 201.0 / 255, blue: 139.0 / 255, alpha: 1.0)
+    let incorrectColor = UIColor(red: 201.0 / 255, green: 91.0 / 255, blue: 104.0 / 255, alpha: 1.0)
+    let regularColor = UIColor(red: 205.0 / 255, green: 205.0 / 255, blue: 205.0 / 255, alpha: 1.0)
     
     override func viewDidLoad() {
         model.mainVC = self
@@ -56,31 +58,6 @@ class ViewController: UIViewController {
         
         statsView.hidden = true
         
-        let chartFrame = CGRect(x: 0.0, y: 0.0, width: statsView.frame.width / 2, height: statsView.frame.height / 2)
-        
-        let pieChart = PieChartView()
-
-        var chartDataSetEntries = [ChartDataEntry]()
-        chartDataSetEntries.append(ChartDataEntry(value: 20, xIndex: 0))
-        chartDataSetEntries.append(ChartDataEntry(value: 40, xIndex: 1))
-        chartDataSetEntries.append(ChartDataEntry(value: 10, xIndex: 2))
-        chartDataSetEntries.append(ChartDataEntry(value: 30, xIndex: 3))
-        let chartDataSet = PieChartDataSet(yVals: chartDataSetEntries)
-        
-        var chartDataColors = [[UIColor]]()
-        chartDataColors.append(ChartColorTemplates.vordiplom())
-        chartDataColors.append(ChartColorTemplates.joyful())
-        chartDataColors.append(ChartColorTemplates.liberty())
-        chartDataColors.append(ChartColorTemplates.colorful())
-        
-        chartDataSet.colors = ChartColorTemplates.vordiplom()
-        
-        let chartData = PieChartData(xVals: ["One", "Two", "Three", "Four"], dataSet: chartDataSet)
-        
-        pieChart.data = chartData
-        statsView.addSubview(pieChart)
-        
-        pieChart.frame = chartFrame
         // Do any additional setup after loading the view, typically from a nib.
         
         statsViewOriginalFrame = statsView.frame
@@ -169,6 +146,33 @@ class ViewController: UIViewController {
         ranktThreeScore.text = String(rankings[2].score)
         ranktThreeScore.sizeToFit()
         rankThreeName.sizeToFit()
+    }
+    
+    func showChartForCurrentQuestion() {
+        
+        let scores = model.getQuestionScoresForCurrentQuestion()
+        
+        let chartFrame = CGRect(x: 0.0, y: 0.0, width: statsView.frame.width / 2, height: statsView.frame.height / 2)
+        
+        let pieChart = PieChartView()
+        
+        var chartDataSetEntries = [ChartDataEntry]()
+        chartDataSetEntries.append(ChartDataEntry(value: Double(scores.correct), xIndex: 0))
+        chartDataSetEntries.append(ChartDataEntry(value: Double(scores.incorrect), xIndex: 1))
+        let chartDataSet = PieChartDataSet(yVals: chartDataSetEntries)
+        
+        chartDataSet.colors = ChartColorTemplates.liberty()
+        
+        chartDataSet.colors = [correctColor, incorrectColor]
+        
+        let chartData = PieChartData(xVals: ["✔", "✕"], dataSet: chartDataSet)
+        
+        pieChart.data = chartData
+        pieChart.usePercentValuesEnabled = true
+
+        statsView.addSubview(pieChart)
+        
+        pieChart.frame = chartFrame
     }
     
     func statsLeftSwipe(recognizer : UISwipeGestureRecognizer) {

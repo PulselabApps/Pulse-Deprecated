@@ -44,9 +44,16 @@ class Model {
         }
     }
     
+    struct QuestionScores {
+        var correct : Int
+        var id : Int
+        var incorrect : Int
+    }
+    
     private let className = "Math"
     private var questions = [QuestionEntry]()
     private var userRankings = [UserRankEntry]()
+    private var questionScores = [QuestionScores]()
     private let bodyRequest = ""
     private var currentQuestionEntry : Int?
     private let headers = [
@@ -178,6 +185,7 @@ class Model {
                         }
                     }
                 }
+                self.getQuestionScoresFromCloud()
                 //                debugPrint(response)
         }
     }
@@ -185,4 +193,35 @@ class Model {
     func getTopStudents() -> [UserRankEntry] {
         return userRankings
     }
+    
+    func getQuestionScoresFromCloud() {
+        Alamofire.request(.POST, "https://api.parse.com/1/functions/getScoresQuestion", headers: headers)
+            .responseJSON { response in
+                print("end score")
+                //                print(response.result.value!)
+                if let resultJson = response.result.value?.valueForKey("result") {
+                    if let results = resultJson as? [AnyObject] {
+                        for object in results {
+                            let id = object.valueForKey("id") as! Int
+                            let correct = object.valueForKey("correct") as! Int
+                            let incorrect = object.valueForKey("incorrect") as! Int
+                            self.questionScores.append(QuestionScores(correct: correct, id: id, incorrect: incorrect))
+                        }
+
+                    }
+                    
+                    if !self.questionScores.isEmpty {
+                        if let mainVCU = self.mainVC {
+                            mainVCU.showChartForCurrentQuestion()
+                        }
+                    }
+                }
+                                debugPrint(response)
+        }
+    }
+    
+    func getQuestionScoresForCurrentQuestion() -> QuestionScores {
+        return questionScores[currentQuestionEntry!]
+    }
+    
 }
