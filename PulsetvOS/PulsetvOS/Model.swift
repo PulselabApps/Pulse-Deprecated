@@ -92,6 +92,7 @@ class Model {
                         } else {
                             self.currentQuestionEntry = 0
                         }
+                        self.initQuestionAnswers()
                         if let mainVCU = self.mainVC {
                             mainVCU.changeQuestion()
                         }
@@ -149,6 +150,7 @@ class Model {
         Alamofire.request(.POST, "https://api.parse.com/1/functions/changeCurrentQuestion", headers: headers)
             .responseJSON { response in
                 print("change question")
+                self.initQuestionAnswers()
 //                print(response.result.value!)
 //                                debugPrint(response)
         }
@@ -224,4 +226,12 @@ class Model {
         return questionScores[currentQuestionEntry!]
     }
     
+    func initQuestionAnswers() {
+        Alamofire.request(.POST, "https://api.parse.com/1/functions/initQuestion", headers: headers)
+            .responseJSON { response in
+                print("end init question")
+                //                print(response.result.value!)
+                //                debugPrint(response)
+        }
+    }
 }

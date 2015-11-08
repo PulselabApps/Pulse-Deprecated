@@ -40,7 +40,7 @@
                                     </label>
                                 </subviews>
                                 <animations/>
-                                <color key="backgroundColor" red="0.80000000000000004" green="0.80000000000000004" blue="0.80000000000000004" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
                                     <constraint firstAttribute="trailing" secondItem="ybW-d4-wwM" secondAttribute="trailing" constant="50" id="7LE-ta-L6d"/>
                                     <constraint firstItem="ybW-d4-wwM" firstAttribute="top" secondItem="Fb7-aH-e8Q" secondAttribute="top" constant="72" id="JFC-Rg-dXm"/>
@@ -145,7 +145,7 @@
                                     </stackView>
                                 </subviews>
                                 <animations/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <color key="backgroundColor" red="0.80000000000000004" green="0.80000000000000004" blue="0.80000000000000004" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="bottom" secondItem="KSN-Wp-UhD" secondAttribute="bottom" constant="24" id="LLN-ws-OBx"/>
                                     <constraint firstItem="KSN-Wp-UhD" firstAttribute="centerX" secondItem="gIT-Ad-Tgt" secondAttribute="centerX" id="Njn-2L-qSE"/>

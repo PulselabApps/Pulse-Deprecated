@@ -152,21 +152,23 @@ class ViewController: UIViewController {
         
         let scores = model.getQuestionScoresForCurrentQuestion()
         
-        let chartFrame = CGRect(x: 0.0, y: 0.0, width: statsView.frame.width / 2, height: statsView.frame.height / 2)
+        let chartFrame = CGRect(x: 175.0, y: 0.0, width: statsView.frame.width / 2, height: statsView.frame.height / 2)
         
         let pieChart = PieChartView()
         
         var chartDataSetEntries = [ChartDataEntry]()
         chartDataSetEntries.append(ChartDataEntry(value: Double(scores.correct), xIndex: 0))
         chartDataSetEntries.append(ChartDataEntry(value: Double(scores.incorrect), xIndex: 1))
-        let chartDataSet = PieChartDataSet(yVals: chartDataSetEntries)
+        let chartDataSet = PieChartDataSet(yVals: chartDataSetEntries, label: "")
         
         chartDataSet.colors = ChartColorTemplates.liberty()
         
         chartDataSet.colors = [correctColor, incorrectColor]
         
         let chartData = PieChartData(xVals: ["✔", "✕"], dataSet: chartDataSet)
-        
+        pieChart.holeColor = UIColor(red:0.80, green:0.80, blue:0.80, alpha:1.0)
+        pieChart.descriptionText = ""
+        pieChart.legend.enabled = false
         pieChart.data = chartData
         pieChart.usePercentValuesEnabled = true
 
