@@ -22,6 +22,10 @@ class ViewController: UIViewController {
     
     @IBOutlet weak var answerTextBox: UITextField!
     
+    var previouslyClickedButton : UIButton?
+    var correctButton : UIButton?
+
+    
     
     @IBOutlet weak var topLeftMultipleChoice: UIView!
     @IBOutlet weak var topRightMultipleChoice: UIView!
@@ -48,6 +52,12 @@ class ViewController: UIViewController {
     var questions = NSArray()
     var currentQuestion : Int?
     
+    var correctAnswer : String?
+    
+    let correctColor = UIColor(red: 91.0 / 255, green: 201.0 / 255, blue: 139.0 / 255, alpha: 1.0)
+    let incorrectColor = UIColor(red: 201.0 / 255, green: 91.0 / 255, blue: 104.0 / 255, alpha: 1.0)
+    let regularColor = UIColor(red: 205.0 / 255, green: 205.0 / 255, blue: 205.0 / 255, alpha: 1.0)
+
     
     var studentsAnswer : String?
     
@@ -57,7 +67,7 @@ class ViewController: UIViewController {
         _ = NSTimer.scheduledTimerWithTimeInterval(2.0, target: self, selector: Selector("checkForQuestionChange"), userInfo: nil, repeats: true)
         
         let pieChart = PieChartView()
-        submitButton.enabled = false
+        //submitButton.enabled = false
         rank.text = "0"
         points.text = "0"
         initialLoad(pieChart)
@@ -96,6 +106,8 @@ class ViewController: UIViewController {
                 self.questions = classSession.valueForKey("questions") as! NSArray
                 self.currentQuestion = classSession.valueForKey("currentQuestion") as? Int
                 
+                
+                
                 self.initQuestionAnswers()
                 
             }
@@ -133,6 +145,8 @@ class ViewController: UIViewController {
     
     func showFillInTheBlank(){
         answerTextBox.hidden = false
+        var answers = questions[currentQuestion!]["answers"]!! as! [String]
+        correctAnswer = answers[0]
     }
     
     func showMultipleChoiceOptions(){
@@ -144,6 +158,8 @@ class ViewController: UIViewController {
         let buttons = [topLeftMultipleChoiceButton, bottomLeftMultipleChoiceButton,topRightMultipleChoiceButton,bottomRightMultipleChoiceButton]
         
         var answers = questions[currentQuestion!]["answers"]!! as! [String]
+        correctAnswer = answers[0]
+        
         let newIndex = Int(arc4random_uniform(UInt32(4)))
         let tmp = answers[0]
         answers[0] = answers[newIndex]
@@ -161,6 +177,95 @@ class ViewController: UIViewController {
     @IBAction func submitButtonPressed(sender: UIButton) {
         let image = UIImage(named: "Checked Filled-100.png")
         sender.setImage(image, forState: .Normal)
+        sender.enabled = false
+        
+        if let multipleChoicAnswer = previouslyClickedButton {
+            let answer = multipleChoicAnswer.titleLabel?.text
+            //if answer == correctAnswer{
+                // ADD SCORE TO USER
+            
+            var clickedView = UIView()
+            
+            switch previouslyClickedButton{
+            case topLeftMultipleChoiceButton?:
+                clickedView = topLeftMultipleChoice
+                break
+            case bottomLeftMultipleChoiceButton?:
+                clickedView = bottomLeftMultipleChoice
+                break
+            case topRightMultipleChoiceButton?:
+                clickedView = topRightMultipleChoice
+                break
+            case bottomRightMultipleChoiceButton?:
+                clickedView = bottomRightMultipleChoice
+                break
+            default:
+                break
+            }
+            
+            if answer == correctAnswer{
+                clickedView.backgroundColor = correctColor
+            } else {
+                var correctView = UIButton()
+                switch correctAnswer!{
+                case topLeftMultipleChoiceButton.titleLabel!.text!:
+                    correctView = topLeftMultipleChoiceButton
+                    
+                    break
+                case bottomLeftMultipleChoiceButton.titleLabel!.text!:
+                    correctView = bottomLeftMultipleChoiceButton
+                    break
+                case topRightMultipleChoiceButton.titleLabel!.text!:
+                    correctView = topRightMultipleChoiceButton
+                    break
+                case bottomRightMultipleChoiceButton.titleLabel!.text!:
+                    correctView = bottomRightMultipleChoiceButton
+                    break
+                default:
+                    break
+
+                }
+                correctView.backgroundColor = correctColor
+                correctView.setTitleColor(UIColor.whiteColor(), forState: .Normal)
+                correctButton = correctView
+                clickedView.backgroundColor = incorrectColor
+                
+            }
+            
+            previouslyClickedButton!.setTitleColor(UIColor.whiteColor(), forState: .Normal)
+            topLeftMultipleChoiceButton.enabled = false
+            bottomLeftMultipleChoiceButton.enabled = false
+            topRightMultipleChoiceButton.enabled = false
+            bottomRightMultipleChoiceButton.enabled = false
+        } else { // FILL IN THE BLANK
+            if let answer = answerTextBox.text {
+                if answer == correctAnswer{
+                    // INCREMENT SCORE
+                    
+                    answerTextBox.backgroundColor = correctColor
+                } else {
+                    answerTextBox.backgroundColor = incorrectColor
+                }
+                answerTextBox.textColor = UIColor.whiteColor()
+                answerTextBox.userInteractionEnabled = false
+
+            } else { // It was left blank
+                
+            }
+        }
+        
+        
+    }
+    
+    
+    
+    @IBAction func multipleChoiceAnswerClicked(sender: UIButton) {
+        if let button = previouslyClickedButton {
+            button.setTitleColor(UIColor.blackColor(), forState: .Normal)
+        }
+        sender.setTitleColor(correctColor, forState: .Normal)
+        previouslyClickedButton = sender
+        
     }
     
     
@@ -190,6 +295,21 @@ class ViewController: UIViewController {
     }
     
     func loadNewQuestion(){
+        self.submitButton.enabled = true
+        let image = UIImage(named: "Checked-100.png")
+        submitButton.setImage(image, forState: .Normal)
+        
+        if let button = self.previouslyClickedButton {
+            self.previouslyClickedButton!.selected = false
+            button.backgroundColor = self.regularColor
+        }
+        if let button = self.correctButton {
+            button.backgroundColor = self.regularColor
+        }
+        
+        self.previouslyClickedButton = nil
+
+        enableAllButtons()
         initQuestionAnswers()
     }
     
@@ -257,8 +377,7 @@ class ViewController: UIViewController {
         
         chartDataSet.colors = ChartColorTemplates.liberty()
         
-        let correctColor = UIColor(red: 91.0 / 255, green: 201.0 / 255, blue: 139.0 / 255, alpha: 1.0)
-        let incorrectColor = UIColor(red: 201.0 / 255, green: 91.0 / 255, blue: 104.0 / 255, alpha: 1.0)
+        
         
         chartDataSet.colors = [correctColor, incorrectColor]
         
@@ -307,6 +426,8 @@ class ViewController: UIViewController {
             break
         }
     }
+    
+    
     
     
     func calculatePoints(){

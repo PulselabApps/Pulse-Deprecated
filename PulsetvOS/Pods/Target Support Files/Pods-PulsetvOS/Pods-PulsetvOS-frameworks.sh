@@ -84,11 +84,13 @@ strip_invalid_archs() {
 
 
 if [[ "$CONFIGURATION" == "Debug" ]]; then
+  install_framework "Pods-PulsetvOS/Alamofire.framework"
   install_framework "Pods-PulsetvOS/Bolts.framework"
   install_framework "Pods-PulsetvOS/Charts.framework"
   install_framework "Pods-PulsetvOS/Parse.framework"
 fi
 if [[ "$CONFIGURATION" == "Release" ]]; then
+  install_framework "Pods-PulsetvOS/Alamofire.framework"
   install_framework "Pods-PulsetvOS/Bolts.framework"
   install_framework "Pods-PulsetvOS/Charts.framework"
   install_framework "Pods-PulsetvOS/Parse.framework"
