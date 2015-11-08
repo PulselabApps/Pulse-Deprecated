@@ -59,12 +59,14 @@ class ViewController: UIViewController {
     
     var questionType : String?
     
+    let pieChart = PieChartView()
+
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
         _ = NSTimer.scheduledTimerWithTimeInterval(2.0, target: self, selector: Selector("checkForQuestionChange"), userInfo: nil, repeats: true)
         
-        let pieChart = PieChartView()
         submitButton.enabled = false
         rank.text = "0"
         points.text = "0"
@@ -321,8 +323,12 @@ class ViewController: UIViewController {
             } else { // It was left blank
                 
             }
+            
         }
         self.points.text = String(self.user!["score"] as! Int)
+        let correctAnswers = user!["questionsCorrect"] as! Double
+        let incorrectAnswers = user!["questionsIncorrect"] as! Double
+        drawPieChart(correctAnswers, incorrect: incorrectAnswers, pieChart: pieChart)
     }
     
     func saveUser(){
