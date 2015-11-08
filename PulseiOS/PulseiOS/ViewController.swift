@@ -390,7 +390,7 @@ class ViewController: UIViewController {
                     self.currentQuestion = classSession.valueForKey("currentQuestion") as? Int
                     self.loadNewQuestion()
                     self.submitButton.enabled = false
-                    // print (self.getRank())
+                    self.getRank()
                 }
                 
             }
