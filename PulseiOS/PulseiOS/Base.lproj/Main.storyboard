@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9059" systemVersion="15B42" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9059" systemVersion="15B42" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="dME-IB-uwy">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9049"/>
@@ -7,10 +7,63 @@
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
+        <!--Login View Controller-->
+        <scene sceneID="gNC-z1-avX">
+            <objects>
+                <viewController id="dME-IB-uwy" customClass="LoginViewController" customModule="PulseiOS" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="K1H-aq-t56"/>
+                        <viewControllerLayoutGuide type="bottom" id="l72-wj-jYT"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="NvD-NJ-WqM">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="username" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="P0b-YP-L5V">
+                                <rect key="frame" x="258" y="199" width="85" height="30"/>
+                                <animations/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pxa-B6-KWa">
+                                <rect key="frame" x="283" y="399" width="34" height="30"/>
+                                <animations/>
+                                <state key="normal" title="login"/>
+                                <connections>
+                                    <action selector="loginButtonPressed:" destination="dME-IB-uwy" eventType="touchUpInside" id="jBf-u1-eSl"/>
+                                </connections>
+                            </button>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="RD3-cT-HNR">
+                                <rect key="frame" x="259" y="292" width="83" height="30"/>
+                                <animations/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                        </subviews>
+                        <animations/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="P0b-YP-L5V" firstAttribute="top" secondItem="K1H-aq-t56" secondAttribute="bottom" constant="179" id="0rx-86-9zw"/>
+                            <constraint firstItem="RD3-cT-HNR" firstAttribute="top" secondItem="P0b-YP-L5V" secondAttribute="bottom" constant="63" id="8ER-HC-VNo"/>
+                            <constraint firstItem="RD3-cT-HNR" firstAttribute="centerX" secondItem="NvD-NJ-WqM" secondAttribute="centerX" id="f5b-cU-USH"/>
+                            <constraint firstItem="P0b-YP-L5V" firstAttribute="centerX" secondItem="NvD-NJ-WqM" secondAttribute="centerX" id="iCk-Qn-Ygz"/>
+                            <constraint firstItem="pxa-B6-KWa" firstAttribute="top" secondItem="RD3-cT-HNR" secondAttribute="bottom" constant="77" id="lcL-hh-3Fa"/>
+                            <constraint firstItem="pxa-B6-KWa" firstAttribute="centerX" secondItem="NvD-NJ-WqM" secondAttribute="centerX" id="mei-6h-qoR"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="passwordTextBox" destination="RD3-cT-HNR" id="qn0-P4-grc"/>
+                        <outlet property="usernameTextBox" destination="P0b-YP-L5V" id="J3g-WF-CPv"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="UJp-LV-WNQ" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="299" y="-358"/>
+        </scene>
         <!--View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="PulseiOS" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="StudentViewController" id="BYZ-38-t0r" customClass="ViewController" customModule="PulseiOS" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
                         <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>

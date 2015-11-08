@@ -15,6 +15,7 @@
 		12D31D391BEE791100B03E7C /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 12D31D371BEE791100B03E7C /* LaunchScreen.storyboard */; };
 		12D31D441BEE791100B03E7C /* PulseiOSTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12D31D431BEE791100B03E7C /* PulseiOSTests.swift */; };
 		12D31D4F1BEE791100B03E7C /* PulseiOSUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12D31D4E1BEE791100B03E7C /* PulseiOSUITests.swift */; };
+		4AE1687B1BEEE44D00150474 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AE1687A1BEEE44D00150474 /* LoginViewController.swift */; };
 		F163BF3F1BEECA7A0051D505 /* Checked Filled-100.png in Resources */ = {isa = PBXBuildFile; fileRef = F163BF3E1BEECA7A0051D505 /* Checked Filled-100.png */; };
 		F163BF411BEECA7F0051D505 /* Checked-100.png in Resources */ = {isa = PBXBuildFile; fileRef = F163BF401BEECA7F0051D505 /* Checked-100.png */; };
 /* End PBXBuildFile section */
@@ -51,6 +52,7 @@
 		12D31D4A1BEE791100B03E7C /* PulseiOSUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PulseiOSUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		12D31D4E1BEE791100B03E7C /* PulseiOSUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PulseiOSUITests.swift; sourceTree = "<group>"; };
 		12D31D501BEE791100B03E7C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		4AE1687A1BEEE44D00150474 /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		73EB2D436C16F410A28C953A /* Pods.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		D0C81FEA2B8EA818DBD76446 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
 		F163BF3E1BEECA7A0051D505 /* Checked Filled-100.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Checked Filled-100.png"; sourceTree = "<group>"; };
@@ -162,6 +164,7 @@
 			isa = PBXGroup;
 			children = (
 				12D31D301BEE791100B03E7C /* ViewController.swift */,
+				4AE1687A1BEEE44D00150474 /* LoginViewController.swift */,
 			);
 			name = Controller;
 			sourceTree = "<group>";
@@ -385,6 +388,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4AE1687B1BEEE44D00150474 /* LoginViewController.swift in Sources */,
 				12D31D311BEE791100B03E7C /* ViewController.swift in Sources */,
 				12D31D2F1BEE791100B03E7C /* AppDelegate.swift in Sources */,
 			);

@@ -7,8 +7,11 @@
 //
 
 import UIKit
+import Parse
 
 class LoginViewController: UIViewController {
+    @IBOutlet weak var usernameTextBox: UITextField!
+    @IBOutlet weak var passwordTextBox: UITextField!
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -21,6 +24,43 @@ class LoginViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
+    @IBAction func loginButtonPressed(sender: AnyObject) {
+        let username = usernameTextBox.text ?? ""
+        let password = passwordTextBox.text ?? ""
+        
+        /*"
+        test_student"
+        "password"
+        */
+        PFUser.logInWithUsernameInBackground(username, password:password) {
+            (user: PFUser?, error: NSError?) -> Void in
+            
+            if user != nil {
+            // Do stuff after successful login.
+                print("success")
+                if user!["role"] as! String == "Student"{
+                    print("YOUR A STUDENT")
+                
+                    if let studentVC = self.storyboard!.instantiateViewControllerWithIdentifier("StudentViewController") as? ViewController {
+                        self.presentViewController(studentVC, animated: true, completion: nil)
+                    }
+                
+                
+                
+                } else {
+                    print("YOUR A TEACHER")
+                }
+            
+            
+            } else {
+            
+                let alert = UIAlertController(title: "incorrect username/password", message: "", preferredStyle: UIAlertControllerStyle.Alert)
+                alert.addAction(UIAlertAction(title: "ok", style: UIAlertActionStyle.Default, handler: nil))
+                self.presentViewController(alert, animated: true, completion: nil)
+            }
+        }
+    }
+}
 
     /*
     // MARK: - Navigation
@@ -32,4 +72,4 @@ class LoginViewController: UIViewController {
     }
     */
 
-}
+
