@@ -63,21 +63,18 @@ class ViewController: UIViewController {
         chartDataSetEntries.append(ChartDataEntry(value: 0, xIndex: 0))
         let chartDataSet = PieChartDataSet(yVals: chartDataSetEntries, label: "")
         chartDataSet.colors = ChartColorTemplates.liberty()
-        let correctColor = UIColor(red: 91.0 / 255, green: 201.0 / 255, blue: 139.0 / 255, alpha: 1.0)
-        chartDataSet.colors = [correctColor]
+        chartDataSet.colors = [UIColor(red: 91.0 / 255, green: 201.0 / 255, blue: 139.0 / 255, alpha: 1.0)]
         
         let chartData = PieChartData(xVals: ["✔"], dataSet: chartDataSet)
         pieChart.data = chartData
         pieChart.setDescriptionTextPosition(x: 0, y: 0)
         pieChart.sizeToFit()
-        // pieChart.setDrawSliceText(false)
         pieChart.usePercentValuesEnabled = true
         pieChart.centerTextRadiusPercent = 100.0
         
         pieChart.centerText = ""
         pieChart.holeColor = UIColor(red: 255.0 / 255, green: 194.0 / 255, blue: 113.0 / 255, alpha: 1.0)
         pieChart.frame = CGRect(x: -40.0, y: -40.0, width: progressPieChart.frame.width * 2.0, height: progressPieChart.frame.height * 2.0)
-        // pieChart.center = progressPieChart.center
         progressPieChart.addSubview(pieChart)
     }
     
