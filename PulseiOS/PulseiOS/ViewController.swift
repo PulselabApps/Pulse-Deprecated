@@ -43,6 +43,9 @@ class ViewController: UIViewController {
     var questions = NSArray()
     var currentQuestion : Int?
     
+    
+    var studentsAnswer : String?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -71,7 +74,6 @@ class ViewController: UIViewController {
 
     
     func initScene(){
-        //let score = user!["score"] as! Int
         rank.text = "1"
         points.text = "0"
         
@@ -116,14 +118,21 @@ class ViewController: UIViewController {
 
         let buttons = [topLeftMultipleChoiceButton, bottomLeftMultipleChoiceButton,topRightMultipleChoiceButton,bottomRightMultipleChoiceButton]
         
+        //Randomize correct answer
+        var answers = questions[currentQuestion!]["answers"]!! as! [String]
+        let newIndex = Int(arc4random_uniform(UInt32(4)))
+        let tmp = answers[0]
+        answers[0] = answers[newIndex]
+        answers[newIndex] = tmp
+        
         for var i = 0; i < 4; i++
         {
-            let answer = questions[currentQuestion!]["answers"]!![i] as! String
+            let answer = answers[i]
             buttons[i].setTitle(answer, forState: .Normal)
         }
     }
     
-    
+
     
     
     @IBAction func submitButtonPressed(sender: UIButton) {
@@ -134,7 +143,7 @@ class ViewController: UIViewController {
     // MARK: NEED A FUNCTION THAT IS ALWAYS CHECKING TO SEE IF THE QUESTION HAS CHANGED
     func checkForQuestionChange(){
         if true/*replace true with whether or not the question has changed*/{
-            
+            //if studentsAnswer
         }
     }
     
