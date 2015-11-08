@@ -29,7 +29,8 @@ class ViewController: UIViewController {
     var questionsCorrect = 0
     var questionsAsked = 0
     
-    var questions = [String:AnyObject]()
+    var questions = NSArray()
+    var currentQuestion : Int?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -56,7 +57,9 @@ class ViewController: UIViewController {
             if error == nil {
                 
                 let classSession = objects![0]
-                self.questions = classSession["questions"] as! [String:AnyObject]
+                print(classSession)
+                self.questions = classSession.valueForKey("questions") as! NSArray
+                self.currentQuestion = classSession.valueForKey("currentQuestion") as? Int
                 
                 self.initQuestionAnswers()
                 
@@ -68,7 +71,7 @@ class ViewController: UIViewController {
     
     
     func initQuestionAnswers(){
-        switch questions["questionType"] as! String{
+        switch questions[currentQuestion!]["questionType"] as! String{
         case "MultipleChoice":
             
             break
