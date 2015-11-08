@@ -313,6 +313,20 @@ class ViewController: UIViewController {
         initQuestionAnswers()
     }
     
+    func enableAllButtons(){
+        topLeftMultipleChoiceButton.enabled = true
+        topLeftMultipleChoiceButton.setTitleColor(UIColor.blackColor(), forState: .Normal)
+        
+        bottomLeftMultipleChoiceButton.enabled = true
+        bottomLeftMultipleChoiceButton.setTitleColor(UIColor.blackColor(), forState: .Normal)
+        
+        topRightMultipleChoiceButton.enabled = true
+        topRightMultipleChoiceButton.setTitleColor(UIColor.blackColor(), forState: .Normal)
+        
+        bottomRightMultipleChoiceButton.enabled = true
+        bottomRightMultipleChoiceButton.setTitleColor(UIColor.blackColor(), forState: .Normal)
+    }
+    
     func getRank() -> Int {
         var rank = 1
         var scores = [Int]()
@@ -426,25 +440,5 @@ class ViewController: UIViewController {
             break
         }
     }
-    
-    
-    
-    
-    func calculatePoints(){
-        
-    }
-    
-    func calculateRank() {
-        
-    }
-    
-    func fillInTheBlankView(){
-        
-    }
-    
-    func multipleChoiceView(){
-        
-    }
-    
 }
 
