@@ -32,8 +32,6 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         let pieChart = PieChartView()
-        // let correct = 0.0
-        // let incorrect = 1.0
         submitButton.enabled = false
         // drawPieChart(correct, incorrect: incorrect, pieChart: pieChart)
         initialLoad(pieChart)
@@ -60,7 +58,7 @@ class ViewController: UIViewController {
     
     func initialLoad(pieChart: PieChartView) {
         var chartDataSetEntries = [ChartDataEntry]()
-        chartDataSetEntries.append(ChartDataEntry(value: 0, xIndex: 0))
+        chartDataSetEntries.append(ChartDataEntry(value: 1, xIndex: 0))
         let chartDataSet = PieChartDataSet(yVals: chartDataSetEntries, label: "")
         chartDataSet.colors = ChartColorTemplates.liberty()
         chartDataSet.colors = [UIColor(red: 91.0 / 255, green: 201.0 / 255, blue: 139.0 / 255, alpha: 1.0)]
@@ -133,6 +131,14 @@ class ViewController: UIViewController {
     }
     
     func calculateRank() {
+        
+    }
+    
+    func fillInTheBlankView(){
+        
+    }
+    
+    func multipleChoiceView(){
         
     }
 
