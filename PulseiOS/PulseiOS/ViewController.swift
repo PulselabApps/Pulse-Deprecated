@@ -17,7 +17,7 @@ struct AnswerTypes {
 }
 
 class ViewController: UIViewController {
-
+    
     @IBOutlet weak var progressPieChart: UIView!
     @IBOutlet weak var rank: UILabel!
     @IBOutlet weak var points: UILabel!
@@ -29,6 +29,8 @@ class ViewController: UIViewController {
     var questionsCorrect = 0
     var questionsAsked = 0
     
+    var questions = [String:AnyObject]()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         let pieChart = PieChartView()
@@ -37,14 +39,48 @@ class ViewController: UIViewController {
         points.text = "0"
         // drawPieChart(correct, incorrect: incorrect, pieChart: pieChart)
         initialLoad(pieChart)
-        initUserScore()
+        initScene()
     }
     
-    func initUserScore(){
+    func initScene(){
         //let score = user!["score"] as! Int
         rank.text = "1"
         points.text = "0"
+        
+        let query = PFQuery(className:"ClassSession")
+        
+        query.whereKey("name", equalTo:"Math")
+        query.findObjectsInBackgroundWithBlock {
+            (objects: [PFObject]?, error: NSError?) -> Void in
+            
+            if error == nil {
+                
+                let classSession = objects![0]
+                self.questions = classSession["questions"] as! [String:AnyObject]
+                
+                self.initQuestionAnswers()
+                
+            }
+        }
+        
     }
+    
+    
+    
+    func initQuestionAnswers(){
+        switch questions["questionType"] as! String{
+        case "MultipleChoice":
+            
+            break
+        case "FillInTheBlank":
+            break
+            
+        default: break
+        }
+    }
+    
+    
+    
     
     @IBAction func submitButtonPressed(sender: UIButton) {
         let image = UIImage(named: "Checked Filled-100.png")
@@ -143,6 +179,6 @@ class ViewController: UIViewController {
     func multipleChoiceView(){
         
     }
-
+    
 }
 
