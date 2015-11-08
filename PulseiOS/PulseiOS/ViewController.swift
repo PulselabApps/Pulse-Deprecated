@@ -301,6 +301,7 @@ class ViewController: UIViewController {
                 if classSession.valueForKey("currentQuestion") as? Int != self.currentQuestion{
                     self.currentQuestion = classSession.valueForKey("currentQuestion") as? Int
                     self.loadNewQuestion()
+                    self.submitButton.enabled = false
                     // print (self.getRank())
                 }
                 
