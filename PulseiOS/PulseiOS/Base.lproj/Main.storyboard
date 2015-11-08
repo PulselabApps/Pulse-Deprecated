@@ -99,8 +99,8 @@
                                             <action selector="submitButtonPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="fUd-OL-wXb"/>
                                         </connections>
                                     </button>
-                                    <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="WRx-ig-Tk1">
-                                        <rect key="frame" x="8" y="8" width="584" height="388"/>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="WRx-ig-Tk1">
+                                        <rect key="frame" x="8" y="8" width="584" height="396"/>
                                         <animations/>
                                         <color key="backgroundColor" red="0.66274509800000003" green="0.78823529410000004" blue="0.83137254900000002" alpha="1" colorSpace="calibratedRGB"/>
                                     </view>
@@ -108,9 +108,13 @@
                                 <animations/>
                                 <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
+                                    <constraint firstItem="WRx-ig-Tk1" firstAttribute="top" secondItem="ofb-Op-ocy" secondAttribute="top" constant="8" id="15j-mr-dPJ"/>
                                     <constraint firstAttribute="trailing" secondItem="LF8-Pl-w3p" secondAttribute="trailing" constant="8" id="3Sl-jz-tbe"/>
                                     <constraint firstAttribute="bottom" secondItem="LF8-Pl-w3p" secondAttribute="bottom" constant="8" id="71a-NS-vnC"/>
+                                    <constraint firstItem="WRx-ig-Tk1" firstAttribute="leading" secondItem="ofb-Op-ocy" secondAttribute="leading" constant="8" id="PHA-3J-S7E"/>
+                                    <constraint firstAttribute="bottom" secondItem="WRx-ig-Tk1" secondAttribute="bottom" constant="68" id="eFd-QI-vcb"/>
                                     <constraint firstAttribute="width" secondItem="ofb-Op-ocy" secondAttribute="height" multiplier="75:59" id="eWn-xU-f22"/>
+                                    <constraint firstAttribute="trailing" secondItem="WRx-ig-Tk1" secondAttribute="trailing" constant="8" id="uTW-4x-j17"/>
                                 </constraints>
                                 <variation key="default">
                                     <mask key="constraints">
