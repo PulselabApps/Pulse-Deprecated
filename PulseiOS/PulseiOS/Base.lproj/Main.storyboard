@@ -273,12 +273,12 @@
                                                 </constraints>
                                             </view>
                                             <textField hidden="YES" opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="answer" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="b5J-Zm-qJn">
-                                                <rect key="frame" x="19" y="119.5" width="549" height="75"/>
+                                                <rect key="frame" x="167" y="119.5" width="250" height="75"/>
                                                 <animations/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="75" id="Cb3-ds-xMW"/>
                                                     <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="97" id="bUi-Sh-hZM"/>
-                                                    <constraint firstAttribute="width" constant="549" id="sut-Ek-OB2"/>
+                                                    <constraint firstAttribute="width" constant="250" id="sut-Ek-OB2"/>
                                                 </constraints>
                                                 <fontDescription key="fontDescription" type="system" weight="ultraLight" pointSize="25"/>
                                                 <textInputTraits key="textInputTraits"/>
@@ -302,7 +302,7 @@
                                             <constraint firstItem="aK7-Rp-lCU" firstAttribute="width" secondItem="yUu-rc-Kr3" secondAttribute="width" id="JPR-kt-47J"/>
                                             <constraint firstItem="yUu-rc-Kr3" firstAttribute="top" secondItem="6bk-cH-S4q" secondAttribute="top" id="MXl-N3-kBp"/>
                                             <constraint firstItem="6bk-cH-S4q" firstAttribute="height" secondItem="qRp-Ng-nVW" secondAttribute="height" id="Qmi-TB-f1l"/>
-                                            <constraint firstItem="b5J-Zm-qJn" firstAttribute="centerX" secondItem="WRx-ig-Tk1" secondAttribute="centerX" constant="1.5" id="hMF-Hj-L5l"/>
+                                            <constraint firstItem="b5J-Zm-qJn" firstAttribute="centerX" secondItem="WRx-ig-Tk1" secondAttribute="centerX" id="hMF-Hj-L5l"/>
                                             <constraint firstItem="6bk-cH-S4q" firstAttribute="trailing" secondItem="WRx-ig-Tk1" secondAttribute="trailingMargin" constant="-8" id="iEV-2W-lgu"/>
                                             <constraint firstItem="aK7-Rp-lCU" firstAttribute="height" secondItem="yUu-rc-Kr3" secondAttribute="height" id="iMy-cG-6lN"/>
                                             <constraint firstAttribute="bottom" secondItem="aK7-Rp-lCU" secondAttribute="bottom" constant="31" id="ksa-J6-CiI"/>
