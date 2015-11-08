@@ -70,7 +70,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="UJp-LV-WNQ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="299" y="-358"/>
+            <point key="canvasLocation" x="305" y="-357"/>
         </scene>
         <!--View Controller-->
         <scene sceneID="tne-QT-ifu">
@@ -99,6 +99,11 @@
                                             <action selector="submitButtonPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="fUd-OL-wXb"/>
                                         </connections>
                                     </button>
+                                    <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="WRx-ig-Tk1">
+                                        <rect key="frame" x="8" y="8" width="584" height="388"/>
+                                        <animations/>
+                                        <color key="backgroundColor" red="0.66274509800000003" green="0.78823529410000004" blue="0.83137254900000002" alpha="1" colorSpace="calibratedRGB"/>
+                                    </view>
                                 </subviews>
                                 <animations/>
                                 <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
@@ -200,6 +205,7 @@
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="answerView" destination="WRx-ig-Tk1" id="l1D-ag-IAW"/>
                         <outlet property="progressPieChart" destination="doA-wU-5XD" id="4Y0-Zf-ycI"/>
                         <outlet property="submitButton" destination="LF8-Pl-w3p" id="3Xe-6U-WGc"/>
                     </connections>

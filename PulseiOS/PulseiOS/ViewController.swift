@@ -15,6 +15,7 @@ class ViewController: UIViewController {
     @IBOutlet weak var rank: UILabel!
     @IBOutlet weak var points: UILabel!
     @IBOutlet weak var submitButton: UIButton!
+    @IBOutlet weak var answerView: UIView!
     
     override func viewDidLoad() {
         super.viewDidLoad()

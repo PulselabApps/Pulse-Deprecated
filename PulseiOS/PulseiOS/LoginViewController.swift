@@ -12,13 +12,13 @@ import Parse
 class LoginViewController: UIViewController {
     @IBOutlet weak var usernameTextBox: UITextField!
     @IBOutlet weak var passwordTextBox: UITextField!
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
         // Do any additional setup after loading the view.
     }
-
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
@@ -36,24 +36,24 @@ class LoginViewController: UIViewController {
             (user: PFUser?, error: NSError?) -> Void in
             
             if user != nil {
-            // Do stuff after successful login.
+                // Do stuff after successful login.
                 print("success")
                 if user!["role"] as! String == "Student"{
                     print("YOUR A STUDENT")
-                
+                    
                     if let studentVC = self.storyboard!.instantiateViewControllerWithIdentifier("StudentViewController") as? ViewController {
                         self.presentViewController(studentVC, animated: true, completion: nil)
                     }
-                
-                
-                
+                    
+                    
+                    
                 } else {
                     print("YOUR A TEACHER")
                 }
-            
-            
+                
+                
             } else {
-            
+                
                 let alert = UIAlertController(title: "incorrect username/password", message: "", preferredStyle: UIAlertControllerStyle.Alert)
                 alert.addAction(UIAlertAction(title: "ok", style: UIAlertActionStyle.Default, handler: nil))
                 self.presentViewController(alert, animated: true, completion: nil)
@@ -62,14 +62,14 @@ class LoginViewController: UIViewController {
     }
 }
 
-    /*
-    // MARK: - Navigation
+/*
+// MARK: - Navigation
 
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
+// In a storyboard-based application, you will often want to do a little preparation before navigation
+override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+// Get the new view controller using segue.destinationViewController.
+// Pass the selected object to the new view controller.
+}
+*/
 
 
