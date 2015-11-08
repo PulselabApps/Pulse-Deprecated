@@ -318,9 +318,7 @@ class ViewController: UIViewController {
                 if classSession.valueForKey("currentQuestion") as? Int != self.currentQuestion{
                     self.currentQuestion = classSession.valueForKey("currentQuestion") as? Int
                     self.loadNewQuestion()
-                    
-                    self.rank.text = String(self.getRank())
-                    
+                    print (self.getRank())
                 }
                 
             }
@@ -361,7 +359,7 @@ class ViewController: UIViewController {
         bottomRightMultipleChoiceButton.setTitleColor(UIColor.blackColor(), forState: .Normal)
     }
     
-    func getRank() -> Int {
+    func getRank() {
         var rank = 1
         var scores = [Int]()
         let query = PFQuery(className: "Class")
@@ -380,19 +378,20 @@ class ViewController: UIViewController {
                             print (score)
                             scores.append(score!)
                         }
-                        scores.sortInPlace()
+                        scores.sortInPlace({ $0 > $1 })
                         for score in scores {
+                            print (score)
                             if score == self.user!["score"] as? Int {
                                 break
                             }
                             rank++
                         }
+                        self.rank.text = String(rank)
                     }
                 })
             }
             
         }
-        return rank
     }
     
     func initialLoad(pieChart: PieChartView) {
