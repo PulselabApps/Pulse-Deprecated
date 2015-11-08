@@ -16,5 +16,12 @@ class FullQuestionViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         fullQuestionText.text = fullQuestion!
+        
+        let tapRecognizer = UITapGestureRecognizer(target: self, action: "tap:")
+        fullQuestionText.addGestureRecognizer(tapRecognizer)
+    }
+    
+    func tap(recognizer: UITapGestureRecognizer){
+        dismissViewControllerAnimated(true, completion: nil)
     }
 }
