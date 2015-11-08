@@ -329,7 +329,7 @@
                                     </button>
                                 </subviews>
                                 <animations/>
-                                <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="backgroundColor" red="0.66274509803921566" green="0.78823529411764703" blue="0.83137254901960778" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstItem="WRx-ig-Tk1" firstAttribute="top" secondItem="ofb-Op-ocy" secondAttribute="top" constant="8" id="15j-mr-dPJ"/>
                                     <constraint firstAttribute="trailing" secondItem="LF8-Pl-w3p" secondAttribute="trailing" constant="8" id="3Sl-jz-tbe"/>
