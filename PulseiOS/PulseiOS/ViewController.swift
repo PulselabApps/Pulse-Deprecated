@@ -61,6 +61,8 @@ class ViewController: UIViewController {
     
     var studentsAnswer : String?
     
+    var questionType : String?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -188,29 +190,18 @@ class ViewController: UIViewController {
         
         if let multipleChoicAnswer = previouslyClickedButton {
             let answer = multipleChoicAnswer.titleLabel?.text
-            //if answer == correctAnswer{
-                // ADD SCORE TO USER
-            
-            /*var clickedView = UIView()
-            
-            switch previouslyClickedButton{
-            case topLeftMultipleChoiceButton?:
-                clickedView = topLeftMultipleChoice
-                break
-            case bottomLeftMultipleChoiceButton?:
-                clickedView = bottomLeftMultipleChoice
-                break
-            case topRightMultipleChoiceButton?:
-                clickedView = topRightMultipleChoice
-                break
-            case bottomRightMultipleChoiceButton?:
-                clickedView = bottomRightMultipleChoice
-                break
-            default:
-                break
-            }*/
+    
             
             if answer == correctAnswer{
+                var score = user!["score"] as? Int
+                score = score! + 500
+                user!["score"] = score
+                
+                var questionsCorrect = user!["questionsCorrect"] as? Int
+                questionsCorrect!+=1
+                user!["questionsCorrect"] = questionsCorrect
+                
+                saveUser()
                 previouslyClickedButton!.backgroundColor = correctColor
             } else {
                 var correctView = UIButton()
@@ -237,6 +228,17 @@ class ViewController: UIViewController {
                 correctButton = correctView
                 previouslyClickedButton!.backgroundColor = incorrectColor
                 
+                
+                var score = user!["score"] as? Int
+                score = score! - 500
+                user!["score"] = score
+                
+                var questionsIncorrect = user!["questionsIncorrect"] as? Int
+                questionsIncorrect!+=1
+                user!["questionsIncorrect"] = questionsIncorrect
+                
+                saveUser()
+                
             }
             
             previouslyClickedButton!.setTitleColor(UIColor.whiteColor(), forState: .Normal)
@@ -248,10 +250,29 @@ class ViewController: UIViewController {
             if let answer = answerTextBox.text {
                 if answer == correctAnswer{
                     // INCREMENT SCORE
+                    var score = user!["score"] as? Int
+                    score = score! + 500
+                    user!["score"] = score
                     
+                    var questionsCorrect = user!["questionsCorrect"] as? Int
+                    questionsCorrect!+=1
+                    user!["questionsCorrect"] = questionsCorrect
+                    
+                    saveUser()
+
                     answerTextBox.backgroundColor = correctColor
                 } else {
                     answerTextBox.backgroundColor = incorrectColor
+                    
+                    var score = user!["score"] as? Int
+                    score = score! - 500
+                    user!["score"] = score
+                    
+                    var questionsIncorrect = user!["questionsIncorrect"] as? Int
+                    questionsIncorrect!+=1
+                    user!["questionsIncorrect"] = questionsIncorrect
+                    
+                    saveUser()
                 }
                 answerTextBox.textColor = UIColor.whiteColor()
                 answerTextBox.userInteractionEnabled = false
@@ -262,6 +283,19 @@ class ViewController: UIViewController {
         }
         
         
+    }
+    
+    func saveUser(){
+        user!.saveInBackgroundWithBlock {
+            (success: Bool, error: NSError?) -> Void in
+            if (success) {
+            print("user saved")
+            // The object has been saved.
+        } else {
+            
+            // There was a problem, check error.description
+            }
+        }
     }
     
     
