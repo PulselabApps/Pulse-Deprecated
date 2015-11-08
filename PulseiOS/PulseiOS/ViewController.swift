@@ -86,6 +86,10 @@ class ViewController: UIViewController {
         }
     }
     
+    @IBAction func answerTextBoxType(sender: UITextField) {
+        submitButton.enabled = true
+    }
+    
     func initScene(){
         rank.text = "1"
         points.text = "0"
@@ -121,6 +125,7 @@ class ViewController: UIViewController {
             break
         case "FillInTheBlank":
             showFillInTheBlank()
+            submitButton.enabled = true
             break
             
         default: break
@@ -130,8 +135,6 @@ class ViewController: UIViewController {
     
     func hideAllAnswers(){
         answerTextBox.hidden = true
-        
-        
         topLeftMultipleChoice.hidden = true
         topRightMultipleChoice.hidden = true
         bottomLeftMultipleChoice.hidden = true
@@ -195,7 +198,6 @@ class ViewController: UIViewController {
         if let multipleChoicAnswer = previouslyClickedButton {
             let answer = multipleChoicAnswer.titleLabel?.text
             
-            
             if answer == correctAnswer{
                 var score = user!["score"] as? Int
                 score = score! + 500
@@ -257,7 +259,6 @@ class ViewController: UIViewController {
                 questions[currentQuestion!] = question
                 
                 saveQuestions()
-                
                 
                 saveUser()
                 

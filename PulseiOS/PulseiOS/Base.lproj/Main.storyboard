@@ -287,6 +287,9 @@
                                                         <exclude reference="bUi-Sh-hZM"/>
                                                     </mask>
                                                 </variation>
+                                                <connections>
+                                                    <action selector="answerTextBoxType:" destination="BYZ-38-t0r" eventType="editingDidBegin" id="b4W-M3-KPI"/>
+                                                </connections>
                                             </textField>
                                         </subviews>
                                         <animations/>
