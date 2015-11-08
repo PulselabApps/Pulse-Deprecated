@@ -191,7 +191,7 @@ class ViewController: UIViewController {
             //if answer == correctAnswer{
                 // ADD SCORE TO USER
             
-            var clickedView = UIView()
+            /*var clickedView = UIView()
             
             switch previouslyClickedButton{
             case topLeftMultipleChoiceButton?:
@@ -208,10 +208,10 @@ class ViewController: UIViewController {
                 break
             default:
                 break
-            }
+            }*/
             
             if answer == correctAnswer{
-                clickedView.backgroundColor = correctColor
+                previouslyClickedButton!.backgroundColor = correctColor
             } else {
                 var correctView = UIButton()
                 switch correctAnswer!{
@@ -235,7 +235,7 @@ class ViewController: UIViewController {
                 correctView.backgroundColor = correctColor
                 correctView.setTitleColor(UIColor.whiteColor(), forState: .Normal)
                 correctButton = correctView
-                clickedView.backgroundColor = incorrectColor
+                previouslyClickedButton!.backgroundColor = incorrectColor
                 
             }
             
