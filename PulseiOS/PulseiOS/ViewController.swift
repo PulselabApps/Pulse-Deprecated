@@ -115,7 +115,11 @@ class ViewController: UIViewController {
     }
     
     func showMultipleChoiceOptions(){
-
+        topLeftMultipleChoice.hidden = false
+        topRightMultipleChoice.hidden = false
+        bottomLeftMultipleChoice.hidden = false
+        bottomRightMultipleChoice.hidden = false
+        
         let buttons = [topLeftMultipleChoiceButton, bottomLeftMultipleChoiceButton,topRightMultipleChoiceButton,bottomRightMultipleChoiceButton]
         
         //Randomize correct answer
