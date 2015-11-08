@@ -14,16 +14,15 @@ class ViewController: UIViewController {
     @IBOutlet weak var progressPieChart: UIView!
     @IBOutlet weak var rank: UILabel!
     @IBOutlet weak var points: UILabel!
+    @IBOutlet weak var submitButton: UIButton!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         let pieChart = PieChartView()
-        let correct = 50.0
-        let incorrect = 50.0
-        
+        let correct = 0.0
+        let incorrect = 1.0
+        submitButton.enabled = false
         drawPieChart(correct, incorrect: incorrect, pieChart: pieChart)
-        
     }
     
     @IBAction func submitButtonPressed(sender: UIButton) {
@@ -37,7 +36,6 @@ class ViewController: UIViewController {
         chartDataSetEntries.append(ChartDataEntry(value: incorrect, xIndex: 1))
         
         let chartDataSet = PieChartDataSet(yVals: chartDataSetEntries, label: "")
-        
         
         chartDataSet.colors = ChartColorTemplates.liberty()
         

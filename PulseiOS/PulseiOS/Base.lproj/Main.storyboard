@@ -136,6 +136,7 @@
                     </view>
                     <connections>
                         <outlet property="progressPieChart" destination="doA-wU-5XD" id="4Y0-Zf-ycI"/>
+                        <outlet property="submitButton" destination="LF8-Pl-w3p" id="3Xe-6U-WGc"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
