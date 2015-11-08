@@ -30,6 +30,9 @@
                                             <constraint firstAttribute="height" constant="60" id="pHu-xf-dcw"/>
                                         </constraints>
                                         <state key="normal" image="Checked-100.png"/>
+                                        <connections>
+                                            <action selector="submitButtonPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="fUd-OL-wXb"/>
+                                        </connections>
                                     </button>
                                 </subviews>
                                 <animations/>

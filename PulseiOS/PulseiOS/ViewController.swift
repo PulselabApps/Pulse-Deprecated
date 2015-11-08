@@ -19,11 +19,16 @@ class ViewController: UIViewController {
         super.viewDidLoad()
         
         let pieChart = PieChartView()
-        let correct = 40.0
-        let incorrect = 20.0
+        let correct = 50.0
+        let incorrect = 50.0
         
         drawPieChart(correct, incorrect: incorrect, pieChart: pieChart)
         
+    }
+    
+    @IBAction func submitButtonPressed(sender: UIButton) {
+        let image = UIImage(named: "Checked Filled-100.png")
+        sender.setImage(image, forState: .Normal)
     }
     
     func drawPieChart(correct: Double, incorrect: Double, pieChart: PieChartView) {
@@ -47,10 +52,33 @@ class ViewController: UIViewController {
         pieChart.sizeToFit()
         // pieChart.setDrawSliceText(false)
         pieChart.usePercentValuesEnabled = true
+        pieChart.centerTextRadiusPercent = 100.0
         
+        pieChart.centerText = getGrade(100 * (correct / (correct + incorrect)))
+        pieChart.holeColor = UIColor(red: 255.0 / 255, green: 194.0 / 255, blue: 113.0 / 255, alpha: 1.0)
         pieChart.frame = CGRect(x: -40.0, y: -40.0, width: progressPieChart.frame.width * 2.0, height: progressPieChart.frame.height * 2.0)
         // pieChart.center = progressPieChart.center
         progressPieChart.addSubview(pieChart)
+    }
+    
+    func getGrade(grade: Double) -> String {
+        var letterGrade = ""
+        if grade < 60.0 {
+            letterGrade = "F"
+        }
+        if (grade >= 60.0 && grade < 70.0) {
+            letterGrade = "D"
+        }
+        if (grade >= 70.0 && grade < 80.0) {
+            letterGrade =  "C"
+        }
+        if (grade >= 80.0 && grade < 90.0) {
+            letterGrade =  "B"
+        }
+        if grade >= 90.0 {
+            letterGrade = "A"
+        }
+        return letterGrade
     }
     
     func calculatePoints(){
