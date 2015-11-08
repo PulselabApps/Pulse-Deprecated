@@ -59,6 +59,7 @@ class ViewController: UIViewController {
     
     var questionType : String?
     
+    
     let pieChart = PieChartView()
 
     
@@ -104,6 +105,7 @@ class ViewController: UIViewController {
                 
                 self.questions = classSession.valueForKey("questions") as! [AnyObject]
                 self.currentQuestion = classSession.valueForKey("currentQuestion") as? Int
+                
                 
                 self.initQuestionAnswers()
                 
@@ -166,26 +168,6 @@ class ViewController: UIViewController {
         }
     }
     
-    /*func increaseNumCorrectAnswersForQuestion(){
-        let query = PFQuery(className:"ClassSession")
-        
-        query.whereKey("name", equalTo:"Math")
-        query.findObjectsInBackgroundWithBlock {
-            (objects: [PFObject]?, error: NSError?) -> Void in
-            
-            if error == nil {
-                
-                let classSession = objects![0]
-                
-                let myQuestions = classSession.valueForKey("questions") as! NSArray
-                myQuestions[self.currentQuestion!]["numCorrectAnswers"] = 5
-                
-                
-                
-            }
-        }
-    }*/
-    
     
     @IBAction func submitButtonPressed(sender: UIButton) {
         let image = UIImage(named: "Checked Filled-100.png")
@@ -195,6 +177,8 @@ class ViewController: UIViewController {
         if let multipleChoicAnswer = previouslyClickedButton {
             let answer = multipleChoicAnswer.titleLabel?.text
             
+            let answerDick = ["answerChoice":answer!]
+            PFCloud.callFunctionInBackground("sendAnswer", withParameters: answerDick)
             
             if answer == correctAnswer{
                 var score = user!["score"] as? Int
@@ -387,7 +371,9 @@ class ViewController: UIViewController {
                 let classSession = objects![0]
                 
                 if classSession.valueForKey("currentQuestion") as? Int != self.currentQuestion{
-                    self.currentQuestion = classSession.valueForKey("currentQuestion") as? Int
+                    
+                    self.currentQuestion = classSession.valueForKey("currentQuestion") as? Int                    
+                    
                     self.loadNewQuestion()
                     self.submitButton.enabled = false
                     self.getRank()
@@ -412,6 +398,9 @@ class ViewController: UIViewController {
         }
         
         self.previouslyClickedButton = nil
+        
+        
+        
         
         enableAllButtons()
         initQuestionAnswers()
