@@ -4,8 +4,11 @@ platform :tvos, '9.0'
 use_frameworks!
 
 target 'PulsetvOS' do
+#    pod 'Parse', :git => 'git@github.com:ParsePlatform/Parse-SDK-iOS-OSX.git', :branch => 'nlutsenko.tvos.podtest'
+    pod 'Bolts', '~> 1.4.0'
     pod 'Parse', :git => 'git@github.com:ParsePlatform/Parse-SDK-iOS-OSX.git', :branch => 'nlutsenko.tvos.podtest'
     pod 'Charts'
+    pod 'Alamofire', '~> 3.0'
 end
 
 target 'PulsetvOSTests' do
