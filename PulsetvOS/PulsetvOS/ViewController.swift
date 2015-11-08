@@ -19,6 +19,8 @@ class ViewController: UIViewController {
 //    @IBOutlet var questionText: UITextView!
     @IBOutlet var questionText: UITextView!
     
+    @IBOutlet var answerText: UITextView!
+    
     var statsViewOriginalFrame = CGRectZero
     var swipeLeftCount = 0
     let model = Model.sharedInstance
@@ -36,8 +38,12 @@ class ViewController: UIViewController {
         self.view.addGestureRecognizer(swipeRightGesture)
         
         let tapGesture = UITapGestureRecognizer(target: self, action: Selector("tapHandler:"))
-        tapGesture.allowedPressTypes = [NSNumber(integer: UIPressType.PlayPause.rawValue)]
+//        tapGesture.allowedPressTypes = [NSNumber(integer: UIPressType.PlayPause.rawValue)]
         self.view.addGestureRecognizer(tapGesture)
+        
+        let answerTapGesture = UITapGestureRecognizer(target: self, action: Selector("answerTapHandler:"))
+        answerTapGesture.allowedPressTypes = [NSNumber(integer: UIPressType.PlayPause.rawValue)]
+        self.view.addGestureRecognizer(answerTapGesture)
         
         statsView.hidden = true
         
@@ -81,19 +87,63 @@ class ViewController: UIViewController {
 
     func changeQuestion() {
         if let question = model.getFirstUnansweredQuestion() {
+            //            while (fontSize > minSize &&  [newView sizeThatFits:(CGSizeMake(newView.frame.size.width, FLT_MAX))].height >= newView.frame.size.height ) {
+            //                fontSize -= 1.0;
+            //                newView.font = [tv.font fontWithSize:fontSize];
+            //            }
             questionText.text = question.text
+            resizeTextView(questionText, newRect: nil)
         }
-
+        
+        answerText.hidden = true
     }
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
+    
+    func resizeTextView(textView : UITextView, newRect : CGRect?) {
+        if let newFrame = newRect {
+            textView.frame = newFrame
+        }
+//        textView.frame = CGRect(x: self.questionText.frame.origin.x, y: self.questionText.frame.origin.y, width: self.view.frame.width - statsViewOriginalFrame.width, height: questionText.frame.height)
+        if (textView.text.isEmpty || CGSizeEqualToSize(textView.bounds.size, CGSizeZero)) {
+            return;
+        }
+        
+        let textViewSize = textView.frame.size;
+        let fixedWidth = textViewSize.width;
+        let expectSize = textView.sizeThatFits(CGSizeMake(fixedWidth, CGFloat(MAXFLOAT)));
+        
+        var expectFont = textView.font;
+        if (expectSize.height > textViewSize.height) {
+            while (textView.sizeThatFits(CGSizeMake(fixedWidth, CGFloat(MAXFLOAT))).height > textViewSize.height) {
+                expectFont = textView.font!.fontWithSize(textView.font!.pointSize - 1)
+                textView.font = expectFont
+            }
+        }
+        else {
+            while (textView.sizeThatFits(CGSizeMake(fixedWidth, CGFloat(MAXFLOAT))).height < textViewSize.height) {
+                expectFont = textView.font;
+                textView.font = textView.font!.fontWithSize(textView.font!.pointSize + 1)
+            }
+            textView.font = expectFont;
+        }
+
+    }
 
     func tapHandler(recognizer : UITapGestureRecognizer) {
         model.completeCurrentQuestion()
+        model.incrementCurrentQuestionInCloud()
         changeQuestion()
+    }
+    
+    func answerTapHandler(recognizer : UITapGestureRecognizer) {
+        if let question = model.getFirstUnansweredQuestion() {
+            answerText.hidden = false
+            answerText.text = question.answers[0]
+        }
     }
     
     func statsLeftSwipe(recognizer : UISwipeGestureRecognizer) {
@@ -106,11 +156,20 @@ class ViewController: UIViewController {
             
             let questionTransitionRect = CGRect(x: 0.0, y: 0.0, width: self.view.frame.width - originalViewRect.width, height: questionView.frame.height)
             
+            let questionTextTransitionRect = CGRect(x: self.questionText.frame.origin.x, y: self.questionText.frame.origin.y, width: self.view.frame.width - originalViewRect.width - 50, height: questionText.frame.height)
+            print("Transition width: \(questionTextTransitionRect.width), original: \(questionText.frame.width)")
             UIView.animateWithDuration(1.1, animations: { () -> Void in
                 self.statsView.hidden = false
                 self.statsView.frame = originalViewRect
                 self.questionView.frame = questionTransitionRect
+//                self.questionText.bounds = questionTextTransitionRect
+//                self.questionText.frame = questionTextTransitionRect
+                
+//                self.questionText.
+                
                 }, completion: { (completed) -> Void in
+                    self.resizeTextView(self.questionText, newRect: questionTextTransitionRect)
+                    print("original: \(self.questionText.frame.width)")
                     self.swipeLeftCount++
             })
             

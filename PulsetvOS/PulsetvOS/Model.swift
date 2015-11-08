@@ -43,16 +43,17 @@ class Model {
     private var questions = [QuestionEntry]()
     private let bodyRequest = ""
     private var currentQuestionEntry : Int?
+    private let headers = [
+        "X-Parse-Application-Id": "AR6NF8FvJQFx0zurn9snBroZi2S68SCRBIRMudo7",
+        "X-Parse-REST-API-Key": "ajmBURZkjuoxSKavw1xZnKpGFMypVP5j3JNVFks8",
+        "Content-Type": "application/json"
+    ]
     
     var mainVC : ViewController?
     
     private init() {
         //        PFUser.login
-        let headers = [
-            "X-Parse-Application-Id": "AR6NF8FvJQFx0zurn9snBroZi2S68SCRBIRMudo7",
-            "X-Parse-REST-API-Key": "ajmBURZkjuoxSKavw1xZnKpGFMypVP5j3JNVFks8",
-            "Content-Type": "application/json"
-        ]
+        
         
         Alamofire.request(.POST, "https://api.parse.com/1/functions/questions", headers: headers)
             .responseJSON { response in
@@ -61,7 +62,7 @@ class Model {
                     if let questionsRaw = resultJson.valueForKey("questions") {
                         let questionsArray = questionsRaw[0] as! [AnyObject]
                         for question in questionsArray {
-                            print(question.valueForKey("questionText"))
+//                            print(question.valueForKey("questionText"))
                             let text = question.valueForKey("questionText") as! String
                             let timeLimitOpt = question.valueForKey("questionTime") as? Int
                             let questionType = question.valueForKey("questionType") as! String
@@ -123,6 +124,15 @@ class Model {
             return true
         } else {
             return false
+        }
+    }
+    
+    func incrementCurrentQuestionInCloud() {
+        
+        Alamofire.request(.POST, "https://api.parse.com/1/functions/changeCurrentQuestion", headers: headers)
+            .responseJSON { response in
+                print(response.result.value!)
+                                debugPrint(response)
         }
     }
 }

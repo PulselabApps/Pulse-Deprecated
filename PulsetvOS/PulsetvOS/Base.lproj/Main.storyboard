@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder.AppleTV.Storyboard" version="3.0" toolsVersion="9059" systemVersion="15B42" targetRuntime="AppleTV" propertyAccessControl="none" useAutolayout="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder.AppleTV.Storyboard" version="3.0" toolsVersion="9059" systemVersion="14F27" targetRuntime="AppleTV" propertyAccessControl="none" useAutolayout="YES" initialViewController="BYZ-38-t0r">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9049"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
@@ -20,33 +20,36 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Fb7-aH-e8Q" userLabel="QuestionView">
                                 <rect key="frame" x="0.0" y="20" width="1920" height="1060"/>
                                 <subviews>
-<<<<<<< HEAD
                                     <textView clipsSubviews="YES" multipleTouchEnabled="YES" userInteractionEnabled="NO" contentMode="scaleToFill" editable="NO" textAlignment="natural" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ybW-d4-wwM">
-                                        <rect key="frame" x="93" y="72" width="974" height="600"/>
+                                        <rect key="frame" x="93" y="72" width="1777" height="600"/>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                         <constraints>
-                                            <constraint firstAttribute="width" constant="974" id="NvJ-kK-m5l"/>
                                             <constraint firstAttribute="height" constant="600" id="iVz-HI-zol"/>
                                         </constraints>
                                         <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
-                                        <fontDescription key="fontDescription" style="UICTFontTextStyleHeadline"/>
+                                        <fontDescription key="fontDescription" name="EuphemiaUCAS" family="Euphemia UCAS" pointSize="38"/>
                                         <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                                     </textView>
-=======
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Question" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ufj-Lr-94G">
-                                        <rect key="frame" x="819" y="487" width="282" height="86"/>
-                                        <animations/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="72"/>
-                                        <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
->>>>>>> origin/master
+                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" userInteractionEnabled="NO" contentMode="scaleToFill" editable="NO" textAlignment="natural" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4cL-db-T13">
+                                        <rect key="frame" x="93" y="728" width="1777" height="221"/>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="221" id="uQM-08-egX"/>
+                                        </constraints>
+                                        <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
+                                        <fontDescription key="fontDescription" name="EuphemiaUCAS" family="Euphemia UCAS" pointSize="38"/>
+                                        <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                    </textView>
                                 </subviews>
                                 <animations/>
-                                <color key="backgroundColor" red="0.64571836029999996" green="0.9938919879" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="backgroundColor" red="1" green="0.76078431372549016" blue="0.44313725490196076" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
+                                    <constraint firstAttribute="trailing" secondItem="4cL-db-T13" secondAttribute="trailing" constant="50" id="6YO-UK-GhZ"/>
+                                    <constraint firstAttribute="trailing" secondItem="ybW-d4-wwM" secondAttribute="trailing" constant="50" id="7LE-ta-L6d"/>
                                     <constraint firstItem="ybW-d4-wwM" firstAttribute="top" secondItem="Fb7-aH-e8Q" secondAttribute="top" constant="72" id="JFC-Rg-dXm"/>
+                                    <constraint firstItem="4cL-db-T13" firstAttribute="top" secondItem="ybW-d4-wwM" secondAttribute="bottom" constant="56" id="Jix-4T-PS8"/>
                                     <constraint firstItem="ybW-d4-wwM" firstAttribute="leading" secondItem="Fb7-aH-e8Q" secondAttribute="leading" constant="93" id="Uhn-rg-cHj"/>
+                                    <constraint firstItem="4cL-db-T13" firstAttribute="leading" secondItem="Fb7-aH-e8Q" secondAttribute="leading" constant="93" id="cVA-Xe-pBo"/>
                                 </constraints>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="gIT-Ad-Tgt" userLabel="StatsView">
@@ -82,6 +85,7 @@
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="answerText" destination="4cL-db-T13" id="Gkb-bY-FnX"/>
                         <outlet property="questionText" destination="ybW-d4-wwM" id="a21-ky-LCq"/>
                         <outlet property="questionView" destination="Fb7-aH-e8Q" id="kaO-9O-cdS"/>
                         <outlet property="statsView" destination="gIT-Ad-Tgt" id="GJt-ab-Bml"/>
