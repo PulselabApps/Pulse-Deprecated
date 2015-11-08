@@ -15,6 +15,8 @@
 		12D31D391BEE791100B03E7C /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 12D31D371BEE791100B03E7C /* LaunchScreen.storyboard */; };
 		12D31D441BEE791100B03E7C /* PulseiOSTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12D31D431BEE791100B03E7C /* PulseiOSTests.swift */; };
 		12D31D4F1BEE791100B03E7C /* PulseiOSUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12D31D4E1BEE791100B03E7C /* PulseiOSUITests.swift */; };
+		F163BF3F1BEECA7A0051D505 /* Checked Filled-100.png in Resources */ = {isa = PBXBuildFile; fileRef = F163BF3E1BEECA7A0051D505 /* Checked Filled-100.png */; };
+		F163BF411BEECA7F0051D505 /* Checked-100.png in Resources */ = {isa = PBXBuildFile; fileRef = F163BF401BEECA7F0051D505 /* Checked-100.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -51,6 +53,8 @@
 		12D31D501BEE791100B03E7C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		73EB2D436C16F410A28C953A /* Pods.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		D0C81FEA2B8EA818DBD76446 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
+		F163BF3E1BEECA7A0051D505 /* Checked Filled-100.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Checked Filled-100.png"; sourceTree = "<group>"; };
+		F163BF401BEECA7F0051D505 /* Checked-100.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Checked-100.png"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -165,12 +169,22 @@
 		F111DD651BEE7DCC00E10C7F /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				F163BF391BEECA220051D505 /* ViewController Assets */,
 				12D31D2E1BEE791100B03E7C /* AppDelegate.swift */,
 				12D31D371BEE791100B03E7C /* LaunchScreen.storyboard */,
 				12D31D351BEE791100B03E7C /* Assets.xcassets */,
 				12D31D3A1BEE791100B03E7C /* Info.plist */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		F163BF391BEECA220051D505 /* ViewController Assets */ = {
+			isa = PBXGroup;
+			children = (
+				F163BF3E1BEECA7A0051D505 /* Checked Filled-100.png */,
+				F163BF401BEECA7F0051D505 /* Checked-100.png */,
+			);
+			name = "ViewController Assets";
 			sourceTree = "<group>";
 		};
 		F6DC594ED2DE0AB18693EB54 /* Frameworks */ = {
@@ -253,6 +267,11 @@
 					12D31D2A1BEE791100B03E7C = {
 						CreatedOnToolsVersion = 7.1;
 						DevelopmentTeam = SHFR6F3SXM;
+						SystemCapabilities = {
+							com.apple.Push = {
+								enabled = 0;
+							};
+						};
 					};
 					12D31D3E1BEE791100B03E7C = {
 						CreatedOnToolsVersion = 7.1;
@@ -289,8 +308,10 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F163BF411BEECA7F0051D505 /* Checked-100.png in Resources */,
 				12D31D391BEE791100B03E7C /* LaunchScreen.storyboard in Resources */,
 				12D31D361BEE791100B03E7C /* Assets.xcassets in Resources */,
+				F163BF3F1BEECA7A0051D505 /* Checked Filled-100.png in Resources */,
 				12D31D341BEE791100B03E7C /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

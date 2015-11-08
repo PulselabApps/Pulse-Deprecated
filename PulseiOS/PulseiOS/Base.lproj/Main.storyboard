@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9059" systemVersion="14F27" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9059" systemVersion="15B42" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="BYZ-38-t0r">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9049"/>
@@ -19,6 +19,32 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ofb-Op-ocy">
+                                <rect key="frame" x="0.0" y="0.0" width="600" height="472"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="LF8-Pl-w3p">
+                                        <rect key="frame" x="532" y="404" width="60" height="60"/>
+                                        <animations/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="60" id="aYz-iD-Hul"/>
+                                            <constraint firstAttribute="height" constant="60" id="pHu-xf-dcw"/>
+                                        </constraints>
+                                        <state key="normal" image="Checked-100.png"/>
+                                    </button>
+                                </subviews>
+                                <animations/>
+                                <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="trailing" secondItem="LF8-Pl-w3p" secondAttribute="trailing" constant="8" id="3Sl-jz-tbe"/>
+                                    <constraint firstAttribute="bottom" secondItem="LF8-Pl-w3p" secondAttribute="bottom" constant="8" id="71a-NS-vnC"/>
+                                    <constraint firstAttribute="width" secondItem="ofb-Op-ocy" secondAttribute="height" multiplier="75:59" id="eWn-xU-f22"/>
+                                </constraints>
+                                <variation key="default">
+                                    <mask key="constraints">
+                                        <exclude reference="eWn-xU-f22"/>
+                                    </mask>
+                                </variation>
+                            </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="3FO-oO-je3">
                                 <rect key="frame" x="0.0" y="472" width="600" height="128"/>
                                 <subviews>
@@ -67,7 +93,8 @@
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="doA-wU-5XD">
                                         <rect key="frame" x="255" y="19" width="90" height="90"/>
                                         <animations/>
-                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <color key="backgroundColor" red="1" green="0.76078431372549016" blue="0.44313725490196076" alpha="1" colorSpace="calibratedRGB"/>
+                                        <color key="tintColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="90" id="T47-ax-8rt"/>
                                             <constraint firstAttribute="width" constant="90" id="qPh-OP-Ymj"/>
@@ -75,6 +102,8 @@
                                     </view>
                                 </subviews>
                                 <animations/>
+                                <color key="backgroundColor" red="1" green="0.76078431372549016" blue="0.44313725490196076" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="tintColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="trailing" secondItem="uJY-Y1-XOg" secondAttribute="trailing" constant="8" id="0Ls-Rc-qT8"/>
                                     <constraint firstItem="doA-wU-5XD" firstAttribute="centerX" secondItem="3FO-oO-je3" secondAttribute="centerX" id="Asu-S0-7bd"/>
@@ -88,19 +117,6 @@
                                     <constraint firstAttribute="trailing" secondItem="8M3-Pz-geJ" secondAttribute="trailing" constant="8" id="gGS-a7-N1W"/>
                                     <constraint firstItem="8M3-Pz-geJ" firstAttribute="top" secondItem="3FO-oO-je3" secondAttribute="top" constant="8" id="ydI-hi-ba4"/>
                                 </constraints>
-                            </view>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ofb-Op-ocy">
-                                <rect key="frame" x="0.0" y="0.0" width="600" height="472"/>
-                                <animations/>
-                                <color key="backgroundColor" red="0.0" green="1" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" secondItem="ofb-Op-ocy" secondAttribute="height" multiplier="75:59" id="eWn-xU-f22"/>
-                                </constraints>
-                                <variation key="default">
-                                    <mask key="constraints">
-                                        <exclude reference="eWn-xU-f22"/>
-                                    </mask>
-                                </variation>
                             </view>
                         </subviews>
                         <animations/>
@@ -124,4 +140,7 @@
             <point key="canvasLocation" x="305" y="387"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="Checked-100.png" width="100" height="100"/>
+    </resources>
 </document>
