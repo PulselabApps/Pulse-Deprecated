@@ -65,7 +65,7 @@ class ViewController: UIViewController {
         _ = NSTimer.scheduledTimerWithTimeInterval(2.0, target: self, selector: Selector("checkForQuestionChange"), userInfo: nil, repeats: true)
         
         let pieChart = PieChartView()
-        //submitButton.enabled = false
+        submitButton.enabled = false
         rank.text = "0"
         points.text = "0"
         initialLoad(pieChart)
@@ -262,8 +262,7 @@ class ViewController: UIViewController {
                 
             }
         }
-        
-        
+        self.points.text = String(self.user!["score"] as! Int)
     }
     
     func saveUser(){
@@ -285,7 +284,7 @@ class ViewController: UIViewController {
         }
         sender.setTitleColor(correctColor, forState: .Normal)
         previouslyClickedButton = sender
-        
+        submitButton.enabled = true
     }
     
     // MARK: NEED A FUNCTION THAT IS ALWAYS CHECKING TO SEE IF THE QUESTION HAS CHANGED
