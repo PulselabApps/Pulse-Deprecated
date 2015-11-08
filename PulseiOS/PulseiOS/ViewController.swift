@@ -232,6 +232,18 @@ class ViewController: UIViewController {
         return letterGrade
     }
     
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        switch segue.identifier! {
+            case "FullQuestionSegue":
+                let fullQuestionVC = segue.destinationViewController as! FullQuestionViewController
+                fullQuestionVC.fullQuestion = questions[currentQuestion!]["questionText"]!! as? String
+
+        default:
+            break
+        }
+    }
+    
+    
     func calculatePoints(){
         
     }

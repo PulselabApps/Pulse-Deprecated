@@ -288,10 +288,17 @@
                                             <constraint firstItem="yUu-rc-Kr3" firstAttribute="leading" secondItem="WRx-ig-Tk1" secondAttribute="leading" constant="19" id="ygY-oh-oux"/>
                                         </constraints>
                                     </view>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Bx7-Md-kIb">
-                                        <rect key="frame" x="250.5" y="404" width="100" height="30"/>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Bx7-Md-kIb">
+                                        <rect key="frame" x="8" y="404" width="60" height="60"/>
                                         <animations/>
-                                        <state key="normal" title="show question"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="60" id="anQ-2f-0ZQ"/>
+                                            <constraint firstAttribute="width" constant="60" id="b5l-UO-jy7"/>
+                                        </constraints>
+                                        <state key="normal" title="show question" image="Help-100.png"/>
+                                        <connections>
+                                            <segue destination="qZo-V2-QQL" kind="presentation" identifier="FullQuestionSegue" modalPresentationStyle="formSheet" id="NGl-VD-fQb"/>
+                                        </connections>
                                     </button>
                                 </subviews>
                                 <animations/>
@@ -304,11 +311,13 @@
                                     <constraint firstItem="Bx7-Md-kIb" firstAttribute="centerX" secondItem="ofb-Op-ocy" secondAttribute="centerX" id="bCv-wQ-qny"/>
                                     <constraint firstAttribute="bottom" secondItem="WRx-ig-Tk1" secondAttribute="bottom" constant="150" id="eFd-QI-vcb"/>
                                     <constraint firstAttribute="width" secondItem="ofb-Op-ocy" secondAttribute="height" multiplier="75:59" id="eWn-xU-f22"/>
+                                    <constraint firstItem="Bx7-Md-kIb" firstAttribute="leading" secondItem="ofb-Op-ocy" secondAttribute="leading" constant="8" id="oov-fp-RgZ"/>
                                     <constraint firstAttribute="trailing" secondItem="WRx-ig-Tk1" secondAttribute="trailing" constant="8" id="uTW-4x-j17"/>
                                 </constraints>
                                 <variation key="default">
                                     <mask key="constraints">
                                         <exclude reference="eWn-xU-f22"/>
+                                        <exclude reference="bCv-wQ-qny"/>
                                     </mask>
                                 </variation>
                             </view>
@@ -318,6 +327,7 @@
                         <constraints>
                             <constraint firstItem="ofb-Op-ocy" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="topMargin" id="3SA-n2-mLY"/>
                             <constraint firstAttribute="trailingMargin" secondItem="3FO-oO-je3" secondAttribute="trailing" constant="-20" id="Adh-tC-Vxf"/>
+                            <constraint firstItem="3FO-oO-je3" firstAttribute="top" secondItem="Bx7-Md-kIb" secondAttribute="bottom" constant="8" id="Nzc-9Y-jBv"/>
                             <constraint firstItem="3FO-oO-je3" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="-20" id="Wi5-ZT-3Nh"/>
                             <constraint firstAttribute="trailingMargin" secondItem="ofb-Op-ocy" secondAttribute="trailing" constant="-20" id="dqA-nn-0ab"/>
                             <constraint firstItem="ofb-Op-ocy" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="-20" id="i8j-b3-QdR"/>
@@ -325,6 +335,11 @@
                             <constraint firstItem="3FO-oO-je3" firstAttribute="top" secondItem="Bx7-Md-kIb" secondAttribute="bottom" constant="38" id="lVW-nO-OLD"/>
                             <constraint firstItem="3FO-oO-je3" firstAttribute="top" secondItem="ofb-Op-ocy" secondAttribute="bottom" id="qCS-yY-uB5"/>
                         </constraints>
+                        <variation key="default">
+                            <mask key="constraints">
+                                <exclude reference="lVW-nO-OLD"/>
+                            </mask>
+                        </variation>
                     </view>
                     <connections>
                         <outlet property="answerTextBox" destination="b5J-Zm-qJn" id="l8h-7k-2AH"/>
@@ -347,10 +362,10 @@
             </objects>
             <point key="canvasLocation" x="973" y="-731"/>
         </scene>
-        <!--View Controller-->
+        <!--Full Question View Controller-->
         <scene sceneID="ea1-Dd-oZB">
             <objects>
-                <viewController id="qZo-V2-QQL" sceneMemberID="viewController">
+                <viewController id="qZo-V2-QQL" customClass="FullQuestionViewController" customModule="PulseiOS" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="ClG-jd-IoY"/>
                         <viewControllerLayoutGuide type="bottom" id="Jcl-jM-h0g"/>
@@ -358,9 +373,28 @@
                     <view key="view" contentMode="scaleToFill" id="eBQ-IK-0iU">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="9UF-a4-TDP">
+                                <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                                <animations/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
+                                <fontDescription key="fontDescription" type="system" weight="ultraLight" pointSize="40"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
+                        </subviews>
                         <animations/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="9UF-a4-TDP" firstAttribute="width" secondItem="eBQ-IK-0iU" secondAttribute="width" id="52I-XO-zUE"/>
+                            <constraint firstItem="9UF-a4-TDP" firstAttribute="centerX" secondItem="eBQ-IK-0iU" secondAttribute="centerX" id="cZi-bl-SR8"/>
+                            <constraint firstItem="9UF-a4-TDP" firstAttribute="height" secondItem="eBQ-IK-0iU" secondAttribute="height" id="hYs-sw-hPm"/>
+                            <constraint firstItem="9UF-a4-TDP" firstAttribute="centerY" secondItem="eBQ-IK-0iU" secondAttribute="centerY" id="jex-Qg-eXv"/>
+                        </constraints>
                     </view>
+                    <connections>
+                        <outlet property="fullQuestionText" destination="9UF-a4-TDP" id="hFG-yO-jcm"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="RLW-3G-FDD" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -369,6 +403,7 @@
     </scenes>
     <resources>
         <image name="Checked-100.png" width="100" height="100"/>
+        <image name="Help-100.png" width="100" height="100"/>
         <image name="logo.png" width="344" height="148"/>
     </resources>
 </document>
