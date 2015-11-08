@@ -192,13 +192,17 @@ class ViewController: UIViewController {
                 questionsCorrect!+=1
                 user!["questionsCorrect"] = questionsCorrect
                 
-                var numCorrectAnswers = questions[currentQuestion!]["numCorrectAnswers"] as? Int
+                /*var numCorrectAnswers = questions[currentQuestion!]["numCorrectAnswers"] as? Int
                 numCorrectAnswers!+=1
                 var question = questions[currentQuestion!] as! [String:AnyObject]
                 question["numCorrectAnswers"] = numCorrectAnswers
                 questions[currentQuestion!] = question
                 
-                saveQuestions()
+                saveQuestions()*/
+                
+                let blahDict = ["answerChoice":true]
+                PFCloud.callFunctionInBackground("incrementCorrectOrIncorrect", withParameters: blahDict)
+                
                 saveUser()
                 previouslyClickedButton!.backgroundColor = correctColor
             } else {
@@ -237,13 +241,16 @@ class ViewController: UIViewController {
                 
                 
                 
-                var numIncorrectAnswers = questions[currentQuestion!]["numIncorrectAnswers"] as? Int
+                /*var numIncorrectAnswers = questions[currentQuestion!]["numIncorrectAnswers"] as? Int
                 numIncorrectAnswers!+=1
                 var question = questions[currentQuestion!] as! [String:AnyObject]
                 question["numIncorrectAnswers"] = numIncorrectAnswers
                 questions[currentQuestion!] = question
                 
-                saveQuestions()
+                saveQuestions()*/
+                
+                let blahDict = ["answerChoice":false]
+                PFCloud.callFunctionInBackground("incrementCorrectOrIncorrect", withParameters: blahDict)
                 
                 saveUser()
                 
@@ -267,15 +274,16 @@ class ViewController: UIViewController {
                     user!["questionsCorrect"] = questionsCorrect
                     
                     
-                    var numCorrectAnswers = questions[currentQuestion!]["numCorrectAnswers"] as? Int
+                    /*var numCorrectAnswers = questions[currentQuestion!]["numCorrectAnswers"] as? Int
                     numCorrectAnswers!+=1
                     var question = questions[currentQuestion!] as! [String:AnyObject]
                     question["numCorrectAnswers"] = numCorrectAnswers
                     questions[currentQuestion!] = question
                     
-                    saveQuestions()
+                    saveQuestions()*/
                     
-                    
+                    let blahDict = ["answerChoice":true]
+                    PFCloud.callFunctionInBackground("incrementCorrectOrIncorrect", withParameters: blahDict)
                     
                     
                     saveUser()
@@ -293,13 +301,16 @@ class ViewController: UIViewController {
                     user!["questionsIncorrect"] = questionsIncorrect
                     
                     
-                    var numIncorrectAnswers = questions[currentQuestion!]["numIncorrectAnswers"] as? Int
+                    /*var numIncorrectAnswers = questions[currentQuestion!]["numIncorrectAnswers"] as? Int
                     numIncorrectAnswers!+=1
                     var question = questions[currentQuestion!] as! [String:AnyObject]
                     question["numIncorrectAnswers"] = numIncorrectAnswers
                     questions[currentQuestion!] = question
                     
-                    saveQuestions()
+                    saveQuestions()*/
+                    
+                    let blahDict = ["answerChoice":false]
+                    PFCloud.callFunctionInBackground("incrementCorrectOrIncorrect", withParameters: blahDict)
                     
                     saveUser()
                 }
@@ -330,7 +341,7 @@ class ViewController: UIViewController {
         }
     }
     
-    func saveQuestions(){
+    /*func saveQuestions(){
         
         let query = PFQuery(className:"ClassSession")
         
@@ -348,7 +359,7 @@ class ViewController: UIViewController {
                 classSession.saveInBackground()
             }
         }
-    }
+    }*/
     
     
     
