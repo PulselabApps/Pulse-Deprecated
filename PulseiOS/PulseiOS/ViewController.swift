@@ -8,6 +8,7 @@
 
 import UIKit
 import Charts
+import Parse
 
 class ViewController: UIViewController {
 
@@ -17,6 +18,11 @@ class ViewController: UIViewController {
     @IBOutlet weak var submitButton: UIButton!
     @IBOutlet weak var answerView: UIView!
     
+    let user = PFUser.currentUser()
+    
+    var questionsCorrect = 0
+    var questionsAsked = 0
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         let pieChart = PieChartView()
@@ -24,11 +30,25 @@ class ViewController: UIViewController {
         let incorrect = 1.0
         submitButton.enabled = false
         drawPieChart(correct, incorrect: incorrect, pieChart: pieChart)
+        initUserScore()
+    }
+    
+    func initUserScore(){
+        //let score = user!["score"] as! Int
+        rank.text = "1"
+        points.text = "0"
     }
     
     @IBAction func submitButtonPressed(sender: UIButton) {
         let image = UIImage(named: "Checked Filled-100.png")
         sender.setImage(image, forState: .Normal)
+    }
+    
+    // NEED A FUNCTION THAT IS ALWAYS CHECKING TO SEE IF THE QUESTION HAS CHANGED
+    func checkForQuestionChange(){
+        if true/*replace true with whether or not the question has changed*/{
+            
+        }
     }
     
     func drawPieChart(correct: Double, incorrect: Double, pieChart: PieChartView) {
