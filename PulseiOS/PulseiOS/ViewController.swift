@@ -19,13 +19,10 @@ struct AnswerTypes {
 
 class ViewController: UIViewController {
     
-    
     @IBOutlet weak var answerTextBox: UITextField!
     
     var previouslyClickedButton : UIButton?
     var correctButton : UIButton?
-
-    
     
     @IBOutlet weak var topLeftMultipleChoice: UIView!
     @IBOutlet weak var topRightMultipleChoice: UIView!
@@ -57,7 +54,6 @@ class ViewController: UIViewController {
     let correctColor = UIColor(red: 91.0 / 255, green: 201.0 / 255, blue: 139.0 / 255, alpha: 1.0)
     let incorrectColor = UIColor(red: 201.0 / 255, green: 91.0 / 255, blue: 104.0 / 255, alpha: 1.0)
     let regularColor = UIColor(red: 205.0 / 255, green: 205.0 / 255, blue: 205.0 / 255, alpha: 1.0)
-
     
     var studentsAnswer : String?
     
@@ -88,7 +84,6 @@ class ViewController: UIViewController {
         }
     }
     
-    
     func initScene(){
         rank.text = "1"
         points.text = "0"
@@ -108,15 +103,11 @@ class ViewController: UIViewController {
                 self.questions = classSession.valueForKey("questions") as! NSArray
                 self.currentQuestion = classSession.valueForKey("currentQuestion") as? Int
                 
-                
-                
                 self.initQuestionAnswers()
                 
             }
         }
     }
-    
-    
     
     func initQuestionAnswers(){
         
@@ -131,7 +122,7 @@ class ViewController: UIViewController {
             break
             
         default: break
-        
+            
         }
     }
     
@@ -173,9 +164,6 @@ class ViewController: UIViewController {
         }
     }
     
-    
-    
-    
     @IBAction func submitButtonPressed(sender: UIButton) {
         let image = UIImage(named: "Checked Filled-100.png")
         sender.setImage(image, forState: .Normal)
@@ -183,7 +171,7 @@ class ViewController: UIViewController {
         
         if let multipleChoicAnswer = previouslyClickedButton {
             let answer = multipleChoicAnswer.titleLabel?.text
-    
+            
             
             if answer == correctAnswer{
                 var score = user!["score"] as? Int
@@ -214,7 +202,7 @@ class ViewController: UIViewController {
                     break
                 default:
                     break
-
+                    
                 }
                 correctView.backgroundColor = correctColor
                 correctView.setTitleColor(UIColor.whiteColor(), forState: .Normal)
@@ -252,7 +240,7 @@ class ViewController: UIViewController {
                     user!["questionsCorrect"] = questionsCorrect
                     
                     saveUser()
-
+                    
                     answerTextBox.backgroundColor = correctColor
                 } else {
                     answerTextBox.backgroundColor = incorrectColor
@@ -269,7 +257,7 @@ class ViewController: UIViewController {
                 }
                 answerTextBox.textColor = UIColor.whiteColor()
                 answerTextBox.userInteractionEnabled = false
-
+                
             } else { // It was left blank
                 
             }
@@ -282,16 +270,14 @@ class ViewController: UIViewController {
         user!.saveInBackgroundWithBlock {
             (success: Bool, error: NSError?) -> Void in
             if (success) {
-            print("user saved")
-            // The object has been saved.
-        } else {
-            
-            // There was a problem, check error.description
+                print("user saved")
+                // The object has been saved.
+            } else {
+                
+                // There was a problem, check error.description
             }
         }
     }
-    
-    
     
     @IBAction func multipleChoiceAnswerClicked(sender: UIButton) {
         if let button = previouslyClickedButton {
@@ -301,8 +287,6 @@ class ViewController: UIViewController {
         previouslyClickedButton = sender
         
     }
-    
-    
     
     // MARK: NEED A FUNCTION THAT IS ALWAYS CHECKING TO SEE IF THE QUESTION HAS CHANGED
     func checkForQuestionChange(){
@@ -318,7 +302,7 @@ class ViewController: UIViewController {
                 if classSession.valueForKey("currentQuestion") as? Int != self.currentQuestion{
                     self.currentQuestion = classSession.valueForKey("currentQuestion") as? Int
                     self.loadNewQuestion()
-                    print (self.getRank())
+                    // print (self.getRank())
                 }
                 
             }
@@ -340,7 +324,7 @@ class ViewController: UIViewController {
         }
         
         self.previouslyClickedButton = nil
-
+        
         enableAllButtons()
         initQuestionAnswers()
     }
