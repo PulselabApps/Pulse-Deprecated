@@ -58,6 +58,7 @@ class LoginViewController: UIViewController {
                 alert.addAction(UIAlertAction(title: "ok", style: UIAlertActionStyle.Default, handler: nil))
                 self.presentViewController(alert, animated: true, completion: nil)
             }
+        }
     }
 }
 
@@ -70,5 +71,3 @@ override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
 // Pass the selected object to the new view controller.
 }
 */
-
-
