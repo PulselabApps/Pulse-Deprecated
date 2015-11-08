@@ -10,6 +10,12 @@ import UIKit
 import Charts
 import Parse
 
+struct AnswerTypes {
+    static let MultipleChoice = "MultipleChoice"
+    static let FillInTheBlank = "FillInTheBlank"
+    static let Matching = "Matching"
+}
+
 class ViewController: UIViewController {
 
     @IBOutlet weak var progressPieChart: UIView!
