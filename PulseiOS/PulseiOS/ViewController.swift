@@ -32,10 +32,11 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         let pieChart = PieChartView()
-        let correct = 0.0
-        let incorrect = 1.0
+        // let correct = 0.0
+        // let incorrect = 1.0
         submitButton.enabled = false
-        drawPieChart(correct, incorrect: incorrect, pieChart: pieChart)
+        // drawPieChart(correct, incorrect: incorrect, pieChart: pieChart)
+        initialLoad(pieChart)
         initUserScore()
     }
     
@@ -57,7 +58,31 @@ class ViewController: UIViewController {
         }
     }
     
+    func initialLoad(pieChart: PieChartView) {
+        var chartDataSetEntries = [ChartDataEntry]()
+        chartDataSetEntries.append(ChartDataEntry(value: 0, xIndex: 0))
+        let chartDataSet = PieChartDataSet(yVals: chartDataSetEntries, label: "")
+        chartDataSet.colors = ChartColorTemplates.liberty()
+        let correctColor = UIColor(red: 91.0 / 255, green: 201.0 / 255, blue: 139.0 / 255, alpha: 1.0)
+        chartDataSet.colors = [correctColor]
+        
+        let chartData = PieChartData(xVals: ["✔"], dataSet: chartDataSet)
+        pieChart.data = chartData
+        pieChart.setDescriptionTextPosition(x: 0, y: 0)
+        pieChart.sizeToFit()
+        // pieChart.setDrawSliceText(false)
+        pieChart.usePercentValuesEnabled = true
+        pieChart.centerTextRadiusPercent = 100.0
+        
+        pieChart.centerText = ""
+        pieChart.holeColor = UIColor(red: 255.0 / 255, green: 194.0 / 255, blue: 113.0 / 255, alpha: 1.0)
+        pieChart.frame = CGRect(x: -40.0, y: -40.0, width: progressPieChart.frame.width * 2.0, height: progressPieChart.frame.height * 2.0)
+        // pieChart.center = progressPieChart.center
+        progressPieChart.addSubview(pieChart)
+    }
+    
     func drawPieChart(correct: Double, incorrect: Double, pieChart: PieChartView) {
+        progressPieChart.subviews.forEach({ $0.removeFromSuperview() })
         var chartDataSetEntries = [ChartDataEntry]()
         chartDataSetEntries.append(ChartDataEntry(value: correct, xIndex: 0))
         chartDataSetEntries.append(ChartDataEntry(value: incorrect, xIndex: 1))
