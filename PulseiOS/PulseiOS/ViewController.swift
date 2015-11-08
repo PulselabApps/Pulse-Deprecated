@@ -19,13 +19,10 @@ struct AnswerTypes {
 
 class ViewController: UIViewController {
     
-    
     @IBOutlet weak var answerTextBox: UITextField!
     
     var previouslyClickedButton : UIButton?
     var correctButton : UIButton?
-
-    
     
     @IBOutlet weak var topLeftMultipleChoice: UIView!
     @IBOutlet weak var topRightMultipleChoice: UIView!
@@ -57,7 +54,6 @@ class ViewController: UIViewController {
     let correctColor = UIColor(red: 91.0 / 255, green: 201.0 / 255, blue: 139.0 / 255, alpha: 1.0)
     let incorrectColor = UIColor(red: 201.0 / 255, green: 91.0 / 255, blue: 104.0 / 255, alpha: 1.0)
     let regularColor = UIColor(red: 205.0 / 255, green: 205.0 / 255, blue: 205.0 / 255, alpha: 1.0)
-
     
     var studentsAnswer : String?
     
@@ -69,7 +65,7 @@ class ViewController: UIViewController {
         _ = NSTimer.scheduledTimerWithTimeInterval(2.0, target: self, selector: Selector("checkForQuestionChange"), userInfo: nil, repeats: true)
         
         let pieChart = PieChartView()
-        //submitButton.enabled = false
+        submitButton.enabled = false
         rank.text = "0"
         points.text = "0"
         initialLoad(pieChart)
@@ -87,7 +83,6 @@ class ViewController: UIViewController {
             view.clipsToBounds = true
         }
     }
-    
     
     func initScene(){
         rank.text = "1"
@@ -108,15 +103,11 @@ class ViewController: UIViewController {
                 self.questions = classSession.valueForKey("questions") as! [AnyObject]
                 self.currentQuestion = classSession.valueForKey("currentQuestion") as? Int
                 
-                
-                
                 self.initQuestionAnswers()
                 
             }
         }
     }
-    
-    
     
     func initQuestionAnswers(){
         
@@ -131,7 +122,7 @@ class ViewController: UIViewController {
             break
             
         default: break
-        
+            
         }
     }
     
@@ -201,7 +192,7 @@ class ViewController: UIViewController {
         
         if let multipleChoicAnswer = previouslyClickedButton {
             let answer = multipleChoicAnswer.titleLabel?.text
-    
+            
             
             if answer == correctAnswer{
                 var score = user!["score"] as? Int
@@ -239,7 +230,7 @@ class ViewController: UIViewController {
                     break
                 default:
                     break
-
+                    
                 }
                 correctView.backgroundColor = correctColor
                 correctView.setTitleColor(UIColor.whiteColor(), forState: .Normal)
@@ -300,7 +291,7 @@ class ViewController: UIViewController {
                     
                     
                     saveUser()
-
+                    
                     answerTextBox.backgroundColor = correctColor
                 } else {
                     answerTextBox.backgroundColor = incorrectColor
@@ -326,24 +317,23 @@ class ViewController: UIViewController {
                 }
                 answerTextBox.textColor = UIColor.whiteColor()
                 answerTextBox.userInteractionEnabled = false
-
+                
             } else { // It was left blank
                 
             }
         }
-        
-        
+        self.points.text = String(self.user!["score"] as! Int)
     }
     
     func saveUser(){
         user!.saveInBackgroundWithBlock {
             (success: Bool, error: NSError?) -> Void in
             if (success) {
-            print("user saved")
-            // The object has been saved.
-        } else {
-            
-            // There was a problem, check error.description
+                print("user saved")
+                // The object has been saved.
+            } else {
+                
+                // There was a problem, check error.description
             }
         }
     }
@@ -376,10 +366,8 @@ class ViewController: UIViewController {
         }
         sender.setTitleColor(correctColor, forState: .Normal)
         previouslyClickedButton = sender
-        
+        submitButton.enabled = true
     }
-    
-    
     
     // MARK: NEED A FUNCTION THAT IS ALWAYS CHECKING TO SEE IF THE QUESTION HAS CHANGED
     func checkForQuestionChange(){
@@ -395,9 +383,8 @@ class ViewController: UIViewController {
                 if classSession.valueForKey("currentQuestion") as? Int != self.currentQuestion{
                     self.currentQuestion = classSession.valueForKey("currentQuestion") as? Int
                     self.loadNewQuestion()
-                    
-                    self.rank.text = String(self.getRank())
-                    
+                    self.submitButton.enabled = false
+                    // print (self.getRank())
                 }
                 
             }
@@ -419,7 +406,7 @@ class ViewController: UIViewController {
         }
         
         self.previouslyClickedButton = nil
-
+        
         enableAllButtons()
         initQuestionAnswers()
     }
@@ -438,7 +425,7 @@ class ViewController: UIViewController {
         bottomRightMultipleChoiceButton.setTitleColor(UIColor.blackColor(), forState: .Normal)
     }
     
-    func getRank() -> Int {
+    func getRank() {
         var rank = 1
         var scores = [Int]()
         let query = PFQuery(className: "Class")
@@ -454,22 +441,23 @@ class ViewController: UIViewController {
                         for obj in object!{
                             let student = obj
                             let score = student.valueForKey("score") as? Int
-                            print (score)
+                            // print (score)
                             scores.append(score!)
                         }
-                        scores.sortInPlace()
+                        scores.sortInPlace({ $0 > $1 })
                         for score in scores {
+                            // print (score)
                             if score == self.user!["score"] as? Int {
                                 break
                             }
                             rank++
                         }
+                        self.rank.text = String(rank)
                     }
                 })
             }
             
         }
-        return rank
     }
     
     func initialLoad(pieChart: PieChartView) {
