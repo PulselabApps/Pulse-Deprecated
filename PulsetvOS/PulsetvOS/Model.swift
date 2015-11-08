@@ -135,4 +135,12 @@ class Model {
                                 debugPrint(response)
         }
     }
+    
+    func endSubmissionInCloud() {
+        Alamofire.request(.POST, "https://api.parse.com/1/functions/endSubmissions", headers: headers)
+            .responseJSON { response in
+                print(response.result.value!)
+                debugPrint(response)
+        }
+    }
 }
