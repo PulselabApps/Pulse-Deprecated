@@ -55,6 +55,8 @@ class Model {
     private var userRankings = [UserRankEntry]()
     private var questionScores = [QuestionScores]()
     private let bodyRequest = ""
+    
+    private var currentAnswerDistribution = [String : Int]()
     private var currentQuestionEntry : Int?
     private let headers = [
         "X-Parse-Application-Id": "AR6NF8FvJQFx0zurn9snBroZi2S68SCRBIRMudo7",
@@ -88,7 +90,7 @@ class Model {
                         }
                         print("Finished Initalizing Questions")
                         if let currentQuestion = resultJson.valueForKey("currentQuestion"){
-                            self.currentQuestionEntry = currentQuestion[0] as! Int
+                            self.currentQuestionEntry = currentQuestion[0] as? Int
                         } else {
                             self.currentQuestionEntry = 0
                         }
@@ -111,7 +113,16 @@ class Model {
     }
     
     func getFirstUnansweredQuestion() -> Question? {
+        
         if let _ = currentQuestionEntry {
+            
+            if currentQuestionEntry! >= 2 {
+                for (index, _) in questions.enumerate() {
+                    questions[index].completed = false
+                }
+                currentQuestionEntry = 0
+            }
+            
             if !(questions[currentQuestionEntry!].completed) {
                 return questions[currentQuestionEntry!].question
             }
@@ -134,6 +145,14 @@ class Model {
 //            return nil
 //        }
 //        return (result.count > 0 ? result[0].question : nil)
+    }
+    
+    func getCurrentQuestion() -> Question? {
+        if let x = currentQuestionEntry {
+            return questions[x].question
+        }
+        
+        return nil
     }
     
     func completeCurrentQuestion() -> Bool {
@@ -217,6 +236,7 @@ class Model {
                             mainVCU.showChartForCurrentQuestion()
                         }
                     }
+                    self.getAnswerChoiceResultsFromCloud()
                 }
                                 debugPrint(response)
         }
@@ -233,5 +253,28 @@ class Model {
                 //                print(response.result.value!)
                 //                debugPrint(response)
         }
+    }
+    
+    func getAnswerChoiceResultsFromCloud() {
+        Alamofire.request(.POST, "https://api.parse.com/1/functions/answersForCurrentQuestion", headers: headers)
+            .responseJSON { response in
+                print("end init question")
+                if let resultJson = response.result.value?.valueForKey("result") {
+                    if let result = resultJson as? [String : Int] {
+                        self.currentAnswerDistribution = result
+                    }
+                }
+                if !self.currentAnswerDistribution.isEmpty {
+                    if let mainVCU = self.mainVC {
+                        mainVCU.showBarGraph()
+                    }
+                }
+                //                print(response.result.value!)
+                //                debugPrint(response)
+        }
+    }
+    
+    func getAnswerChoiceResults() -> ([String : Int], QuestionType) {
+        return (currentAnswerDistribution, questions[currentQuestionEntry!].question.questionType)
     }
 }
