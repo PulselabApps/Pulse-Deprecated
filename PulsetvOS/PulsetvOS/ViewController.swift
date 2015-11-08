@@ -122,7 +122,7 @@ class ViewController: UIViewController {
     }
     
     func answerTapHandler(recognizer : UITapGestureRecognizer) {
-        if let question = model.getFirstUnansweredQuestion() {
+        if let question = model.getCurrentQuestion() {
             model.endSubmissionInCloud()
             answerText.hidden = false
             answerText.text = question.answers[0]
@@ -180,29 +180,36 @@ class ViewController: UIViewController {
     }
     
     func showBarGraph() {
-        let answers = model.getAnswerChoiceResults()
-        let chartFrame = CGRect(x: 175.0 * 4.0, y: 100.0, width: statsView.frame.height / 2, height: statsView.frame.width / 2)
-        
-        var barDataSetEntries = [ChartDataEntry]()
-        var xVals = [String]()
-        var i = 0
-        for (key, content) in answers {
-            let tempEntry = BarChartDataEntry(value: Double(content), xIndex: i)
-            xVals.append(key)
-            barDataSetEntries.append(tempEntry)
-            i++
+        let results = model.getAnswerChoiceResults()
+        if results.1 == .MultipleChoice {
+            barChart.hidden = false
+            let answers = results.0
+            let chartFrame = CGRect(x: 175.0 * 4.0, y: 100.0, width: statsView.frame.height / 2, height: statsView.frame.width / 2)
+            
+            var barDataSetEntries = [ChartDataEntry]()
+            var xVals = [String]()
+            var i = 0
+            for (key, content) in answers {
+                let tempEntry = BarChartDataEntry(value: Double(content), xIndex: i)
+                xVals.append(key)
+                barDataSetEntries.append(tempEntry)
+                i++
+            }
+            let dataSet = BarChartDataSet(yVals: barDataSetEntries)
+            //        let dataSet = BarChartDataSet(yVals: barDataSetEntries, label: "")
+            dataSet.colors = ChartColorTemplates.liberty()
+            
+            let chartData = BarChartData(xVals: xVals, dataSets: [dataSet])
+            barChart.descriptionText = ""
+            barChart.legend.enabled = false
+            barChart.data = chartData
+            statsView.addSubview(barChart)
+            
+            barChart.frame = chartFrame
+        } else {
+            barChart.hidden = true
         }
-        let dataSet = BarChartDataSet(yVals: barDataSetEntries)
-//        let dataSet = BarChartDataSet(yVals: barDataSetEntries, label: "")
-        dataSet.colors = ChartColorTemplates.liberty()
         
-        let chartData = BarChartData(xVals: xVals, dataSets: [dataSet])
-        barChart.descriptionText = ""
-        barChart.legend.enabled = false
-        barChart.data = chartData
-        statsView.addSubview(barChart)
-        
-        barChart.frame = chartFrame
     }
     
     func statsLeftSwipe(recognizer : UISwipeGestureRecognizer) {

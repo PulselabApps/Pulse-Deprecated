@@ -90,7 +90,7 @@ class Model {
                         }
                         print("Finished Initalizing Questions")
                         if let currentQuestion = resultJson.valueForKey("currentQuestion"){
-                            self.currentQuestionEntry = currentQuestion[0] as! Int
+                            self.currentQuestionEntry = currentQuestion[0] as? Int
                         } else {
                             self.currentQuestionEntry = 0
                         }
@@ -113,7 +113,16 @@ class Model {
     }
     
     func getFirstUnansweredQuestion() -> Question? {
+        
         if let _ = currentQuestionEntry {
+            
+            if currentQuestionEntry! >= 2 {
+                for (index, _) in questions.enumerate() {
+                    questions[index].completed = false
+                }
+                currentQuestionEntry = 0
+            }
+            
             if !(questions[currentQuestionEntry!].completed) {
                 return questions[currentQuestionEntry!].question
             }
@@ -136,6 +145,14 @@ class Model {
 //            return nil
 //        }
 //        return (result.count > 0 ? result[0].question : nil)
+    }
+    
+    func getCurrentQuestion() -> Question? {
+        if let x = currentQuestionEntry {
+            return questions[x].question
+        }
+        
+        return nil
     }
     
     func completeCurrentQuestion() -> Bool {
@@ -257,7 +274,7 @@ class Model {
         }
     }
     
-    func getAnswerChoiceResults() -> [String : Int] {
-        return currentAnswerDistribution
+    func getAnswerChoiceResults() -> ([String : Int], QuestionType) {
+        return (currentAnswerDistribution, questions[currentQuestionEntry!].question.questionType)
     }
 }
