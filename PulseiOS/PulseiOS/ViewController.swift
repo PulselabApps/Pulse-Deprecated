@@ -49,7 +49,7 @@ class ViewController: UIViewController {
     var questionsCorrect = 0
     var questionsAsked = 0
     
-    var questions = NSArray()
+    var questions = [AnyObject]()
     var currentQuestion : Int?
     
     var correctAnswer : String?
@@ -105,7 +105,7 @@ class ViewController: UIViewController {
                 
                 let classSession = objects![0]
                 
-                self.questions = classSession.valueForKey("questions") as! NSArray
+                self.questions = classSession.valueForKey("questions") as! [AnyObject]
                 self.currentQuestion = classSession.valueForKey("currentQuestion") as? Int
                 
                 
@@ -173,7 +173,25 @@ class ViewController: UIViewController {
         }
     }
     
-    
+    /*func increaseNumCorrectAnswersForQuestion(){
+        let query = PFQuery(className:"ClassSession")
+        
+        query.whereKey("name", equalTo:"Math")
+        query.findObjectsInBackgroundWithBlock {
+            (objects: [PFObject]?, error: NSError?) -> Void in
+            
+            if error == nil {
+                
+                let classSession = objects![0]
+                
+                let myQuestions = classSession.valueForKey("questions") as! NSArray
+                myQuestions[self.currentQuestion!]["numCorrectAnswers"] = 5
+                
+                
+                
+            }
+        }
+    }*/
     
     
     @IBAction func submitButtonPressed(sender: UIButton) {
@@ -194,6 +212,13 @@ class ViewController: UIViewController {
                 questionsCorrect!+=1
                 user!["questionsCorrect"] = questionsCorrect
                 
+                var numCorrectAnswers = questions[currentQuestion!]["numCorrectAnswers"] as? Int
+                numCorrectAnswers!+=1
+                var question = questions[currentQuestion!] as! [String:AnyObject]
+                question["numCorrectAnswers"] = numCorrectAnswers
+                questions[currentQuestion!] = question
+                
+                saveQuestions()
                 saveUser()
                 previouslyClickedButton!.backgroundColor = correctColor
             } else {
@@ -230,6 +255,17 @@ class ViewController: UIViewController {
                 questionsIncorrect!+=1
                 user!["questionsIncorrect"] = questionsIncorrect
                 
+                
+                
+                var numIncorrectAnswers = questions[currentQuestion!]["numIncorrectAnswers"] as? Int
+                numIncorrectAnswers!+=1
+                var question = questions[currentQuestion!] as! [String:AnyObject]
+                question["numIncorrectAnswers"] = numIncorrectAnswers
+                questions[currentQuestion!] = question
+                
+                saveQuestions()
+                
+                
                 saveUser()
                 
             }
@@ -251,6 +287,18 @@ class ViewController: UIViewController {
                     questionsCorrect!+=1
                     user!["questionsCorrect"] = questionsCorrect
                     
+                    
+                    var numCorrectAnswers = questions[currentQuestion!]["numCorrectAnswers"] as? Int
+                    numCorrectAnswers!+=1
+                    var question = questions[currentQuestion!] as! [String:AnyObject]
+                    question["numCorrectAnswers"] = numCorrectAnswers
+                    questions[currentQuestion!] = question
+                    
+                    saveQuestions()
+                    
+                    
+                    
+                    
                     saveUser()
 
                     answerTextBox.backgroundColor = correctColor
@@ -264,6 +312,15 @@ class ViewController: UIViewController {
                     var questionsIncorrect = user!["questionsIncorrect"] as? Int
                     questionsIncorrect!+=1
                     user!["questionsIncorrect"] = questionsIncorrect
+                    
+                    
+                    var numIncorrectAnswers = questions[currentQuestion!]["numIncorrectAnswers"] as? Int
+                    numIncorrectAnswers!+=1
+                    var question = questions[currentQuestion!] as! [String:AnyObject]
+                    question["numIncorrectAnswers"] = numIncorrectAnswers
+                    questions[currentQuestion!] = question
+                    
+                    saveQuestions()
                     
                     saveUser()
                 }
@@ -287,6 +344,26 @@ class ViewController: UIViewController {
         } else {
             
             // There was a problem, check error.description
+            }
+        }
+    }
+    
+    func saveQuestions(){
+        
+        let query = PFQuery(className:"ClassSession")
+        
+        query.whereKey("name", equalTo:"Math")
+        query.findObjectsInBackgroundWithBlock {
+            (objects: [PFObject]?, error: NSError?) -> Void in
+            
+            if error == nil {
+                
+                let classSession = objects![0]
+                
+                classSession.setValue(self.questions, forKey: "questions")
+                
+                
+                classSession.saveInBackground()
             }
         }
     }
