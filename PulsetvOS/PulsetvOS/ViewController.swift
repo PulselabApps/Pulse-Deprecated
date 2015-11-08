@@ -8,18 +8,25 @@
 
 import UIKit
 import Charts
+import Bolts
+import Parse
 
 class ViewController: UIViewController {
 
     @IBOutlet var questionView: UIView!
     @IBOutlet var statsView: UIView!
     
+//    @IBOutlet var questionText: UITextView!
+    @IBOutlet var questionText: UITextView!
+    
     var statsViewOriginalFrame = CGRectZero
     var swipeLeftCount = 0
+    let model = Model.sharedInstance
     
     override func viewDidLoad() {
+        model.mainVC = self
         super.viewDidLoad()
-        
+//        model.prepareQuestions()
         let swipeLeftGesture = UISwipeGestureRecognizer(target: self, action: Selector("statsLeftSwipe:"))
         swipeLeftGesture.direction = .Left
         self.view.addGestureRecognizer(swipeLeftGesture)
@@ -27,6 +34,10 @@ class ViewController: UIViewController {
         let swipeRightGesture = UISwipeGestureRecognizer(target: self, action: Selector("statsRightSwipe:"))
         swipeRightGesture.direction = .Right
         self.view.addGestureRecognizer(swipeRightGesture)
+        
+        let tapGesture = UITapGestureRecognizer(target: self, action: Selector("tapHandler:"))
+        tapGesture.allowedPressTypes = [NSNumber(integer: UIPressType.PlayPause.rawValue)]
+        self.view.addGestureRecognizer(tapGesture)
         
         statsView.hidden = true
         
@@ -58,13 +69,33 @@ class ViewController: UIViewController {
         // Do any additional setup after loading the view, typically from a nib.
         
         statsViewOriginalFrame = statsView.frame
+        
+//        let firstQuestion = model.getFirstUnansweredQuestion()
+//        
+//        if let question = firstQuestion {
+//            questionText.text = question.text
+//            questionText.sizeToFit()
+//        }
+        
     }
 
+    func changeQuestion() {
+        if let question = model.getFirstUnansweredQuestion() {
+            questionText.text = question.text
+        }
+
+    }
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
 
+    func tapHandler(recognizer : UITapGestureRecognizer) {
+        model.completeCurrentQuestion()
+        changeQuestion()
+    }
+    
     func statsLeftSwipe(recognizer : UISwipeGestureRecognizer) {
         if(statsView.hidden && swipeLeftCount == 0) {
             print("SwipeLeft")

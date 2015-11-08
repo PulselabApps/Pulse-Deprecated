@@ -18,15 +18,42 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
         // Override point for customization after application launch.
-//        Parse.enableLocalDatastore()
-        
+        Parse.enableLocalDatastore()
         // Initialize Parse.
         Parse.setApplicationId("AR6NF8FvJQFx0zurn9snBroZi2S68SCRBIRMudo7",
             clientKey: "bM55tcvcIPaclkqWIwkhcLg2x15IWUHr6MapZudk")
         
         // [Optional] Track statistics around application opens.
         PFAnalytics.trackAppOpenedWithLaunchOptions(launchOptions)
-
+        PFUser.registerSubclass()
+        
+//        PFUser.logInWithUsernameInBackground("aakash", password:"isAPussy") {
+//            (user: PFUser?, error: NSError?) -> Void in
+//            if user != nil {
+//                // Do stuff after successful login.
+//                let query = PFQuery(className:"ClassSession")
+//                query.whereKey("name", equalTo:"Math")
+//                query.findObjectsInBackgroundWithBlock {
+//                    (objects: [PFObject]?, error: NSError?) -> Void in
+//                    if error == nil {
+//                        print("error nil")
+//                        let questionQuery = PFQuery(className: "Question")
+//                        questionQuery.whereKey("classSession", equalTo: objects![0])
+//                        questionQuery.findObjectsInBackgroundWithBlock({ (questions, error) -> Void in
+//                            if error == nil {
+//                                Model.sharedInstance.initializeQuestions(questions!)
+////                                if let question = self.model.getFirstUnansweredQuestion() {
+////                                    self.questionText.text = question.text
+////                                }
+//                            }
+//                        })
+//                    }
+//                }
+//            } else {
+//                // The login failed. Check error to see why.
+//                print("Login failed")
+//            }
+//        }
         return true
     }
 
