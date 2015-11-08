@@ -18,6 +18,10 @@ struct AnswerTypes {
 
 class ViewController: UIViewController {
     
+    
+    @IBOutlet weak var answerTextBox: UITextField!
+    
+    
     @IBOutlet weak var topLeftMultipleChoice: UIView!
     @IBOutlet weak var topRightMultipleChoice: UIView!
     @IBOutlet weak var bottomLeftMultipleChoice: UIView!
@@ -108,10 +112,15 @@ class ViewController: UIViewController {
             showMultipleChoiceOptions()
             break
         case "FillInTheBlank":
+            showFillInTheBlank()
             break
             
         default: break
         }
+    }
+    
+    func showFillInTheBlank(){
+        answerTextBox.hidden = false
     }
     
     func showMultipleChoiceOptions(){
@@ -143,6 +152,8 @@ class ViewController: UIViewController {
         let image = UIImage(named: "Checked Filled-100.png")
         sender.setImage(image, forState: .Normal)
     }
+    
+    
     
     // MARK: NEED A FUNCTION THAT IS ALWAYS CHECKING TO SEE IF THE QUESTION HAS CHANGED
     func checkForQuestionChange(){
