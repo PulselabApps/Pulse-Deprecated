@@ -20,13 +20,13 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="username" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="P0b-YP-L5V">
-                                <rect key="frame" x="258" y="199" width="85" height="30"/>
+                                <rect key="frame" x="258" y="292" width="85" height="30"/>
                                 <animations/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pxa-B6-KWa">
-                                <rect key="frame" x="283" y="399" width="34" height="30"/>
+                                <rect key="frame" x="283" y="492" width="34" height="30"/>
                                 <animations/>
                                 <state key="normal" title="login"/>
                                 <connections>
@@ -34,22 +34,34 @@
                                 </connections>
                             </button>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="RD3-cT-HNR">
-                                <rect key="frame" x="259" y="292" width="83" height="30"/>
+                                <rect key="frame" x="259" y="385" width="83" height="30"/>
                                 <animations/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="logo.png" translatesAutoresizingMaskIntoConstraints="NO" id="bYH-gD-wuU">
+                                <rect key="frame" x="128" y="44" width="344" height="148"/>
+                                <animations/>
+                            </imageView>
                         </subviews>
                         <animations/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="P0b-YP-L5V" firstAttribute="top" secondItem="K1H-aq-t56" secondAttribute="bottom" constant="179" id="0rx-86-9zw"/>
                             <constraint firstItem="RD3-cT-HNR" firstAttribute="top" secondItem="P0b-YP-L5V" secondAttribute="bottom" constant="63" id="8ER-HC-VNo"/>
+                            <constraint firstItem="P0b-YP-L5V" firstAttribute="top" secondItem="bYH-gD-wuU" secondAttribute="bottom" constant="100" id="CsZ-uJ-PAW"/>
+                            <constraint firstItem="bYH-gD-wuU" firstAttribute="top" secondItem="K1H-aq-t56" secondAttribute="bottom" constant="24" id="Hhf-os-vDC"/>
+                            <constraint firstItem="bYH-gD-wuU" firstAttribute="centerX" secondItem="NvD-NJ-WqM" secondAttribute="centerX" id="NfZ-rf-01A"/>
                             <constraint firstItem="RD3-cT-HNR" firstAttribute="centerX" secondItem="NvD-NJ-WqM" secondAttribute="centerX" id="f5b-cU-USH"/>
                             <constraint firstItem="P0b-YP-L5V" firstAttribute="centerX" secondItem="NvD-NJ-WqM" secondAttribute="centerX" id="iCk-Qn-Ygz"/>
                             <constraint firstItem="pxa-B6-KWa" firstAttribute="top" secondItem="RD3-cT-HNR" secondAttribute="bottom" constant="77" id="lcL-hh-3Fa"/>
                             <constraint firstItem="pxa-B6-KWa" firstAttribute="centerX" secondItem="NvD-NJ-WqM" secondAttribute="centerX" id="mei-6h-qoR"/>
                         </constraints>
+                        <variation key="default">
+                            <mask key="constraints">
+                                <exclude reference="0rx-86-9zw"/>
+                            </mask>
+                        </variation>
                     </view>
                     <connections>
                         <outlet property="passwordTextBox" destination="RD3-cT-HNR" id="qn0-P4-grc"/>
@@ -199,5 +211,6 @@
     </scenes>
     <resources>
         <image name="Checked-100.png" width="100" height="100"/>
+        <image name="logo.png" width="344" height="148"/>
     </resources>
 </document>
