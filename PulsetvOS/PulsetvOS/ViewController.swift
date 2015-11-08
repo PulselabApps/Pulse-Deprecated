@@ -19,12 +19,20 @@ class ViewController: UIViewController {
 //    @IBOutlet var questionText: UITextView!
     @IBOutlet var questionText: UITextView!
     
-//    @IBOutlet var answerText: UITextView!
+    @IBOutlet var rankOneName: UILabel!
+    @IBOutlet var rankOneScore: UILabel!
+    @IBOutlet var rankTwoName: UILabel!
+    @IBOutlet var rankTwoScore: UILabel!
+    @IBOutlet var rankThreeName: UILabel!
+    @IBOutlet var ranktThreeScore: UILabel!
+
+    @IBOutlet var greenRankView: UIView!
     
     @IBOutlet var answerText: UILabel!
     var statsViewOriginalFrame = CGRectZero
     var swipeLeftCount = 0
     let model = Model.sharedInstance
+    let correctColor = UIColor(red: 91.0 / 255, green: 201.0 / 255, blue: 139.0 / 255, alpha: 1.0)
     
     override func viewDidLoad() {
         model.mainVC = self
@@ -79,7 +87,8 @@ class ViewController: UIViewController {
         
         answerText.clipsToBounds = true
         answerText.layer.cornerRadius = 60.0
-        
+        answerText.backgroundColor = correctColor
+        greenRankView.backgroundColor = correctColor
     }
 
     func changeQuestion() {
@@ -139,8 +148,27 @@ class ViewController: UIViewController {
             answerText.text = question.answers[0]
 //            answerText.font = answerText.font!.fontWithSize(questionText.font!.pointSize)
             answerText.sizeToFit()
+            model.getTopStudentsFromCloud()
 //            resizeTextView(answerText, newRect: nil)
         }
+    }
+    
+    func showRank() {
+        let rankings = model.getTopStudents()
+        rankOneName.text = rankings[0].name
+        rankOneScore.text = String(rankings[0].score)
+        rankOneScore.sizeToFit()
+        rankOneName.sizeToFit()
+        
+        rankTwoName.text = rankings[1].name
+        rankTwoScore.text = String(rankings[1].score)
+        rankTwoScore.sizeToFit()
+        rankTwoName.sizeToFit()
+        
+        rankThreeName.text = rankings[2].name
+        ranktThreeScore.text = String(rankings[2].score)
+        ranktThreeScore.sizeToFit()
+        rankThreeName.sizeToFit()
     }
     
     func statsLeftSwipe(recognizer : UISwipeGestureRecognizer) {

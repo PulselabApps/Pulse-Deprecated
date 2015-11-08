@@ -20,6 +20,11 @@ class Model {
         case FillInTheBlank
     }
     
+    struct UserRankEntry {
+        let name : String
+        let score : Int
+    }
+    
     struct QuestionEntry {
         let question : Question
         var completed = false
@@ -41,6 +46,7 @@ class Model {
     
     private let className = "Math"
     private var questions = [QuestionEntry]()
+    private var userRankings = [UserRankEntry]()
     private let bodyRequest = ""
     private var currentQuestionEntry : Int?
     private let headers = [
@@ -48,7 +54,7 @@ class Model {
         "X-Parse-REST-API-Key": "ajmBURZkjuoxSKavw1xZnKpGFMypVP5j3JNVFks8",
         "Content-Type": "application/json"
     ]
-    
+
     var mainVC : ViewController?
     
     private init() {
@@ -74,7 +80,11 @@ class Model {
 
                         }
                         print("Finished Initalizing Questions")
-                        self.currentQuestionEntry = 0
+                        if let currentQuestion = resultJson.valueForKey("currentQuestion"){
+                            self.currentQuestionEntry = currentQuestion[0] as! Int
+                        } else {
+                            self.currentQuestionEntry = 0
+                        }
                         if let mainVCU = self.mainVC {
                             mainVCU.changeQuestion()
                         }
@@ -131,16 +141,48 @@ class Model {
         
         Alamofire.request(.POST, "https://api.parse.com/1/functions/changeCurrentQuestion", headers: headers)
             .responseJSON { response in
-                print(response.result.value!)
-                                debugPrint(response)
+                print("change question")
+//                print(response.result.value!)
+//                                debugPrint(response)
         }
     }
     
     func endSubmissionInCloud() {
         Alamofire.request(.POST, "https://api.parse.com/1/functions/endSubmissions", headers: headers)
             .responseJSON { response in
-                print(response.result.value!)
-                debugPrint(response)
+                print("end submission")
+//                print(response.result.value!)
+//                debugPrint(response)
         }
+    }
+    
+    func getTopStudentsFromCloud() {
+        userRankings.removeAll()
+        Alamofire.request(.POST, "https://api.parse.com/1/functions/topStudents", headers: headers)
+            .responseJSON { response in
+                //                print(response.result.value!)
+                if let resultJson = response.result.value?.valueForKey("result") {
+                    if let results = resultJson as? [AnyObject] {
+                        print("SCORES")
+                        for result in results {
+                            print(result.valueForKey("score") as! Int)
+                            let name = result.valueForKey("username") as! String
+                            let score = result.valueForKey("score") as! Int
+                            self.userRankings.append(UserRankEntry(name: name, score: score))
+                        }
+                        
+                        if !self.userRankings.isEmpty {
+                            if let mainVCU = self.mainVC {
+                                mainVCU.showRank()
+                            }
+                        }
+                    }
+                }
+                //                debugPrint(response)
+        }
+    }
+    
+    func getTopStudents() -> [UserRankEntry] {
+        return userRankings
     }
 }
