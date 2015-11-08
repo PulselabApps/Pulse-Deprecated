@@ -9,6 +9,7 @@
 import UIKit
 import Charts
 import Parse
+import Foundation
 
 struct AnswerTypes {
     static let MultipleChoice = "MultipleChoice"
@@ -52,6 +53,9 @@ class ViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        _ = NSTimer.scheduledTimerWithTimeInterval(2.0, target: self, selector: Selector("checkForQuestionChange"), userInfo: nil, repeats: true)
+        
         
         
         let pieChart = PieChartView()
@@ -107,6 +111,9 @@ class ViewController: UIViewController {
     
     
     func initQuestionAnswers(){
+        
+        hideAllAnswers()
+        
         switch questions[currentQuestion!]["questionType"] as! String{
         case "MultipleChoice":
             showMultipleChoiceOptions()
@@ -117,6 +124,16 @@ class ViewController: UIViewController {
             
         default: break
         }
+    }
+    
+    func hideAllAnswers(){
+        answerTextBox.hidden = true
+        
+        
+        topLeftMultipleChoice.hidden = true
+        topRightMultipleChoice.hidden = true
+        bottomLeftMultipleChoice.hidden = true
+        bottomRightMultipleChoice.hidden = true
     }
     
     func showFillInTheBlank(){
@@ -157,9 +174,31 @@ class ViewController: UIViewController {
     
     // MARK: NEED A FUNCTION THAT IS ALWAYS CHECKING TO SEE IF THE QUESTION HAS CHANGED
     func checkForQuestionChange(){
-        if true/*replace true with whether or not the question has changed*/{
-            //if studentsAnswer
+        let query = PFQuery(className:"ClassSession")
+        
+        query.whereKey("name", equalTo:"Math")
+        query.findObjectsInBackgroundWithBlock {
+            (objects: [PFObject]?, error: NSError?) -> Void in
+            
+            if error == nil {
+                let classSession = objects![0]
+                
+                if classSession.valueForKey("currentQuestion") as? Int != self.currentQuestion{
+                    self.currentQuestion = classSession.valueForKey("currentQuestion") as? Int
+                    self.loadNewQuestion()
+                }
+                
+            }
         }
+        
+        
+        
+        
+        print("hello")
+    }
+    
+    func loadNewQuestion(){
+        initQuestionAnswers()
     }
     
     func initialLoad(pieChart: PieChartView) {
