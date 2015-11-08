@@ -174,10 +174,10 @@
 		F111DD651BEE7DCC00E10C7F /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
-				4AE1687C1BEEEBB100150474 /* logo.png */,
-				F163BF391BEECA220051D505 /* ViewController Assets */,
 				12D31D2E1BEE791100B03E7C /* AppDelegate.swift */,
 				12D31D371BEE791100B03E7C /* LaunchScreen.storyboard */,
+				F1BE1FAF1BEF00960021C06A /* LogInViewController Assets */,
+				F163BF391BEECA220051D505 /* ViewController Assets */,
 				12D31D351BEE791100B03E7C /* Assets.xcassets */,
 				12D31D3A1BEE791100B03E7C /* Info.plist */,
 			);
@@ -191,6 +191,14 @@
 				F163BF401BEECA7F0051D505 /* Checked-100.png */,
 			);
 			name = "ViewController Assets";
+			sourceTree = "<group>";
+		};
+		F1BE1FAF1BEF00960021C06A /* LogInViewController Assets */ = {
+			isa = PBXGroup;
+			children = (
+				4AE1687C1BEEEBB100150474 /* logo.png */,
+			);
+			name = "LogInViewController Assets";
 			sourceTree = "<group>";
 		};
 		F6DC594ED2DE0AB18693EB54 /* Frameworks */ = {
