@@ -32,7 +32,7 @@ class ViewController: UIViewController {
     @IBOutlet weak var bottomLeftMultipleChoiceButton: UIButton!
     @IBOutlet weak var topRightMultipleChoiceButton: UIButton!
     @IBOutlet weak var bottomRightMultipleChoiceButton: UIButton!
-
+    
     
     @IBOutlet weak var progressPieChart: UIView!
     @IBOutlet weak var rank: UILabel!
@@ -56,21 +56,17 @@ class ViewController: UIViewController {
         
         _ = NSTimer.scheduledTimerWithTimeInterval(2.0, target: self, selector: Selector("checkForQuestionChange"), userInfo: nil, repeats: true)
         
-        
-        
         let pieChart = PieChartView()
         submitButton.enabled = false
         rank.text = "0"
         points.text = "0"
-        // drawPieChart(correct, incorrect: incorrect, pieChart: pieChart)
         initialLoad(pieChart)
         initScene()
     }
     
-    
     func makeMultipleChoicesRound(){
         
-         let multipleChoices = [topLeftMultipleChoice,topRightMultipleChoice,bottomLeftMultipleChoice,bottomRightMultipleChoice]
+        let multipleChoices = [topLeftMultipleChoice,topRightMultipleChoice,bottomLeftMultipleChoice,bottomRightMultipleChoice]
         
         for view in multipleChoices{
             view.layer.cornerRadius = 10.0
@@ -79,14 +75,13 @@ class ViewController: UIViewController {
             view.clipsToBounds = true
         }
     }
-
+    
     
     func initScene(){
         rank.text = "1"
         points.text = "0"
         
         makeMultipleChoicesRound()
-
         
         let query = PFQuery(className:"ClassSession")
         
@@ -97,7 +92,7 @@ class ViewController: UIViewController {
             if error == nil {
                 
                 let classSession = objects![0]
-
+                
                 self.questions = classSession.valueForKey("questions") as! NSArray
                 self.currentQuestion = classSession.valueForKey("currentQuestion") as? Int
                 
@@ -105,7 +100,6 @@ class ViewController: UIViewController {
                 
             }
         }
-        
     }
     
     
@@ -114,7 +108,7 @@ class ViewController: UIViewController {
         
         hideAllAnswers()
         
-        switch questions[currentQuestion!]["questionType"] as! String{
+        switch questions[currentQuestion!]["questionType"] as! String {
         case "MultipleChoice":
             showMultipleChoiceOptions()
             break
@@ -123,6 +117,7 @@ class ViewController: UIViewController {
             break
             
         default: break
+        
         }
     }
     
@@ -148,21 +143,19 @@ class ViewController: UIViewController {
         
         let buttons = [topLeftMultipleChoiceButton, bottomLeftMultipleChoiceButton,topRightMultipleChoiceButton,bottomRightMultipleChoiceButton]
         
-        //Randomize correct answer
         var answers = questions[currentQuestion!]["answers"]!! as! [String]
         let newIndex = Int(arc4random_uniform(UInt32(4)))
         let tmp = answers[0]
         answers[0] = answers[newIndex]
         answers[newIndex] = tmp
         
-        for var i = 0; i < 4; i++
-        {
+        for var i = 0; i < 4; i++ {
             let answer = answers[i]
             buttons[i].setTitle(answer, forState: .Normal)
         }
     }
     
-
+    
     
     
     @IBAction func submitButtonPressed(sender: UIButton) {
@@ -176,7 +169,7 @@ class ViewController: UIViewController {
     func checkForQuestionChange(){
         let query = PFQuery(className:"ClassSession")
         
-        query.whereKey("name", equalTo:"Math")
+        query.whereKey("name", equalTo: "Math")
         query.findObjectsInBackgroundWithBlock {
             (objects: [PFObject]?, error: NSError?) -> Void in
             
@@ -186,19 +179,52 @@ class ViewController: UIViewController {
                 if classSession.valueForKey("currentQuestion") as? Int != self.currentQuestion{
                     self.currentQuestion = classSession.valueForKey("currentQuestion") as? Int
                     self.loadNewQuestion()
+                    
+                    rank.text = String(self.getRank())
+                    
                 }
                 
             }
         }
-        
-        
-        
-        
         print("hello")
     }
     
     func loadNewQuestion(){
         initQuestionAnswers()
+    }
+    
+    func getRank() -> Int {
+        var rank = 1
+        var scores = [Int]()
+        let query = PFQuery(className: "Class")
+        query.whereKey("name", equalTo: "Math")
+        query.findObjectsInBackgroundWithBlock {
+            (objects: [PFObject]?, error: NSError?) -> Void in
+            if error == nil {
+                let currentClass = objects![0]
+                let relationalQuery = currentClass.relationForKey("students").query()
+                relationalQuery?.whereKeyExists("score")
+                relationalQuery?.findObjectsInBackgroundWithBlock({ (object: [PFObject]?, errors: NSError?) -> Void in
+                    if errors == nil {
+                        for obj in object!{
+                            let student = obj
+                            let score = student.valueForKey("score") as? Int
+                            print (score)
+                            scores.append(score!)
+                        }
+                        scores.sortInPlace()
+                        for score in scores {
+                            if score == self.user!["score"] as? Int {
+                                break
+                            }
+                            rank++
+                        }
+                    }
+                })
+            }
+            
+        }
+        return rank
     }
     
     func initialLoad(pieChart: PieChartView) {
@@ -273,10 +299,10 @@ class ViewController: UIViewController {
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         switch segue.identifier! {
-            case "FullQuestionSegue":
-                let fullQuestionVC = segue.destinationViewController as! FullQuestionViewController
-                fullQuestionVC.fullQuestion = questions[currentQuestion!]["questionText"]!! as? String
-
+        case "FullQuestionSegue":
+            let fullQuestionVC = segue.destinationViewController as! FullQuestionViewController
+            fullQuestionVC.fullQuestion = questions[currentQuestion!]["questionText"]!! as? String
+            
         default:
             break
         }
