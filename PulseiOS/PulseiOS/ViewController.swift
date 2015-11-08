@@ -375,12 +375,12 @@ class ViewController: UIViewController {
                         for obj in object!{
                             let student = obj
                             let score = student.valueForKey("score") as? Int
-                            print (score)
+                            // print (score)
                             scores.append(score!)
                         }
                         scores.sortInPlace({ $0 > $1 })
                         for score in scores {
-                            print (score)
+                            // print (score)
                             if score == self.user!["score"] as? Int {
                                 break
                             }
