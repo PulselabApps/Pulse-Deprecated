@@ -180,7 +180,7 @@ class ViewController: UIViewController {
                     self.currentQuestion = classSession.valueForKey("currentQuestion") as? Int
                     self.loadNewQuestion()
                     
-                    rank.text = String(self.getRank())
+                    self.rank.text = String(self.getRank())
                     
                 }
                 
