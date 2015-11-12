@@ -1,0 +1,4 @@
+language: objective-c
+osx_image: xcode7.1
+
+script: cd PulseiOS && pod install && xctool -workspace PulseiOS.xcworkspace -scheme PulseiOS clean build CODE_SIGN_IDENTITY="" CODE_SIGNING_REQUIRED=NO && cd ../PulsetvOS && xctool -workspace PulsetvOS.xcworkspace -scheme PulsetvOS clean build CODE_SIGN_IDENTITY="" CODE_SIGNING_REQUIRED=NO

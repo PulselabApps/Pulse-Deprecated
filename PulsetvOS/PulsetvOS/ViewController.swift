@@ -36,7 +36,7 @@ class ViewController: UIViewController {
     let incorrectColor = UIColor(red: 201.0 / 255, green: 91.0 / 255, blue: 104.0 / 255, alpha: 1.0)
     let regularColor = UIColor(red: 205.0 / 255, green: 205.0 / 255, blue: 205.0 / 255, alpha: 1.0)
     
-    let pieChart = PieChartView()
+    var pieChart = PieChartView()
     let barChart = BarChartView()
     
     override func viewDidLoad() {
@@ -156,7 +156,9 @@ class ViewController: UIViewController {
         let scores = model.getQuestionScoresForCurrentQuestion()
         
         let chartFrame = CGRect(x: 175.0, y: 0.0, width: statsView.frame.width / 2, height: statsView.frame.height / 2)
-        
+//        pieChart.removeFromSuperview()
+//        pieChart.delete(pieChart)
+        pieChart = PieChartView()
         
         var chartDataSetEntries = [ChartDataEntry]()
         chartDataSetEntries.append(ChartDataEntry(value: Double(scores.correct), xIndex: 0))
