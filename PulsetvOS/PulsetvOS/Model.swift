@@ -15,7 +15,13 @@ class Model {
     
     static let sharedInstance = Model()
     
-    enum QuestionType {
+    private var userIsLoggedIn : Bool = false {
+        didSet {
+            initializeAfterLogin()
+        }
+    }
+    
+    enum QuestionType : Int {
         case MultipleChoice
         case FillInTheBlank
     }
@@ -30,7 +36,7 @@ class Model {
         var completed = false
     }
     
-    class Question {
+    class QuestionOld {
         let text : String
         let timeLimit : Int
         let questionType : QuestionType
@@ -99,34 +105,57 @@ class Model {
 //        }
     }
     
-    func initiateQuestions(questions: [PFObject], currentQuestion: Int?) {
-        for question in questions {
-            let text = question["questionText"] as! String
-            let timeLimitOpt = question["questionTime"] as? Int
-            let questionType = question["questionType"] as! String
-            let answers = question["answers"] as! [String]
-            let timeLimit = timeLimitOpt == nil ? -1 : timeLimitOpt!
-            let type : QuestionType = questionType == "MultipleChoice" ? QuestionType.MultipleChoice : QuestionType.FillInTheBlank
-            self.questions.append(QuestionEntry(question: Question(text: text, timeLimit: timeLimit, type: type, answers: answers), completed: false))
-        }
-        
-
-        self.initQuestionAnswers()
-        if let mainVCU = self.mainVC {
-            mainVCU.changeQuestion()
-        }
+    func initializeAfterLogin() {
+        let sessionQuery = ClassSession_Beta.query()!
+        sessionQuery.getObjectInBackgroundWithId("udilE5VomO", block: { (object, error) -> Void in
+            if error == nil {
+                if let session = object as? ClassSession_Beta {
+                    self.currentQuestionEntry = session.currentQuestion
+                    let classQuery = session.classIn.query()
+                    let questionQuery = session.questions.query()
+                    classQuery.getFirstObjectInBackgroundWithBlock({ (currentClass, error) -> Void in
+                        if error == nil {
+                            if let cClass = currentClass as? PulseClass {
+                                print(cClass.name)
+                            }
+                        }
+                    })
+                    questionQuery.findObjectsInBackgroundWithBlock({ (objects, error) -> Void in
+                        if error == nil {
+                            if let questions = objects as? [Question] {
+                                for question in questions {
+                                    print(question.text)
+                                    self.questions.append(QuestionEntry(question: question, completed: false))
+                                    for (key, value) in question.answerBreakdown {
+                                        print("Key \(key) and Value \(value)")
+                                    }
+                                }
+                                if let mainVCU = self.mainVC {
+                                    mainVCU.changeQuestion()
+                                }
+                                
+                            }
+                        }
+                    })
+                }
+            }
+        })
+    }
+    
+    func setLoggedIn(isLoggedIn : Bool) {
+        userIsLoggedIn = isLoggedIn
     }
     
     func getFirstUnansweredQuestion() -> Question? {
         
         if let _ = currentQuestionEntry {
             
-            if currentQuestionEntry! >= 2 {
-                for (index, _) in questions.enumerate() {
-                    questions[index].completed = false
-                }
-                currentQuestionEntry = 0
-            }
+//            if currentQuestionEntry! >= 2 {
+//                for (index, _) in questions.enumerate() {
+//                    questions[index].completed = false
+//                }
+//                currentQuestionEntry = 0
+//            }
             
             if !(questions[currentQuestionEntry!].completed) {
                 return questions[currentQuestionEntry!].question
@@ -264,6 +293,10 @@ class Model {
     }
     
     func getAnswerChoiceResults() -> ([String : Int], QuestionType) {
-        return (currentAnswerDistribution, questions[currentQuestionEntry!].question.questionType)
+        let currentQuestion = questions[currentQuestionEntry!].question
+        let currentType = currentQuestion.questionType
+        let answerDistribution = currentQuestion.answerBreakdown
+        return (answerDistribution, QuestionType(rawValue: currentType)!)
+//        return (currentAnswerDistribution, questions[currentQuestionEntry!].question.questionType)
     }
 }

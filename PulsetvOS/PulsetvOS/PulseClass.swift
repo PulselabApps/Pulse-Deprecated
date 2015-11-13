@@ -24,6 +24,6 @@ class PulseClass: PFObject, PFSubclassing {
     }
     
     @NSManaged var name : String
-    @NSManaged var students : [PFUser]
-    @NSManaged var teacher : [PFUser]
+    @NSManaged var students : PFRelation
+    @NSManaged var teacher : PFRelation
 }

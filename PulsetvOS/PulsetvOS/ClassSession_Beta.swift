@@ -23,8 +23,8 @@ class ClassSession_Beta: PFObject, PFSubclassing {
         return "ClassSession_Beta"
     }
     
-    @NSManaged var classIn : PulseClass
-    @NSManaged var questions : [Question]
+    @NSManaged var classIn : PFRelation
+    @NSManaged var questions : PFRelation
     @NSManaged var answerDisplayed : Bool
     @NSManaged var currentQuestion : Int
 }
