@@ -44,7 +44,7 @@
 #pragma mark - Objects
 ///--------------------------------------
 
-- (BFTask *)loadPersistentObjectAsyncForKey:(NSString *)key {
+- (BFTask PF_GENERIC(PFObject *)*)loadPersistentObjectAsyncForKey:(NSString *)key {
     return [[self _getPersistenceGroupAsync] continueWithSuccessBlock:^id(BFTask PF_GENERIC(id<PFPersistenceGroup>)*task) {
         id<PFPersistenceGroup> group = task.result;
         __block PFObject *object = nil;
@@ -58,7 +58,10 @@
             return nil;
         }] continueWithBlock:^id(BFTask *task) {
             return [group endLockedContentAccessAsyncToDataForKey:key];
-        }] continueWithSuccessResult:object];
+        }] continueWithSuccessBlock:^id(BFTask *task) {
+            // Finalize everything with object pointer.
+            return object;
+        }];
     }];
 }
 
@@ -69,6 +72,17 @@
             NSData *data = [PFObjectFileCoder dataFromObject:object usingEncoder:[PFPointerObjectEncoder objectEncoder]];
             return [group setDataAsync:data forKey:key];
         }] continueWithBlock:^id(BFTask *task) {
+            return [group endLockedContentAccessAsyncToDataForKey:key];
+        }];
+    }];
+}
+
+- (BFTask *)removePersistentObjectAsyncForKey:(NSString *)key {
+    return [[self _getPersistenceGroupAsync] continueWithSuccessBlock:^id(BFTask PF_GENERIC(id<PFPersistenceGroup>)*task) {
+        id<PFPersistenceGroup> group = task.result;
+        return [[[group beginLockedContentAccessAsyncToDataForKey:key] continueWithSuccessBlock:^id(BFTask *_) {
+            return [group removeDataAsyncForKey:key];
+        }] continueWithBlock:^id(BFTask *_) {
             return [group endLockedContentAccessAsyncToDataForKey:key];
         }];
     }];

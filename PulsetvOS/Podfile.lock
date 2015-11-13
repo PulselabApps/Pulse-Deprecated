@@ -21,7 +21,7 @@ EXTERNAL SOURCES:
 
 CHECKOUT OPTIONS:
   Parse:
-    :commit: 011e982f16ba6eee6d3cf9092f9c0b812afb83d5
+    :commit: f54e75da5465f625f2e2087969765e120fa8c7dc
     :git: git@github.com:ParsePlatform/Parse-SDK-iOS-OSX.git
 
 SPEC CHECKSUMS:

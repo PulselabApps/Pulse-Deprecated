@@ -67,49 +67,54 @@ class Model {
     var mainVC : ViewController?
     
     private init() {
-        //        PFUser.login
-        
-        
-        Alamofire.request(.POST, "https://api.parse.com/1/functions/questions", headers: headers)
-            .responseJSON { response in
-                print(response.result.value!)
-                if let resultJson = response.result.value?.valueForKey("result") {
-                    if let questionsRaw = resultJson.valueForKey("questions") {
-                        let questionsArray = questionsRaw[0] as! [AnyObject]
-                        for question in questionsArray {
-//                            print(question.valueForKey("questionText"))
-                            let text = question.valueForKey("questionText") as! String
-                            let timeLimitOpt = question.valueForKey("questionTime") as? Int
-                            let questionType = question.valueForKey("questionType") as! String
-                            let answers = question.valueForKey("answers") as! [String]
-                            
-                            let timeLimit = timeLimitOpt == nil ? -1 : timeLimitOpt!
-                            let type : QuestionType = questionType == "MultipleChoice" ? QuestionType.MultipleChoice : QuestionType.FillInTheBlank
-                            self.questions.append(QuestionEntry(question: Question(text: text, timeLimit: timeLimit, type: type, answers: answers), completed: false))
-
-                        }
-                        print("Finished Initalizing Questions")
-                        if let currentQuestion = resultJson.valueForKey("currentQuestion"){
-                            self.currentQuestionEntry = currentQuestion[0] as? Int
-                        } else {
-                            self.currentQuestionEntry = 0
-                        }
-                        self.initQuestionAnswers()
-                        if let mainVCU = self.mainVC {
-                            mainVCU.changeQuestion()
-                        }
-                    }
-                }
-//                debugPrint(response)
+        //        Alamofire.request(.POST, "https://api.parse.com/1/functions/questions", headers: headers)
+//            .responseJSON { response in
+//                print(response.result.value!)
+//                if let resultJson = response.result.value?.valueForKey("result") {
+//                    if let questionsRaw = resultJson.valueForKey("questions") {
+//                        let questionsArray = questionsRaw[0] as! [AnyObject]
+//                        for question in questionsArray {
+//                            let text = question.valueForKey("questionText") as! String
+//                            let timeLimitOpt = question.valueForKey("questionTime") as? Int
+//                            let questionType = question.valueForKey("questionType") as! String
+//                            let answers = question.valueForKey("answers") as! [String]
+//                            
+//                            let timeLimit = timeLimitOpt == nil ? -1 : timeLimitOpt!
+//                            let type : QuestionType = questionType == "MultipleChoice" ? QuestionType.MultipleChoice : QuestionType.FillInTheBlank
+//                            self.questions.append(QuestionEntry(question: Question(text: text, timeLimit: timeLimit, type: type, answers: answers), completed: false))
+//
+//                        }
+//                        print("Finished Initalizing Questions")
+//                        if let currentQuestion = resultJson.valueForKey("currentQuestion"){
+//                            self.currentQuestionEntry = currentQuestion[0] as? Int
+//                        } else {
+//                            self.currentQuestionEntry = 0
+//                        }
+//                        self.initQuestionAnswers()
+//                        if let mainVCU = self.mainVC {
+//                            mainVCU.changeQuestion()
+//                        }
+//                    }
+//                }
+//        }
+    }
+    
+    func initiateQuestions(questions: [PFObject], currentQuestion: Int?) {
+        for question in questions {
+            let text = question["questionText"] as! String
+            let timeLimitOpt = question["questionTime"] as? Int
+            let questionType = question["questionType"] as! String
+            let answers = question["answers"] as! [String]
+            let timeLimit = timeLimitOpt == nil ? -1 : timeLimitOpt!
+            let type : QuestionType = questionType == "MultipleChoice" ? QuestionType.MultipleChoice : QuestionType.FillInTheBlank
+            self.questions.append(QuestionEntry(question: Question(text: text, timeLimit: timeLimit, type: type, answers: answers), completed: false))
         }
-//        curl -X POST \
-//        -H "X-Parse-Application-Id: AR6NF8FvJQFx0zurn9snBroZi2S68SCRBIRMudo7" \
-//        -H "X-Parse-REST-API-Key: ajmBURZkjuoxSKavw1xZnKpGFMypVP5j3JNVFks8" \
-//        -H "Content-Type: application/json" \
-//        -d '{}' \
-//        https://api.parse.com/1/functions/questions
         
-        // Get latest Session
+
+        self.initQuestionAnswers()
+        if let mainVCU = self.mainVC {
+            mainVCU.changeQuestion()
+        }
     }
     
     func getFirstUnansweredQuestion() -> Question? {
@@ -138,13 +143,6 @@ class Model {
             }
         }
         return nil
-//        if result.count > 0 {
-//            currentQuestionEntry = questions.indexOf()
-//            return result[0].question
-//        } else {
-//            return nil
-//        }
-//        return (result.count > 0 ? result[0].question : nil)
     }
     
     func getCurrentQuestion() -> Question? {
@@ -170,8 +168,6 @@ class Model {
             .responseJSON { response in
                 print("change question")
                 self.initQuestionAnswers()
-//                print(response.result.value!)
-//                                debugPrint(response)
         }
     }
     
@@ -179,8 +175,6 @@ class Model {
         Alamofire.request(.POST, "https://api.parse.com/1/functions/endSubmissions", headers: headers)
             .responseJSON { response in
                 print("end submission")
-//                print(response.result.value!)
-//                debugPrint(response)
         }
     }
     
@@ -207,7 +201,6 @@ class Model {
                     }
                 }
                 self.getQuestionScoresFromCloud()
-                //                debugPrint(response)
         }
     }
     
@@ -250,8 +243,6 @@ class Model {
         Alamofire.request(.POST, "https://api.parse.com/1/functions/initQuestion", headers: headers)
             .responseJSON { response in
                 print("end init question")
-                //                print(response.result.value!)
-                //                debugPrint(response)
         }
     }
     
@@ -269,8 +260,6 @@ class Model {
                         mainVCU.showBarGraph()
                     }
                 }
-                //                print(response.result.value!)
-                //                debugPrint(response)
         }
     }
     

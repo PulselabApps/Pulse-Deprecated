@@ -18,7 +18,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
         // Override point for customization after application launch.
-        Parse.enableLocalDatastore()
+//        Parse.enableLocalDatastore()
         // Initialize Parse.
         Parse.setApplicationId("AR6NF8FvJQFx0zurn9snBroZi2S68SCRBIRMudo7",
             clientKey: "bM55tcvcIPaclkqWIwkhcLg2x15IWUHr6MapZudk")
@@ -27,33 +27,63 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         PFAnalytics.trackAppOpenedWithLaunchOptions(launchOptions)
         PFUser.registerSubclass()
         
-//        PFUser.logInWithUsernameInBackground("aakash", password:"isAPussy") {
-//            (user: PFUser?, error: NSError?) -> Void in
-//            if user != nil {
-//                // Do stuff after successful login.
-//                let query = PFQuery(className:"ClassSession")
-//                query.whereKey("name", equalTo:"Math")
-//                query.findObjectsInBackgroundWithBlock {
-//                    (objects: [PFObject]?, error: NSError?) -> Void in
-//                    if error == nil {
-//                        print("error nil")
-//                        let questionQuery = PFQuery(className: "Question")
-//                        questionQuery.whereKey("classSession", equalTo: objects![0])
-//                        questionQuery.findObjectsInBackgroundWithBlock({ (questions, error) -> Void in
-//                            if error == nil {
-//                                Model.sharedInstance.initializeQuestions(questions!)
-////                                if let question = self.model.getFirstUnansweredQuestion() {
-////                                    self.questionText.text = question.text
-////                                }
-//                            }
-//                        })
-//                    }
+//        PFUser.logInWithUsernameInBackground("aakash", password: "isAPussy") { (user, error) -> Void in
+//            let classSession = PFObject(className: "ClassSession_Beta")
+//            let classQuery = PFQuery(className: "Class")
+//            classQuery.getObjectInBackgroundWithId("jn7RQ7N39o", block: { (currentClass, error) -> Void in
+//                if error == nil {
+//                    let questionQuery = PFQuery(className: "Question")
+//                    questionQuery.getObjectInBackgroundWithId("lL0MbYlKlM", block: { (question, error) -> Void in
+//                        if error == nil {
+//                            let questionRelation = classSession.relationForKey("questions")
+//                            let classRelation = classSession.relationForKey("class")
+//                            questionRelation.addObject(question!)
+//                            classRelation.addObject(currentClass!)
+//                            classSession.setValue(false, forKey: "answerDisplayed")
+//                            classSession.setValue(0, forKey: "currentQuestion")
+//                            classSession.saveInBackgroundWithBlock({ (completed, error) -> Void in
+//                                if completed && error == nil {
+//                                    print("Saved Session")
+//                                } else {
+//                                    print("fuck")
+//                                }
+//                            })
+//                        }
+//                    })
 //                }
-//            } else {
-//                // The login failed. Check error to see why.
-//                print("Login failed")
-//            }
+//            })
 //        }
+        
+        PFUser.logInWithUsernameInBackground("aakash", password:"isAPussy") {
+            (user: PFUser?, error: NSError?) -> Void in
+            if user != nil {
+                // Do stuff after successful login.
+                let query = PFQuery(className:"ClassSession")
+                query.whereKey("name", equalTo:"Math")
+                query.findObjectsInBackgroundWithBlock {
+                    (objects: [PFObject]?, error: NSError?) -> Void in
+                    if error == nil {
+                        print("error nil")
+                        let questionQuery = PFQuery(className: "Question")
+                        questionQuery.whereKey("classSession", equalTo: objects![0])
+                        questionQuery.findObjectsInBackgroundWithBlock({ (questions, error) -> Void in
+                            if error == nil {
+                                var currentQuestion : Int?
+                                if let current = objects![0]["currentQuestion"] as? Int {
+                                    currentQuestion = current
+                                }
+                                Model.sharedInstance.initiateQuestions(questions!, currentQuestion: currentQuestion)
+                            }
+                        })
+                    }
+                }
+            } else {
+                // The login failed. Check error to see why.
+                print("Login failed")
+            }
+        }
+        
+
         return true
     }
 

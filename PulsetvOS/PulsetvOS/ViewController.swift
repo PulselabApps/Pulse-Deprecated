@@ -40,6 +40,7 @@ class ViewController: UIViewController {
     let barChart = BarChartView()
     
     override func viewDidLoad() {
+        
         model.mainVC = self
         super.viewDidLoad()
 //        model.prepareQuestions()
