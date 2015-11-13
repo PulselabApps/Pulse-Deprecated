@@ -69,6 +69,8 @@ class Model {
         "X-Parse-REST-API-Key": "ajmBURZkjuoxSKavw1xZnKpGFMypVP5j3JNVFks8",
         "Content-Type": "application/json"
     ]
+    
+    private var currentSession : ClassSession_Beta?
 
     var mainVC : ViewController?
     
@@ -111,6 +113,7 @@ class Model {
             if error == nil {
                 if let session = object as? ClassSession_Beta {
                     self.currentQuestionEntry = session.currentQuestion
+                    self.currentSession = session
                     let classQuery = session.classIn.query()
                     let questionQuery = session.questions.query()
                     classQuery.getFirstObjectInBackgroundWithBlock({ (currentClass, error) -> Void in
@@ -191,19 +194,30 @@ class Model {
         }
     }
     
-    func incrementCurrentQuestionInCloud() {
-        
-        Alamofire.request(.POST, "https://api.parse.com/1/functions/changeCurrentQuestion", headers: headers)
-            .responseJSON { response in
-                print("change question")
-                self.initQuestionAnswers()
+    func incrementCurrentQuestion() {
+        if let session = currentSession {
+            session.currentQuestion++
+            session.saveInBackgroundWithBlock({ (completed, error) -> Void in
+                if error == nil {
+                    print("Saved session")
+                }
+            })
         }
+//        Alamofire.request(.POST, "https://api.parse.com/1/functions/changeCurrentQuestion", headers: headers)
+//            .responseJSON { response in
+//                print("change question")
+//                self.initQuestionAnswers()
+//        }
     }
     
-    func endSubmissionInCloud() {
-        Alamofire.request(.POST, "https://api.parse.com/1/functions/endSubmissions", headers: headers)
-            .responseJSON { response in
-                print("end submission")
+    func endSubmission() {
+        if let session = currentSession {
+            session.answerDisplayed = true
+            session.saveInBackgroundWithBlock({ (completed, error) -> Void in
+                if error == nil && completed {
+                    print("Saved session")
+                }
+            })
         }
     }
     
@@ -229,7 +243,10 @@ class Model {
                         }
                     }
                 }
-                self.getQuestionScoresFromCloud()
+                if let mainVCU = self.mainVC {
+                    mainVCU.showChartForCurrentQuestion()
+                    mainVCU.showBarGraph()
+                }
         }
     }
     
@@ -237,59 +254,15 @@ class Model {
         return userRankings
     }
     
-    func getQuestionScoresFromCloud() {
-        Alamofire.request(.POST, "https://api.parse.com/1/functions/getScoresQuestion", headers: headers)
-            .responseJSON { response in
-                print("end score")
-                //                print(response.result.value!)
-                if let resultJson = response.result.value?.valueForKey("result") {
-                    if let results = resultJson as? [AnyObject] {
-                        for object in results {
-                            let id = object.valueForKey("id") as! Int
-                            let correct = object.valueForKey("correct") as! Int
-                            let incorrect = object.valueForKey("incorrect") as! Int
-                            self.questionScores.append(QuestionScores(correct: correct, id: id, incorrect: incorrect))
-                        }
-
-                    }
-                    
-                    if !self.questionScores.isEmpty {
-                        if let mainVCU = self.mainVC {
-                            mainVCU.showChartForCurrentQuestion()
-                        }
-                    }
-                    self.getAnswerChoiceResultsFromCloud()
-                }
-                                debugPrint(response)
+    func getQuestionScores() -> QuestionScores? {
+        if let _ = currentQuestionEntry {
+            let currentQuestion = getCurrentQuestion()
+            if let question = currentQuestion {
+                let scores = QuestionScores(correct: question.numCorrectAnswers, id: currentQuestionEntry!, incorrect: question.numIncorrectAnswers)
+                return scores
+            }
         }
-    }
-    
-    func getQuestionScoresForCurrentQuestion() -> QuestionScores {
-        return questionScores[currentQuestionEntry!]
-    }
-    
-    func initQuestionAnswers() {
-        Alamofire.request(.POST, "https://api.parse.com/1/functions/initQuestion", headers: headers)
-            .responseJSON { response in
-                print("end init question")
-        }
-    }
-    
-    func getAnswerChoiceResultsFromCloud() {
-        Alamofire.request(.POST, "https://api.parse.com/1/functions/answersForCurrentQuestion", headers: headers)
-            .responseJSON { response in
-                print("end init question")
-                if let resultJson = response.result.value?.valueForKey("result") {
-                    if let result = resultJson as? [String : Int] {
-                        self.currentAnswerDistribution = result
-                    }
-                }
-                if !self.currentAnswerDistribution.isEmpty {
-                    if let mainVCU = self.mainVC {
-                        mainVCU.showBarGraph()
-                    }
-                }
-        }
+        return nil
     }
     
     func getAnswerChoiceResults() -> ([String : Int], QuestionType) {

@@ -118,13 +118,13 @@ class ViewController: UIViewController {
     
     func tapHandler(recognizer : UITapGestureRecognizer) {
         model.completeCurrentQuestion()
-        model.incrementCurrentQuestionInCloud()
+        model.incrementCurrentQuestion()
         changeQuestion()
     }
     
     func answerTapHandler(recognizer : UITapGestureRecognizer) {
         if let question = model.getCurrentQuestion() {
-            model.endSubmissionInCloud()
+            model.endSubmission()
             answerText.hidden = false
             answerText.text = question.answers[0]
 //            answerText.font = answerText.font!.fontWithSize(questionText.font!.pointSize)
@@ -154,7 +154,8 @@ class ViewController: UIViewController {
     
     func showChartForCurrentQuestion() {
         
-        let scores = model.getQuestionScoresForCurrentQuestion()
+        let scoresOpt = model.getQuestionScores()
+        let scores = scoresOpt!
         
         let chartFrame = CGRect(x: 175.0, y: 0.0, width: statsView.frame.width / 2, height: statsView.frame.height / 2)
 //        pieChart.removeFromSuperview()
