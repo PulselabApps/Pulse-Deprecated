@@ -20,13 +20,16 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Override point for customization after application launch.
 //        Parse.enableLocalDatastore()
         // Initialize Parse.
+        
         Parse.setApplicationId("AR6NF8FvJQFx0zurn9snBroZi2S68SCRBIRMudo7",
             clientKey: "bM55tcvcIPaclkqWIwkhcLg2x15IWUHr6MapZudk")
         
         // [Optional] Track statistics around application opens.
         PFAnalytics.trackAppOpenedWithLaunchOptions(launchOptions)
         PFUser.registerSubclass()
-        
+        Question.registerSubclass()
+//        PulseClass.registerSubclass()
+//        ClassSession_Beta.registerSubclass()
 //        PFUser.logInWithUsernameInBackground("aakash", password: "isAPussy") { (user, error) -> Void in
 //            let classSession = PFObject(className: "ClassSession_Beta")
 //            let classQuery = PFQuery(className: "Class")
@@ -36,7 +39,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 //                    questionQuery.getObjectInBackgroundWithId("lL0MbYlKlM", block: { (question, error) -> Void in
 //                        if error == nil {
 //                            let questionRelation = classSession.relationForKey("questions")
-//                            let classRelation = classSession.relationForKey("class")
+//                            let classRelation = classSession.relationForKey("classIn")
 //                            questionRelation.addObject(question!)
 //                            classRelation.addObject(currentClass!)
 //                            classSession.setValue(false, forKey: "answerDisplayed")
@@ -53,30 +56,55 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 //                }
 //            })
 //        }
-        
+
         PFUser.logInWithUsernameInBackground("aakash", password:"isAPussy") {
             (user: PFUser?, error: NSError?) -> Void in
             if user != nil {
                 // Do stuff after successful login.
-                let query = PFQuery(className:"ClassSession")
-                query.whereKey("name", equalTo:"Math")
-                query.findObjectsInBackgroundWithBlock {
-                    (objects: [PFObject]?, error: NSError?) -> Void in
+                let sessionQuery = PFQuery(className: "ClassSession_Beta")
+                sessionQuery.getObjectInBackgroundWithId("udilE5VomO", block: { (object, error) -> Void in
                     if error == nil {
-                        print("error nil")
-                        let questionQuery = PFQuery(className: "Question")
-                        questionQuery.whereKey("classSession", equalTo: objects![0])
-                        questionQuery.findObjectsInBackgroundWithBlock({ (questions, error) -> Void in
+                        let classIn = object!.relationForKey("classIn")
+                        classIn.query().getFirstObjectInBackgroundWithBlock({ (tempClass, error) -> Void in
                             if error == nil {
-                                var currentQuestion : Int?
-                                if let current = objects![0]["currentQuestion"] as? Int {
-                                    currentQuestion = current
-                                }
-                                Model.sharedInstance.initiateQuestions(questions!, currentQuestion: currentQuestion)
+                                let name = tempClass!.objectForKey("name") as! String
+                                print(name)
                             }
                         })
+                        let questionsRelation = object!.relationForKey("questions")
+                        questionsRelation.query().findObjectsInBackgroundWithBlock({ (objects, error) -> Void in
+                            if error == nil {
+                                for object in objects! {
+                                    if let question = object as? Question {
+                                        let text = question.text
+                                        print(text)
+                                    }
+                                }
+                            }
+                        })
+//                        let classIn = object!.objectForKey("classIn") as! PFObject
+//                        let className = classIn.objectForKey("name") as! String
+//                        let questions = object!.objectForKey("questions") as! [PFObject]
+//                        for question in questions {
+//                            let text = question.objectForKey("text") as! String
+//                            print(text)
+//                        }
+//                        if let session = object as? ClassSession_Beta {
+//                            print(session.classIn.objectForKey("name") as! String)
+//                            for question in session.questions {
+//                                print(question.text)
+//                            }
+//                        }
                     }
-                }
+                })
+//                let questionQuery = Question.query()!
+//                questionQuery.getObjectInBackgroundWithId("lL0MbYlKlM", block: { (object, error) -> Void in
+//                    if error == nil {
+//                        if let question = object as? Question {
+//                            print(question.text)
+//                        }
+//                    }
+//                })
             } else {
                 // The login failed. Check error to see why.
                 print("Login failed")

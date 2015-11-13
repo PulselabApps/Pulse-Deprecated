@@ -14,6 +14,9 @@
 		12D31D701BEE792200B03E7C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 12D31D6F1BEE792200B03E7C /* Assets.xcassets */; };
 		12D31D7B1BEE792200B03E7C /* PulsetvOSTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12D31D7A1BEE792200B03E7C /* PulsetvOSTests.swift */; };
 		12D31D861BEE792200B03E7C /* PulsetvOSUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12D31D851BEE792200B03E7C /* PulsetvOSUITests.swift */; };
+		12D5F5231BF575A900CF7454 /* Question.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12D5F5221BF575A900CF7454 /* Question.swift */; };
+		12D5F5251BF59B3000CF7454 /* ClassSession_Beta.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12D5F5241BF59B3000CF7454 /* ClassSession_Beta.swift */; };
+		12D5F5271BF59B8500CF7454 /* PulseClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12D5F5261BF59B8500CF7454 /* PulseClass.swift */; };
 		1C8E2030F014E21B07EA74AA /* Pods_PulsetvOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B7A1133B144BA89464DD1CC8 /* Pods_PulsetvOS.framework */; };
 /* End PBXBuildFile section */
 
@@ -49,6 +52,9 @@
 		12D31D811BEE792200B03E7C /* PulsetvOSUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PulsetvOSUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		12D31D851BEE792200B03E7C /* PulsetvOSUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PulsetvOSUITests.swift; sourceTree = "<group>"; };
 		12D31D871BEE792200B03E7C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		12D5F5221BF575A900CF7454 /* Question.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Question.swift; sourceTree = "<group>"; };
+		12D5F5241BF59B3000CF7454 /* ClassSession_Beta.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ClassSession_Beta.swift; sourceTree = "<group>"; };
+		12D5F5261BF59B8500CF7454 /* PulseClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PulseClass.swift; sourceTree = "<group>"; };
 		5E6D43062EF75820D5DE0BAE /* Pods-PulsetvOS.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PulsetvOS.release.xcconfig"; path = "Pods/Target Support Files/Pods-PulsetvOS/Pods-PulsetvOS.release.xcconfig"; sourceTree = "<group>"; };
 		B7A1133B144BA89464DD1CC8 /* Pods_PulsetvOS.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_PulsetvOS.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -128,6 +134,7 @@
 		12D31D671BEE792200B03E7C /* PulsetvOS */ = {
 			isa = PBXGroup;
 			children = (
+				12D5F5211BF5759200CF7454 /* ParseObjects */,
 				12D31D681BEE792200B03E7C /* AppDelegate.swift */,
 				12312FF61BEED6DD004DDAD6 /* Models */,
 				12C570B31BEE8BB10057B35F /* Controllers */,
@@ -154,6 +161,16 @@
 				12D31D871BEE792200B03E7C /* Info.plist */,
 			);
 			path = PulsetvOSUITests;
+			sourceTree = "<group>";
+		};
+		12D5F5211BF5759200CF7454 /* ParseObjects */ = {
+			isa = PBXGroup;
+			children = (
+				12D5F5221BF575A900CF7454 /* Question.swift */,
+				12D5F5241BF59B3000CF7454 /* ClassSession_Beta.swift */,
+				12D5F5261BF59B8500CF7454 /* PulseClass.swift */,
+			);
+			name = ParseObjects;
 			sourceTree = "<group>";
 		};
 		F1A75F3F344C8690F6A592A4 /* Pods */ = {
@@ -354,7 +371,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				12D5F5251BF59B3000CF7454 /* ClassSession_Beta.swift in Sources */,
 				12312FF81BEED6F3004DDAD6 /* Model.swift in Sources */,
+				12D5F5271BF59B8500CF7454 /* PulseClass.swift in Sources */,
+				12D5F5231BF575A900CF7454 /* Question.swift in Sources */,
 				12D31D6B1BEE792200B03E7C /* ViewController.swift in Sources */,
 				12D31D691BEE792200B03E7C /* AppDelegate.swift in Sources */,
 			);
