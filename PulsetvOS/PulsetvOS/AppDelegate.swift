@@ -60,6 +60,26 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             (user: PFUser?, error: NSError?) -> Void in
             if user != nil {
                 // Do stuff after successful login.
+                
+                let newTeacher = PFUser()
+                newTeacher.username = "English Teacher"
+                newTeacher.password = "aakashIsAPussy"
+                newTeacher.email = "englishTeacher@english.blah"
+                newTeacher.signUpInBackgroundWithBlock({ (success, error) -> Void in
+                    if error == nil && success {
+                        
+                    }
+                })
+                
+                let studentRoleQuery = PFRole.query()!
+                studentRoleQuery.whereKey("name", equalTo: "Student")
+                studentRoleQuery.findObjectsInBackgroundWithBlock({ (students, error) -> Void in
+                    if error == nil {
+                        let teacherRoleQuery = PFRole.query()!
+                        teacherRoleQuery.whereKey("name", equalTo: "Teacher")
+                    }
+                })
+                
                 Model.sharedInstance.setLoggedIn(true)
             } else {
                 // The login failed. Check error to see why.

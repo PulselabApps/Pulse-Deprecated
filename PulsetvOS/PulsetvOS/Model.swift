@@ -152,14 +152,6 @@ class Model {
     func getFirstUnansweredQuestion() -> Question? {
         
         if let _ = currentQuestionEntry {
-            
-//            if currentQuestionEntry! >= 2 {
-//                for (index, _) in questions.enumerate() {
-//                    questions[index].completed = false
-//                }
-//                currentQuestionEntry = 0
-//            }
-            
             if !(questions[currentQuestionEntry!].completed) {
                 return questions[currentQuestionEntry!].question
             }
@@ -203,11 +195,6 @@ class Model {
                 }
             })
         }
-//        Alamofire.request(.POST, "https://api.parse.com/1/functions/changeCurrentQuestion", headers: headers)
-//            .responseJSON { response in
-//                print("change question")
-//                self.initQuestionAnswers()
-//        }
     }
     
     func endSubmission() {
@@ -270,6 +257,5 @@ class Model {
         let currentType = currentQuestion.questionType
         let answerDistribution = currentQuestion.answerBreakdown
         return (answerDistribution, QuestionType(rawValue: currentType)!)
-//        return (currentAnswerDistribution, questions[currentQuestionEntry!].question.questionType)
     }
 }
