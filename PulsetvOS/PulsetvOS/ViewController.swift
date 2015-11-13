@@ -119,7 +119,7 @@ class ViewController: UIViewController {
     func tapHandler(recognizer : UITapGestureRecognizer) {
         model.completeCurrentQuestion()
         model.incrementCurrentQuestion()
-        changeQuestion()
+//        changeQuestion()
     }
     
     func answerTapHandler(recognizer : UITapGestureRecognizer) {

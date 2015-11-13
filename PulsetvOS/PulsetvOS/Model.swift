@@ -123,6 +123,7 @@ class Model {
                             }
                         }
                     })
+                    questionQuery.orderByAscending("createdAt")
                     questionQuery.findObjectsInBackgroundWithBlock({ (objects, error) -> Void in
                         if error == nil {
                             if let questions = objects as? [Question] {
@@ -192,6 +193,9 @@ class Model {
             session.saveInBackgroundWithBlock({ (completed, error) -> Void in
                 if error == nil {
                     print("Saved session")
+                    if let mainVCU = self.mainVC {
+                        mainVCU.changeQuestion()
+                    }
                 }
             })
         }
