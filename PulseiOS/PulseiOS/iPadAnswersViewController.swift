@@ -17,7 +17,7 @@ struct AnswerTypes {
     static let Matching = "Matching"
 }
 
-class ViewController: UIViewController {
+class iPadAnswersViewController : UIViewController {
     
     @IBOutlet weak var answerTextBox: UITextField!
     

@@ -9,7 +9,6 @@
 /* Begin PBXBuildFile section */
 		123263FCF708BE297E0E9BF6 /* Pods.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 73EB2D436C16F410A28C953A /* Pods.framework */; };
 		12D31D2F1BEE791100B03E7C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12D31D2E1BEE791100B03E7C /* AppDelegate.swift */; };
-		12D31D311BEE791100B03E7C /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12D31D301BEE791100B03E7C /* ViewController.swift */; };
 		12D31D341BEE791100B03E7C /* iPadPulseApp.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 12D31D321BEE791100B03E7C /* iPadPulseApp.storyboard */; };
 		12D31D361BEE791100B03E7C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 12D31D351BEE791100B03E7C /* Assets.xcassets */; };
 		12D31D391BEE791100B03E7C /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 12D31D371BEE791100B03E7C /* LaunchScreen.storyboard */; };
@@ -19,6 +18,8 @@
 		4AC149C11BEF203A00EF52FA /* FullQuestionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AC149C01BEF203A00EF52FA /* FullQuestionViewController.swift */; };
 		4AE1687B1BEEE44D00150474 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AE1687A1BEEE44D00150474 /* LoginViewController.swift */; };
 		4AE1687D1BEEEBB100150474 /* logo.png in Resources */ = {isa = PBXBuildFile; fileRef = 4AE1687C1BEEEBB100150474 /* logo.png */; };
+		F158C8E41BF7F139001E6A89 /* iPadAnswersViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F158C8E31BF7F139001E6A89 /* iPadAnswersViewController.swift */; };
+		F158C8E61BF7F6AA001E6A89 /* iPhonePulseApp.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F158C8E51BF7F6AA001E6A89 /* iPhonePulseApp.storyboard */; };
 		F163BF3F1BEECA7A0051D505 /* Checked Filled-100.png in Resources */ = {isa = PBXBuildFile; fileRef = F163BF3E1BEECA7A0051D505 /* Checked Filled-100.png */; };
 		F163BF411BEECA7F0051D505 /* Checked-100.png in Resources */ = {isa = PBXBuildFile; fileRef = F163BF401BEECA7F0051D505 /* Checked-100.png */; };
 		F1888FBC1BF6F1C000A3B75D /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1888FBB1BF6F1C000A3B75D /* Constants.swift */; };
@@ -45,7 +46,6 @@
 		0624EF03815CFD2E09DC9387 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
 		12D31D2B1BEE791100B03E7C /* PulseiOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PulseiOS.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		12D31D2E1BEE791100B03E7C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		12D31D301BEE791100B03E7C /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		12D31D331BEE791100B03E7C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/iPadPulseApp.storyboard; sourceTree = "<group>"; };
 		12D31D351BEE791100B03E7C /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		12D31D381BEE791100B03E7C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -62,6 +62,8 @@
 		4AE1687C1BEEEBB100150474 /* logo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = logo.png; sourceTree = "<group>"; };
 		73EB2D436C16F410A28C953A /* Pods.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		D0C81FEA2B8EA818DBD76446 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
+		F158C8E31BF7F139001E6A89 /* iPadAnswersViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = iPadAnswersViewController.swift; sourceTree = "<group>"; };
+		F158C8E51BF7F6AA001E6A89 /* iPhonePulseApp.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = iPhonePulseApp.storyboard; sourceTree = "<group>"; };
 		F163BF3E1BEECA7A0051D505 /* Checked Filled-100.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Checked Filled-100.png"; sourceTree = "<group>"; };
 		F163BF401BEECA7F0051D505 /* Checked-100.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Checked-100.png"; sourceTree = "<group>"; };
 		F1888FBB1BF6F1C000A3B75D /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
@@ -166,6 +168,7 @@
 			isa = PBXGroup;
 			children = (
 				12D31D321BEE791100B03E7C /* iPadPulseApp.storyboard */,
+				F158C8E51BF7F6AA001E6A89 /* iPhonePulseApp.storyboard */,
 			);
 			name = View;
 			sourceTree = "<group>";
@@ -173,9 +176,7 @@
 		F111DD641BEE7DC500E10C7F /* Controller */ = {
 			isa = PBXGroup;
 			children = (
-				12D31D301BEE791100B03E7C /* ViewController.swift */,
-				4AE1687A1BEEE44D00150474 /* LoginViewController.swift */,
-				4AC149C01BEF203A00EF52FA /* FullQuestionViewController.swift */,
+				F158C8E21BF7F017001E6A89 /* iPad */,
 			);
 			name = Controller;
 			sourceTree = "<group>";
@@ -189,6 +190,16 @@
 				12D31D3A1BEE791100B03E7C /* Info.plist */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		F158C8E21BF7F017001E6A89 /* iPad */ = {
+			isa = PBXGroup;
+			children = (
+				F158C8E31BF7F139001E6A89 /* iPadAnswersViewController.swift */,
+				4AE1687A1BEEE44D00150474 /* LoginViewController.swift */,
+				4AC149C01BEF203A00EF52FA /* FullQuestionViewController.swift */,
+			);
+			name = iPad;
 			sourceTree = "<group>";
 		};
 		F163BF391BEECA220051D505 /* ViewController Assets */ = {
@@ -344,6 +355,7 @@
 				12D31D391BEE791100B03E7C /* LaunchScreen.storyboard in Resources */,
 				4AE1687D1BEEEBB100150474 /* logo.png in Resources */,
 				12D31D361BEE791100B03E7C /* Assets.xcassets in Resources */,
+				F158C8E61BF7F6AA001E6A89 /* iPhonePulseApp.storyboard in Resources */,
 				F163BF3F1BEECA7A0051D505 /* Checked Filled-100.png in Resources */,
 				12D31D341BEE791100B03E7C /* iPadPulseApp.storyboard in Resources */,
 			);
@@ -420,8 +432,8 @@
 			files = (
 				F1888FBC1BF6F1C000A3B75D /* Constants.swift in Sources */,
 				4AE1687B1BEEE44D00150474 /* LoginViewController.swift in Sources */,
-				12D31D311BEE791100B03E7C /* ViewController.swift in Sources */,
 				4AC149C11BEF203A00EF52FA /* FullQuestionViewController.swift in Sources */,
+				F158C8E41BF7F139001E6A89 /* iPadAnswersViewController.swift in Sources */,
 				12D31D2F1BEE791100B03E7C /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

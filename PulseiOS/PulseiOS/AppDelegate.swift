@@ -26,6 +26,15 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         // [Optional] Track statistics around application opens.
         PFAnalytics.trackAppOpenedWithLaunchOptions(launchOptions)
+        
+        /* iPad OR iPhone App ?? **************/
+        let storyboardname = (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiom.Pad) ? StoryBoards.iPadStoryBoardName : ( (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiom.Phone) ? StoryBoards.iPhoneStoryBoardName : "" )
+        window = UIWindow(frame: UIScreen.mainScreen().bounds)
+        let sb = UIStoryboard(name: storyboardname, bundle: nil)
+        self.window?.rootViewController = sb.instantiateInitialViewController()
+        window!.makeKeyAndVisible()
+        /**************************************/
+        
         return true
     }
 

@@ -15,3 +15,8 @@ struct ColorConstants {
     static let GrayNormalButtonColor = UIColor(red: 205.0 / 255, green: 205.0 / 255, blue: 205.0 / 255, alpha: 1.0)
     static let OrangeAppColor = UIColor(red: 255.0 / 255, green: 194.0 / 255, blue: 113.0 / 255, alpha: 1.0)
 }
+
+struct StoryBoards {
+    static let iPadStoryBoardName = "iPadPulseApp"
+    static let iPhoneStoryBoardName = "iPhonePulseApp"
+}

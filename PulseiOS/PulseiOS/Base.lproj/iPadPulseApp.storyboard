@@ -73,10 +73,10 @@
             </objects>
             <point key="canvasLocation" x="305" y="-357"/>
         </scene>
-        <!--View Controller-->
+        <!--iPad Answers View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController storyboardIdentifier="StudentViewController" id="BYZ-38-t0r" customClass="ViewController" customModule="PulseiOS" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="StudentViewController" id="BYZ-38-t0r" customClass="iPadAnswersViewController" customModule="PulseiOS" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
                         <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
@@ -319,7 +319,7 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="doA-wU-5XD" customClass="PieChartView" customModule="Charts">
-                                        <rect key="frame" x="240" y="4" width="120" height="120"/>
+                                        <rect key="frame" x="240" y="4" width="117" height="117"/>
                                         <animations/>
                                         <color key="backgroundColor" red="1" green="0.76078431372549016" blue="0.44313725490196076" alpha="1" colorSpace="calibratedRGB"/>
                                         <color key="tintColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
@@ -333,11 +333,11 @@
                                 <color key="tintColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="trailing" secondItem="8M3-Pz-geJ" secondAttribute="trailing" constant="8" id="7dT-pV-MPn"/>
-                                    <constraint firstItem="doA-wU-5XD" firstAttribute="width" secondItem="3FO-oO-je3" secondAttribute="height" multiplier="45:64" constant="30" id="Ef1-yP-UxG"/>
+                                    <constraint firstItem="doA-wU-5XD" firstAttribute="width" secondItem="3FO-oO-je3" secondAttribute="height" multiplier="45:64" constant="27" id="Ef1-yP-UxG"/>
                                     <constraint firstItem="WxJ-iO-qk0" firstAttribute="top" secondItem="3FO-oO-je3" secondAttribute="top" constant="20" id="HLC-Pd-nZ7"/>
                                     <constraint firstAttribute="bottom" secondItem="fpl-y6-xgg" secondAttribute="bottom" constant="16" id="KgT-yT-pJC"/>
-                                    <constraint firstItem="doA-wU-5XD" firstAttribute="centerY" secondItem="3FO-oO-je3" secondAttribute="centerY" id="O7F-Nk-7wL"/>
-                                    <constraint firstItem="doA-wU-5XD" firstAttribute="centerX" secondItem="3FO-oO-je3" secondAttribute="centerX" id="S54-NR-hzz"/>
+                                    <constraint firstItem="doA-wU-5XD" firstAttribute="centerY" secondItem="3FO-oO-je3" secondAttribute="centerY" constant="-1.5" id="O7F-Nk-7wL"/>
+                                    <constraint firstItem="doA-wU-5XD" firstAttribute="centerX" secondItem="3FO-oO-je3" secondAttribute="centerX" constant="-1.5" id="S54-NR-hzz"/>
                                     <constraint firstAttribute="trailing" secondItem="uJY-Y1-XOg" secondAttribute="trailing" constant="8" id="T2w-r3-MhY"/>
                                     <constraint firstItem="fpl-y6-xgg" firstAttribute="leading" secondItem="3FO-oO-je3" secondAttribute="leading" constant="8" id="Xax-eI-tKN"/>
                                     <constraint firstAttribute="width" secondItem="3FO-oO-je3" secondAttribute="height" multiplier="75:16" id="fMx-9h-LiI"/>

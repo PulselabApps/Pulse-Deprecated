@@ -32,7 +32,7 @@ class LoginViewController: UIViewController {
                 if user!["role"] as! String == "Student"{
                     print("YOUR A STUDENT")
                     
-                    if let studentVC = self.storyboard!.instantiateViewControllerWithIdentifier("StudentViewController") as? ViewController {
+                    if let studentVC = self.storyboard!.instantiateViewControllerWithIdentifier("StudentViewController") as? iPadAnswersViewController {
                         self.presentViewController(studentVC, animated: true, completion: nil)
                     }
                     
