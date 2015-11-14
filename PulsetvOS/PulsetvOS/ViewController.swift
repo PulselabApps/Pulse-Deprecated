@@ -16,7 +16,6 @@ class ViewController: UIViewController {
     @IBOutlet var questionView: UIView!
     @IBOutlet var statsView: UIView!
     
-//    @IBOutlet var questionText: UITextView!
     @IBOutlet var questionText: UITextView!
     
     @IBOutlet var rankOneName: UILabel!
@@ -43,7 +42,6 @@ class ViewController: UIViewController {
         
         model.mainVC = self
         super.viewDidLoad()
-//        model.prepareQuestions()
         let swipeLeftGesture = UISwipeGestureRecognizer(target: self, action: Selector("statsLeftSwipe:"))
         swipeLeftGesture.direction = .Left
         self.view.addGestureRecognizer(swipeLeftGesture)
@@ -53,7 +51,6 @@ class ViewController: UIViewController {
         self.view.addGestureRecognizer(swipeRightGesture)
         
         let tapGesture = UITapGestureRecognizer(target: self, action: Selector("tapHandler:"))
-//        tapGesture.allowedPressTypes = [NSNumber(integer: UIPressType.PlayPause.rawValue)]
         self.view.addGestureRecognizer(tapGesture)
         
         let answerTapGesture = UITapGestureRecognizer(target: self, action: Selector("answerTapHandler:"))
@@ -90,7 +87,7 @@ class ViewController: UIViewController {
         if let newFrame = newRect {
             textView.frame = newFrame
         }
-//        textView.frame = CGRect(x: self.questionText.frame.origin.x, y: self.questionText.frame.origin.y, width: self.view.frame.width - statsViewOriginalFrame.width, height: questionText.frame.height)
+
         if (textView.text.isEmpty || CGSizeEqualToSize(textView.bounds.size, CGSizeZero)) {
             return;
         }
@@ -119,7 +116,6 @@ class ViewController: UIViewController {
     func tapHandler(recognizer : UITapGestureRecognizer) {
         model.completeCurrentQuestion()
         model.incrementCurrentQuestion()
-//        changeQuestion()
     }
     
     func answerTapHandler(recognizer : UITapGestureRecognizer) {
@@ -127,10 +123,8 @@ class ViewController: UIViewController {
             model.endSubmission()
             answerText.hidden = false
             answerText.text = question.answers[0]
-//            answerText.font = answerText.font!.fontWithSize(questionText.font!.pointSize)
             answerText.sizeToFit()
             model.getTopStudentsFromCloud()
-//            resizeTextView(answerText, newRect: nil)
         }
     }
     
@@ -158,8 +152,6 @@ class ViewController: UIViewController {
         let scores = scoresOpt!
         
         let chartFrame = CGRect(x: 175.0, y: 0.0, width: statsView.frame.width / 2, height: statsView.frame.height / 2)
-//        pieChart.removeFromSuperview()
-//        pieChart.delete(pieChart)
         pieChart = PieChartView()
         
         var chartDataSetEntries = [ChartDataEntry]()
@@ -200,7 +192,6 @@ class ViewController: UIViewController {
                 i++
             }
             let dataSet = BarChartDataSet(yVals: barDataSetEntries)
-            //        let dataSet = BarChartDataSet(yVals: barDataSetEntries, label: "")
             dataSet.colors = ChartColorTemplates.liberty()
             
             let chartData = BarChartData(xVals: xVals, dataSets: [dataSet])
@@ -228,21 +219,12 @@ class ViewController: UIViewController {
             
             let questionTextTransitionRect = CGRect(x: self.questionText.frame.origin.x, y: self.questionText.frame.origin.y, width: self.view.frame.width - originalViewRect.width - 50, height: questionText.frame.height)
             
-//            let newXForAnswer = self.view.frame.width - (self.view.frame.width - originalViewRect.width - 50)
-            
-//            let answerLabelTransitionRect = CGRect(x: newXForAnswer, y: answerText.frame.origin.y, width: self.answerText.frame.width, height: self.answerText.frame.height)
-            
             print("Transition width: \(questionTextTransitionRect.width), original: \(questionText.frame.width)")
             UIView.animateWithDuration(1.1, animations: { () -> Void in
                 self.statsView.hidden = false
                 self.statsView.frame = originalViewRect
                 self.questionView.frame = questionTransitionRect
-//                self.questionText.bounds = questionTextTransitionRect
-//                self.questionText.frame = questionTextTransitionRect
-                
-//                self.questionText.
-                
-                }, completion: { (completed) -> Void in
+            }, completion: { (completed) -> Void in
                     UIView.animateWithDuration(1.1, animations: { () -> Void in
                         self.resizeTextView(self.questionText, newRect: questionTextTransitionRect)
                         let newXForAnswer = (self.questionText.frame.width / 2.0) + 20.0
@@ -258,8 +240,6 @@ class ViewController: UIViewController {
             UIView.animateWithDuration(1.1, animations: { () -> Void in
                 self.statsView.frame = transitionRect
                 }, completion: { (completed) -> Void in
-                    self.view.bringSubviewToFront(self.statsView)
-                    self.statsView.frame = transitionRect
                     self.questionView.frame = CGRect(x: 0, y: 0, width: self.view.frame.width, height: self.questionView.frame.height)
                     self.swipeLeftCount++
             })
@@ -295,11 +275,6 @@ class ViewController: UIViewController {
                         self.resizeTextView(self.questionText, newRect: questionTextTransitionRect)
                         let newXForAnswer = (self.questionText.frame.width / 2.0) + 20.0
                         self.answerText.frame = CGRect(x: newXForAnswer, y: self.answerText.frame.origin.y, width: self.answerText.frame.width, height: self.answerText.frame.height)
-//                        UIView.animateWithDuration(1.1, animations: { () -> Void in
-//                            self.resizeTextView(self.questionText, newRect: questionTextTransitionRect)
-//                            let newXForAnswer = (self.questionText.frame.width / 2.0) + 20.0
-//                            self.answerText.frame = CGRect(x: newXForAnswer, y: self.answerText.frame.origin.y, width: self.answerText.frame.width, height: self.answerText.frame.height)
-//                        });
                     }
                     self.swipeLeftCount--
                     self.statsView.frame = originalRect

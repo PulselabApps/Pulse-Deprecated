@@ -75,36 +75,7 @@ class Model {
     var mainVC : ViewController?
     
     private init() {
-        //        Alamofire.request(.POST, "https://api.parse.com/1/functions/questions", headers: headers)
-//            .responseJSON { response in
-//                print(response.result.value!)
-//                if let resultJson = response.result.value?.valueForKey("result") {
-//                    if let questionsRaw = resultJson.valueForKey("questions") {
-//                        let questionsArray = questionsRaw[0] as! [AnyObject]
-//                        for question in questionsArray {
-//                            let text = question.valueForKey("questionText") as! String
-//                            let timeLimitOpt = question.valueForKey("questionTime") as? Int
-//                            let questionType = question.valueForKey("questionType") as! String
-//                            let answers = question.valueForKey("answers") as! [String]
-//                            
-//                            let timeLimit = timeLimitOpt == nil ? -1 : timeLimitOpt!
-//                            let type : QuestionType = questionType == "MultipleChoice" ? QuestionType.MultipleChoice : QuestionType.FillInTheBlank
-//                            self.questions.append(QuestionEntry(question: Question(text: text, timeLimit: timeLimit, type: type, answers: answers), completed: false))
-//
-//                        }
-//                        print("Finished Initalizing Questions")
-//                        if let currentQuestion = resultJson.valueForKey("currentQuestion"){
-//                            self.currentQuestionEntry = currentQuestion[0] as? Int
-//                        } else {
-//                            self.currentQuestionEntry = 0
-//                        }
-//                        self.initQuestionAnswers()
-//                        if let mainVCU = self.mainVC {
-//                            mainVCU.changeQuestion()
-//                        }
-//                    }
-//                }
-//        }
+
     }
     
     func initializeAfterLogin() {
