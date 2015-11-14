@@ -13,6 +13,8 @@ import Foundation
 
 class DeviceViewController: UIViewController {
     
+    let user = User.sharedInstance.user
+    
     var questions = [AnyObject]()
     var currentQuestion : Int?
     var correctAnswer : String?
@@ -28,6 +30,12 @@ class DeviceViewController: UIViewController {
     @IBOutlet weak var bottomLeftMultipleChoiceButton: UIButton!
     @IBOutlet weak var topRightMultipleChoiceButton: UIButton!
     @IBOutlet weak var bottomRightMultipleChoiceButton: UIButton!
+    
+    @IBOutlet weak var submitButton: UIButton!
+    @IBOutlet weak var answerTextBox: UITextField!
+    
+    var previouslyClickedButton : UIButton?
+    var correctButton : UIButton?
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -84,7 +92,6 @@ class DeviceViewController: UIViewController {
             showFillInTheBlank()
             submitButton.enabled = true
             break
-            
         default: break
             
         }
@@ -127,6 +134,35 @@ class DeviceViewController: UIViewController {
             buttons[i].setTitle(answer, forState: .Normal)
         }
     }
-
+    
+    @IBAction func multipleChoiceAnswerClicked(sender: UIButton) {
+        if let button = previouslyClickedButton {
+            button.setTitleColor(UIColor.blackColor(), forState: .Normal)
+        }
+        sender.setTitleColor(ColorConstants.GreenCorrectColor, forState: .Normal)
+        previouslyClickedButton = sender
+        submitButton.enabled = true
+    }
+    
+    func getGrade(grade: Double) -> String {
+        var letterGrade = ""
+        if grade < 60.0 {
+            letterGrade = "F"
+        }
+        if (grade >= 60.0 && grade < 70.0) {
+            letterGrade = "D"
+        }
+        if (grade >= 70.0 && grade < 80.0) {
+            letterGrade =  "C"
+        }
+        if (grade >= 80.0 && grade < 90.0) {
+            letterGrade =  "B"
+        }
+        if grade >= 90.0 {
+            letterGrade = "A"
+        }
+        return letterGrade
+    }
+    
     
 }

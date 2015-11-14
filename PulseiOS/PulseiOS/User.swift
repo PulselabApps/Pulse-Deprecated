@@ -10,6 +10,11 @@ import Foundation
 import Parse
 
 class User {
+    static let sharedInstance = User()
+    
     let user = PFUser.currentUser()
     
+    init(){
+        
+    }
 }

@@ -13,15 +13,9 @@ import Foundation
 
 class iPadAnswersViewController : DeviceViewController {
     
-    @IBOutlet weak var answerTextBox: UITextField!
-    
-    var previouslyClickedButton : UIButton?
-    var correctButton : UIButton?
-    
     @IBOutlet weak var progressPieChart: PieChartView!
     @IBOutlet weak var rank: UILabel!
     @IBOutlet weak var points: UILabel!
-    @IBOutlet weak var submitButton: UIButton!
     @IBOutlet weak var answerView: UIView!
     
     var questionsCorrect = 0
@@ -239,17 +233,6 @@ class iPadAnswersViewController : DeviceViewController {
     }
     }*/
     
-    
-    
-    @IBAction func multipleChoiceAnswerClicked(sender: UIButton) {
-        if let button = previouslyClickedButton {
-            button.setTitleColor(UIColor.blackColor(), forState: .Normal)
-        }
-        sender.setTitleColor(ColorConstants.GreenCorrectColor, forState: .Normal)
-        previouslyClickedButton = sender
-        submitButton.enabled = true
-    }
-    
     // MARK: NEED A FUNCTION THAT IS ALWAYS CHECKING TO SEE IF THE QUESTION HAS CHANGED
     func checkForQuestionChange(){
         let query = PFQuery(className:"ClassSession")
@@ -359,26 +342,6 @@ class iPadAnswersViewController : DeviceViewController {
         progressPieChart.data = chartData
         
         progressPieChart.centerText =  !isInitialLoad ? getGrade(100 * (correct / (correct + incorrect))) : "A"
-    }
-    
-    func getGrade(grade: Double) -> String {
-        var letterGrade = ""
-        if grade < 60.0 {
-            letterGrade = "F"
-        }
-        if (grade >= 60.0 && grade < 70.0) {
-            letterGrade = "D"
-        }
-        if (grade >= 70.0 && grade < 80.0) {
-            letterGrade =  "C"
-        }
-        if (grade >= 80.0 && grade < 90.0) {
-            letterGrade =  "B"
-        }
-        if grade >= 90.0 {
-            letterGrade = "A"
-        }
-        return letterGrade
     }
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
