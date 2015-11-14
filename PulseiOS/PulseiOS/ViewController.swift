@@ -68,7 +68,7 @@ class ViewController: UIViewController {
         submitButton.enabled = false
         rank.text = "0"
         points.text = "0"
-        initialLoad(pieChart)
+        drawPieChart(1.0, incorrect: 0.0, pieChart: pieChart, isInitialLoad: true)
         initScene()
     }
     
@@ -322,7 +322,7 @@ class ViewController: UIViewController {
         self.points.text = String(self.user!["score"] as! Int)
         let correctAnswers = user!["questionsCorrect"] as! Double
         let incorrectAnswers = user!["questionsIncorrect"] as! Double
-        drawPieChart(correctAnswers, incorrect: incorrectAnswers, pieChart: pieChart)
+        drawPieChart(correctAnswers, incorrect: incorrectAnswers, pieChart: pieChart, isInitialLoad: false)
     }
     
     func saveUser(){
@@ -465,55 +465,32 @@ class ViewController: UIViewController {
         }
     }
     
-    func initialLoad(pieChart: PieChartView) {
+    func drawPieChart(correct: Double, incorrect: Double, pieChart: PieChartView, isInitialLoad: Bool) {
         var chartDataSetEntries = [ChartDataEntry]()
-        chartDataSetEntries.append(ChartDataEntry(value: 1, xIndex: 0))
-        let chartDataSet = PieChartDataSet(yVals: chartDataSetEntries, label: "")
-        chartDataSet.colors = ChartColorTemplates.liberty()
-        chartDataSet.colors = [ColorConstants.RedIncorrectColor]
         
-        let chartData = PieChartData(xVals: ["✔"], dataSet: chartDataSet)
-        pieChart.data = chartData
-        pieChart.setDescriptionTextPosition(x: 0, y: 0)
-        pieChart.sizeToFit()
-        pieChart.descriptionText = ""
-        pieChart.legend.enabled = false
-        pieChart.usePercentValuesEnabled = true
-        pieChart.centerTextRadiusPercent = 100.0
-        
-        pieChart.centerText = ""
-        pieChart.holeColor = ColorConstants.OrangeAppColor
-        pieChart.frame = CGRect(x: -40.0, y: -40.0, width: progressPieChart.frame.width * 2.0, height: progressPieChart.frame.height * 2.0)
-        progressPieChart.addSubview(pieChart)
-    }
-    
-    func drawPieChart(correct: Double, incorrect: Double, pieChart: PieChartView) {
-        progressPieChart.subviews.forEach({ $0.removeFromSuperview() })
-        var chartDataSetEntries = [ChartDataEntry]()
         chartDataSetEntries.append(ChartDataEntry(value: correct, xIndex: 0))
-        chartDataSetEntries.append(ChartDataEntry(value: incorrect, xIndex: 1))
+        if !isInitialLoad {
+            progressPieChart.subviews.forEach({ $0.removeFromSuperview() })
+            chartDataSetEntries.append(ChartDataEntry(value: incorrect, xIndex: 1))
+        }
         
         let chartDataSet = PieChartDataSet(yVals: chartDataSetEntries, label: "")
-        
-        chartDataSet.colors = ChartColorTemplates.liberty()
-        
-        pieChart.descriptionText = ""
-        pieChart.legend.enabled = false
-        
         chartDataSet.colors = [ColorConstants.GreenCorrectColor, ColorConstants.RedIncorrectColor]
         
         let chartData = PieChartData(xVals: ["✔", "✕"], dataSet: chartDataSet)
         pieChart.data = chartData
         pieChart.setDescriptionTextPosition(x: 0, y: 0)
         pieChart.sizeToFit()
-        // pieChart.setDrawSliceText(false)
         pieChart.usePercentValuesEnabled = true
         pieChart.centerTextRadiusPercent = 100.0
+        pieChart.descriptionText = ""
+        pieChart.legend.enabled = false
         
-        pieChart.centerText = getGrade(100 * (correct / (correct + incorrect)))
+        pieChart.centerText =  !isInitialLoad ? getGrade(100 * (correct / (correct + incorrect))) : ""
         pieChart.holeColor = ColorConstants.OrangeAppColor
-        pieChart.frame = CGRect(x: -40.0, y: -40.0, width: progressPieChart.frame.width * 2.0, height: progressPieChart.frame.height * 2.0)
-        // pieChart.center = progressPieChart.center
+       
+        pieChart.frame = CGRect(x: 0.0, y: 0.0, width: progressPieChart.frame.width * 1.3 , height: progressPieChart.frame.height * 1.3)
+         pieChart.center = progressPieChart.center
         progressPieChart.addSubview(pieChart)
     }
     

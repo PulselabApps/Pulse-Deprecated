@@ -14,13 +14,13 @@ class LoginViewController: UIViewController {
     @IBOutlet weak var passwordTextBox: UITextField!
     
     @IBAction func loginButtonPressed(sender: AnyObject) {
-        let username = usernameTextBox.text ?? ""
-        let password = passwordTextBox.text ?? ""
-        //let username = "math_student_2"
-        //let password = "math_student_2"
+        // let username = usernameTextBox.text ?? ""
+        // let password = passwordTextBox.text ?? ""
+        let username = "math_student_2"
+        let password = "math_student_2"
         
-        /*"
-        test_student"
+        /*
+        "test_student"
         "password"
         */
         PFUser.logInWithUsernameInBackground(username, password:password) {
