@@ -489,7 +489,7 @@ class ViewController: UIViewController {
         pieChart.centerText =  !isInitialLoad ? getGrade(100 * (correct / (correct + incorrect))) : ""
         pieChart.holeColor = ColorConstants.OrangeAppColor
        
-        pieChart.frame = CGRect(x: 0.0, y: 0.0, width: progressPieChart.frame.width * 1.3 , height: progressPieChart.frame.height * 1.3)
+        pieChart.frame = CGRect(x: 0.0, y: 0.0, width: progressPieChart.frame.width * 2.0 , height: progressPieChart.frame.height * 2.0)
          pieChart.center = progressPieChart.center
         progressPieChart.addSubview(pieChart)
     }

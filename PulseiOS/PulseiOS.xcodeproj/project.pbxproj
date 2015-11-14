@@ -10,7 +10,7 @@
 		123263FCF708BE297E0E9BF6 /* Pods.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 73EB2D436C16F410A28C953A /* Pods.framework */; };
 		12D31D2F1BEE791100B03E7C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12D31D2E1BEE791100B03E7C /* AppDelegate.swift */; };
 		12D31D311BEE791100B03E7C /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12D31D301BEE791100B03E7C /* ViewController.swift */; };
-		12D31D341BEE791100B03E7C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 12D31D321BEE791100B03E7C /* Main.storyboard */; };
+		12D31D341BEE791100B03E7C /* iPadPulseApp.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 12D31D321BEE791100B03E7C /* iPadPulseApp.storyboard */; };
 		12D31D361BEE791100B03E7C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 12D31D351BEE791100B03E7C /* Assets.xcassets */; };
 		12D31D391BEE791100B03E7C /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 12D31D371BEE791100B03E7C /* LaunchScreen.storyboard */; };
 		12D31D441BEE791100B03E7C /* PulseiOSTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12D31D431BEE791100B03E7C /* PulseiOSTests.swift */; };
@@ -46,7 +46,7 @@
 		12D31D2B1BEE791100B03E7C /* PulseiOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PulseiOS.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		12D31D2E1BEE791100B03E7C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		12D31D301BEE791100B03E7C /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		12D31D331BEE791100B03E7C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		12D31D331BEE791100B03E7C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/iPadPulseApp.storyboard; sourceTree = "<group>"; };
 		12D31D351BEE791100B03E7C /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		12D31D381BEE791100B03E7C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		12D31D3A1BEE791100B03E7C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -164,7 +164,7 @@
 		F111DD631BEE7D9D00E10C7F /* View */ = {
 			isa = PBXGroup;
 			children = (
-				12D31D321BEE791100B03E7C /* Main.storyboard */,
+				12D31D321BEE791100B03E7C /* iPadPulseApp.storyboard */,
 			);
 			name = View;
 			sourceTree = "<group>";
@@ -289,7 +289,7 @@
 				TargetAttributes = {
 					12D31D2A1BEE791100B03E7C = {
 						CreatedOnToolsVersion = 7.1;
-						DevelopmentTeam = PZH86VPTAY;
+						DevelopmentTeam = SHFR6F3SXM;
 						SystemCapabilities = {
 							com.apple.Push = {
 								enabled = 0;
@@ -337,7 +337,7 @@
 				4AE1687D1BEEEBB100150474 /* logo.png in Resources */,
 				12D31D361BEE791100B03E7C /* Assets.xcassets in Resources */,
 				F163BF3F1BEECA7A0051D505 /* Checked Filled-100.png in Resources */,
-				12D31D341BEE791100B03E7C /* Main.storyboard in Resources */,
+				12D31D341BEE791100B03E7C /* iPadPulseApp.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -450,12 +450,12 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
-		12D31D321BEE791100B03E7C /* Main.storyboard */ = {
+		12D31D321BEE791100B03E7C /* iPadPulseApp.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
 				12D31D331BEE791100B03E7C /* Base */,
 			);
-			name = Main.storyboard;
+			name = iPadPulseApp.storyboard;
 			sourceTree = "<group>";
 		};
 		12D31D371BEE791100B03E7C /* LaunchScreen.storyboard */ = {
@@ -564,6 +564,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.pulse.PulseiOS;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
+				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
 		};
@@ -579,6 +580,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.pulse.PulseiOS;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
+				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;
 		};
