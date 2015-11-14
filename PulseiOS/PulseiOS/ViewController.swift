@@ -35,7 +35,7 @@ class ViewController: UIViewController {
     @IBOutlet weak var bottomRightMultipleChoiceButton: UIButton!
     
     
-    @IBOutlet weak var progressPieChart: UIView!
+    @IBOutlet weak var progressPieChart: PieChartView!
     @IBOutlet weak var rank: UILabel!
     @IBOutlet weak var points: UILabel!
     @IBOutlet weak var submitButton: UIButton!
@@ -51,14 +51,10 @@ class ViewController: UIViewController {
     
     var correctAnswer : String?
     
-        
+    
     var studentsAnswer : String?
     
     var questionType : String?
-    
-    
-    let pieChart = PieChartView()
-
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -68,7 +64,7 @@ class ViewController: UIViewController {
         submitButton.enabled = false
         rank.text = "0"
         points.text = "0"
-        drawPieChart(1.0, incorrect: 0.0, pieChart: pieChart, isInitialLoad: true)
+        drawPieChart(1.0, incorrect: 0.0, isInitialLoad: true)
         initScene()
     }
     
@@ -322,7 +318,7 @@ class ViewController: UIViewController {
         self.points.text = String(self.user!["score"] as! Int)
         let correctAnswers = user!["questionsCorrect"] as! Double
         let incorrectAnswers = user!["questionsIncorrect"] as! Double
-        drawPieChart(correctAnswers, incorrect: incorrectAnswers, pieChart: pieChart, isInitialLoad: false)
+        drawPieChart(correctAnswers, incorrect: incorrectAnswers, isInitialLoad: false)
     }
     
     func saveUser(){
@@ -339,23 +335,23 @@ class ViewController: UIViewController {
     }
     
     /*func saveQuestions(){
-        
-        let query = PFQuery(className:"ClassSession")
-        
-        query.whereKey("name", equalTo:"Math")
-        query.findObjectsInBackgroundWithBlock {
-            (objects: [PFObject]?, error: NSError?) -> Void in
-            
-            if error == nil {
-                
-                let classSession = objects![0]
-                
-                classSession.setValue(self.questions, forKey: "questions")
-                
-                
-                classSession.saveInBackground()
-            }
-        }
+    
+    let query = PFQuery(className:"ClassSession")
+    
+    query.whereKey("name", equalTo:"Math")
+    query.findObjectsInBackgroundWithBlock {
+    (objects: [PFObject]?, error: NSError?) -> Void in
+    
+    if error == nil {
+    
+    let classSession = objects![0]
+    
+    classSession.setValue(self.questions, forKey: "questions")
+    
+    
+    classSession.saveInBackground()
+    }
+    }
     }*/
     
     
@@ -382,7 +378,7 @@ class ViewController: UIViewController {
                 
                 if classSession.valueForKey("currentQuestion") as? Int != self.currentQuestion{
                     
-                    self.currentQuestion = classSession.valueForKey("currentQuestion") as? Int                    
+                    self.currentQuestion = classSession.valueForKey("currentQuestion") as? Int
                     
                     self.loadNewQuestion()
                     self.submitButton.enabled = false
@@ -465,33 +461,32 @@ class ViewController: UIViewController {
         }
     }
     
-    func drawPieChart(correct: Double, incorrect: Double, pieChart: PieChartView, isInitialLoad: Bool) {
+    func drawPieChart(correct: Double, incorrect: Double, isInitialLoad: Bool) {
+        if !isInitialLoad {
+            // progressPieChart.subviews.forEach({ $0.removeFromSuperview() })
+        }
+        
         var chartDataSetEntries = [ChartDataEntry]()
         
         chartDataSetEntries.append(ChartDataEntry(value: correct, xIndex: 0))
-        if !isInitialLoad {
-            progressPieChart.subviews.forEach({ $0.removeFromSuperview() })
-            chartDataSetEntries.append(ChartDataEntry(value: incorrect, xIndex: 1))
-        }
+        chartDataSetEntries.append(ChartDataEntry(value: incorrect, xIndex: 1))
         
         let chartDataSet = PieChartDataSet(yVals: chartDataSetEntries, label: "")
         chartDataSet.colors = [ColorConstants.GreenCorrectColor, ColorConstants.RedIncorrectColor]
         
         let chartData = PieChartData(xVals: ["✔", "✕"], dataSet: chartDataSet)
-        pieChart.data = chartData
-        pieChart.setDescriptionTextPosition(x: 0, y: 0)
-        pieChart.sizeToFit()
-        pieChart.usePercentValuesEnabled = true
-        pieChart.centerTextRadiusPercent = 100.0
-        pieChart.descriptionText = ""
-        pieChart.legend.enabled = false
+        progressPieChart.data = chartData
+        progressPieChart.sizeToFit()
+        progressPieChart.usePercentValuesEnabled = true
+        progressPieChart.centerTextRadiusPercent = 75.0
+        progressPieChart.descriptionText = ""
+        progressPieChart.legend.enabled = false
         
-        pieChart.centerText =  !isInitialLoad ? getGrade(100 * (correct / (correct + incorrect))) : ""
-        pieChart.holeColor = ColorConstants.OrangeAppColor
-       
-        pieChart.frame = CGRect(x: 0.0, y: 0.0, width: progressPieChart.frame.width * 2.0 , height: progressPieChart.frame.height * 2.0)
-         pieChart.center = progressPieChart.center
-        progressPieChart.addSubview(pieChart)
+        progressPieChart.centerText =  !isInitialLoad ? getGrade(100 * (correct / (correct + incorrect))) : "A"
+        progressPieChart.holeColor = ColorConstants.OrangeAppColor
+        // pieChart.center = progressPieChart.center
+        // progressPieChart.frame = CGRect(x: -20.0, y: -25.0, width: progressPieChart.frame.width * 1.5, height: progressPieChart.frame.height * 1.5 )
+        // progressPieChart.addSubview(pieChart)
     }
     
     func getGrade(grade: Double) -> String {
