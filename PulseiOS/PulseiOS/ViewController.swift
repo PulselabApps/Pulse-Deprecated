@@ -61,10 +61,21 @@ class ViewController: UIViewController {
         
         _ = NSTimer.scheduledTimerWithTimeInterval(2.0, target: self, selector: Selector("checkForQuestionChange"), userInfo: nil, repeats: true)
         
+        /** PIE CHART SETUP : **/
+        progressPieChart.legend.enabled = false
+        progressPieChart.usePercentValuesEnabled = true
+        progressPieChart.holeColor = ColorConstants.OrangeAppColor
+        progressPieChart.sizeToFit()
+        progressPieChart.centerTextRadiusPercent = 75.0
+        progressPieChart.descriptionText = ""
+        /*********************************************************/
+        
         submitButton.enabled = false
         rank.text = "0"
         points.text = "0"
+        
         drawPieChart(1.0, incorrect: 0.0, isInitialLoad: true)
+        
         initScene()
     }
     
@@ -462,10 +473,6 @@ class ViewController: UIViewController {
     }
     
     func drawPieChart(correct: Double, incorrect: Double, isInitialLoad: Bool) {
-        if !isInitialLoad {
-            // progressPieChart.subviews.forEach({ $0.removeFromSuperview() })
-        }
-        
         var chartDataSetEntries = [ChartDataEntry]()
         
         chartDataSetEntries.append(ChartDataEntry(value: correct, xIndex: 0))
@@ -476,17 +483,8 @@ class ViewController: UIViewController {
         
         let chartData = PieChartData(xVals: ["✔", "✕"], dataSet: chartDataSet)
         progressPieChart.data = chartData
-        progressPieChart.sizeToFit()
-        progressPieChart.usePercentValuesEnabled = true
-        progressPieChart.centerTextRadiusPercent = 75.0
-        progressPieChart.descriptionText = ""
-        progressPieChart.legend.enabled = false
         
         progressPieChart.centerText =  !isInitialLoad ? getGrade(100 * (correct / (correct + incorrect))) : "A"
-        progressPieChart.holeColor = ColorConstants.OrangeAppColor
-        // pieChart.center = progressPieChart.center
-        // progressPieChart.frame = CGRect(x: -20.0, y: -25.0, width: progressPieChart.frame.width * 1.5, height: progressPieChart.frame.height * 1.5 )
-        // progressPieChart.addSubview(pieChart)
     }
     
     func getGrade(grade: Double) -> String {
