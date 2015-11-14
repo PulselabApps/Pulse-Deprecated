@@ -51,10 +51,7 @@ class ViewController: UIViewController {
     
     var correctAnswer : String?
     
-    let correctColor = UIColor(red: 91.0 / 255, green: 201.0 / 255, blue: 139.0 / 255, alpha: 1.0)
-    let incorrectColor = UIColor(red: 201.0 / 255, green: 91.0 / 255, blue: 104.0 / 255, alpha: 1.0)
-    let regularColor = UIColor(red: 205.0 / 255, green: 205.0 / 255, blue: 205.0 / 255, alpha: 1.0)
-    
+        
     var studentsAnswer : String?
     
     var questionType : String?
@@ -204,7 +201,7 @@ class ViewController: UIViewController {
                 PFCloud.callFunctionInBackground("incrementCorrectOrIncorrect", withParameters: blahDict)
                 
                 saveUser()
-                previouslyClickedButton!.backgroundColor = correctColor
+                previouslyClickedButton!.backgroundColor = ColorConstants.GreenCorrectColor
             } else {
                 var correctView = UIButton()
                 switch correctAnswer!{
@@ -225,10 +222,10 @@ class ViewController: UIViewController {
                     break
                     
                 }
-                correctView.backgroundColor = correctColor
+                correctView.backgroundColor = ColorConstants.GreenCorrectColor
                 correctView.setTitleColor(UIColor.whiteColor(), forState: .Normal)
                 correctButton = correctView
-                previouslyClickedButton!.backgroundColor = incorrectColor
+                previouslyClickedButton!.backgroundColor = ColorConstants.RedIncorrectColor
                 
                 
                 var score = user!["score"] as? Int
@@ -288,9 +285,9 @@ class ViewController: UIViewController {
                     
                     saveUser()
                     
-                    answerTextBox.backgroundColor = correctColor
+                    answerTextBox.backgroundColor = ColorConstants.GreenCorrectColor
                 } else {
-                    answerTextBox.backgroundColor = incorrectColor
+                    answerTextBox.backgroundColor = ColorConstants.RedIncorrectColor
                     
                     var score = user!["score"] as? Int
                     score = score! - 500
@@ -367,7 +364,7 @@ class ViewController: UIViewController {
         if let button = previouslyClickedButton {
             button.setTitleColor(UIColor.blackColor(), forState: .Normal)
         }
-        sender.setTitleColor(correctColor, forState: .Normal)
+        sender.setTitleColor(ColorConstants.GreenCorrectColor, forState: .Normal)
         previouslyClickedButton = sender
         submitButton.enabled = true
     }
@@ -404,10 +401,10 @@ class ViewController: UIViewController {
         
         if let button = self.previouslyClickedButton {
             self.previouslyClickedButton!.selected = false
-            button.backgroundColor = self.regularColor
+            button.backgroundColor = ColorConstants.GrayNormalButtonColor
         }
         if let button = self.correctButton {
-            button.backgroundColor = self.regularColor
+            button.backgroundColor = ColorConstants.GrayNormalButtonColor
         }
         
         self.previouslyClickedButton = nil
@@ -473,17 +470,19 @@ class ViewController: UIViewController {
         chartDataSetEntries.append(ChartDataEntry(value: 1, xIndex: 0))
         let chartDataSet = PieChartDataSet(yVals: chartDataSetEntries, label: "")
         chartDataSet.colors = ChartColorTemplates.liberty()
-        chartDataSet.colors = [UIColor(red: 91.0 / 255, green: 201.0 / 255, blue: 139.0 / 255, alpha: 1.0)]
+        chartDataSet.colors = [ColorConstants.RedIncorrectColor]
         
         let chartData = PieChartData(xVals: ["✔"], dataSet: chartDataSet)
         pieChart.data = chartData
         pieChart.setDescriptionTextPosition(x: 0, y: 0)
         pieChart.sizeToFit()
+        pieChart.descriptionText = ""
+        pieChart.legend.enabled = false
         pieChart.usePercentValuesEnabled = true
         pieChart.centerTextRadiusPercent = 100.0
         
         pieChart.centerText = ""
-        pieChart.holeColor = UIColor(red: 255.0 / 255, green: 194.0 / 255, blue: 113.0 / 255, alpha: 1.0)
+        pieChart.holeColor = ColorConstants.OrangeAppColor
         pieChart.frame = CGRect(x: -40.0, y: -40.0, width: progressPieChart.frame.width * 2.0, height: progressPieChart.frame.height * 2.0)
         progressPieChart.addSubview(pieChart)
     }
@@ -498,9 +497,10 @@ class ViewController: UIViewController {
         
         chartDataSet.colors = ChartColorTemplates.liberty()
         
+        pieChart.descriptionText = ""
+        pieChart.legend.enabled = false
         
-        
-        chartDataSet.colors = [correctColor, incorrectColor]
+        chartDataSet.colors = [ColorConstants.GreenCorrectColor, ColorConstants.RedIncorrectColor]
         
         let chartData = PieChartData(xVals: ["✔", "✕"], dataSet: chartDataSet)
         pieChart.data = chartData
@@ -511,7 +511,7 @@ class ViewController: UIViewController {
         pieChart.centerTextRadiusPercent = 100.0
         
         pieChart.centerText = getGrade(100 * (correct / (correct + incorrect)))
-        pieChart.holeColor = UIColor(red: 255.0 / 255, green: 194.0 / 255, blue: 113.0 / 255, alpha: 1.0)
+        pieChart.holeColor = ColorConstants.OrangeAppColor
         pieChart.frame = CGRect(x: -40.0, y: -40.0, width: progressPieChart.frame.width * 2.0, height: progressPieChart.frame.height * 2.0)
         // pieChart.center = progressPieChart.center
         progressPieChart.addSubview(pieChart)
