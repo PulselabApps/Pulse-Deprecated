@@ -20,3 +20,9 @@ struct StoryBoards {
     static let iPadStoryBoardName = "iPadPulseApp"
     static let iPhoneStoryBoardName = "iPhonePulseApp"
 }
+
+struct AnswerTypes {
+    static let MultipleChoice = "MultipleChoice"
+    static let FillInTheBlank = "FillInTheBlank"
+    static let Matching = "Matching"
+}

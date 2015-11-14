@@ -1,8 +1,8 @@
 //
-//  ViewController.swift
+//  iPadAnswersViewController
 //  PulseiOS
 //
-//  Created by Max Marze on 11/7/15.
+//  Created by Varun Patel on 11/14/15.
 //  Copyright © 2015 pulse. All rights reserved.
 //
 
@@ -11,29 +11,12 @@ import Charts
 import Parse
 import Foundation
 
-struct AnswerTypes {
-    static let MultipleChoice = "MultipleChoice"
-    static let FillInTheBlank = "FillInTheBlank"
-    static let Matching = "Matching"
-}
-
-class iPadAnswersViewController : UIViewController {
+class iPadAnswersViewController : DeviceViewController {
     
     @IBOutlet weak var answerTextBox: UITextField!
     
     var previouslyClickedButton : UIButton?
     var correctButton : UIButton?
-    
-    @IBOutlet weak var topLeftMultipleChoice: UIView!
-    @IBOutlet weak var topRightMultipleChoice: UIView!
-    @IBOutlet weak var bottomLeftMultipleChoice: UIView!
-    @IBOutlet weak var bottomRightMultipleChoice: UIView!
-    
-    @IBOutlet weak var topLeftMultipleChoiceButton: UIButton!
-    @IBOutlet weak var bottomLeftMultipleChoiceButton: UIButton!
-    @IBOutlet weak var topRightMultipleChoiceButton: UIButton!
-    @IBOutlet weak var bottomRightMultipleChoiceButton: UIButton!
-    
     
     @IBOutlet weak var progressPieChart: PieChartView!
     @IBOutlet weak var rank: UILabel!
@@ -41,25 +24,11 @@ class iPadAnswersViewController : UIViewController {
     @IBOutlet weak var submitButton: UIButton!
     @IBOutlet weak var answerView: UIView!
     
-    let user = PFUser.currentUser()
-    
     var questionsCorrect = 0
     var questionsAsked = 0
     
-    var questions = [AnyObject]()
-    var currentQuestion : Int?
-    
-    var correctAnswer : String?
-    
-    
-    var studentsAnswer : String?
-    
-    var questionType : String?
-    
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        _ = NSTimer.scheduledTimerWithTimeInterval(2.0, target: self, selector: Selector("checkForQuestionChange"), userInfo: nil, repeats: true)
         
         /** PIE CHART SETUP : **/
         progressPieChart.legend.enabled = false
@@ -71,110 +40,15 @@ class iPadAnswersViewController : UIViewController {
         /*********************************************************/
         
         submitButton.enabled = false
-        rank.text = "0"
+        rank.text = "1"
         points.text = "0"
         
         drawPieChart(1.0, incorrect: 0.0, isInitialLoad: true)
-        
-        initScene()
-    }
-    
-    func makeMultipleChoicesRound(){
-        
-        let multipleChoices = [topLeftMultipleChoice,topRightMultipleChoice,bottomLeftMultipleChoice,bottomRightMultipleChoice]
-        
-        for view in multipleChoices{
-            view.layer.cornerRadius = 10.0
-            view.layer.borderColor = UIColor.grayColor().CGColor
-            view.layer.borderWidth = 0.5
-            view.clipsToBounds = true
-        }
     }
     
     @IBAction func answerTextBoxType(sender: UITextField) {
         submitButton.enabled = true
     }
-    
-    func initScene(){
-        rank.text = "1"
-        points.text = "0"
-        
-        makeMultipleChoicesRound()
-        
-        let query = PFQuery(className:"ClassSession")
-        
-        query.whereKey("name", equalTo:"Math")
-        query.findObjectsInBackgroundWithBlock {
-            (objects: [PFObject]?, error: NSError?) -> Void in
-            
-            if error == nil {
-                
-                let classSession = objects![0]
-                
-                self.questions = classSession.valueForKey("questions") as! [AnyObject]
-                self.currentQuestion = classSession.valueForKey("currentQuestion") as? Int
-                
-                
-                self.initQuestionAnswers()
-                
-            }
-        }
-    }
-    
-    func initQuestionAnswers(){
-        
-        hideAllAnswers()
-        
-        switch questions[currentQuestion!]["questionType"] as! String {
-        case "MultipleChoice":
-            showMultipleChoiceOptions()
-            break
-        case "FillInTheBlank":
-            showFillInTheBlank()
-            submitButton.enabled = true
-            break
-            
-        default: break
-            
-        }
-    }
-    
-    func hideAllAnswers(){
-        answerTextBox.hidden = true
-        topLeftMultipleChoice.hidden = true
-        topRightMultipleChoice.hidden = true
-        bottomLeftMultipleChoice.hidden = true
-        bottomRightMultipleChoice.hidden = true
-    }
-    
-    func showFillInTheBlank(){
-        answerTextBox.hidden = false
-        var answers = questions[currentQuestion!]["answers"]!! as! [String]
-        correctAnswer = answers[0]
-    }
-    
-    func showMultipleChoiceOptions(){
-        topLeftMultipleChoice.hidden = false
-        topRightMultipleChoice.hidden = false
-        bottomLeftMultipleChoice.hidden = false
-        bottomRightMultipleChoice.hidden = false
-        
-        let buttons = [topLeftMultipleChoiceButton, bottomLeftMultipleChoiceButton,topRightMultipleChoiceButton,bottomRightMultipleChoiceButton]
-        
-        var answers = questions[currentQuestion!]["answers"]!! as! [String]
-        correctAnswer = answers[0]
-        
-        let newIndex = Int(arc4random_uniform(UInt32(4)))
-        let tmp = answers[0]
-        answers[0] = answers[newIndex]
-        answers[newIndex] = tmp
-        
-        for var i = 0; i < 4; i++ {
-            let answer = answers[i]
-            buttons[i].setTitle(answer, forState: .Normal)
-        }
-    }
-    
     
     @IBAction func submitButtonPressed(sender: UIButton) {
         let image = UIImage(named: "Checked Filled-100.png")
