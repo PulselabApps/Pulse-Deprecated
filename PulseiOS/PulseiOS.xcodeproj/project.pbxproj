@@ -122,6 +122,7 @@
 				F111DD631BEE7D9D00E10C7F /* View */,
 				F111DD641BEE7DC500E10C7F /* Controller */,
 				F111DD651BEE7DCC00E10C7F /* Supporting Files */,
+				F1F9DE511BF713EE00C1E30D /* Assets */,
 			);
 			path = PulseiOS;
 			sourceTree = "<group>";
@@ -184,8 +185,6 @@
 			children = (
 				12D31D2E1BEE791100B03E7C /* AppDelegate.swift */,
 				12D31D371BEE791100B03E7C /* LaunchScreen.storyboard */,
-				F1BE1FAF1BEF00960021C06A /* LogInViewController Assets */,
-				F163BF391BEECA220051D505 /* ViewController Assets */,
 				12D31D351BEE791100B03E7C /* Assets.xcassets */,
 				12D31D3A1BEE791100B03E7C /* Info.plist */,
 			);
@@ -208,6 +207,15 @@
 				4AE1687C1BEEEBB100150474 /* logo.png */,
 			);
 			name = "LogInViewController Assets";
+			sourceTree = "<group>";
+		};
+		F1F9DE511BF713EE00C1E30D /* Assets */ = {
+			isa = PBXGroup;
+			children = (
+				F163BF391BEECA220051D505 /* ViewController Assets */,
+				F1BE1FAF1BEF00960021C06A /* LogInViewController Assets */,
+			);
+			name = Assets;
 			sourceTree = "<group>";
 		};
 		F6DC594ED2DE0AB18693EB54 /* Frameworks */ = {
