@@ -16,7 +16,6 @@
 		12D31D4F1BEE791100B03E7C /* PulseiOSUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12D31D4E1BEE791100B03E7C /* PulseiOSUITests.swift */; };
 		4AC149BF1BEF1EC400EF52FA /* Help-100.png in Resources */ = {isa = PBXBuildFile; fileRef = 4AC149BE1BEF1EC400EF52FA /* Help-100.png */; };
 		4AC149C11BEF203A00EF52FA /* FullQuestionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AC149C01BEF203A00EF52FA /* FullQuestionViewController.swift */; };
-		4AE1687B1BEEE44D00150474 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AE1687A1BEEE44D00150474 /* LoginViewController.swift */; };
 		4AE1687D1BEEEBB100150474 /* logo.png in Resources */ = {isa = PBXBuildFile; fileRef = 4AE1687C1BEEEBB100150474 /* logo.png */; };
 		F158C8E41BF7F139001E6A89 /* iPadAnswersViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F158C8E31BF7F139001E6A89 /* iPadAnswersViewController.swift */; };
 		F158C8E61BF7F6AA001E6A89 /* iPhonePulseApp.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F158C8E51BF7F6AA001E6A89 /* iPhonePulseApp.storyboard */; };
@@ -25,6 +24,8 @@
 		F163BF3F1BEECA7A0051D505 /* Checked Filled-100.png in Resources */ = {isa = PBXBuildFile; fileRef = F163BF3E1BEECA7A0051D505 /* Checked Filled-100.png */; };
 		F163BF411BEECA7F0051D505 /* Checked-100.png in Resources */ = {isa = PBXBuildFile; fileRef = F163BF401BEECA7F0051D505 /* Checked-100.png */; };
 		F1888FBC1BF6F1C000A3B75D /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1888FBB1BF6F1C000A3B75D /* Constants.swift */; };
+		F1EF36B61BF813BC00DFE8A9 /* iPadLogInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1EF36B51BF813BC00DFE8A9 /* iPadLogInViewController.swift */; };
+		F1EF36B81BF8140B00DFE8A9 /* DeviceLogInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1EF36B71BF8140B00DFE8A9 /* DeviceLogInViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -60,7 +61,6 @@
 		12D31D501BEE791100B03E7C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		4AC149BE1BEF1EC400EF52FA /* Help-100.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Help-100.png"; sourceTree = "<group>"; };
 		4AC149C01BEF203A00EF52FA /* FullQuestionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FullQuestionViewController.swift; sourceTree = "<group>"; };
-		4AE1687A1BEEE44D00150474 /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		4AE1687C1BEEEBB100150474 /* logo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = logo.png; sourceTree = "<group>"; };
 		73EB2D436C16F410A28C953A /* Pods.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		D0C81FEA2B8EA818DBD76446 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
@@ -71,6 +71,8 @@
 		F163BF3E1BEECA7A0051D505 /* Checked Filled-100.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Checked Filled-100.png"; sourceTree = "<group>"; };
 		F163BF401BEECA7F0051D505 /* Checked-100.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Checked-100.png"; sourceTree = "<group>"; };
 		F1888FBB1BF6F1C000A3B75D /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		F1EF36B51BF813BC00DFE8A9 /* iPadLogInViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = iPadLogInViewController.swift; sourceTree = "<group>"; };
+		F1EF36B71BF8140B00DFE8A9 /* DeviceLogInViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DeviceLogInViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -202,8 +204,8 @@
 		F158C8E21BF7F017001E6A89 /* iPad */ = {
 			isa = PBXGroup;
 			children = (
+				F1EF36B51BF813BC00DFE8A9 /* iPadLogInViewController.swift */,
 				F158C8E31BF7F139001E6A89 /* iPadAnswersViewController.swift */,
-				4AE1687A1BEEE44D00150474 /* LoginViewController.swift */,
 				4AC149C01BEF203A00EF52FA /* FullQuestionViewController.swift */,
 			);
 			name = iPad;
@@ -213,6 +215,7 @@
 			isa = PBXGroup;
 			children = (
 				F158C8E71BF7F823001E6A89 /* DeviceViewController.swift */,
+				F1EF36B71BF8140B00DFE8A9 /* DeviceLogInViewController.swift */,
 			);
 			name = Device;
 			sourceTree = "<group>";
@@ -453,11 +456,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				F1888FBC1BF6F1C000A3B75D /* Constants.swift in Sources */,
-				4AE1687B1BEEE44D00150474 /* LoginViewController.swift in Sources */,
 				F158C8E81BF7F823001E6A89 /* DeviceViewController.swift in Sources */,
+				F1EF36B81BF8140B00DFE8A9 /* DeviceLogInViewController.swift in Sources */,
 				4AC149C11BEF203A00EF52FA /* FullQuestionViewController.swift in Sources */,
 				F158C8E41BF7F139001E6A89 /* iPadAnswersViewController.swift in Sources */,
 				12D31D2F1BEE791100B03E7C /* AppDelegate.swift in Sources */,
+				F1EF36B61BF813BC00DFE8A9 /* iPadLogInViewController.swift in Sources */,
 				F158C8EC1BF7FAF8001E6A89 /* User.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

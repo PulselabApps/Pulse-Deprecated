@@ -1,15 +1,17 @@
 //
-//  LoginViewController.swift
+//  DeviceLogInViewController.swift
 //  PulseiOS
 //
-//  Created by Michael Ross on 11/7/15.
+//  Created by Varun D Patel on 11/14/15.
 //  Copyright © 2015 pulse. All rights reserved.
 //
 
 import UIKit
+import Charts
 import Parse
+import Foundation
 
-class LoginViewController: UIViewController {
+class DeviceLogInViewController: UIViewController {
     @IBOutlet weak var usernameTextBox: UITextField!
     @IBOutlet weak var passwordTextBox: UITextField!
     
@@ -36,12 +38,9 @@ class LoginViewController: UIViewController {
                         self.presentViewController(studentVC, animated: true, completion: nil)
                     }
                     
-                    
-                    
                 } else {
                     print("YOUR A TEACHER")
                 }
-                
                 
             } else {
                 
@@ -52,13 +51,3 @@ class LoginViewController: UIViewController {
         }
     }
 }
-
-/*
-// MARK: - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-// Get the new view controller using segue.destinationViewController.
-// Pass the selected object to the new view controller.
-}
-*/

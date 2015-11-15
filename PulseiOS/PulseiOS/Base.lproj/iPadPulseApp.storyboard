@@ -7,10 +7,10 @@
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
-        <!--Login View Controller-->
+        <!--iPad Login View Controller-->
         <scene sceneID="gNC-z1-avX">
             <objects>
-                <viewController id="dME-IB-uwy" customClass="LoginViewController" customModule="PulseiOS" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="dME-IB-uwy" customClass="iPadLoginViewController" customModule="PulseiOS" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="K1H-aq-t56"/>
                         <viewControllerLayoutGuide type="bottom" id="l72-wj-jYT"/>
