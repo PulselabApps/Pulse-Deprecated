@@ -119,7 +119,7 @@
                                 <state key="normal" image="Help-100.png"/>
                             </button>
                             <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="KMt-pR-tTp">
-                                <rect key="frame" x="110" y="192" width="100" height="100"/>
+                                <rect key="frame" x="110" y="148" width="100" height="100"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rIt-Sg-ebU">
                                         <rect key="frame" x="0.0" y="0.0" width="100" height="100"/>
@@ -144,7 +144,7 @@
                                 </constraints>
                             </view>
                             <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Xd2-jI-zap">
-                                <rect key="frame" x="110" y="300" width="100" height="100"/>
+                                <rect key="frame" x="110" y="256" width="100" height="100"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ven-2A-SK6">
                                         <rect key="frame" x="0.0" y="0.0" width="100" height="100"/>
@@ -169,7 +169,7 @@
                                 </constraints>
                             </view>
                             <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="beR-ur-u7r">
-                                <rect key="frame" x="110" y="84" width="100" height="100"/>
+                                <rect key="frame" x="110" y="40" width="100" height="100"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="j9z-Sx-4ur">
                                         <rect key="frame" x="0.0" y="0.0" width="100" height="100"/>
@@ -194,7 +194,7 @@
                                 </constraints>
                             </view>
                             <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Mzd-qZ-MM1">
-                                <rect key="frame" x="110" y="408" width="100" height="100"/>
+                                <rect key="frame" x="110" y="364" width="100" height="100"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jPq-Ik-bxP">
                                         <rect key="frame" x="0.0" y="0.0" width="100" height="100"/>
@@ -254,17 +254,6 @@
                             <constraint firstItem="WZ7-to-vKK" firstAttribute="top" secondItem="lWq-8v-Aph" secondAttribute="bottom" constant="8" id="zic-PB-XBm"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" id="ajq-HT-oLA">
-                        <nil key="title"/>
-                        <barButtonItem key="rightBarButtonItem" style="plain" id="PPG-UX-I8o">
-                            <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="ZK5-oi-iIK">
-                                <rect key="frame" x="176" y="7" width="128" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <animations/>
-                                <state key="normal" title="Button"/>
-                            </button>
-                        </barButtonItem>
-                    </navigationItem>
                     <connections>
                         <outlet property="answerTextBox" destination="ZoO-D8-yfz" id="uZg-DW-TIe"/>
                         <outlet property="bottomLeftMultipleChoice" destination="Xd2-jI-zap" id="VOb-Sk-2K4"/>
