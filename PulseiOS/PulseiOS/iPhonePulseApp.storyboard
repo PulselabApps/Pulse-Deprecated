@@ -6,10 +6,10 @@
         <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
     </dependencies>
     <scenes>
-        <!--Device Log In View Controller-->
+        <!--iPhone Log In View Controller-->
         <scene sceneID="LGb-dR-RGg">
             <objects>
-                <viewController id="uJa-cB-gxh" customClass="DeviceLogInViewController" customModule="PulseiOS" sceneMemberID="viewController">
+                <viewController id="uJa-cB-gxh" customClass="iPhoneLogInViewController" customModule="PulseiOS" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="nCZ-Ox-yf1"/>
                         <viewControllerLayoutGuide type="bottom" id="GWU-Tp-h3X"/>
