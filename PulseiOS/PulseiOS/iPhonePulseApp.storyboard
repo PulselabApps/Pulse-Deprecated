@@ -79,6 +79,7 @@
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="loginButton" destination="F0M-BL-IMr" id="v8x-Wt-fO0"/>
                         <outlet property="passwordTextBox" destination="kQC-9i-NEb" id="hhQ-OX-IyM"/>
                         <outlet property="usernameTextBox" destination="Snd-M4-01C" id="B8m-gW-O4i"/>
                     </connections>
@@ -127,14 +128,17 @@
                                         <constraints>
                                             <constraint firstAttribute="width" secondItem="rIt-Sg-ebU" secondAttribute="height" multiplier="1:1" id="Odq-vm-ydj"/>
                                         </constraints>
-                                        <state key="normal" title="Button"/>
+                                        <fontDescription key="fontDescription" type="system" weight="thin" pointSize="40"/>
+                                        <state key="normal" title="Button">
+                                            <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                        </state>
                                         <connections>
                                             <action selector="multipleChoiceAnswerClicked:" destination="sSb-Oe-zh2" eventType="touchUpInside" id="hWo-ML-Pvm"/>
                                         </connections>
                                     </button>
                                 </subviews>
                                 <animations/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <color key="backgroundColor" red="0.80392156862745101" green="0.80392156862745101" blue="0.80392156862745101" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstItem="rIt-Sg-ebU" firstAttribute="top" secondItem="KMt-pR-tTp" secondAttribute="top" id="2NX-vI-6IB"/>
                                     <constraint firstAttribute="trailing" secondItem="rIt-Sg-ebU" secondAttribute="trailing" id="4ts-kX-Q1Z"/>
@@ -152,14 +156,17 @@
                                         <constraints>
                                             <constraint firstAttribute="width" secondItem="Ven-2A-SK6" secondAttribute="height" multiplier="1:1" id="AaF-vv-epP"/>
                                         </constraints>
-                                        <state key="normal" title="Button"/>
+                                        <fontDescription key="fontDescription" type="system" weight="thin" pointSize="40"/>
+                                        <state key="normal" title="Button">
+                                            <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                        </state>
                                         <connections>
                                             <action selector="multipleChoiceAnswerClicked:" destination="sSb-Oe-zh2" eventType="touchUpInside" id="lsf-6W-gml"/>
                                         </connections>
                                     </button>
                                 </subviews>
                                 <animations/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <color key="backgroundColor" red="0.80392156862745101" green="0.80392156862745101" blue="0.80392156862745101" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="bottom" secondItem="Ven-2A-SK6" secondAttribute="bottom" id="Dml-NT-ZgY"/>
                                     <constraint firstItem="Ven-2A-SK6" firstAttribute="leading" secondItem="Xd2-jI-zap" secondAttribute="leading" id="P2S-wq-hRV"/>
@@ -177,14 +184,17 @@
                                         <constraints>
                                             <constraint firstAttribute="width" secondItem="j9z-Sx-4ur" secondAttribute="height" multiplier="1:1" id="jzq-j1-hk6"/>
                                         </constraints>
-                                        <state key="normal" title="Button"/>
+                                        <fontDescription key="fontDescription" type="system" weight="thin" pointSize="40"/>
+                                        <state key="normal" title="Button">
+                                            <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                        </state>
                                         <connections>
                                             <action selector="multipleChoiceAnswerClicked:" destination="sSb-Oe-zh2" eventType="touchUpInside" id="0LX-hq-e9m"/>
                                         </connections>
                                     </button>
                                 </subviews>
                                 <animations/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <color key="backgroundColor" red="0.80392156862745101" green="0.80392156862745101" blue="0.80392156862745101" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="trailing" secondItem="j9z-Sx-4ur" secondAttribute="trailing" id="Dhh-8h-abt"/>
                                     <constraint firstItem="j9z-Sx-4ur" firstAttribute="top" secondItem="beR-ur-u7r" secondAttribute="top" id="YlS-Z9-cyJ"/>
@@ -202,14 +212,17 @@
                                         <constraints>
                                             <constraint firstAttribute="width" secondItem="jPq-Ik-bxP" secondAttribute="height" multiplier="1:1" id="wD6-nx-yby"/>
                                         </constraints>
-                                        <state key="normal" title="Button"/>
+                                        <fontDescription key="fontDescription" type="system" weight="thin" pointSize="40"/>
+                                        <state key="normal" title="Button">
+                                            <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                        </state>
                                         <connections>
                                             <action selector="multipleChoiceAnswerClicked:" destination="sSb-Oe-zh2" eventType="touchUpInside" id="nq5-oX-yUu"/>
                                         </connections>
                                     </button>
                                 </subviews>
                                 <animations/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <color key="backgroundColor" red="0.80392156862745101" green="0.80392156862745101" blue="0.80392156862745101" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="Mzd-qZ-MM1" secondAttribute="height" multiplier="1:1" id="5dN-vQ-1wj"/>
                                     <constraint firstItem="jPq-Ik-bxP" firstAttribute="top" secondItem="Mzd-qZ-MM1" secondAttribute="top" id="ATI-pJ-QDt"/>
@@ -224,7 +237,7 @@
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="ZoO-D8-yfz" secondAttribute="height" multiplier="28:3" id="FMh-xk-aet"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <fontDescription key="fontDescription" type="system" weight="thin" pointSize="17"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                         </subviews>

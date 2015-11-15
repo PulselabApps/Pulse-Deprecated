@@ -15,7 +15,14 @@ class DeviceLogInViewController: UIViewController {
     @IBOutlet weak var usernameTextBox: UITextField!
     @IBOutlet weak var passwordTextBox: UITextField!
     
+    @IBOutlet weak var loginButton: UIButton!
+    
+    override func viewDidLoad() {
+        loginButton.layer.cornerRadius = 10.0
+    }
+    
     @IBAction func loginButtonPressed(sender: AnyObject) {
+        sender.layer.cornerRadius = 10.0
         // let username = usernameTextBox.text ?? ""
         // let password = passwordTextBox.text ?? ""
         let username = "math_student_2"
