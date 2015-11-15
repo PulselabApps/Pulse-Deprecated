@@ -9,5 +9,8 @@
 import UIKit
 
 class iPhoneLogInViewController: DeviceLogInViewController {
-
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+    }
 }
