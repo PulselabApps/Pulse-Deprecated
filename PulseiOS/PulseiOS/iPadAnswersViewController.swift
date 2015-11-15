@@ -35,7 +35,7 @@ class iPadAnswersViewController : DeviceViewController {
         
         submitButton.enabled = false
         rank.text = String(studentRank)
-        points.text = "0"
+        points.text = String(studentPoints)
         
         drawPieChart(1.0, incorrect: 0.0, isInitialLoad: true)
     }

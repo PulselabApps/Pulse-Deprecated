@@ -15,6 +15,7 @@ class DeviceViewController: UIViewController {
     
     let user = User.sharedInstance.user
     var studentRank = 1
+    var studentPoints = 0
     
     var questions = [AnyObject]()
     var currentQuestion : Int?
