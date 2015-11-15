@@ -34,7 +34,7 @@ class DeviceLogInViewController: UIViewController {
                 if user!["role"] as! String == "Student"{
                     print("YOUR A STUDENT")
                     
-                    if let studentVC = self.storyboard!.instantiateViewControllerWithIdentifier("StudentViewController") as? iPadAnswersViewController {
+                    if let studentVC = self.storyboard!.instantiateViewControllerWithIdentifier("StudentViewController") as? DeviceViewController {
                         self.presentViewController(studentVC, animated: true, completion: nil)
                     }
                     

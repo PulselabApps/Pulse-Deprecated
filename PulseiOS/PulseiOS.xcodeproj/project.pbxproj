@@ -23,6 +23,7 @@
 		F158C8EC1BF7FAF8001E6A89 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = F158C8EB1BF7FAF8001E6A89 /* User.swift */; };
 		F163BF3F1BEECA7A0051D505 /* Checked Filled-100.png in Resources */ = {isa = PBXBuildFile; fileRef = F163BF3E1BEECA7A0051D505 /* Checked Filled-100.png */; };
 		F163BF411BEECA7F0051D505 /* Checked-100.png in Resources */ = {isa = PBXBuildFile; fileRef = F163BF401BEECA7F0051D505 /* Checked-100.png */; };
+		F167687C1BF830140032BC39 /* iPhoneAnswersViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F167687B1BF830140032BC39 /* iPhoneAnswersViewController.swift */; };
 		F1888FBC1BF6F1C000A3B75D /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1888FBB1BF6F1C000A3B75D /* Constants.swift */; };
 		F1EF36B61BF813BC00DFE8A9 /* iPadLogInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1EF36B51BF813BC00DFE8A9 /* iPadLogInViewController.swift */; };
 		F1EF36B81BF8140B00DFE8A9 /* DeviceLogInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1EF36B71BF8140B00DFE8A9 /* DeviceLogInViewController.swift */; };
@@ -71,6 +72,7 @@
 		F158C8EB1BF7FAF8001E6A89 /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		F163BF3E1BEECA7A0051D505 /* Checked Filled-100.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Checked Filled-100.png"; sourceTree = "<group>"; };
 		F163BF401BEECA7F0051D505 /* Checked-100.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Checked-100.png"; sourceTree = "<group>"; };
+		F167687B1BF830140032BC39 /* iPhoneAnswersViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = iPhoneAnswersViewController.swift; sourceTree = "<group>"; };
 		F1888FBB1BF6F1C000A3B75D /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		F1EF36B51BF813BC00DFE8A9 /* iPadLogInViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = iPadLogInViewController.swift; sourceTree = "<group>"; };
 		F1EF36B71BF8140B00DFE8A9 /* DeviceLogInViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DeviceLogInViewController.swift; sourceTree = "<group>"; };
@@ -226,6 +228,7 @@
 			isa = PBXGroup;
 			children = (
 				F1EF36B91BF8173400DFE8A9 /* iPhoneLogInViewController.swift */,
+				F167687B1BF830140032BC39 /* iPhoneAnswersViewController.swift */,
 			);
 			name = iPhone;
 			sourceTree = "<group>";
@@ -459,6 +462,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				F1888FBC1BF6F1C000A3B75D /* Constants.swift in Sources */,
+				F167687C1BF830140032BC39 /* iPhoneAnswersViewController.swift in Sources */,
 				F1EF36BA1BF8173400DFE8A9 /* iPhoneLogInViewController.swift in Sources */,
 				F158C8E81BF7F823001E6A89 /* DeviceViewController.swift in Sources */,
 				F1EF36B81BF8140B00DFE8A9 /* DeviceLogInViewController.swift in Sources */,
