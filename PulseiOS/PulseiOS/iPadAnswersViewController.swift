@@ -64,9 +64,6 @@ class iPadAnswersViewController : DeviceViewController {
     }
     }*/
     
-    // MARK: NEED A FUNCTION THAT IS ALWAYS CHECKING TO SEE IF THE QUESTION HAS CHANGED
-    
-    
     func drawPieChart(correct: Double, incorrect: Double, isInitialLoad: Bool) {
         var chartDataSetEntries = [ChartDataEntry]()
         

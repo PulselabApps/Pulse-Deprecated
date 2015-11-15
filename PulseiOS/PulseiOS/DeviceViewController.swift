@@ -63,7 +63,6 @@ class DeviceViewController: UIViewController {
                 self.questions = classSession.valueForKey("questions") as! [AnyObject]
                 self.currentQuestion = classSession.valueForKey("currentQuestion") as? Int
                 
-                
                 self.initQuestionAnswers()
                 
             }
@@ -282,11 +281,11 @@ class DeviceViewController: UIViewController {
                     break
                     
                 }
+                
                 correctView.backgroundColor = ColorConstants.GreenCorrectColor
                 correctView.setTitleColor(UIColor.whiteColor(), forState: .Normal)
                 correctButton = correctView
                 previouslyClickedButton!.backgroundColor = ColorConstants.RedIncorrectColor
-                
                 
                 var score = user!["score"] as? Int
                 score = score! - 500
@@ -295,8 +294,6 @@ class DeviceViewController: UIViewController {
                 var questionsIncorrect = user!["questionsIncorrect"] as? Int
                 questionsIncorrect!+=1
                 user!["questionsIncorrect"] = questionsIncorrect
-                
-                
                 
                 /*var numIncorrectAnswers = questions[currentQuestion!]["numIncorrectAnswers"] as? Int
                 numIncorrectAnswers!+=1
@@ -330,7 +327,6 @@ class DeviceViewController: UIViewController {
                     questionsCorrect!+=1
                     user!["questionsCorrect"] = questionsCorrect
                     
-                    
                     /*var numCorrectAnswers = questions[currentQuestion!]["numCorrectAnswers"] as? Int
                     numCorrectAnswers!+=1
                     var question = questions[currentQuestion!] as! [String:AnyObject]
@@ -341,7 +337,6 @@ class DeviceViewController: UIViewController {
                     
                     let blahDict = ["answerChoice":true]
                     PFCloud.callFunctionInBackground("incrementCorrectOrIncorrect", withParameters: blahDict)
-                    
                     
                     saveUser()
                     
@@ -384,13 +379,13 @@ class DeviceViewController: UIViewController {
     func saveUser(){
         user!.saveInBackgroundWithBlock {
             (success: Bool, error: NSError?) -> Void in
+            
             if (success) {
                 print("user saved")
-                // The object has been saved.
             } else {
-                
-                // There was a problem, check error.description
+                print(error?.description)
             }
+            
         }
     }
     
