@@ -280,26 +280,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="wPV-N9-rNV" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1023" y="185"/>
-        </scene>
-        <!--Navigation Controller-->
-        <scene sceneID="T5g-xD-JHn">
-            <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="lcE-Pf-lLL" sceneMemberID="viewController">
-                    <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="0fX-44-O03">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
-                        <autoresizingMask key="autoresizingMask"/>
-                        <animations/>
-                    </navigationBar>
-                    <nil name="viewControllers"/>
-                    <connections>
-                        <segue destination="sSb-Oe-zh2" kind="relationship" relationship="rootViewController" id="31x-HR-ezT"/>
-                    </connections>
-                </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="151-cV-gGj" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="491" y="185"/>
+            <point key="canvasLocation" x="530" y="185"/>
         </scene>
     </scenes>
     <resources>
