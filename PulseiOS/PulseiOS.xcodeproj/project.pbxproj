@@ -24,7 +24,6 @@
 		F163BF3F1BEECA7A0051D505 /* Checked Filled-100.png in Resources */ = {isa = PBXBuildFile; fileRef = F163BF3E1BEECA7A0051D505 /* Checked Filled-100.png */; };
 		F163BF411BEECA7F0051D505 /* Checked-100.png in Resources */ = {isa = PBXBuildFile; fileRef = F163BF401BEECA7F0051D505 /* Checked-100.png */; };
 		F167687C1BF830140032BC39 /* iPhoneAnswersViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F167687B1BF830140032BC39 /* iPhoneAnswersViewController.swift */; };
-		F16768801BF84D9E0032BC39 /* LogInButtonForwardArrow.png in Resources */ = {isa = PBXBuildFile; fileRef = F167687F1BF84D9E0032BC39 /* LogInButtonForwardArrow.png */; };
 		F1888FBC1BF6F1C000A3B75D /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1888FBB1BF6F1C000A3B75D /* Constants.swift */; };
 		F1EF36B61BF813BC00DFE8A9 /* iPadLogInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1EF36B51BF813BC00DFE8A9 /* iPadLogInViewController.swift */; };
 		F1EF36B81BF8140B00DFE8A9 /* DeviceLogInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1EF36B71BF8140B00DFE8A9 /* DeviceLogInViewController.swift */; };
@@ -74,7 +73,6 @@
 		F163BF3E1BEECA7A0051D505 /* Checked Filled-100.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Checked Filled-100.png"; sourceTree = "<group>"; };
 		F163BF401BEECA7F0051D505 /* Checked-100.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Checked-100.png"; sourceTree = "<group>"; };
 		F167687B1BF830140032BC39 /* iPhoneAnswersViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = iPhoneAnswersViewController.swift; sourceTree = "<group>"; };
-		F167687F1BF84D9E0032BC39 /* LogInButtonForwardArrow.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = LogInButtonForwardArrow.png; sourceTree = "<group>"; };
 		F1888FBB1BF6F1C000A3B75D /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		F1EF36B51BF813BC00DFE8A9 /* iPadLogInViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = iPadLogInViewController.swift; sourceTree = "<group>"; };
 		F1EF36B71BF8140B00DFE8A9 /* DeviceLogInViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DeviceLogInViewController.swift; sourceTree = "<group>"; };
@@ -247,7 +245,6 @@
 		F1BE1FAF1BEF00960021C06A /* LogInViewController Assets */ = {
 			isa = PBXGroup;
 			children = (
-				F167687F1BF84D9E0032BC39 /* LogInButtonForwardArrow.png */,
 				4AC149BE1BEF1EC400EF52FA /* Help-100.png */,
 				4AE1687C1BEEEBB100150474 /* logo.png */,
 			);
@@ -387,7 +384,6 @@
 				F163BF411BEECA7F0051D505 /* Checked-100.png in Resources */,
 				4AC149BF1BEF1EC400EF52FA /* Help-100.png in Resources */,
 				12D31D391BEE791100B03E7C /* LaunchScreen.storyboard in Resources */,
-				F16768801BF84D9E0032BC39 /* LogInButtonForwardArrow.png in Resources */,
 				4AE1687D1BEEEBB100150474 /* logo.png in Resources */,
 				12D31D361BEE791100B03E7C /* Assets.xcassets in Resources */,
 				F158C8E61BF7F6AA001E6A89 /* iPhonePulseApp.storyboard in Resources */,
