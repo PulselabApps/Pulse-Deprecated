@@ -25,7 +25,7 @@ class DeviceLogInViewController: UIViewController {
         "test_student"
         "password"
         */
-        PFUser.logInWithUsernameInBackground(username, password:password) {
+        PFUser.logInWithUsernameInBackground(username, password: password) {
             (user: PFUser?, error: NSError?) -> Void in
             
             if user != nil {

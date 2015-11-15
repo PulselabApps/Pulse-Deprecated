@@ -26,6 +26,7 @@
 		F1888FBC1BF6F1C000A3B75D /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1888FBB1BF6F1C000A3B75D /* Constants.swift */; };
 		F1EF36B61BF813BC00DFE8A9 /* iPadLogInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1EF36B51BF813BC00DFE8A9 /* iPadLogInViewController.swift */; };
 		F1EF36B81BF8140B00DFE8A9 /* DeviceLogInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1EF36B71BF8140B00DFE8A9 /* DeviceLogInViewController.swift */; };
+		F1EF36BA1BF8173400DFE8A9 /* iPhoneLogInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1EF36B91BF8173400DFE8A9 /* iPhoneLogInViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -73,6 +74,7 @@
 		F1888FBB1BF6F1C000A3B75D /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		F1EF36B51BF813BC00DFE8A9 /* iPadLogInViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = iPadLogInViewController.swift; sourceTree = "<group>"; };
 		F1EF36B71BF8140B00DFE8A9 /* DeviceLogInViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DeviceLogInViewController.swift; sourceTree = "<group>"; };
+		F1EF36B91BF8173400DFE8A9 /* iPhoneLogInViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = iPhoneLogInViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -214,8 +216,8 @@
 		F158C8E91BF7F826001E6A89 /* Device */ = {
 			isa = PBXGroup;
 			children = (
-				F158C8E71BF7F823001E6A89 /* DeviceViewController.swift */,
 				F1EF36B71BF8140B00DFE8A9 /* DeviceLogInViewController.swift */,
+				F158C8E71BF7F823001E6A89 /* DeviceViewController.swift */,
 			);
 			name = Device;
 			sourceTree = "<group>";
@@ -223,6 +225,7 @@
 		F158C8EA1BF7FA48001E6A89 /* iPhone */ = {
 			isa = PBXGroup;
 			children = (
+				F1EF36B91BF8173400DFE8A9 /* iPhoneLogInViewController.swift */,
 			);
 			name = iPhone;
 			sourceTree = "<group>";
@@ -456,6 +459,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				F1888FBC1BF6F1C000A3B75D /* Constants.swift in Sources */,
+				F1EF36BA1BF8173400DFE8A9 /* iPhoneLogInViewController.swift in Sources */,
 				F158C8E81BF7F823001E6A89 /* DeviceViewController.swift in Sources */,
 				F1EF36B81BF8140B00DFE8A9 /* DeviceLogInViewController.swift in Sources */,
 				4AC149C11BEF203A00EF52FA /* FullQuestionViewController.swift in Sources */,
