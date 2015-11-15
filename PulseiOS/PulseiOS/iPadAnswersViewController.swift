@@ -96,6 +96,7 @@ class iPadAnswersViewController : DeviceViewController {
     @IBAction func submitButtonSelected(sender: UIButton) {
         super.submitButtonPressed(sender)
         self.points.text = String(self.user!["score"] as! Int)
+        self.rank.text = String(studentRank)
         let correctAnswers = user!["questionsCorrect"] as! Double
         let incorrectAnswers = user!["questionsIncorrect"] as! Double
         drawPieChart(correctAnswers, incorrect: incorrectAnswers, isInitialLoad: false)
