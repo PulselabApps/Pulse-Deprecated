@@ -45,6 +45,7 @@ class DeviceViewController: UIViewController {
         _ = NSTimer.scheduledTimerWithTimeInterval(2.0, target: self, selector: Selector("checkForQuestionChange"), userInfo: nil, repeats: true)
         
         initScene()
+        submitButton.enabled = false
     }
     
     func initScene(){

@@ -33,7 +33,6 @@ class iPadAnswersViewController : DeviceViewController {
         progressPieChart.descriptionText = ""
         /*********************************************************/
         
-        submitButton.enabled = false
         rank.text = String(studentRank)
         points.text = String(studentPoints)
         
