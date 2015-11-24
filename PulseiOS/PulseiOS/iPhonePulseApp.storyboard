@@ -35,15 +35,6 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="kQC-9i-NEb">
-                                <rect key="frame" x="20" y="307" width="280" height="30"/>
-                                <animations/>
-                                <constraints>
-                                    <constraint firstAttribute="width" secondItem="kQC-9i-NEb" secondAttribute="height" multiplier="28:3" id="a4U-xv-o8U"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" secureTextEntry="YES"/>
-                            </textField>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="F0M-BL-IMr">
                                 <rect key="frame" x="20" y="513" width="280" height="30"/>
                                 <animations/>
@@ -60,6 +51,15 @@
                                     <action selector="loginButtonPressed:" destination="uJa-cB-gxh" eventType="touchUpInside" id="cKW-pL-Cfr"/>
                                 </connections>
                             </button>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="kQC-9i-NEb">
+                                <rect key="frame" x="20" y="307" width="280" height="30"/>
+                                <animations/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="kQC-9i-NEb" secondAttribute="height" multiplier="28:3" id="a4U-xv-o8U"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" secureTextEntry="YES"/>
+                            </textField>
                         </subviews>
                         <animations/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -79,8 +79,10 @@
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="bottomConstraintLogInButton" destination="JQh-mR-KPl" id="uCQ-FA-7ii"/>
                         <outlet property="loginButton" destination="F0M-BL-IMr" id="v8x-Wt-fO0"/>
                         <outlet property="passwordTextBox" destination="kQC-9i-NEb" id="hhQ-OX-IyM"/>
+                        <outlet property="userNameCenterConstraint" destination="oy3-R0-oqw" id="ZWg-hs-HO3"/>
                         <outlet property="usernameTextBox" destination="Snd-M4-01C" id="B8m-gW-O4i"/>
                     </connections>
                 </viewController>
