@@ -8,6 +8,11 @@
 import Bolts
 import Parse
 
+enum QuestionType : Int {
+    case MultipleChoice
+    case FillInTheBlank
+}
+
 class Question: PFObject, PFSubclassing {
     override class func initialize() {
         struct Static {

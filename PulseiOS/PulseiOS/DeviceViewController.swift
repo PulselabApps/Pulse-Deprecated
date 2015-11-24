@@ -17,7 +17,8 @@ class DeviceViewController: UIViewController {
     var studentRank = 1
     var studentPoints = 0
     
-    var questions = [AnyObject]()
+//    var questions = [AnyObject]()
+    var questions = [Question]()
     var currentQuestion : Int?
     var correctAnswer : String?
     var studentsAnswer : String?
@@ -52,21 +53,22 @@ class DeviceViewController: UIViewController {
         
         makeMultipleChoicesRound()
         
-        let query = PFQuery(className:"ClassSession")
-        
-        query.whereKey("name", equalTo:"Math")
-        query.findObjectsInBackgroundWithBlock {
-            (objects: [PFObject]?, error: NSError?) -> Void in
-            
+        let query = ClassSession_Beta.query()!
+        query.getObjectInBackgroundWithId("udilE5VomO") { (object, error) -> Void in
             if error == nil {
-                
-                let classSession = objects![0]
-                
-                self.questions = classSession.valueForKey("questions") as! [AnyObject]
-                self.currentQuestion = classSession.valueForKey("currentQuestion") as? Int
-                
-                self.initQuestionAnswers()
-                
+                if let classSession = object as? ClassSession_Beta {
+                    let questionQuery = classSession.questions.query()!
+                    questionQuery.orderByAscending("createdAt")
+                    questionQuery.findObjectsInBackgroundWithBlock({ (objects, error) -> Void in
+                        if error == nil {
+                            if let questions = objects as? [Question] {
+                                self.questions = questions
+                                self.currentQuestion = classSession.currentQuestion
+                                self.initQuestionAnswers()
+                            }
+                        }
+                    })
+                }
             }
         }
     }
@@ -86,17 +88,29 @@ class DeviceViewController: UIViewController {
         
         hideAllAnswers()
         
-        switch questions[currentQuestion!]["questionType"] as! String {
-        case "MultipleChoice":
+        let currentQ = self.questions[self.currentQuestion!]
+        let type = QuestionType(rawValue: currentQ.questionType)!
+        
+        switch type {
+        case .MultipleChoice:
             showMultipleChoiceOptions()
             break
-        case "FillInTheBlank":
+        case .FillInTheBlank:
             showFillInTheBlank()
-            submitButton.enabled = true
             break
-        default: break
-            
         }
+        
+//        switch questions[currentQuestion!]["questionType"] as! String {
+//        case "MultipleChoice":
+//            showMultipleChoiceOptions()
+//            break
+//        case "FillInTheBlank":
+//            showFillInTheBlank()
+//            submitButton.enabled = true
+//            break
+//        default: break
+//            
+//        }
     }
     
     func hideAllAnswers(){
@@ -109,7 +123,8 @@ class DeviceViewController: UIViewController {
     
     func showFillInTheBlank(){
         answerTextBox.hidden = false
-        var answers = questions[currentQuestion!]["answers"]!! as! [String]
+        var answers = questions[currentQuestion!].answers
+//        var answers = questions[currentQuestion!]["answers"]!! as! [String]
         correctAnswer = answers[0]
     }
     
@@ -120,8 +135,8 @@ class DeviceViewController: UIViewController {
         bottomRightMultipleChoice.hidden = false
         
         let buttons = [topLeftMultipleChoiceButton, bottomLeftMultipleChoiceButton,topRightMultipleChoiceButton,bottomRightMultipleChoiceButton]
-        
-        var answers = questions[currentQuestion!]["answers"]!! as! [String]
+        var answers = questions[currentQuestion!].answers
+//        var answers = questions[currentQuestion!]["answers"]!! as! [String]
         correctAnswer = answers[0]
         
         let newIndex = Int(arc4random_uniform(UInt32(4)))
@@ -238,9 +253,8 @@ class DeviceViewController: UIViewController {
         if let multipleChoicAnswer = previouslyClickedButton {
             let answer = multipleChoicAnswer.titleLabel?.text
             
-            let answerDick = ["answerChoice":answer!]
-            PFCloud.callFunctionInBackground("sendAnswer", withParameters: answerDick)
-            
+            let currentQ = questions[currentQuestion!]
+            currentQ.answerBreakdown[answer!]!++
             if answer == correctAnswer{
                 var score = user!["score"] as? Int
                 score = score! + 500
@@ -249,7 +263,7 @@ class DeviceViewController: UIViewController {
                 var questionsCorrect = user!["questionsCorrect"] as? Int
                 questionsCorrect!+=1
                 user!["questionsCorrect"] = questionsCorrect
-                
+                currentQ.numCorrectAnswers++
                 /*var numCorrectAnswers = questions[currentQuestion!]["numCorrectAnswers"] as? Int
                 numCorrectAnswers!+=1
                 var question = questions[currentQuestion!] as! [String:AnyObject]
@@ -258,8 +272,6 @@ class DeviceViewController: UIViewController {
                 
                 saveQuestions()*/
                 
-                let blahDict = ["answerChoice":true]
-                PFCloud.callFunctionInBackground("incrementCorrectOrIncorrect", withParameters: blahDict)
                 
                 saveUser()
                 previouslyClickedButton!.backgroundColor = ColorConstants.GreenCorrectColor
@@ -305,19 +317,23 @@ class DeviceViewController: UIViewController {
                 
                 saveQuestions()*/
                 
-                let blahDict = ["answerChoice":false]
-                PFCloud.callFunctionInBackground("incrementCorrectOrIncorrect", withParameters: blahDict)
-                
+                currentQ.numIncorrectAnswers++
                 saveUser()
                 
             }
-            
+            currentQ.saveInBackgroundWithBlock({ (success, error) -> Void in
+                if error == nil && success {
+                    print("Saved Question")
+                }
+            })
             previouslyClickedButton!.setTitleColor(UIColor.whiteColor(), forState: .Normal)
             topLeftMultipleChoiceButton.enabled = false
             bottomLeftMultipleChoiceButton.enabled = false
             topRightMultipleChoiceButton.enabled = false
             bottomRightMultipleChoiceButton.enabled = false
+            
         } else { // FILL IN THE BLANK
+            let currentQ = questions[currentQuestion!]
             if let answer = answerTextBox.text {
                 if answer == correctAnswer{
                     // INCREMENT SCORE
@@ -337,9 +353,7 @@ class DeviceViewController: UIViewController {
                     
                     saveQuestions()*/
                     
-                    let blahDict = ["answerChoice":true]
-                    PFCloud.callFunctionInBackground("incrementCorrectOrIncorrect", withParameters: blahDict)
-                    
+                    currentQ.numCorrectAnswers++
                     saveUser()
                     
                     answerTextBox.backgroundColor = ColorConstants.GreenCorrectColor
@@ -363,11 +377,14 @@ class DeviceViewController: UIViewController {
                     
                     saveQuestions()*/
                     
-                    let blahDict = ["answerChoice":false]
-                    PFCloud.callFunctionInBackground("incrementCorrectOrIncorrect", withParameters: blahDict)
-                    
+                    currentQ.numIncorrectAnswers++
                     saveUser()
                 }
+                currentQ.saveInBackgroundWithBlock({ (success, error) -> Void in
+                    if error == nil && success {
+                        print("Saved Question")
+                    }
+                })
                 answerTextBox.textColor = UIColor.whiteColor()
                 answerTextBox.userInteractionEnabled = false
                 
@@ -392,24 +409,18 @@ class DeviceViewController: UIViewController {
     }
     
     func checkForQuestionChange(){
-        let query = PFQuery(className:"ClassSession")
         
-        query.whereKey("name", equalTo: "Math")
-        query.findObjectsInBackgroundWithBlock {
-            (objects: [PFObject]?, error: NSError?) -> Void in
-            
+        let query = ClassSession_Beta.query()!
+        query.getObjectInBackgroundWithId("udilE5VomO") { (object, error) -> Void in
             if error == nil {
-                let classSession = objects![0]
-                
-                if classSession.valueForKey("currentQuestion") as? Int != self.currentQuestion{
-                    
-                    self.currentQuestion = classSession.valueForKey("currentQuestion") as? Int
-                    
-                    self.loadNewQuestion()
-                    self.submitButton.enabled = false
-                    self.getRank()
+                if let classSession = object as? ClassSession_Beta {
+                    if classSession.currentQuestion != self.currentQuestion! {
+                        self.currentQuestion = classSession.currentQuestion
+                        self.loadNewQuestion()
+                        self.submitButton.enabled = false
+                        self.getRank()
+                    }
                 }
-                
             }
         }
         print("hello")

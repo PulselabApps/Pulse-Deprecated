@@ -82,7 +82,8 @@ class iPadAnswersViewController : DeviceViewController {
         switch segue.identifier! {
         case "FullQuestionSegue":
             let fullQuestionVC = segue.destinationViewController as! FullQuestionViewController
-            fullQuestionVC.fullQuestion = questions[currentQuestion!]["questionText"]!! as? String
+            fullQuestionVC.fullQuestion = questions[currentQuestion!].text
+//            fullQuestionVC.fullQuestion = questions[currentQuestion!]["questionText"]!! as? String
             
         default:
             break
@@ -90,7 +91,6 @@ class iPadAnswersViewController : DeviceViewController {
     }
     
     @IBAction func submitButtonSelected(sender: UIButton) {
-        super.submitButtonPressed(sender)
         self.points.text = String(self.user!["score"] as! Int)
         self.rank.text = String(studentRank)
         let correctAnswers = user!["questionsCorrect"] as! Double
