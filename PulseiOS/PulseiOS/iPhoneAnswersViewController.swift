@@ -8,21 +8,10 @@
 
 import UIKit
 
-class iPhoneAnswersViewController: DeviceViewController , UIScrollViewDelegate{
+class iPhoneAnswersViewController: DeviceViewController{
     
-    @IBOutlet weak var iPhoneAnswersScrollView: UIScrollView!
     var y = 0
     override func viewDidLoad() {
         super.viewDidLoad()
-        iPhoneAnswersScrollView.delegate = self
     }
-    
-    func configureScrollView(){
-        
-    }
-    
-    func scrollViewDidScroll(scrollView: UIScrollView) {
-        
-    }
-    
 }

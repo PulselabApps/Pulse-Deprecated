@@ -96,7 +96,7 @@
                         <viewControllerLayoutGuide type="top" id="Y0v-nj-HMp"/>
                         <viewControllerLayoutGuide type="bottom" id="WZ7-to-vKK"/>
                     </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="ZLn-0G-Udx">
+                    <view key="view" contentMode="scaleToFill" id="ZLn-0G-Udx" customClass="UIScrollView" customModule="PulseiOS">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
@@ -240,10 +240,6 @@
                                 <fontDescription key="fontDescription" type="system" weight="thin" pointSize="17"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
-                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" directionalLockEnabled="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sSA-Ae-bfW">
-                                <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
-                                <animations/>
-                            </scrollView>
                         </subviews>
                         <animations/>
                         <color key="backgroundColor" red="0.66274509803921566" green="0.78823529411764703" blue="0.83137254901960778" alpha="1" colorSpace="calibratedRGB"/>
@@ -277,7 +273,6 @@
                         <outlet property="bottomLeftMultipleChoiceButton" destination="Ven-2A-SK6" id="5cs-OD-9g7"/>
                         <outlet property="bottomRightMultipleChoice" destination="Mzd-qZ-MM1" id="bYX-rW-nT7"/>
                         <outlet property="bottomRightMultipleChoiceButton" destination="j9z-Sx-4ur" id="Y4d-w5-TVY"/>
-                        <outlet property="iPhoneAnswersScrollView" destination="sSA-Ae-bfW" id="Bgg-kH-OXs"/>
                         <outlet property="submitButton" destination="lWq-8v-Aph" id="yhR-in-UJB"/>
                         <outlet property="topLeftMultipleChoice" destination="beR-ur-u7r" id="Fmi-DX-SAS"/>
                         <outlet property="topLeftMultipleChoiceButton" destination="rIt-Sg-ebU" id="N3R-nd-27x"/>
