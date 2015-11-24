@@ -14,6 +14,9 @@
 		12D31D391BEE791100B03E7C /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 12D31D371BEE791100B03E7C /* LaunchScreen.storyboard */; };
 		12D31D441BEE791100B03E7C /* PulseiOSTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12D31D431BEE791100B03E7C /* PulseiOSTests.swift */; };
 		12D31D4F1BEE791100B03E7C /* PulseiOSUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12D31D4E1BEE791100B03E7C /* PulseiOSUITests.swift */; };
+		12F35C4B1C0432A500E3D4CD /* Question.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12F35C481C0432A500E3D4CD /* Question.swift */; };
+		12F35C4C1C0432A500E3D4CD /* PulseClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12F35C491C0432A500E3D4CD /* PulseClass.swift */; };
+		12F35C4D1C0432A500E3D4CD /* ClassSession_Beta.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12F35C4A1C0432A500E3D4CD /* ClassSession_Beta.swift */; };
 		4AC149BF1BEF1EC400EF52FA /* Help-100.png in Resources */ = {isa = PBXBuildFile; fileRef = 4AC149BE1BEF1EC400EF52FA /* Help-100.png */; };
 		4AC149C11BEF203A00EF52FA /* FullQuestionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AC149C01BEF203A00EF52FA /* FullQuestionViewController.swift */; };
 		4AE1687D1BEEEBB100150474 /* logo.png in Resources */ = {isa = PBXBuildFile; fileRef = 4AE1687C1BEEEBB100150474 /* logo.png */; };
@@ -61,6 +64,9 @@
 		12D31D4A1BEE791100B03E7C /* PulseiOSUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PulseiOSUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		12D31D4E1BEE791100B03E7C /* PulseiOSUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PulseiOSUITests.swift; sourceTree = "<group>"; };
 		12D31D501BEE791100B03E7C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		12F35C481C0432A500E3D4CD /* Question.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Question.swift; sourceTree = "<group>"; };
+		12F35C491C0432A500E3D4CD /* PulseClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PulseClass.swift; sourceTree = "<group>"; };
+		12F35C4A1C0432A500E3D4CD /* ClassSession_Beta.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ClassSession_Beta.swift; sourceTree = "<group>"; };
 		4AC149BE1BEF1EC400EF52FA /* Help-100.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Help-100.png"; sourceTree = "<group>"; };
 		4AC149C01BEF203A00EF52FA /* FullQuestionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FullQuestionViewController.swift; sourceTree = "<group>"; };
 		4AE1687C1BEEEBB100150474 /* logo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = logo.png; sourceTree = "<group>"; };
@@ -130,6 +136,7 @@
 		12D31D2D1BEE791100B03E7C /* PulseiOS */ = {
 			isa = PBXGroup;
 			children = (
+				12F35C471C04329000E3D4CD /* Parse Objects */,
 				F111DD621BEE7D8700E10C7F /* Model */,
 				F111DD631BEE7D9D00E10C7F /* View */,
 				F111DD641BEE7DC500E10C7F /* Controller */,
@@ -155,6 +162,16 @@
 				12D31D501BEE791100B03E7C /* Info.plist */,
 			);
 			path = PulseiOSUITests;
+			sourceTree = "<group>";
+		};
+		12F35C471C04329000E3D4CD /* Parse Objects */ = {
+			isa = PBXGroup;
+			children = (
+				12F35C481C0432A500E3D4CD /* Question.swift */,
+				12F35C491C0432A500E3D4CD /* PulseClass.swift */,
+				12F35C4A1C0432A500E3D4CD /* ClassSession_Beta.swift */,
+			);
+			name = "Parse Objects";
 			sourceTree = "<group>";
 		};
 		D8F7F33001FD1CBE2292BFC2 /* Pods */ = {
@@ -463,13 +480,16 @@
 			files = (
 				F1888FBC1BF6F1C000A3B75D /* Constants.swift in Sources */,
 				F167687C1BF830140032BC39 /* iPhoneAnswersViewController.swift in Sources */,
+				12F35C4C1C0432A500E3D4CD /* PulseClass.swift in Sources */,
 				F1EF36BA1BF8173400DFE8A9 /* iPhoneLogInViewController.swift in Sources */,
 				F158C8E81BF7F823001E6A89 /* DeviceViewController.swift in Sources */,
 				F1EF36B81BF8140B00DFE8A9 /* DeviceLogInViewController.swift in Sources */,
+				12F35C4D1C0432A500E3D4CD /* ClassSession_Beta.swift in Sources */,
 				4AC149C11BEF203A00EF52FA /* FullQuestionViewController.swift in Sources */,
 				F158C8E41BF7F139001E6A89 /* iPadAnswersViewController.swift in Sources */,
 				12D31D2F1BEE791100B03E7C /* AppDelegate.swift in Sources */,
 				F1EF36B61BF813BC00DFE8A9 /* iPadLogInViewController.swift in Sources */,
+				12F35C4B1C0432A500E3D4CD /* Question.swift in Sources */,
 				F158C8EC1BF7FAF8001E6A89 /* User.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
