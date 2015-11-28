@@ -35,6 +35,19 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         window!.makeKeyAndVisible()
         /**************************************/
         
+        
+        /* Auto Login *************************/
+        if PFUser.currentUser() != nil {
+            self.window = UIWindow(frame: UIScreen.mainScreen().bounds)
+            let storyboard = UIStoryboard(name: storyboardname, bundle: nil)
+            let initialViewController = storyboard.instantiateViewControllerWithIdentifier("StudentViewController")
+            self.window?.rootViewController = initialViewController
+            self.window?.makeKeyAndVisible()
+            
+        }
+        /**************************************/
+
+        
         return true
     }
 
