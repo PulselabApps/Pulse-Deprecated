@@ -36,6 +36,10 @@ class DeviceViewController: UIViewController {
     @IBOutlet weak var submitButton: UIButton!
     @IBOutlet weak var answerTextBox: UITextField!
     
+    @IBOutlet weak var progressPieChart: PieChartView!
+    @IBOutlet weak var rank: UILabel!
+    @IBOutlet weak var points: UILabel!
+    
     var previouslyClickedButton : UIButton?
     var correctButton : UIButton?
 

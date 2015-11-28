@@ -49,7 +49,6 @@ class iPhoneLogInViewController: DeviceLogInViewController {
                     UIView.animateWithDuration(0.25, delay: 0.50, options: UIViewAnimationOptions.CurveEaseInOut, animations: {
                         self.bottomConstraintLogInButton.constant -= keyboardSize.height
                         let logInButtonBottom = (self.loginButton.center.y - self.bottomConstraintLogInButton.constant)
-                        
                         self.userNameCenterConstraint.constant += (self.loginButton.frame.height + (keyboardTop - logInButtonBottom))
                         }, completion: nil)
                 }

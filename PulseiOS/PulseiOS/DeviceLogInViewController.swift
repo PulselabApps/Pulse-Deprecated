@@ -41,9 +41,17 @@ class DeviceLogInViewController: UIViewController {
                 if user!["role"] as! String == "Student"{
                     print("YOUR A STUDENT")
                     
-                    if let studentVC = self.storyboard!.instantiateViewControllerWithIdentifier("StudentViewController") as? DeviceViewController {
-                        self.presentViewController(studentVC, animated: true, completion: nil)
+                    if (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiom.Phone) {
+                        if let studentVC = self.storyboard!.instantiateViewControllerWithIdentifier("StudentViewController") as? BetoTabViewController {
+                            self.presentViewController(studentVC, animated: true, completion: nil)
+                        }
+                        
+                    } else {
+                        if let studentVC = self.storyboard!.instantiateViewControllerWithIdentifier("StudentViewController") as? DeviceViewController {
+                            self.presentViewController(studentVC, animated: true, completion: nil)
+                        }
                     }
+                    
                     
                 } else {
                     print("YOUR A TEACHER")

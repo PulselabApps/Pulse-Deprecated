@@ -13,9 +13,6 @@ import Foundation
 
 class iPadAnswersViewController : DeviceViewController {
     
-    @IBOutlet weak var progressPieChart: PieChartView!
-    @IBOutlet weak var rank: UILabel!
-    @IBOutlet weak var points: UILabel!
     @IBOutlet weak var answerView: UIView!
     
     var questionsCorrect = 0
@@ -89,9 +86,7 @@ class iPadAnswersViewController : DeviceViewController {
         switch segue.identifier! {
         case "FullQuestionSegue":
             let fullQuestionVC = segue.destinationViewController as! FullQuestionViewController
-            fullQuestionVC.fullQuestion = questions[currentQuestion!].text
-//            fullQuestionVC.fullQuestion = questions[currentQuestion!]["questionText"]!! as? String
-            
+            fullQuestionVC.fullQuestion = questions[currentQuestion!].text            
         default:
             break
         }
