@@ -33,7 +33,7 @@
                                     <constraint firstAttribute="width" secondItem="Snd-M4-01C" secondAttribute="height" multiplier="28:3" id="wcS-qL-Yva"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
+                                <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no"/>
                             </textField>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="F0M-BL-IMr">
                                 <rect key="frame" x="20" y="513" width="280" height="30"/>
