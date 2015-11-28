@@ -24,7 +24,7 @@ class iPadAnswersViewController : DeviceViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        /** PIE CHART SETUP : **/
+        /** PIE CHART SETUP : ************************************/
         progressPieChart.legend.enabled = false
         progressPieChart.usePercentValuesEnabled = true
         progressPieChart.holeColor = ColorConstants.OrangeAppColor
@@ -36,7 +36,9 @@ class iPadAnswersViewController : DeviceViewController {
         rank.text = String(studentRank)
         points.text = String(studentPoints)
         
-        drawPieChart(1.0, incorrect: 0.0, isInitialLoad: true)
+        let correctAnswers = user!["questionsCorrect"] as! Double
+        let incorrectAnswers = user!["questionsIncorrect"] as! Double
+        drawPieChart(correctAnswers, incorrect: incorrectAnswers, isInitialLoad: true)
     }
     
     @IBAction func answerTextBoxType(sender: UITextField) {
@@ -63,7 +65,7 @@ class iPadAnswersViewController : DeviceViewController {
     }
     }*/
     
-    func drawPieChart(correct: Double, incorrect: Double, isInitialLoad: Bool) {
+    func drawPieChart(var correct: Double, incorrect: Double, isInitialLoad: Bool) {
         var chartDataSetEntries = [ChartDataEntry]()
         
         chartDataSetEntries.append(ChartDataEntry(value: correct, xIndex: 0))
@@ -75,6 +77,11 @@ class iPadAnswersViewController : DeviceViewController {
         let chartData = PieChartData(xVals: ["✔", "✕"], dataSet: chartDataSet)
         progressPieChart.data = chartData
         
+        if (isInitialLoad) {
+            if (correct == 0 && incorrect == 0){
+                correct = 1
+            }
+        }
         progressPieChart.centerText =  !isInitialLoad ? getGrade(100 * (correct / (correct + incorrect))) : "A"
     }
     

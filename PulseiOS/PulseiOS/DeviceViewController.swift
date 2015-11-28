@@ -17,7 +17,6 @@ class DeviceViewController: UIViewController {
     var studentRank = 1
     var studentPoints = 0
     
-//    var questions = [AnyObject]()
     var questions = [Question]()
     var currentQuestion : Int?
     var correctAnswer : String?
