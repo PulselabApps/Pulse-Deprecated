@@ -56,7 +56,7 @@ class DeviceViewController: UIViewController {
         query.getObjectInBackgroundWithId("udilE5VomO") { (object, error) -> Void in
             if error == nil {
                 if let classSession = object as? ClassSession_Beta {
-                    let questionQuery = classSession.questions.query()!
+                    let questionQuery = classSession.questions.query()
                     questionQuery.orderByAscending("createdAt")
                     questionQuery.findObjectsInBackgroundWithBlock({ (objects, error) -> Void in
                         if error == nil {
@@ -220,7 +220,7 @@ class DeviceViewController: UIViewController {
             (objects: [PFObject]?, error: NSError?) -> Void in
             if error == nil {
                 let currentClass = objects![0]
-                let relationalQuery = currentClass.relationForKey("students").query()
+                let relationalQuery : PFQuery? = currentClass.relationForKey("students").query()
                 relationalQuery?.whereKeyExists("score")
                 relationalQuery?.findObjectsInBackgroundWithBlock({ (object: [PFObject]?, errors: NSError?) -> Void in
                     if errors == nil {
