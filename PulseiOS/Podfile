@@ -4,6 +4,7 @@
 use_frameworks!
 pod 'Parse'
 pod 'Charts'
+pod 'Pushwoosh'
 target 'PulseiOS' do
 
 end
