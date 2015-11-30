@@ -288,8 +288,18 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Session Summary" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oq9-re-bVz">
+                                <rect key="frame" x="20" y="28" width="280" height="33"/>
+                                <animations/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="oq9-re-bVz" secondAttribute="height" multiplier="280:33" id="KfW-9j-kim"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="AppleSDGothicNeo-Thin" family="Apple SD Gothic Neo" pointSize="28"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="RRW-VW-zXi" customClass="PieChartView" customModule="Charts">
-                                <rect key="frame" x="90" y="28" width="140" height="140"/>
+                                <rect key="frame" x="90" y="69" width="140" height="140"/>
                                 <animations/>
                                 <color key="backgroundColor" red="0.66274509803921566" green="0.78823529411764703" blue="0.83137254901960778" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
@@ -300,8 +310,11 @@
                         <animations/>
                         <color key="backgroundColor" red="0.66274509803921566" green="0.78823529411764703" blue="0.83137254901960778" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
-                            <constraint firstItem="RRW-VW-zXi" firstAttribute="top" secondItem="qns-Qc-VSQ" secondAttribute="bottom" constant="8" id="auo-Wh-vqH"/>
+                            <constraint firstItem="RRW-VW-zXi" firstAttribute="top" secondItem="oq9-re-bVz" secondAttribute="bottom" constant="8" id="IE6-FA-qk3"/>
+                            <constraint firstItem="oq9-re-bVz" firstAttribute="top" secondItem="qns-Qc-VSQ" secondAttribute="bottom" constant="8" id="Ruf-bc-t0S"/>
+                            <constraint firstItem="oq9-re-bVz" firstAttribute="width" secondItem="3mc-4d-XJJ" secondAttribute="height" multiplier="35:71" id="Uzk-xx-8IU"/>
                             <constraint firstItem="RRW-VW-zXi" firstAttribute="centerX" secondItem="3mc-4d-XJJ" secondAttribute="centerX" id="kSx-Sb-Ypw"/>
+                            <constraint firstItem="oq9-re-bVz" firstAttribute="centerX" secondItem="3mc-4d-XJJ" secondAttribute="centerX" id="oDC-WP-Iwx"/>
                             <constraint firstItem="RRW-VW-zXi" firstAttribute="width" secondItem="3mc-4d-XJJ" secondAttribute="height" multiplier="35:142" id="toD-2m-8Fg"/>
                         </constraints>
                     </view>

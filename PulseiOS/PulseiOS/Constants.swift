@@ -14,6 +14,7 @@ struct ColorConstants {
     static let RedIncorrectColor = UIColor(red: 201.0 / 255, green: 91.0 / 255, blue: 104.0 / 255, alpha: 1.0)
     static let GrayNormalButtonColor = UIColor(red: 205.0 / 255, green: 205.0 / 255, blue: 205.0 / 255, alpha: 1.0)
     static let OrangeAppColor = UIColor(red: 255.0 / 255, green: 194.0 / 255, blue: 113.0 / 255, alpha: 1.0)
+    static let BlueAppColor = UIColor(red: 169.0 / 255, green: 201.0 / 255, blue: 212.0 / 255, alpha: 1.0)
 }
 
 struct StoryBoards {

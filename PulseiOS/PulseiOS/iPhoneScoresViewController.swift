@@ -22,7 +22,7 @@ class iPhoneScoresViewController: UIViewController {
         /** PIE CHART SETUP : ************************************/
         progressPieChart.legend.enabled = false
         progressPieChart.usePercentValuesEnabled = true
-        progressPieChart.holeColor = ColorConstants.OrangeAppColor
+        progressPieChart.holeColor = ColorConstants.BlueAppColor
         progressPieChart.sizeToFit()
         progressPieChart.centerTextRadiusPercent = 75.0
         progressPieChart.descriptionText = ""
