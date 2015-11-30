@@ -14,6 +14,7 @@ import Foundation
 class iPadAnswersViewController : DeviceViewController {
     
     @IBOutlet weak var answerView: UIView!
+    @IBOutlet weak var progressPieChart: PieChartView!
     
     var questionsCorrect = 0
     var questionsAsked = 0
@@ -35,7 +36,7 @@ class iPadAnswersViewController : DeviceViewController {
         
         let correctAnswers = user!["questionsCorrect"] as! Double
         let incorrectAnswers = user!["questionsIncorrect"] as! Double
-        drawPieChart(correctAnswers, incorrect: incorrectAnswers, isInitialLoad: true)
+        DeviceViewHelper.drawPieChart(correctAnswers, incorrect: incorrectAnswers, isInitialLoad: true, progressPieChart: progressPieChart)
     }
     
     @IBAction func answerTextBoxType(sender: UITextField) {
@@ -62,26 +63,6 @@ class iPadAnswersViewController : DeviceViewController {
     }
     }*/
     
-    func drawPieChart(var correct: Double, incorrect: Double, isInitialLoad: Bool) {
-        var chartDataSetEntries = [ChartDataEntry]()
-        
-        chartDataSetEntries.append(ChartDataEntry(value: correct, xIndex: 0))
-        chartDataSetEntries.append(ChartDataEntry(value: incorrect, xIndex: 1))
-        
-        let chartDataSet = PieChartDataSet(yVals: chartDataSetEntries, label: "")
-        chartDataSet.colors = [ColorConstants.GreenCorrectColor, ColorConstants.RedIncorrectColor]
-        
-        let chartData = PieChartData(xVals: ["✔", "✕"], dataSet: chartDataSet)
-        progressPieChart.data = chartData
-        
-        if (isInitialLoad) {
-            if (correct == 0 && incorrect == 0){
-                correct = 1
-            }
-        }
-        progressPieChart.centerText =  !isInitialLoad ? getGrade(100 * (correct / (correct + incorrect))) : "A"
-    }
-    
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         switch segue.identifier! {
         case "FullQuestionSegue":
@@ -97,7 +78,7 @@ class iPadAnswersViewController : DeviceViewController {
         self.rank.text = String(studentRank)
         let correctAnswers = user!["questionsCorrect"] as! Double
         let incorrectAnswers = user!["questionsIncorrect"] as! Double
-        drawPieChart(correctAnswers, incorrect: incorrectAnswers, isInitialLoad: false)
+        DeviceViewHelper.drawPieChart(correctAnswers, incorrect: incorrectAnswers, isInitialLoad: false, progressPieChart: progressPieChart)
     }
     
 }

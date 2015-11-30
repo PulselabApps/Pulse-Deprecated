@@ -33,6 +33,8 @@
 		F1C7CB791C0A272000E20D8E /* BetoTabViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1C7CB781C0A272000E20D8E /* BetoTabViewController.swift */; };
 		F1C7CB7D1C0A2C8800E20D8E /* Settings.png in Resources */ = {isa = PBXBuildFile; fileRef = F1C7CB7C1C0A2C8800E20D8E /* Settings.png */; };
 		F1C7CB7F1C0A2D1500E20D8E /* Question.png in Resources */ = {isa = PBXBuildFile; fileRef = F1C7CB7E1C0A2D1500E20D8E /* Question.png */; };
+		F1C7CB811C0CA6E000E20D8E /* iPhoneScoresViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1C7CB801C0CA6E000E20D8E /* iPhoneScoresViewController.swift */; };
+		F1C7CB831C0CA93F00E20D8E /* DeviceViewHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1C7CB821C0CA93F00E20D8E /* DeviceViewHelper.swift */; };
 		F1EF36B61BF813BC00DFE8A9 /* iPadLogInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1EF36B51BF813BC00DFE8A9 /* iPadLogInViewController.swift */; };
 		F1EF36B81BF8140B00DFE8A9 /* DeviceLogInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1EF36B71BF8140B00DFE8A9 /* DeviceLogInViewController.swift */; };
 		F1EF36BA1BF8173400DFE8A9 /* iPhoneLogInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1EF36B91BF8173400DFE8A9 /* iPhoneLogInViewController.swift */; };
@@ -90,6 +92,8 @@
 		F1C7CB781C0A272000E20D8E /* BetoTabViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BetoTabViewController.swift; sourceTree = "<group>"; };
 		F1C7CB7C1C0A2C8800E20D8E /* Settings.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Settings.png; sourceTree = "<group>"; };
 		F1C7CB7E1C0A2D1500E20D8E /* Question.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Question.png; sourceTree = "<group>"; };
+		F1C7CB801C0CA6E000E20D8E /* iPhoneScoresViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = iPhoneScoresViewController.swift; sourceTree = "<group>"; };
+		F1C7CB821C0CA93F00E20D8E /* DeviceViewHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DeviceViewHelper.swift; sourceTree = "<group>"; };
 		F1EF36B51BF813BC00DFE8A9 /* iPadLogInViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = iPadLogInViewController.swift; sourceTree = "<group>"; };
 		F1EF36B71BF8140B00DFE8A9 /* DeviceLogInViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DeviceLogInViewController.swift; sourceTree = "<group>"; };
 		F1EF36B91BF8173400DFE8A9 /* iPhoneLogInViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = iPhoneLogInViewController.swift; sourceTree = "<group>"; };
@@ -245,6 +249,7 @@
 		F158C8E91BF7F826001E6A89 /* Device */ = {
 			isa = PBXGroup;
 			children = (
+				F1C7CB841C0CA94E00E20D8E /* Helper */,
 				F1EF36B71BF8140B00DFE8A9 /* DeviceLogInViewController.swift */,
 				F158C8E71BF7F823001E6A89 /* DeviceViewController.swift */,
 			);
@@ -257,6 +262,7 @@
 				F1EF36B91BF8173400DFE8A9 /* iPhoneLogInViewController.swift */,
 				F167687B1BF830140032BC39 /* iPhoneAnswersViewController.swift */,
 				F1C7CB781C0A272000E20D8E /* BetoTabViewController.swift */,
+				F1C7CB801C0CA6E000E20D8E /* iPhoneScoresViewController.swift */,
 			);
 			name = iPhone;
 			sourceTree = "<group>";
@@ -288,6 +294,14 @@
 				F1C7CB761C0A269800E20D8E /* Score.png */,
 			);
 			name = TabViewControllerAssets;
+			sourceTree = "<group>";
+		};
+		F1C7CB841C0CA94E00E20D8E /* Helper */ = {
+			isa = PBXGroup;
+			children = (
+				F1C7CB821C0CA93F00E20D8E /* DeviceViewHelper.swift */,
+			);
+			name = Helper;
 			sourceTree = "<group>";
 		};
 		F1F9DE511BF713EE00C1E30D /* Assets */ = {
@@ -505,6 +519,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F1C7CB811C0CA6E000E20D8E /* iPhoneScoresViewController.swift in Sources */,
 				F1888FBC1BF6F1C000A3B75D /* Constants.swift in Sources */,
 				F167687C1BF830140032BC39 /* iPhoneAnswersViewController.swift in Sources */,
 				12F35C4C1C0432A500E3D4CD /* PulseClass.swift in Sources */,
@@ -516,6 +531,7 @@
 				F158C8E41BF7F139001E6A89 /* iPadAnswersViewController.swift in Sources */,
 				12D31D2F1BEE791100B03E7C /* AppDelegate.swift in Sources */,
 				F1C7CB791C0A272000E20D8E /* BetoTabViewController.swift in Sources */,
+				F1C7CB831C0CA93F00E20D8E /* DeviceViewHelper.swift in Sources */,
 				F1EF36B61BF813BC00DFE8A9 /* iPadLogInViewController.swift in Sources */,
 				12F35C4B1C0432A500E3D4CD /* Question.swift in Sources */,
 				F158C8EC1BF7FAF8001E6A89 /* User.swift in Sources */,
