@@ -14,7 +14,7 @@
             buildForArchiving = "YES">
             <BuildableReference
                BuildableIdentifier = 'primary'
-               BlueprintIdentifier = '2A4761133EEFE27233A70F3A'
+               BlueprintIdentifier = 'FB6A664F4A5DD3699285653A'
                BlueprintName = 'DeepLinkKit'
                ReferencedContainer = 'container:Pods.xcodeproj'
                BuildableName = 'DeepLinkKit.framework'>
