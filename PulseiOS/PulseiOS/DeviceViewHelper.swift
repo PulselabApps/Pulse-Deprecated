@@ -9,9 +9,10 @@
 import UIKit
 import Foundation
 import Charts
+import Parse
 
 class DeviceViewHelper {
-    
+        
     static func drawPieChart(var correct: Double, incorrect: Double, isInitialLoad: Bool, progressPieChart: PieChartView) {
         var chartDataSetEntries = [ChartDataEntry]()
         
@@ -50,6 +51,38 @@ class DeviceViewHelper {
             letterGrade = "A"
         }
         return letterGrade
+    }
+    
+    static func setRankLabel(rankLabel: UILabel) {
+        var rank = 1
+        var scores = [Int]()
+        let query = PFQuery(className: "Class")
+        query.whereKey("name", equalTo: "Math")
+        query.findObjectsInBackgroundWithBlock {
+            (objects: [PFObject]?, error: NSError?) -> Void in
+            if error == nil {
+                let currentClass = objects![0]
+                let relationalQuery : PFQuery? = currentClass.relationForKey("students").query()
+                relationalQuery?.whereKeyExists("score")
+                relationalQuery?.findObjectsInBackgroundWithBlock({ (object: [PFObject]?, errors: NSError?) -> Void in
+                    if errors == nil {
+                        for obj in object!{
+                            let student = obj
+                            let score = student.valueForKey("score") as? Int
+                            scores.append(score!)
+                        }
+                        scores.sortInPlace({ $0 > $1 })
+                        for score in scores {
+                            if score == User.sharedInstance.user!["score"] as? Int {
+                                break
+                            }
+                            rank++
+                        }
+                        rankLabel.text = String(rank)
+                    }
+                })
+            }
+        }
     }
 
 }

@@ -163,26 +163,6 @@ class DeviceViewController: UIViewController, DPLTargetViewController {
         submitButton.enabled = true
     }
     
-    func getGrade(grade: Double) -> String {
-        var letterGrade = ""
-        if grade < 60.0 {
-            letterGrade = "F"
-        }
-        if (grade >= 60.0 && grade < 70.0) {
-            letterGrade = "D"
-        }
-        if (grade >= 70.0 && grade < 80.0) {
-            letterGrade =  "C"
-        }
-        if (grade >= 80.0 && grade < 90.0) {
-            letterGrade =  "B"
-        }
-        if grade >= 90.0 {
-            letterGrade = "A"
-        }
-        return letterGrade
-    }
-    
     func loadNewQuestion(){
         self.submitButton.enabled = true
         let image = UIImage(named: "Checked-100.png")
@@ -388,7 +368,7 @@ class DeviceViewController: UIViewController, DPLTargetViewController {
                         self.currentQuestion = classSession.currentQuestion
                         self.loadNewQuestion()
                         self.submitButton.enabled = false
-                        self.studentRank = self.userData.userRank
+                        DeviceViewHelper.setRankLabel(self.rank)
                     }
                 }
             }

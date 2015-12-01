@@ -39,6 +39,8 @@ class iPadAnswersViewController : DeviceViewController {
         DeviceViewHelper.drawPieChart(correctAnswers, incorrect: incorrectAnswers, isInitialLoad: true, progressPieChart: progressPieChart)
     }
     
+    
+    
     @IBAction func answerTextBoxType(sender: UITextField) {
         submitButton.enabled = true
     }
@@ -75,14 +77,7 @@ class iPadAnswersViewController : DeviceViewController {
     
     @IBAction func submitButtonSelected(sender: UIButton) {
         self.points.text = String(userData.points)
-        let qos = Int(QOS_CLASS_USER_INITIATED.rawValue)
-        var userRank = 0
-        dispatch_async(dispatch_get_global_queue(qos, 0)) { () -> Void in
-            userRank = self.userData.userRank
-            dispatch_async(dispatch_get_main_queue()) {
-                self.rank.text = String(userRank)
-            }
-        }
+        DeviceViewHelper.setRankLabel(self.rank)
         let correctAnswers = userData.user!["questionsCorrect"] as! Double
         let incorrectAnswers = userData.user!["questionsIncorrect"] as! Double
         DeviceViewHelper.drawPieChart(correctAnswers, incorrect: incorrectAnswers, isInitialLoad: false, progressPieChart: progressPieChart)

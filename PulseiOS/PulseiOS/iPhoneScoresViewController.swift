@@ -53,8 +53,8 @@ class iPhoneScoresViewController: UIViewController , UITableViewDelegate , UITab
         } else {
             tableView.dequeueReusableCellWithIdentifier("RankAndPointsCell") as! RankAndPointsTableViewCell
             let cell = tableView.dequeueReusableCellWithIdentifier("RankAndPointsCell") as! RankAndPointsTableViewCell
-            cell.rankLabel.text = "Rank\t: " + String(userData.userRank)
-            cell.pointsLabel.text = "Points\t: " + String(userData.points)
+            cell.rankLabel.text = "Rank\t: " // + String(userData.userRank)
+            cell.pointsLabel.text = "Points\t: " // + String(userData.points)
             return cell
         }
     }
