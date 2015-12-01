@@ -8,7 +8,7 @@
 
 import UIKit
 
-class BetoTabViewController: UITabBarController {
+class PulseTabViewController: UITabBarController {
 
     override func viewDidLoad() {
         super.viewDidLoad()

@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9059" systemVersion="15B42" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="uJa-cB-gxh">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9060" systemVersion="15B42" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="uJa-cB-gxh">
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9049"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9051"/>
         <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
@@ -317,7 +317,7 @@
                                                         <constraint firstAttribute="width" secondItem="qsx-Dw-Zhu" secondAttribute="height" multiplier="304:21" constant="-217.14285714285711" id="DD7-Y6-UHb"/>
                                                     </constraints>
                                                     <fontDescription key="fontDescription" type="system" weight="thin" pointSize="30"/>
-                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="HYI-gA-Cjc" customClass="PieChartView" customModule="Charts">
@@ -360,7 +360,7 @@
                                                         <constraint firstAttribute="width" secondItem="qBh-h4-Mqj" secondAttribute="height" multiplier="76:9" id="PKf-g5-n3N"/>
                                                     </constraints>
                                                     <fontDescription key="fontDescription" type="system" weight="thin" pointSize="30"/>
-                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Points :" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TCS-Zq-TYY">
@@ -370,7 +370,7 @@
                                                         <constraint firstAttribute="width" secondItem="TCS-Zq-TYY" secondAttribute="height" multiplier="76:9" id="aNI-BU-SHB"/>
                                                     </constraints>
                                                     <fontDescription key="fontDescription" type="system" weight="thin" pointSize="30"/>
-                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                             </subviews>
@@ -417,10 +417,10 @@
             </objects>
             <point key="canvasLocation" x="1011" y="499"/>
         </scene>
-        <!--Beto Tab View Controller-->
+        <!--Pulse Tab View Controller-->
         <scene sceneID="po8-0w-aGN">
             <objects>
-                <tabBarController storyboardIdentifier="StudentViewController" id="dkT-ne-SLU" customClass="BetoTabViewController" customModule="PulseiOS" sceneMemberID="viewController">
+                <tabBarController storyboardIdentifier="StudentViewController" id="dkT-ne-SLU" customClass="PulseTabViewController" customModule="PulseiOS" sceneMemberID="viewController">
                     <tabBar key="tabBar" contentMode="scaleToFill" id="ubP-uB-BdN">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="49"/>
                         <autoresizingMask key="autoresizingMask"/>
