@@ -216,40 +216,6 @@ class DeviceViewController: UIViewController, DPLTargetViewController {
         bottomRightMultipleChoiceButton.setTitleColor(UIColor.blackColor(), forState: .Normal)
     }
     
-    func getRank() {
-        var rank = 1
-        var scores = [Int]()
-        let query = PFQuery(className: "Class")
-        query.whereKey("name", equalTo: "Math")
-        query.findObjectsInBackgroundWithBlock {
-            (objects: [PFObject]?, error: NSError?) -> Void in
-            if error == nil {
-                let currentClass = objects![0]
-
-                let relationalQuery : PFQuery? = currentClass.relationForKey("students").query()
-                relationalQuery?.whereKeyExists("score")
-                relationalQuery?.findObjectsInBackgroundWithBlock({ (object: [PFObject]?, errors: NSError?) -> Void in
-                    if errors == nil {
-                        for obj in object!{
-                            let student = obj
-                            let score = student.valueForKey("score") as? Int
-                            scores.append(score!)
-                        }
-                        scores.sortInPlace({ $0 > $1 })
-                        for score in scores {
-                            if score == self.userData.user!["score"] as? Int {
-                                break
-                            }
-                            rank++
-                        }
-                        self.studentRank = rank
-                    }
-                })
-            }
-            
-        }
-    }
-    
     @IBAction func submitButtonPressed(sender: UIButton) {
         let image = UIImage(named: "Checked Filled-100.png")
         sender.setImage(image, forState: .Normal)
@@ -396,7 +362,6 @@ class DeviceViewController: UIViewController, DPLTargetViewController {
             } else { // It was left blank
                 
             }
-            
         }
     }
     
@@ -423,7 +388,7 @@ class DeviceViewController: UIViewController, DPLTargetViewController {
                         self.currentQuestion = classSession.currentQuestion
                         self.loadNewQuestion()
                         self.submitButton.enabled = false
-                        self.studentRank = self.userData.rank
+                        self.studentRank = self.userData.userRank
                     }
                 }
             }

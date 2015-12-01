@@ -75,7 +75,14 @@ class iPadAnswersViewController : DeviceViewController {
     
     @IBAction func submitButtonSelected(sender: UIButton) {
         self.points.text = String(userData.points)
-        self.rank.text = String(studentRank)
+        let qos = Int(QOS_CLASS_USER_INITIATED.rawValue)
+        var userRank = 0
+        dispatch_async(dispatch_get_global_queue(qos, 0)) { () -> Void in
+            userRank = self.userData.userRank
+            dispatch_async(dispatch_get_main_queue()) {
+                self.rank.text = String(userRank)
+            }
+        }
         let correctAnswers = userData.user!["questionsCorrect"] as! Double
         let incorrectAnswers = userData.user!["questionsIncorrect"] as! Double
         DeviceViewHelper.drawPieChart(correctAnswers, incorrect: incorrectAnswers, isInitialLoad: false, progressPieChart: progressPieChart)
