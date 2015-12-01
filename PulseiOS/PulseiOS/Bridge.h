@@ -8,7 +8,6 @@
 
 #ifndef Bridge_h
 #define Bridge_h
-#import <Pushwoosh/PushNotificationManager.h>
-
+//#import <Pushwoosh/PushNotificationManager.h>
 
 #endif /* Bridge_h */

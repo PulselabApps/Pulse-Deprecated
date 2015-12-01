@@ -14,6 +14,11 @@
 			<key>isShown</key>
 			<false/>
 		</dict>
+		<key>DeepLinkKit.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
 		<key>Parse.xcscheme</key>
 		<dict>
 			<key>isShown</key>
@@ -42,7 +47,7 @@
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
-		<key>083CB698548636DF0238FCEB8CB9929C</key>
+		<key>10D1F132BF586AEA4A8177C56EAD32AB</key>
 		<dict>
 			<key>primary</key>
 			<true/>
@@ -62,17 +67,22 @@
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>E04E73CD4F0FFCB1B6081576EA864A28</key>
+		<key>E131F5BAABF631AFEB653EDCB91F192A</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>E381F6B3C605272374A975F5B772E8F7</key>
+		<key>EEC9BAF0C7B2265BEECF2CCFD092F87C</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>F90B6C68A22FD6D2D433D95524A0EB6D</key>
+		<key>F5E41679344074826FC3A1326B22B44F</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>FAF68686B03EF2A23248ACE1AF3F1E43</key>
 		<dict>
 			<key>primary</key>
 			<true/>

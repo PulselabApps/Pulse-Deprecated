@@ -70,7 +70,7 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "F90B6C68A22FD6D2D433D95524A0EB6D"
+               BlueprintIdentifier = "FAF68686B03EF2A23248ACE1AF3F1E43"
                BuildableName = "Pods.framework"
                BlueprintName = "Pods"
                ReferencedContainer = "container:Pods/Pods.xcodeproj">
@@ -84,7 +84,7 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "083CB698548636DF0238FCEB8CB9929C"
+               BlueprintIdentifier = "10D1F132BF586AEA4A8177C56EAD32AB"
                BuildableName = "Pods_PulseiOS.framework"
                BlueprintName = "Pods-PulseiOS"
                ReferencedContainer = "container:Pods/Pods.xcodeproj">

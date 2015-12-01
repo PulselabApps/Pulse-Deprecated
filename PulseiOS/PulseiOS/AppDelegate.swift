@@ -9,13 +9,16 @@
 import UIKit
 import Bolts
 import Parse
+import DeepLinkKit
 
 @UIApplicationMain
-class AppDelegate: UIResponder, UIApplicationDelegate , PushNotificationDelegate {
+class AppDelegate: UIResponder, UIApplicationDelegate /*, PushNotificationDelegate*/ {
     
     var window: UIWindow?
     var loadedEnoughToDeepLink : Bool = false
     var deepLink : RemoteNotificationDeepLink?
+    
+    lazy var router: DPLDeepLinkRouter = DPLDeepLinkRouter()
     
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
         // Override point for customization after application launch.
@@ -62,6 +65,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate , PushNotificationDelegate
                     application.registerForRemoteNotifications()
                 }
         
+        // MARK :- DeepLinkKit Setup
+        self.router.registerHandlerClass(PushRouteHandler.self, forRoute: "/say/:title/:message")
+        self.router.registerHandlerClass(UpdateQuestionRouteHandler.self, forRoute: "/updatequestion")
+        
         /* iPad OR iPhone App ?? **************/
         let storyboardname = (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiom.Pad) ? StoryBoards.iPadStoryBoardName : ( (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiom.Phone) ? StoryBoards.iPhoneStoryBoardName : "" )
         window = UIWindow(frame: UIScreen.mainScreen().bounds)
@@ -84,7 +91,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate , PushNotificationDelegate
     }
     
     func application(application: UIApplication, openURL url: NSURL, sourceApplication: String?, annotation: AnyObject) -> Bool {
-        
+        self.router.handleURL(url, withCompletion: nil)
         if url.host == nil
         {
             return true;
@@ -149,9 +156,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate , PushNotificationDelegate
     func triggerDeepLinkIfPresent() -> Bool
     {
         self.loadedEnoughToDeepLink = true
-        if let deepLink = self.deepLink {
-            deepLink.trigger()
-        }
+
         let ret = (self.deepLink?.trigger() != nil)
         self.deepLink = nil
         return ret
@@ -203,7 +208,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate , PushNotificationDelegate
             
             if let deepLink = self.deepLink {
                 if !deepLink.article.isEmpty {
-                    self.triggerDeepLinkIfPresent()
+                    let url = NSURL(string: deepLink.article)
+                    if let url = url {
+                        UIApplication.sharedApplication().openURL(url)
+                    }
+//                    self.triggerDeepLinkIfPresent()
                 }
             }
         }

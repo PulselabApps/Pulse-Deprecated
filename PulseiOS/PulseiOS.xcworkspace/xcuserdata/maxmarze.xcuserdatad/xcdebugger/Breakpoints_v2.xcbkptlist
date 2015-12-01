@@ -9,44 +9,12 @@
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "PulseiOS/RemoteNotificationDeepLink.swift"
-            timestampString = "470472585.116684"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "59"
-            endingLineNumber = "59"
-            landmarkName = "init(articleStr:)"
-            landmarkType = "5">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "PulseiOS/RemoteNotificationDeepLink.swift"
-            timestampString = "470472585.116684"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "65"
-            endingLineNumber = "65"
-            landmarkName = "triggerImp(_:)"
-            landmarkType = "5">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
             filePath = "PulseiOS/AppDelegate.swift"
-            timestampString = "470431007.271976"
+            timestampString = "470602804.286468"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "136"
-            endingLineNumber = "136"
+            startingLineNumber = "143"
+            endingLineNumber = "143"
             landmarkName = "applicationHandleRemoteNotification(_:didReceiveRemoteNotification:)"
             landmarkType = "5">
          </BreakpointContent>
@@ -58,27 +26,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "PulseiOS/AppDelegate.swift"
-            timestampString = "470472585.116684"
+            timestampString = "470602804.286468"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "152"
-            endingLineNumber = "152"
-            landmarkName = "triggerDeepLinkIfPresent()"
-            landmarkType = "5">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "PulseiOS/AppDelegate.swift"
-            timestampString = "470431098.642371"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "88"
-            endingLineNumber = "88"
+            startingLineNumber = "95"
+            endingLineNumber = "95"
             landmarkName = "application(_:openURL:sourceApplication:annotation:)"
             landmarkType = "5">
          </BreakpointContent>
@@ -89,13 +41,13 @@
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "PulseiOS/RemoteNotificationDeepLink.swift"
-            timestampString = "470431170.909453"
+            filePath = "PulseiOS/AppDelegate.swift"
+            timestampString = "470602804.286468"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "18"
-            endingLineNumber = "18"
-            landmarkName = "create(_:)"
+            startingLineNumber = "203"
+            endingLineNumber = "203"
+            landmarkName = "application(_:didReceiveRemoteNotification:)"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>
@@ -105,13 +57,61 @@
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "PulseiOS/RemoteNotificationDeepLink.swift"
-            timestampString = "470431732.770581"
+            filePath = "PulseiOS/AppDelegate.swift"
+            timestampString = "470602804.286468"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "213"
+            endingLineNumber = "213"
+            landmarkName = "application(_:didReceiveRemoteNotification:)"
+            landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "PulseiOS/PushRouteHandler.swift"
+            timestampString = "470602804.286468"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "14"
+            endingLineNumber = "14"
+            landmarkName = "shouldHandleDeepLink(_:)"
+            landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "PulseiOS/PushRouteHandler.swift"
+            timestampString = "470626977.890965"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "16"
+            endingLineNumber = "16"
+            landmarkName = "shouldHandleDeepLink(_:)"
+            landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "PulseiOS/PushRouteHandler.swift"
+            timestampString = "470626942.608017"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "22"
             endingLineNumber = "22"
-            landmarkName = "create(_:)"
+            landmarkName = "shouldHandleDeepLink(_:)"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>
@@ -121,13 +121,13 @@
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "PulseiOS/RemoteNotificationDeepLink.swift"
-            timestampString = "470431733.828415"
+            filePath = "PulseiOS/PushRouteHandler.swift"
+            timestampString = "470627309.79995"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "23"
-            endingLineNumber = "23"
-            landmarkName = "create(_:)"
+            startingLineNumber = "21"
+            endingLineNumber = "21"
+            landmarkName = "shouldHandleDeepLink(_:)"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>
@@ -137,13 +137,13 @@
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "PulseiOS/RemoteNotificationDeepLink.swift"
-            timestampString = "470431734.981765"
+            filePath = "PulseiOS/DeviceLogInViewController.swift"
+            timestampString = "470628951.135237"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "25"
-            endingLineNumber = "25"
-            landmarkName = "create(_:)"
+            startingLineNumber = "28"
+            endingLineNumber = "28"
+            landmarkName = "loginButtonPressed(_:)"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>
@@ -153,44 +153,44 @@
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "PulseiOS/RemoteNotificationDeepLink.swift"
-            timestampString = "470472585.116684"
+            filePath = "PulseiOS/DeviceLogInViewController.swift"
+            timestampString = "470628957.244334"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "63"
-            endingLineNumber = "63"
-            landmarkName = "triggerImp(_:)"
+            startingLineNumber = "35"
+            endingLineNumber = "35"
+            landmarkName = "loginButtonPressed(_:)"
             landmarkType = "5">
             <Locations>
                <Location
                   shouldBeEnabled = "Yes"
                   ignoreCount = "0"
                   continueAfterRunningActions = "No"
-                  symbolName = "PulseiOS.RemoteNotificationDeepLinkArticle.(triggerImp in _1A7DC322314A4FC63455D3479D212F46) (PulseiOS.RemoteNotificationDeepLinkArticle)((Swift.Optional&lt;Swift.AnyObject&gt;) -&gt; ()) -&gt; ()"
+                  symbolName = "PulseiOS.DeviceLogInViewController.loginButtonPressed (PulseiOS.DeviceLogInViewController)(Swift.AnyObject) -&gt; ()"
                   moduleName = "PulseiOS"
                   usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/maxmarze/Documents/Pulse/PulseiOS/PulseiOS/RemoteNotificationDeepLink.swift"
-                  timestampString = "470472586.164749"
+                  urlString = "file:///Users/maxmarze/Documents/Pulse/PulseiOS/PulseiOS/DeviceLogInViewController.swift"
+                  timestampString = "470630670.664903"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "63"
-                  endingLineNumber = "63"
-                  offsetFromSymbolStart = "24">
+                  startingLineNumber = "35"
+                  endingLineNumber = "35"
+                  offsetFromSymbolStart = "384">
                </Location>
                <Location
                   shouldBeEnabled = "Yes"
                   ignoreCount = "0"
                   continueAfterRunningActions = "No"
-                  symbolName = "PulseiOS.RemoteNotificationDeepLinkArticle.((triggerImp in _1A7DC322314A4FC63455D3479D212F46) (PulseiOS.RemoteNotificationDeepLinkArticle) -&gt; ((Swift.Optional&lt;Swift.AnyObject&gt;) -&gt; ()) -&gt; ()).(closure #1)"
+                  symbolName = "PulseiOS.DeviceLogInViewController.(loginButtonPressed (PulseiOS.DeviceLogInViewController) -&gt; (Swift.AnyObject) -&gt; ()).(closure #1)"
                   moduleName = "PulseiOS"
                   usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/maxmarze/Documents/Pulse/PulseiOS/PulseiOS/RemoteNotificationDeepLink.swift"
-                  timestampString = "470472586.164993"
+                  urlString = "file:///Users/maxmarze/Documents/Pulse/PulseiOS/PulseiOS/DeviceLogInViewController.swift"
+                  timestampString = "470630670.66512"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "65"
-                  endingLineNumber = "65"
-                  offsetFromSymbolStart = "24">
+                  startingLineNumber = "38"
+                  endingLineNumber = "38"
+                  offsetFromSymbolStart = "28">
                </Location>
             </Locations>
          </BreakpointContent>
@@ -201,13 +201,13 @@
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "PulseiOS/AppDelegate.swift"
-            timestampString = "470472585.116684"
+            filePath = "PulseiOS/DeviceLogInViewController.swift"
+            timestampString = "470628961.113858"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "199"
-            endingLineNumber = "199"
-            landmarkName = "application(_:didReceiveRemoteNotification:)"
+            startingLineNumber = "38"
+            endingLineNumber = "38"
+            landmarkName = "loginButtonPressed(_:)"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>
@@ -217,29 +217,13 @@
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "PulseiOS/AppDelegate.swift"
-            timestampString = "470472585.116684"
+            filePath = "PulseiOS/UpdateQuestionRouteHandler.swift"
+            timestampString = "470630624.857762"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "198"
-            endingLineNumber = "198"
-            landmarkName = "application(_:didReceiveRemoteNotification:)"
-            landmarkType = "5">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "PulseiOS/RemoteNotificationDeepLink.swift"
-            timestampString = "470472585.116684"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "49"
-            endingLineNumber = "49"
-            landmarkName = "triggerImp(_:)"
+            startingLineNumber = "15"
+            endingLineNumber = "15"
+            landmarkName = "shouldHandleDeepLink(_:)"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>

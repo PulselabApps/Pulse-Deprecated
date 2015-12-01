@@ -11,6 +11,8 @@
 		12B651B11C097E880028AC93 /* libz.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 12B651B01C097E880028AC93 /* libz.tbd */; };
 		12B651B31C097E920028AC93 /* libstdc++.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 12B651B21C097E920028AC93 /* libstdc++.tbd */; };
 		12B651B51C0A27930028AC93 /* RemoteNotificationDeepLink.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12B651B41C0A27930028AC93 /* RemoteNotificationDeepLink.swift */; };
+		12B651B81C0CD03B0028AC93 /* PushRouteHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12B651B71C0CD03B0028AC93 /* PushRouteHandler.swift */; };
+		12B651BA1C0D36580028AC93 /* UpdateQuestionRouteHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12B651B91C0D36580028AC93 /* UpdateQuestionRouteHandler.swift */; };
 		12D31D2F1BEE791100B03E7C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12D31D2E1BEE791100B03E7C /* AppDelegate.swift */; };
 		12D31D341BEE791100B03E7C /* iPadPulseApp.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 12D31D321BEE791100B03E7C /* iPadPulseApp.storyboard */; };
 		12D31D361BEE791100B03E7C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 12D31D351BEE791100B03E7C /* Assets.xcassets */; };
@@ -72,6 +74,8 @@
 		12B651B01C097E880028AC93 /* libz.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libz.tbd; path = usr/lib/libz.tbd; sourceTree = SDKROOT; };
 		12B651B21C097E920028AC93 /* libstdc++.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = "libstdc++.tbd"; path = "usr/lib/libstdc++.tbd"; sourceTree = SDKROOT; };
 		12B651B41C0A27930028AC93 /* RemoteNotificationDeepLink.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RemoteNotificationDeepLink.swift; sourceTree = "<group>"; };
+		12B651B71C0CD03B0028AC93 /* PushRouteHandler.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PushRouteHandler.swift; sourceTree = "<group>"; };
+		12B651B91C0D36580028AC93 /* UpdateQuestionRouteHandler.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UpdateQuestionRouteHandler.swift; sourceTree = "<group>"; };
 		12D31D2B1BEE791100B03E7C /* PulseiOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PulseiOS.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		12D31D2E1BEE791100B03E7C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		12D31D331BEE791100B03E7C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/iPadPulseApp.storyboard; sourceTree = "<group>"; };
@@ -133,6 +137,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		12B651B61C0CD0170028AC93 /* Route Handlers */ = {
+			isa = PBXGroup;
+			children = (
+				12B651B71C0CD03B0028AC93 /* PushRouteHandler.swift */,
+				12B651B91C0D36580028AC93 /* UpdateQuestionRouteHandler.swift */,
+			);
+			name = "Route Handlers";
+			sourceTree = "<group>";
+		};
 		12D31D221BEE791100B03E7C = {
 			isa = PBXGroup;
 			children = (
@@ -158,6 +171,7 @@
 		12D31D2D1BEE791100B03E7C /* PulseiOS */ = {
 			isa = PBXGroup;
 			children = (
+				12B651B61C0CD0170028AC93 /* Route Handlers */,
 				12F35C471C04329000E3D4CD /* Parse Objects */,
 				F111DD621BEE7D8700E10C7F /* Model */,
 				F111DD631BEE7D9D00E10C7F /* View */,
@@ -522,6 +536,7 @@
 				F1EF36BA1BF8173400DFE8A9 /* iPhoneLogInViewController.swift in Sources */,
 				F158C8E81BF7F823001E6A89 /* DeviceViewController.swift in Sources */,
 				F1EF36B81BF8140B00DFE8A9 /* DeviceLogInViewController.swift in Sources */,
+				12B651BA1C0D36580028AC93 /* UpdateQuestionRouteHandler.swift in Sources */,
 				12F35C4D1C0432A500E3D4CD /* ClassSession_Beta.swift in Sources */,
 				4AC149C11BEF203A00EF52FA /* FullQuestionViewController.swift in Sources */,
 				F158C8E41BF7F139001E6A89 /* iPadAnswersViewController.swift in Sources */,
@@ -530,6 +545,7 @@
 				12F35C4B1C0432A500E3D4CD /* Question.swift in Sources */,
 				12B651B51C0A27930028AC93 /* RemoteNotificationDeepLink.swift in Sources */,
 				F158C8EC1BF7FAF8001E6A89 /* User.swift in Sources */,
+				12B651B81C0CD03B0028AC93 /* PushRouteHandler.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

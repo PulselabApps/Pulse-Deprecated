@@ -10,8 +10,9 @@ import UIKit
 import Charts
 import Parse
 import Foundation
+import DeepLinkKit
 
-class DeviceViewController: UIViewController {
+class DeviceViewController: UIViewController, DPLTargetViewController {
     
     let user = User.sharedInstance.user
     var studentRank = 1
@@ -43,10 +44,11 @@ class DeviceViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        _ = NSTimer.scheduledTimerWithTimeInterval(2.0, target: self, selector: Selector("checkForQuestionChange"), userInfo: nil, repeats: true)
+//        _ = NSTimer.scheduledTimerWithTimeInterval(2.0, target: self, selector: Selector("checkForQuestionChange"), userInfo: nil, repeats: true)
         
         initScene()
         submitButton.enabled = false
+        ViewState.currentView = self
     }
     
     func initScene(){
@@ -424,5 +426,11 @@ class DeviceViewController: UIViewController {
             }
         }
         print("hello")
+    }
+    
+    // MARK -: DPLTargetViewController
+    func configureWithDeepLink(deepLink: DPLDeepLink!) {
+        print("Came from deep link")
+        checkForQuestionChange()
     }
 }

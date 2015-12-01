@@ -86,10 +86,12 @@ strip_invalid_archs() {
 if [[ "$CONFIGURATION" == "Debug" ]]; then
   install_framework "Pods-PulseiOSTests/Bolts.framework"
   install_framework "Pods-PulseiOSTests/Charts.framework"
+  install_framework "Pods-PulseiOSTests/DeepLinkKit.framework"
   install_framework "Pods-PulseiOSTests/Parse.framework"
 fi
 if [[ "$CONFIGURATION" == "Release" ]]; then
   install_framework "Pods-PulseiOSTests/Bolts.framework"
   install_framework "Pods-PulseiOSTests/Charts.framework"
+  install_framework "Pods-PulseiOSTests/DeepLinkKit.framework"
   install_framework "Pods-PulseiOSTests/Parse.framework"
 fi

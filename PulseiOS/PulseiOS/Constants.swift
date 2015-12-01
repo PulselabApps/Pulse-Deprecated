@@ -26,3 +26,7 @@ struct AnswerTypes {
     static let FillInTheBlank = "FillInTheBlank"
     static let Matching = "Matching"
 }
+
+class ViewState {
+    static var currentView : DeviceViewController?
+}
