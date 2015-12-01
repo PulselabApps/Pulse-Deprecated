@@ -4,6 +4,8 @@
 use_frameworks!
 pod 'Parse'
 pod 'Charts'
+#pod 'Pushwoosh'
+pod 'DeepLinkKit'
 target 'PulseiOS' do
 
 end

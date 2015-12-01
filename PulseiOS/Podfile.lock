@@ -1,16 +1,19 @@
 PODS:
   - Bolts/Tasks (1.5.0)
   - Charts (2.1.6)
+  - DeepLinkKit (1.1.0)
   - Parse (1.10.0):
     - Bolts/Tasks (~> 1.5)
 
 DEPENDENCIES:
   - Charts
+  - DeepLinkKit
   - Parse
 
 SPEC CHECKSUMS:
   Bolts: 722ab9a4f8b50fc4ed1b9998a5a7a2b3f16d80b4
   Charts: 5e1e5ac23898e5b09d226a2fc3e9d86bc281937e
+  DeepLinkKit: 3979713c8a0b6bd3259fb7917e572acf56645a35
   Parse: 90b2544822200f84b18bfacc4e8b0a3a6c3584a2
 
 COCOAPODS: 0.39.0
