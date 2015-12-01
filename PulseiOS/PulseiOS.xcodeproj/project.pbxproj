@@ -33,6 +33,13 @@
 		F163BF411BEECA7F0051D505 /* Checked-100.png in Resources */ = {isa = PBXBuildFile; fileRef = F163BF401BEECA7F0051D505 /* Checked-100.png */; };
 		F167687C1BF830140032BC39 /* iPhoneAnswersViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F167687B1BF830140032BC39 /* iPhoneAnswersViewController.swift */; };
 		F1888FBC1BF6F1C000A3B75D /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1888FBB1BF6F1C000A3B75D /* Constants.swift */; };
+		F1C7CB751C0A264100E20D8E /* Answers.png in Resources */ = {isa = PBXBuildFile; fileRef = F1C7CB741C0A264100E20D8E /* Answers.png */; };
+		F1C7CB771C0A269800E20D8E /* Score.png in Resources */ = {isa = PBXBuildFile; fileRef = F1C7CB761C0A269800E20D8E /* Score.png */; };
+		F1C7CB791C0A272000E20D8E /* BetoTabViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1C7CB781C0A272000E20D8E /* BetoTabViewController.swift */; };
+		F1C7CB7D1C0A2C8800E20D8E /* Settings.png in Resources */ = {isa = PBXBuildFile; fileRef = F1C7CB7C1C0A2C8800E20D8E /* Settings.png */; };
+		F1C7CB7F1C0A2D1500E20D8E /* Question.png in Resources */ = {isa = PBXBuildFile; fileRef = F1C7CB7E1C0A2D1500E20D8E /* Question.png */; };
+		F1C7CB811C0CA6E000E20D8E /* iPhoneScoresViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1C7CB801C0CA6E000E20D8E /* iPhoneScoresViewController.swift */; };
+		F1C7CB831C0CA93F00E20D8E /* DeviceViewHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1C7CB821C0CA93F00E20D8E /* DeviceViewHelper.swift */; };
 		F1EF36B61BF813BC00DFE8A9 /* iPadLogInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1EF36B51BF813BC00DFE8A9 /* iPadLogInViewController.swift */; };
 		F1EF36B81BF8140B00DFE8A9 /* DeviceLogInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1EF36B71BF8140B00DFE8A9 /* DeviceLogInViewController.swift */; };
 		F1EF36BA1BF8173400DFE8A9 /* iPhoneLogInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1EF36B91BF8173400DFE8A9 /* iPhoneLogInViewController.swift */; };
@@ -104,6 +111,13 @@
 		F163BF401BEECA7F0051D505 /* Checked-100.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Checked-100.png"; sourceTree = "<group>"; };
 		F167687B1BF830140032BC39 /* iPhoneAnswersViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = iPhoneAnswersViewController.swift; sourceTree = "<group>"; };
 		F1888FBB1BF6F1C000A3B75D /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		F1C7CB741C0A264100E20D8E /* Answers.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Answers.png; sourceTree = "<group>"; };
+		F1C7CB761C0A269800E20D8E /* Score.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Score.png; sourceTree = "<group>"; };
+		F1C7CB781C0A272000E20D8E /* BetoTabViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BetoTabViewController.swift; sourceTree = "<group>"; };
+		F1C7CB7C1C0A2C8800E20D8E /* Settings.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Settings.png; sourceTree = "<group>"; };
+		F1C7CB7E1C0A2D1500E20D8E /* Question.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Question.png; sourceTree = "<group>"; };
+		F1C7CB801C0CA6E000E20D8E /* iPhoneScoresViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = iPhoneScoresViewController.swift; sourceTree = "<group>"; };
+		F1C7CB821C0CA93F00E20D8E /* DeviceViewHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DeviceViewHelper.swift; sourceTree = "<group>"; };
 		F1EF36B51BF813BC00DFE8A9 /* iPadLogInViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = iPadLogInViewController.swift; sourceTree = "<group>"; };
 		F1EF36B71BF8140B00DFE8A9 /* DeviceLogInViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DeviceLogInViewController.swift; sourceTree = "<group>"; };
 		F1EF36B91BF8173400DFE8A9 /* iPhoneLogInViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = iPhoneLogInViewController.swift; sourceTree = "<group>"; };
@@ -273,6 +287,7 @@
 		F158C8E91BF7F826001E6A89 /* Device */ = {
 			isa = PBXGroup;
 			children = (
+				F1C7CB841C0CA94E00E20D8E /* Helper */,
 				F1EF36B71BF8140B00DFE8A9 /* DeviceLogInViewController.swift */,
 				F158C8E71BF7F823001E6A89 /* DeviceViewController.swift */,
 			);
@@ -284,6 +299,8 @@
 			children = (
 				F1EF36B91BF8173400DFE8A9 /* iPhoneLogInViewController.swift */,
 				F167687B1BF830140032BC39 /* iPhoneAnswersViewController.swift */,
+				F1C7CB781C0A272000E20D8E /* BetoTabViewController.swift */,
+				F1C7CB801C0CA6E000E20D8E /* iPhoneScoresViewController.swift */,
 			);
 			name = iPhone;
 			sourceTree = "<group>";
@@ -306,11 +323,31 @@
 			name = "LogInViewController Assets";
 			sourceTree = "<group>";
 		};
+		F1C7CB731C0A261500E20D8E /* TabViewControllerAssets */ = {
+			isa = PBXGroup;
+			children = (
+				F1C7CB7E1C0A2D1500E20D8E /* Question.png */,
+				F1C7CB7C1C0A2C8800E20D8E /* Settings.png */,
+				F1C7CB741C0A264100E20D8E /* Answers.png */,
+				F1C7CB761C0A269800E20D8E /* Score.png */,
+			);
+			name = TabViewControllerAssets;
+			sourceTree = "<group>";
+		};
+		F1C7CB841C0CA94E00E20D8E /* Helper */ = {
+			isa = PBXGroup;
+			children = (
+				F1C7CB821C0CA93F00E20D8E /* DeviceViewHelper.swift */,
+			);
+			name = Helper;
+			sourceTree = "<group>";
+		};
 		F1F9DE511BF713EE00C1E30D /* Assets */ = {
 			isa = PBXGroup;
 			children = (
 				F163BF391BEECA220051D505 /* ViewController Assets */,
 				F1BE1FAF1BEF00960021C06A /* LogInViewController Assets */,
+				F1C7CB731C0A261500E20D8E /* TabViewControllerAssets */,
 			);
 			name = Assets;
 			sourceTree = "<group>";
@@ -455,9 +492,13 @@
 				12D31D391BEE791100B03E7C /* LaunchScreen.storyboard in Resources */,
 				4AE1687D1BEEEBB100150474 /* logo.png in Resources */,
 				12D31D361BEE791100B03E7C /* Assets.xcassets in Resources */,
+				F1C7CB7F1C0A2D1500E20D8E /* Question.png in Resources */,
+				F1C7CB771C0A269800E20D8E /* Score.png in Resources */,
 				F158C8E61BF7F6AA001E6A89 /* iPhonePulseApp.storyboard in Resources */,
 				F163BF3F1BEECA7A0051D505 /* Checked Filled-100.png in Resources */,
 				12D31D341BEE791100B03E7C /* iPadPulseApp.storyboard in Resources */,
+				F1C7CB7D1C0A2C8800E20D8E /* Settings.png in Resources */,
+				F1C7CB751C0A264100E20D8E /* Answers.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -530,6 +571,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F1C7CB811C0CA6E000E20D8E /* iPhoneScoresViewController.swift in Sources */,
 				F1888FBC1BF6F1C000A3B75D /* Constants.swift in Sources */,
 				F167687C1BF830140032BC39 /* iPhoneAnswersViewController.swift in Sources */,
 				12F35C4C1C0432A500E3D4CD /* PulseClass.swift in Sources */,
@@ -541,6 +583,8 @@
 				4AC149C11BEF203A00EF52FA /* FullQuestionViewController.swift in Sources */,
 				F158C8E41BF7F139001E6A89 /* iPadAnswersViewController.swift in Sources */,
 				12D31D2F1BEE791100B03E7C /* AppDelegate.swift in Sources */,
+				F1C7CB791C0A272000E20D8E /* BetoTabViewController.swift in Sources */,
+				F1C7CB831C0CA93F00E20D8E /* DeviceViewHelper.swift in Sources */,
 				F1EF36B61BF813BC00DFE8A9 /* iPadLogInViewController.swift in Sources */,
 				12F35C4B1C0432A500E3D4CD /* Question.swift in Sources */,
 				12B651B51C0A27930028AC93 /* RemoteNotificationDeepLink.swift in Sources */,

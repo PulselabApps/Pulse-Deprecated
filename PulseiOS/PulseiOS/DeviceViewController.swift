@@ -18,7 +18,6 @@ class DeviceViewController: UIViewController, DPLTargetViewController {
     var studentRank = 1
     var studentPoints = 0
     
-//    var questions = [AnyObject]()
     var questions = [Question]()
     var currentQuestion : Int?
     var correctAnswer : String?
@@ -37,6 +36,9 @@ class DeviceViewController: UIViewController, DPLTargetViewController {
     
     @IBOutlet weak var submitButton: UIButton!
     @IBOutlet weak var answerTextBox: UITextField!
+    
+    @IBOutlet weak var rank: UILabel!
+    @IBOutlet weak var points: UILabel!
     
     var previouslyClickedButton : UIButton?
     var correctButton : UIButton?
@@ -223,9 +225,10 @@ class DeviceViewController: UIViewController, DPLTargetViewController {
             (objects: [PFObject]?, error: NSError?) -> Void in
             if error == nil {
                 let currentClass = objects![0]
-                let relationalQuery = currentClass.relationForKey("students").query()
-                relationalQuery.whereKeyExists("score")
-                relationalQuery.findObjectsInBackgroundWithBlock({ (object: [PFObject]?, errors: NSError?) -> Void in
+
+                let relationalQuery : PFQuery? = currentClass.relationForKey("students").query()
+                relationalQuery?.whereKeyExists("score")
+                relationalQuery?.findObjectsInBackgroundWithBlock({ (object: [PFObject]?, errors: NSError?) -> Void in
                     if errors == nil {
                         for obj in object!{
                             let student = obj
