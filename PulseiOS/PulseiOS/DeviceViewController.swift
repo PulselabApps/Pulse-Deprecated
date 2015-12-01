@@ -216,8 +216,6 @@ class DeviceViewController: UIViewController, DPLTargetViewController {
         bottomRightMultipleChoiceButton.setTitleColor(UIColor.blackColor(), forState: .Normal)
     }
     
-<<<<<<< HEAD
-=======
     func getRank() {
         var rank = 1
         var scores = [Int]()
@@ -239,7 +237,7 @@ class DeviceViewController: UIViewController, DPLTargetViewController {
                         }
                         scores.sortInPlace({ $0 > $1 })
                         for score in scores {
-                            if score == self.user!["score"] as? Int {
+                            if score == self.userData.user!["score"] as? Int {
                                 break
                             }
                             rank++
@@ -252,7 +250,6 @@ class DeviceViewController: UIViewController, DPLTargetViewController {
         }
     }
     
->>>>>>> origin/0.2.1
     @IBAction func submitButtonPressed(sender: UIButton) {
         let image = UIImage(named: "Checked Filled-100.png")
         sender.setImage(image, forState: .Normal)
