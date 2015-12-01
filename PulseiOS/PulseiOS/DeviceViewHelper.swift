@@ -53,9 +53,10 @@ class DeviceViewHelper {
         return letterGrade
     }
     
-    static func setRankLabel(rankLabel: UILabel) {
+    static func setRankLabel(rankLabel: UILabel, offset: String) {
         var rank = 1
         var scores = [Int]()
+        let rankLabelText = rankLabel.text
         let query = PFQuery(className: "Class")
         query.whereKey("name", equalTo: "Math")
         query.findObjectsInBackgroundWithBlock {
@@ -78,7 +79,9 @@ class DeviceViewHelper {
                             }
                             rank++
                         }
-                        rankLabel.text = String(rank)
+                        if rankLabelText != (offset + String(rank)) {
+                            rankLabel.text = offset + String(rank)
+                        }
                     }
                 })
             }

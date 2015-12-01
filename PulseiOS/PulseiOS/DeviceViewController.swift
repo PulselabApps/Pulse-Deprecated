@@ -354,7 +354,6 @@ class DeviceViewController: UIViewController, DPLTargetViewController {
             } else {
                 print(error?.description)
             }
-            
         }
     }
     
@@ -368,7 +367,7 @@ class DeviceViewController: UIViewController, DPLTargetViewController {
                         self.currentQuestion = classSession.currentQuestion
                         self.loadNewQuestion()
                         self.submitButton.enabled = false
-                        DeviceViewHelper.setRankLabel(self.rank)
+                        DeviceViewHelper.setRankLabel(self.rank, offset: "")
                     }
                 }
             }
