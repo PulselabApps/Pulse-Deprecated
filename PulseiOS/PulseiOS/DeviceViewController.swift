@@ -14,7 +14,7 @@ import DeepLinkKit
 
 class DeviceViewController: UIViewController, DPLTargetViewController {
     
-    let user = User.sharedInstance.user
+    let userData = User.sharedInstance
     var studentRank = 1
     var studentPoints = 0
     
@@ -237,7 +237,7 @@ class DeviceViewController: UIViewController, DPLTargetViewController {
                         }
                         scores.sortInPlace({ $0 > $1 })
                         for score in scores {
-                            if score == self.user!["score"] as? Int {
+                            if score == self.userData.user!["score"] as? Int {
                                 break
                             }
                             rank++
@@ -261,13 +261,13 @@ class DeviceViewController: UIViewController, DPLTargetViewController {
             let currentQ = questions[currentQuestion!]
             currentQ.answerBreakdown[answer!]!++
             if answer == correctAnswer{
-                var score = user!["score"] as? Int
+                var score = userData.user!["score"] as? Int
                 score = score! + 500
-                user!["score"] = score
+                userData.user!["score"] = score
                 
-                var questionsCorrect = user!["questionsCorrect"] as? Int
+                var questionsCorrect = userData.user!["questionsCorrect"] as? Int
                 questionsCorrect!+=1
-                user!["questionsCorrect"] = questionsCorrect
+                userData.user!["questionsCorrect"] = questionsCorrect
                 currentQ.numCorrectAnswers++
                 /*var numCorrectAnswers = questions[currentQuestion!]["numCorrectAnswers"] as? Int
                 numCorrectAnswers!+=1
@@ -306,13 +306,13 @@ class DeviceViewController: UIViewController, DPLTargetViewController {
                 correctButton = correctView
                 previouslyClickedButton!.backgroundColor = ColorConstants.RedIncorrectColor
                 
-                var score = user!["score"] as? Int
+                var score = userData.user!["score"] as? Int
                 score = score! - 500
-                user!["score"] = score
+                userData.user!["score"] = score
                 
-                var questionsIncorrect = user!["questionsIncorrect"] as? Int
+                var questionsIncorrect = userData.user!["questionsIncorrect"] as? Int
                 questionsIncorrect!+=1
-                user!["questionsIncorrect"] = questionsIncorrect
+                userData.user!["questionsIncorrect"] = questionsIncorrect
                 
                 /*var numIncorrectAnswers = questions[currentQuestion!]["numIncorrectAnswers"] as? Int
                 numIncorrectAnswers!+=1
@@ -342,13 +342,13 @@ class DeviceViewController: UIViewController, DPLTargetViewController {
             if let answer = answerTextBox.text {
                 if answer == correctAnswer{
                     // INCREMENT SCORE
-                    var score = user!["score"] as? Int
+                    var score = userData.user!["score"] as? Int
                     score = score! + 500
-                    user!["score"] = score
+                    userData.user!["score"] = score
                     
-                    var questionsCorrect = user!["questionsCorrect"] as? Int
+                    var questionsCorrect = userData.user!["questionsCorrect"] as? Int
                     questionsCorrect!+=1
-                    user!["questionsCorrect"] = questionsCorrect
+                    userData.user!["questionsCorrect"] = questionsCorrect
                     
                     /*var numCorrectAnswers = questions[currentQuestion!]["numCorrectAnswers"] as? Int
                     numCorrectAnswers!+=1
@@ -365,13 +365,13 @@ class DeviceViewController: UIViewController, DPLTargetViewController {
                 } else {
                     answerTextBox.backgroundColor = ColorConstants.RedIncorrectColor
                     
-                    var score = user!["score"] as? Int
+                    var score = userData.user!["score"] as? Int
                     score = score! - 500
-                    user!["score"] = score
+                    userData.user!["score"] = score
                     
-                    var questionsIncorrect = user!["questionsIncorrect"] as? Int
+                    var questionsIncorrect = userData.user!["questionsIncorrect"] as? Int
                     questionsIncorrect!+=1
-                    user!["questionsIncorrect"] = questionsIncorrect
+                    userData.user!["questionsIncorrect"] = questionsIncorrect
                     
                     
                     /*var numIncorrectAnswers = questions[currentQuestion!]["numIncorrectAnswers"] as? Int
@@ -401,7 +401,7 @@ class DeviceViewController: UIViewController, DPLTargetViewController {
     }
     
     func saveUser(){
-        user!.saveInBackgroundWithBlock {
+        userData.user!.saveInBackgroundWithBlock {
             (success: Bool, error: NSError?) -> Void in
             
             if (success) {
@@ -423,7 +423,7 @@ class DeviceViewController: UIViewController, DPLTargetViewController {
                         self.currentQuestion = classSession.currentQuestion
                         self.loadNewQuestion()
                         self.submitButton.enabled = false
-                        self.getRank()
+                        self.studentRank = self.userData.rank
                     }
                 }
             }

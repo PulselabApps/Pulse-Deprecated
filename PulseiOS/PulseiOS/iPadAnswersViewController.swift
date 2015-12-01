@@ -34,8 +34,8 @@ class iPadAnswersViewController : DeviceViewController {
         rank.text = String(studentRank)
         points.text = String(studentPoints)
         
-        let correctAnswers = user!["questionsCorrect"] as! Double
-        let incorrectAnswers = user!["questionsIncorrect"] as! Double
+        let correctAnswers = userData.user!["questionsCorrect"] as! Double
+        let incorrectAnswers = userData.user!["questionsIncorrect"] as! Double
         DeviceViewHelper.drawPieChart(correctAnswers, incorrect: incorrectAnswers, isInitialLoad: true, progressPieChart: progressPieChart)
     }
     
@@ -74,10 +74,10 @@ class iPadAnswersViewController : DeviceViewController {
     }
     
     @IBAction func submitButtonSelected(sender: UIButton) {
-        self.points.text = String(self.user!["score"] as! Int)
+        self.points.text = String(userData.points)
         self.rank.text = String(studentRank)
-        let correctAnswers = user!["questionsCorrect"] as! Double
-        let incorrectAnswers = user!["questionsIncorrect"] as! Double
+        let correctAnswers = userData.user!["questionsCorrect"] as! Double
+        let incorrectAnswers = userData.user!["questionsIncorrect"] as! Double
         DeviceViewHelper.drawPieChart(correctAnswers, incorrect: incorrectAnswers, isInitialLoad: false, progressPieChart: progressPieChart)
     }
     
