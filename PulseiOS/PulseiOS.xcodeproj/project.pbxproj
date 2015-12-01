@@ -35,6 +35,8 @@
 		F1C7CB7F1C0A2D1500E20D8E /* Question.png in Resources */ = {isa = PBXBuildFile; fileRef = F1C7CB7E1C0A2D1500E20D8E /* Question.png */; };
 		F1C7CB811C0CA6E000E20D8E /* iPhoneScoresViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1C7CB801C0CA6E000E20D8E /* iPhoneScoresViewController.swift */; };
 		F1C7CB831C0CA93F00E20D8E /* DeviceViewHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1C7CB821C0CA93F00E20D8E /* DeviceViewHelper.swift */; };
+		F1C9D73F1C0D3B4C0076E81C /* PieChartSessionSummaryCellTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1C9D73E1C0D3B4C0076E81C /* PieChartSessionSummaryCellTableViewCell.swift */; };
+		F1C9D7411C0D45F00076E81C /* RankAndPointsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1C9D7401C0D45F00076E81C /* RankAndPointsTableViewCell.swift */; };
 		F1EF36B61BF813BC00DFE8A9 /* iPadLogInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1EF36B51BF813BC00DFE8A9 /* iPadLogInViewController.swift */; };
 		F1EF36B81BF8140B00DFE8A9 /* DeviceLogInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1EF36B71BF8140B00DFE8A9 /* DeviceLogInViewController.swift */; };
 		F1EF36BA1BF8173400DFE8A9 /* iPhoneLogInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1EF36B91BF8173400DFE8A9 /* iPhoneLogInViewController.swift */; };
@@ -94,6 +96,8 @@
 		F1C7CB7E1C0A2D1500E20D8E /* Question.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Question.png; sourceTree = "<group>"; };
 		F1C7CB801C0CA6E000E20D8E /* iPhoneScoresViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = iPhoneScoresViewController.swift; sourceTree = "<group>"; };
 		F1C7CB821C0CA93F00E20D8E /* DeviceViewHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DeviceViewHelper.swift; sourceTree = "<group>"; };
+		F1C9D73E1C0D3B4C0076E81C /* PieChartSessionSummaryCellTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PieChartSessionSummaryCellTableViewCell.swift; sourceTree = "<group>"; };
+		F1C9D7401C0D45F00076E81C /* RankAndPointsTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RankAndPointsTableViewCell.swift; sourceTree = "<group>"; };
 		F1EF36B51BF813BC00DFE8A9 /* iPadLogInViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = iPadLogInViewController.swift; sourceTree = "<group>"; };
 		F1EF36B71BF8140B00DFE8A9 /* DeviceLogInViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DeviceLogInViewController.swift; sourceTree = "<group>"; };
 		F1EF36B91BF8173400DFE8A9 /* iPhoneLogInViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = iPhoneLogInViewController.swift; sourceTree = "<group>"; };
@@ -209,6 +213,7 @@
 		F111DD631BEE7D9D00E10C7F /* View */ = {
 			isa = PBXGroup;
 			children = (
+				F1C9D73C1C0D3B230076E81C /* iPhone */,
 				12D31D321BEE791100B03E7C /* iPadPulseApp.storyboard */,
 				F158C8E51BF7F6AA001E6A89 /* iPhonePulseApp.storyboard */,
 			);
@@ -302,6 +307,23 @@
 				F1C7CB821C0CA93F00E20D8E /* DeviceViewHelper.swift */,
 			);
 			name = Helper;
+			sourceTree = "<group>";
+		};
+		F1C9D73C1C0D3B230076E81C /* iPhone */ = {
+			isa = PBXGroup;
+			children = (
+				F1C9D73D1C0D3B2D0076E81C /* ScoresViewController */,
+			);
+			name = iPhone;
+			sourceTree = "<group>";
+		};
+		F1C9D73D1C0D3B2D0076E81C /* ScoresViewController */ = {
+			isa = PBXGroup;
+			children = (
+				F1C9D73E1C0D3B4C0076E81C /* PieChartSessionSummaryCellTableViewCell.swift */,
+				F1C9D7401C0D45F00076E81C /* RankAndPointsTableViewCell.swift */,
+			);
+			name = ScoresViewController;
 			sourceTree = "<group>";
 		};
 		F1F9DE511BF713EE00C1E30D /* Assets */ = {
@@ -519,6 +541,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F1C9D73F1C0D3B4C0076E81C /* PieChartSessionSummaryCellTableViewCell.swift in Sources */,
 				F1C7CB811C0CA6E000E20D8E /* iPhoneScoresViewController.swift in Sources */,
 				F1888FBC1BF6F1C000A3B75D /* Constants.swift in Sources */,
 				F167687C1BF830140032BC39 /* iPhoneAnswersViewController.swift in Sources */,
@@ -526,6 +549,7 @@
 				F1EF36BA1BF8173400DFE8A9 /* iPhoneLogInViewController.swift in Sources */,
 				F158C8E81BF7F823001E6A89 /* DeviceViewController.swift in Sources */,
 				F1EF36B81BF8140B00DFE8A9 /* DeviceLogInViewController.swift in Sources */,
+				F1C9D7411C0D45F00076E81C /* RankAndPointsTableViewCell.swift in Sources */,
 				12F35C4D1C0432A500E3D4CD /* ClassSession_Beta.swift in Sources */,
 				4AC149C11BEF203A00EF52FA /* FullQuestionViewController.swift in Sources */,
 				F158C8E41BF7F139001E6A89 /* iPadAnswersViewController.swift in Sources */,

@@ -13,4 +13,5 @@ class iPhoneAnswersViewController: DeviceViewController{
     override func viewDidLoad() {
         super.viewDidLoad()
     }
+    
 }

@@ -10,27 +10,53 @@ import UIKit
 import Charts
 import Parse
 
-class iPhoneScoresViewController: UIViewController {
+class iPhoneScoresViewController: UIViewController , UITableViewDelegate , UITableViewDataSource {
 
-    @IBOutlet weak var progressPieChart: PieChartView!
-    let user = User.sharedInstance.user
-    
+    let userData = User.sharedInstance
+    @IBOutlet weak var tableView: UITableView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        /** PIE CHART SETUP : ************************************/
-        progressPieChart.legend.enabled = false
-        progressPieChart.usePercentValuesEnabled = true
-        progressPieChart.holeColor = ColorConstants.BlueAppColor
-        progressPieChart.sizeToFit()
-        progressPieChart.centerTextRadiusPercent = 75.0
-        progressPieChart.descriptionText = ""
-        /*********************************************************/
-        let correctAnswers = user!["questionsCorrect"] as! Double
-        let incorrectAnswers = user!["questionsIncorrect"] as! Double
-        DeviceViewHelper.drawPieChart(correctAnswers, incorrect: incorrectAnswers, isInitialLoad: true, progressPieChart: progressPieChart)
+        tableView.dataSource = self
     }
     
+    override func viewWillAppear(animated: Bool) {
+        dispatch_async(dispatch_get_main_queue(), { () -> Void in
+            self.tableView.reloadData()
+        })
+    }
     
+    func numberOfSectionsInTableView(tableView: UITableView) -> Int {
+        return 1
+    }
+    func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return 2
+    }
+    
+    func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+        if indexPath.row == 0 {
+            
+            let cell = tableView.dequeueReusableCellWithIdentifier("SessionSummaryCell") as! PieChartSessionSummaryCellTableViewCell
+            /** PIE CHART SETUP : ************************************/
+            cell.progressPieChart.legend.enabled = false
+            cell.progressPieChart.usePercentValuesEnabled = true
+            cell.progressPieChart.holeColor = ColorConstants.BlueAppColor
+            cell.progressPieChart.sizeToFit()
+            cell.progressPieChart.centerTextRadiusPercent = 75.0
+            cell.progressPieChart.descriptionText = ""
+            /*********************************************************/
+            let correctAnswers = userData.user!["questionsCorrect"] as! Double
+            let incorrectAnswers = userData.user!["questionsIncorrect"] as! Double
+            DeviceViewHelper.drawPieChart(correctAnswers, incorrect: incorrectAnswers, isInitialLoad: true, progressPieChart: cell.progressPieChart)
+            
+            return cell
+        } else {
+            tableView.dequeueReusableCellWithIdentifier("RankAndPointsCell") as! RankAndPointsTableViewCell
+            let cell = tableView.dequeueReusableCellWithIdentifier("RankAndPointsCell") as! RankAndPointsTableViewCell
+            cell.rankLabel.text = "Rank\t: " + String(userData.rank)
+            cell.pointsLabel.text = "Points\t: " + String(userData.points)
+            return cell
+        }
+    }
+
 }
