@@ -602,7 +602,11 @@
 				F158C8E81BF7F823001E6A89 /* DeviceViewController.swift in Sources */,
 				F1EF36B81BF8140B00DFE8A9 /* DeviceLogInViewController.swift in Sources */,
 <<<<<<< HEAD
+<<<<<<< HEAD
 				F1C9D7411C0D45F00076E81C /* RankAndPointsTableViewCell.swift in Sources */,
+=======
+				12B651BA1C0D36580028AC93 /* UpdateQuestionRouteHandler.swift in Sources */,
+>>>>>>> origin/0.2.1
 =======
 				12B651BA1C0D36580028AC93 /* UpdateQuestionRouteHandler.swift in Sources */,
 >>>>>>> origin/0.2.1
