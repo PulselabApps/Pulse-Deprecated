@@ -12,7 +12,9 @@ import Charts
 import Parse
 
 class DeviceViewHelper {
-        
+    
+    private static let userData = User.sharedInstance
+    
     static func drawPieChart(var correct: Double, incorrect: Double, isInitialLoad: Bool, progressPieChart: PieChartView) {
         var chartDataSetEntries = [ChartDataEntry]()
         
@@ -54,38 +56,47 @@ class DeviceViewHelper {
     }
     
     static func setRankLabel(rankLabel: UILabel, offset: String) {
-        var rank = 1
-        var scores = [Int]()
-        let rankLabelText = rankLabel.text
-        let query = PFQuery(className: "Class")
-        query.whereKey("name", equalTo: "Math")
-        query.findObjectsInBackgroundWithBlock {
-            (objects: [PFObject]?, error: NSError?) -> Void in
-            if error == nil {
-                let currentClass = objects![0]
-                let relationalQuery : PFQuery? = currentClass.relationForKey("students").query()
-                relationalQuery?.whereKeyExists("score")
-                relationalQuery?.findObjectsInBackgroundWithBlock({ (object: [PFObject]?, errors: NSError?) -> Void in
-                    if errors == nil {
-                        for obj in object!{
-                            let student = obj
-                            let score = student.valueForKey("score") as? Int
-                            scores.append(score!)
-                        }
-                        scores.sortInPlace({ $0 > $1 })
-                        for score in scores {
-                            if score == User.sharedInstance.user!["score"] as? Int {
-                                break
+        let qos = Int(QOS_CLASS_USER_INITIATED.rawValue)
+        dispatch_async(dispatch_get_global_queue(qos, 0)) { () -> Void in
+            var rank = 1
+            var scores = [Int]()
+            let query = PFQuery(className: "Class")
+            query.whereKey("name", equalTo: "Math")
+            query.findObjectsInBackgroundWithBlock {
+                (objects: [PFObject]?, error: NSError?) -> Void in
+                if error == nil {
+                    let currentClass = objects![0]
+                    let relationalQuery : PFQuery? = currentClass.relationForKey("students").query()
+                    relationalQuery?.whereKeyExists("score")
+                    relationalQuery?.findObjectsInBackgroundWithBlock({ (object: [PFObject]?, errors: NSError?) -> Void in
+                        if errors == nil {
+                            for obj in object!{
+                                let student = obj
+                                let score = student.valueForKey("score") as? Int
+                                scores.append(score!)
                             }
-                            rank++
+                            scores.sortInPlace({ $0 > $1 })
+                            for score in scores {
+                                if score == User.sharedInstance.user!["score"] as? Int {
+                                    break
+                                }
+                                rank++
+                            }
+                            if (userData.currentRank != rank) {
+                                userData.currentRank = rank
+                                userData.reloadiPhoneScoresTable = true
+                            dispatch_async(dispatch_get_main_queue()) { () -> Void in
+                                let rankLabelText = rankLabel.text!
+                                if rankLabelText != (offset + String(rank)) {
+                                    rankLabel.text = offset + String(rank)
+                                }
+                            }
+                            }
                         }
-                        if rankLabelText != (offset + String(rank)) {
-                            rankLabel.text = offset + String(rank)
-                        }
-                    }
-                })
+                    })
+                }
             }
         }
     }
-
+    
 }

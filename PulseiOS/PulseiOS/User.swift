@@ -13,12 +13,15 @@ class User {
     static let sharedInstance = User()
     
     let user = PFUser.currentUser()
+    var reloadiPhoneScoresTable = false
     
     var points : Int {
         get {
             return user!["score"] as! Int
         }
     }
+    
+    var currentRank = 1
     
     private init(){ }
 }
