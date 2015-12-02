@@ -46,8 +46,6 @@ class DeviceViewController: UIViewController, DPLTargetViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-//        _ = NSTimer.scheduledTimerWithTimeInterval(2.0, target: self, selector: Selector("checkForQuestionChange"), userInfo: nil, repeats: true)
-        
         initScene()
         submitButton.enabled = false
         ViewState.currentView = self
@@ -128,7 +126,6 @@ class DeviceViewController: UIViewController, DPLTargetViewController {
     func showFillInTheBlank(){
         answerTextBox.hidden = false
         var answers = questions[currentQuestion!].answers
-//        var answers = questions[currentQuestion!]["answers"]!! as! [String]
         correctAnswer = answers[0]
     }
     
@@ -140,7 +137,6 @@ class DeviceViewController: UIViewController, DPLTargetViewController {
         
         let buttons = [topLeftMultipleChoiceButton, bottomLeftMultipleChoiceButton,topRightMultipleChoiceButton,bottomRightMultipleChoiceButton]
         var answers = questions[currentQuestion!].answers
-//        var answers = questions[currentQuestion!]["answers"]!! as! [String]
         correctAnswer = answers[0]
         
         let newIndex = Int(arc4random_uniform(UInt32(4)))
@@ -215,14 +211,6 @@ class DeviceViewController: UIViewController, DPLTargetViewController {
                 questionsCorrect!+=1
                 userData.user!["questionsCorrect"] = questionsCorrect
                 currentQ.numCorrectAnswers++
-                /*var numCorrectAnswers = questions[currentQuestion!]["numCorrectAnswers"] as? Int
-                numCorrectAnswers!+=1
-                var question = questions[currentQuestion!] as! [String:AnyObject]
-                question["numCorrectAnswers"] = numCorrectAnswers
-                questions[currentQuestion!] = question
-                
-                saveQuestions()*/
-                
                 
                 saveUser()
                 previouslyClickedButton!.backgroundColor = ColorConstants.GreenCorrectColor
@@ -260,14 +248,6 @@ class DeviceViewController: UIViewController, DPLTargetViewController {
                 questionsIncorrect!+=1
                 userData.user!["questionsIncorrect"] = questionsIncorrect
                 
-                /*var numIncorrectAnswers = questions[currentQuestion!]["numIncorrectAnswers"] as? Int
-                numIncorrectAnswers!+=1
-                var question = questions[currentQuestion!] as! [String:AnyObject]
-                question["numIncorrectAnswers"] = numIncorrectAnswers
-                questions[currentQuestion!] = question
-                
-                saveQuestions()*/
-                
                 currentQ.numIncorrectAnswers++
                 saveUser()
                 
@@ -296,14 +276,6 @@ class DeviceViewController: UIViewController, DPLTargetViewController {
                     questionsCorrect!+=1
                     userData.user!["questionsCorrect"] = questionsCorrect
                     
-                    /*var numCorrectAnswers = questions[currentQuestion!]["numCorrectAnswers"] as? Int
-                    numCorrectAnswers!+=1
-                    var question = questions[currentQuestion!] as! [String:AnyObject]
-                    question["numCorrectAnswers"] = numCorrectAnswers
-                    questions[currentQuestion!] = question
-                    
-                    saveQuestions()*/
-                    
                     currentQ.numCorrectAnswers++
                     saveUser()
                     
@@ -318,15 +290,6 @@ class DeviceViewController: UIViewController, DPLTargetViewController {
                     var questionsIncorrect = userData.user!["questionsIncorrect"] as? Int
                     questionsIncorrect!+=1
                     userData.user!["questionsIncorrect"] = questionsIncorrect
-                    
-                    
-                    /*var numIncorrectAnswers = questions[currentQuestion!]["numIncorrectAnswers"] as? Int
-                    numIncorrectAnswers!+=1
-                    var question = questions[currentQuestion!] as! [String:AnyObject]
-                    question["numIncorrectAnswers"] = numIncorrectAnswers
-                    questions[currentQuestion!] = question
-                    
-                    saveQuestions()*/
                     
                     currentQ.numIncorrectAnswers++
                     saveUser()

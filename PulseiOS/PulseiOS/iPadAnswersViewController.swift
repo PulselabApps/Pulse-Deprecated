@@ -45,26 +45,6 @@ class iPadAnswersViewController : DeviceViewController {
         submitButton.enabled = true
     }
     
-    /*func saveQuestions(){
-    
-    let query = PFQuery(className:"ClassSession")
-    
-    query.whereKey("name", equalTo:"Math")
-    query.findObjectsInBackgroundWithBlock {
-    (objects: [PFObject]?, error: NSError?) -> Void in
-    
-    if error == nil {
-    
-    let classSession = objects![0]
-    
-    classSession.setValue(self.questions, forKey: "questions")
-    
-    
-    classSession.saveInBackground()
-    }
-    }
-    }*/
-    
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         switch segue.identifier! {
         case "FullQuestionSegue":
