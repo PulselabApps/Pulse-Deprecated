@@ -217,8 +217,8 @@ class DeviceViewController: UIViewController, DPLTargetViewController {
         })
     }
     
-    func configureMultipleChoiceAfterSubmit(currentQ: Question, answer: String, isCorrectAnswer: Bool) {
-        currentQ.answerBreakdown[answer]!++
+    func configureMultipleChoiceAfterSubmit(currentQuestion: Question, answer: String, isCorrectAnswer: Bool) {
+        currentQuestion.answerBreakdown[answer]!++
         if isCorrectAnswer {
             previouslyClickedButton!.backgroundColor = ColorConstants.GreenCorrectColor
         } else {
