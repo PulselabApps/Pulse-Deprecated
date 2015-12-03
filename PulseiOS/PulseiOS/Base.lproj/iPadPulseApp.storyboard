@@ -116,19 +116,6 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ofb-Op-ocy">
                                 <rect key="frame" x="0.0" y="0.0" width="768" height="860"/>
                                 <subviews>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="LF8-Pl-w3p">
-                                        <rect key="frame" x="700" y="792" width="60" height="60"/>
-                                        <animations/>
-                                        <constraints>
-                                            <constraint firstAttribute="width" constant="60" id="aYz-iD-Hul"/>
-                                            <constraint firstAttribute="height" constant="60" id="pHu-xf-dcw"/>
-                                        </constraints>
-                                        <state key="normal" image="Checked-100.png"/>
-                                        <connections>
-                                            <action selector="submitButtonPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="fUd-OL-wXb"/>
-                                            <action selector="submitButtonSelected:" destination="BYZ-38-t0r" eventType="touchUpInside" id="uri-Ol-Vuv"/>
-                                        </connections>
-                                    </button>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="WRx-ig-Tk1">
                                         <rect key="frame" x="8" y="8" width="752" height="702"/>
                                         <subviews>
@@ -275,6 +262,19 @@
                                         <state key="normal" title="show question" image="Help-100.png"/>
                                         <connections>
                                             <segue destination="qZo-V2-QQL" kind="modal" identifier="FullQuestionSegue" modalPresentationStyle="formSheet" id="NGl-VD-fQb"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="LF8-Pl-w3p">
+                                        <rect key="frame" x="700" y="792" width="60" height="60"/>
+                                        <animations/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="60" id="aYz-iD-Hul"/>
+                                            <constraint firstAttribute="height" constant="60" id="pHu-xf-dcw"/>
+                                        </constraints>
+                                        <state key="normal" image="Checked-100.png"/>
+                                        <connections>
+                                            <action selector="submitButtonPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="fUd-OL-wXb"/>
+                                            <action selector="submitButtonSelected:" destination="BYZ-38-t0r" eventType="touchUpInside" id="uri-Ol-Vuv"/>
                                         </connections>
                                     </button>
                                 </subviews>

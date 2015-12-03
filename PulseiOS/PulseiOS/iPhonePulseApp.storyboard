@@ -114,6 +114,7 @@
                                         <state key="normal" image="Checked-100.png"/>
                                         <connections>
                                             <action selector="submitButtonPressed:" destination="sSb-Oe-zh2" eventType="touchUpInside" id="6Rd-vt-b0S"/>
+                                            <action selector="submitButtonSelected:" destination="sSb-Oe-zh2" eventType="touchUpInside" id="xF3-kB-HDD"/>
                                         </connections>
                                     </button>
                                     <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="beR-ur-u7r">

@@ -13,7 +13,7 @@ import Parse
 
 class DeviceViewHelper {
     
-    private static let userData = User.sharedInstance
+    static let userData = User.sharedInstance
     
     static func drawPieChart(var correct: Double, incorrect: Double, isInitialLoad: Bool, progressPieChart: PieChartView) {
         var chartDataSetEntries = [ChartDataEntry]()
@@ -99,4 +99,29 @@ class DeviceViewHelper {
         }
     }
     
+    static func calculateScore(isCorrectAnswer: Bool, offsetValue: Int, currentQuestion: Question) {
+        let correctOrIncorrect = isCorrectAnswer ? "questionsCorrect" : "questionsIncorrect"
+        var score = userData.user!["score"] as? Int
+        score! += offsetValue
+        userData.user!["score"] = score
+        
+        var questionStats = userData.user![correctOrIncorrect] as? Int
+        questionStats!+=1
+        userData.user![correctOrIncorrect] = questionStats
+        
+        isCorrectAnswer ? currentQuestion.numCorrectAnswers++ : currentQuestion.numIncorrectAnswers++
+        saveUser()
+    }
+    
+    static func saveUser(){
+        userData.user!.saveInBackgroundWithBlock {
+            (success: Bool, error: NSError?) -> Void in
+            
+            if (success) {
+                print("user saved")
+            } else {
+                print(error?.description)
+            }
+        }
+    }
 }

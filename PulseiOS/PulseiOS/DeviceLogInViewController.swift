@@ -27,11 +27,7 @@ class DeviceLogInViewController: UIViewController {
         // let password = passwordTextBox.text ?? ""
         let username = "math_student_2"
         let password = "math_student_2"
-        
-        /*
-        "test_student"
-        "password"
-        */
+
         PFUser.logInWithUsernameInBackground(username, password: password) {
             (user: PFUser?, error: NSError?) -> Void in
             
@@ -39,14 +35,14 @@ class DeviceLogInViewController: UIViewController {
                 // Do stuff after successful login.
                 print("success")
                 if user!["role"] as! String == "Student"{
-                    print("YOUR A STUDENT")
+                    print("YOU'RE A STUDENT")
                         if let studentVC = self.storyboard!.instantiateViewControllerWithIdentifier("StudentViewController") as? PulseTabViewController {
                             self.presentViewController(studentVC, animated: true, completion: nil)
                         } else  if let studentVC = self.storyboard!.instantiateViewControllerWithIdentifier("StudentViewController") as? DeviceViewController {
                             self.presentViewController(studentVC, animated: true, completion: nil)
                     }
                 } else {
-                    print("YOUR A TEACHER")
+                    print("YOU'ER A TEACHER")
                 }
                 
             } else {

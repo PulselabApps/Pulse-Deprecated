@@ -28,6 +28,11 @@ struct AnswerTypes {
     static let Matching = "Matching"
 }
 
+struct  Score {
+    static var Increment = 500
+    static var Decrement = -500
+}
+
 class ViewState {
     static var currentView : DeviceViewController?
 }

@@ -42,7 +42,7 @@ class DeviceViewController: UIViewController, DPLTargetViewController {
     
     var previouslyClickedButton : UIButton?
     var correctButton : UIButton?
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -101,18 +101,6 @@ class DeviceViewController: UIViewController, DPLTargetViewController {
             showFillInTheBlank()
             break
         }
-        
-//        switch questions[currentQuestion!]["questionType"] as! String {
-//        case "MultipleChoice":
-//            showMultipleChoiceOptions()
-//            break
-//        case "FillInTheBlank":
-//            showFillInTheBlank()
-//            submitButton.enabled = true
-//            break
-//        default: break
-//            
-//        }
     }
     
     func hideAllAnswers(){
@@ -196,132 +184,86 @@ class DeviceViewController: UIViewController, DPLTargetViewController {
         let image = UIImage(named: "Checked Filled-100.png")
         sender.setImage(image, forState: .Normal)
         sender.enabled = false
+        let currentQ = questions[currentQuestion!]
+        let type = QuestionType(rawValue: currentQ.questionType)!
+        let answer: String
         
-        if let multipleChoicAnswer = previouslyClickedButton {
-            let answer = multipleChoicAnswer.titleLabel?.text
-            
-            let currentQ = questions[currentQuestion!]
-            currentQ.answerBreakdown[answer!]!++
-            if answer == correctAnswer{
-                var score = userData.user!["score"] as? Int
-                score = score! + 500
-                userData.user!["score"] = score
-                
-                var questionsCorrect = userData.user!["questionsCorrect"] as? Int
-                questionsCorrect!+=1
-                userData.user!["questionsCorrect"] = questionsCorrect
-                currentQ.numCorrectAnswers++
-                
-                saveUser()
-                previouslyClickedButton!.backgroundColor = ColorConstants.GreenCorrectColor
-            } else {
-                var correctView = UIButton()
-                switch correctAnswer!{
-                case topLeftMultipleChoiceButton.titleLabel!.text!:
-                    correctView = topLeftMultipleChoiceButton
-                    
-                    break
-                case bottomLeftMultipleChoiceButton.titleLabel!.text!:
-                    correctView = bottomLeftMultipleChoiceButton
-                    break
-                case topRightMultipleChoiceButton.titleLabel!.text!:
-                    correctView = topRightMultipleChoiceButton
-                    break
-                case bottomRightMultipleChoiceButton.titleLabel!.text!:
-                    correctView = bottomRightMultipleChoiceButton
-                    break
-                default:
-                    break
-                    
-                }
-                
-                correctView.backgroundColor = ColorConstants.GreenCorrectColor
-                correctView.setTitleColor(UIColor.whiteColor(), forState: .Normal)
-                correctButton = correctView
-                previouslyClickedButton!.backgroundColor = ColorConstants.RedIncorrectColor
-                
-                var score = userData.user!["score"] as? Int
-                score = score! - 500
-                userData.user!["score"] = score
-                
-                var questionsIncorrect = userData.user!["questionsIncorrect"] as? Int
-                questionsIncorrect!+=1
-                userData.user!["questionsIncorrect"] = questionsIncorrect
-                
-                currentQ.numIncorrectAnswers++
-                saveUser()
-                
-            }
-            currentQ.saveInBackgroundWithBlock({ (success, error) -> Void in
-                if error == nil && success {
-                    print("Saved Question")
-                }
-            })
-            previouslyClickedButton!.setTitleColor(UIColor.whiteColor(), forState: .Normal)
-            topLeftMultipleChoiceButton.enabled = false
-            bottomLeftMultipleChoiceButton.enabled = false
-            topRightMultipleChoiceButton.enabled = false
-            bottomRightMultipleChoiceButton.enabled = false
-            
-        } else { // FILL IN THE BLANK
-            let currentQ = questions[currentQuestion!]
-            if let answer = answerTextBox.text {
-                if answer == correctAnswer{
-                    // INCREMENT SCORE
-                    var score = userData.user!["score"] as? Int
-                    score = score! + 500
-                    userData.user!["score"] = score
-                    
-                    var questionsCorrect = userData.user!["questionsCorrect"] as? Int
-                    questionsCorrect!+=1
-                    userData.user!["questionsCorrect"] = questionsCorrect
-                    
-                    currentQ.numCorrectAnswers++
-                    saveUser()
-                    
-                    answerTextBox.backgroundColor = ColorConstants.GreenCorrectColor
-                } else {
-                    answerTextBox.backgroundColor = ColorConstants.RedIncorrectColor
-                    
-                    var score = userData.user!["score"] as? Int
-                    score = score! - 500
-                    userData.user!["score"] = score
-                    
-                    var questionsIncorrect = userData.user!["questionsIncorrect"] as? Int
-                    questionsIncorrect!+=1
-                    userData.user!["questionsIncorrect"] = questionsIncorrect
-                    
-                    currentQ.numIncorrectAnswers++
-                    saveUser()
-                }
-                currentQ.saveInBackgroundWithBlock({ (success, error) -> Void in
-                    if error == nil && success {
-                        print("Saved Question")
-                    }
-                })
-                answerTextBox.textColor = UIColor.whiteColor()
-                answerTextBox.userInteractionEnabled = false
-                
-            } else { // It was left blank
-                
-            }
+        switch type {
+        case .MultipleChoice:
+            answer = (previouslyClickedButton!.titleLabel?.text)!
+            break
+        case .FillInTheBlank:
+            answer = answerTextBox.text!
+            break
         }
+        
+        let isCorrectAnswer = answer == correctAnswer
+        switch type {
+        case .MultipleChoice:
+            configureMultipleChoiceAfterSubmit(currentQ, answer: answer, isCorrectAnswer: isCorrectAnswer)
+            break
+        case .FillInTheBlank:
+            configureFillInTheBlankAfterSubmit(isCorrectAnswer)
+            break
+        }
+        
+        let offset = isCorrectAnswer ? Score.Increment : Score.Decrement
+        DeviceViewHelper.calculateScore(answer == correctAnswer, offsetValue: offset, currentQuestion: currentQ)
+        
+        currentQ.saveInBackgroundWithBlock({ (success, error) -> Void in
+            if error == nil && success {
+                print("Saved Question")
+            }
+        })
     }
     
-    func saveUser(){
-        userData.user!.saveInBackgroundWithBlock {
-            (success: Bool, error: NSError?) -> Void in
-            
-            if (success) {
-                print("user saved")
-            } else {
-                print(error?.description)
+    func configureMultipleChoiceAfterSubmit(currentQ: Question, answer: String, isCorrectAnswer: Bool) {
+        currentQ.answerBreakdown[answer]!++
+        if isCorrectAnswer {
+            previouslyClickedButton!.backgroundColor = ColorConstants.GreenCorrectColor
+        } else {
+            var correctView = UIButton()
+            switch correctAnswer!{
+            case topLeftMultipleChoiceButton.titleLabel!.text!:
+                correctView = topLeftMultipleChoiceButton
+                break
+            case bottomLeftMultipleChoiceButton.titleLabel!.text!:
+                correctView = bottomLeftMultipleChoiceButton
+                break
+            case topRightMultipleChoiceButton.titleLabel!.text!:
+                correctView = topRightMultipleChoiceButton
+                break
+            case bottomRightMultipleChoiceButton.titleLabel!.text!:
+                correctView = bottomRightMultipleChoiceButton
+                break
+            default:
+                break
+                
             }
+            correctView.backgroundColor = ColorConstants.GreenCorrectColor
+            correctView.setTitleColor(UIColor.whiteColor(), forState: .Normal)
+            correctButton = correctView
+            previouslyClickedButton!.backgroundColor = ColorConstants.RedIncorrectColor
+            
         }
+        previouslyClickedButton!.setTitleColor(UIColor.whiteColor(), forState: .Normal)
+        topLeftMultipleChoiceButton.enabled = false
+        bottomLeftMultipleChoiceButton.enabled = false
+        topRightMultipleChoiceButton.enabled = false
+        bottomRightMultipleChoiceButton.enabled = false
+    }
+    
+    func configureFillInTheBlankAfterSubmit(isCorrectAnswer: Bool) {
+        if isCorrectAnswer {
+            answerTextBox.backgroundColor = ColorConstants.GreenCorrectColor
+        } else {
+            answerTextBox.backgroundColor = ColorConstants.RedIncorrectColor
+        }
+        answerTextBox.textColor = UIColor.whiteColor()
+        answerTextBox.userInteractionEnabled = false
     }
     
     func checkForQuestionChange(){
-        
         let query = ClassSession_Beta.query()!
         query.getObjectInBackgroundWithId("udilE5VomO") { (object, error) -> Void in
             if error == nil {

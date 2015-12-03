@@ -14,4 +14,7 @@ class iPhoneAnswersViewController: DeviceViewController{
         super.viewDidLoad()
     }
     
+    @IBAction func submitButtonSelected(sender: UIButton) {
+        userData.reloadiPhoneScoresTable = true
+    }
 }
