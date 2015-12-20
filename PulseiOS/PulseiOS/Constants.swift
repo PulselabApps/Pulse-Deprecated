@@ -28,6 +28,11 @@ struct AnswerTypes {
     static let Matching = "Matching"
 }
 
+struct UserRoles {
+    static let Student = "Student"
+    static let Teacher = "Teacher"
+}
+
 struct  Score {
     static var Increment = 500
     static var Decrement = -500

@@ -46,8 +46,8 @@ class iPhoneScoresViewController: UIViewController , UITableViewDelegate , UITab
             cell.progressPieChart.centerTextRadiusPercent = 75.0
             cell.progressPieChart.descriptionText = ""
             /*********************************************************/
-            let correctAnswers = userData.user!["questionsCorrect"] as! Double
-            let incorrectAnswers = userData.user!["questionsIncorrect"] as! Double
+            let correctAnswers = userData.user![UserKey.QuestionsCorrect] as! Double
+            let incorrectAnswers = userData.user![UserKey.QuestionsIncorrect] as! Double
             DeviceViewHelper.drawPieChart(correctAnswers, incorrect: incorrectAnswers, isInitialLoad: true, progressPieChart: cell.progressPieChart)
             return cell
         } else {

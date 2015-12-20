@@ -39,17 +39,13 @@ class DeviceViewHelper {
         var letterGrade = ""
         if grade < 60.0 {
             letterGrade = "F"
-        }
-        if (grade >= 60.0 && grade < 70.0) {
+        } else if (grade < 70.0) {
             letterGrade = "D"
-        }
-        if (grade >= 70.0 && grade < 80.0) {
+        } else if (grade < 80.0) {
             letterGrade =  "C"
-        }
-        if (grade >= 80.0 && grade < 90.0) {
+        } else if (grade < 90.0) {
             letterGrade =  "B"
-        }
-        if grade >= 90.0 {
+        } else {
             letterGrade = "A"
         }
         return letterGrade
@@ -67,17 +63,17 @@ class DeviceViewHelper {
                 if error == nil {
                     let currentClass = objects![0]
                     let relationalQuery : PFQuery? = currentClass.relationForKey("students").query()
-                    relationalQuery?.whereKeyExists("score")
+                    relationalQuery?.whereKeyExists(UserKey.Score)
                     relationalQuery?.findObjectsInBackgroundWithBlock({ (object: [PFObject]?, errors: NSError?) -> Void in
                         if errors == nil {
                             for obj in object!{
                                 let student = obj
-                                let score = student.valueForKey("score") as? Int
+                                let score = student.valueForKey(UserKey.Score) as? Int
                                 scores.append(score!)
                             }
                             scores.sortInPlace({ $0 > $1 })
                             for score in scores {
-                                if score == User.sharedInstance.user!["score"] as? Int {
+                                if score == User.sharedInstance.user![UserKey.Score] as? Int {
                                     break
                                 }
                                 rank++
@@ -100,10 +96,10 @@ class DeviceViewHelper {
     }
     
     static func calculateScore(isCorrectAnswer: Bool, offsetValue: Int, currentQuestion: Question) {
-        let correctOrIncorrect = isCorrectAnswer ? "questionsCorrect" : "questionsIncorrect"
-        var score = userData.user!["score"] as? Int
+        let correctOrIncorrect = isCorrectAnswer ? UserKey.QuestionsCorrect : UserKey.QuestionsIncorrect
+        var score = userData.user![UserKey.Score] as? Int
         score! += offsetValue
-        userData.user!["score"] = score
+        userData.user![UserKey.Score] = score
         
         var questionStats = userData.user![correctOrIncorrect] as? Int
         questionStats!+=1

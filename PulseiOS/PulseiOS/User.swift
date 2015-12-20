@@ -17,11 +17,18 @@ class User {
     
     var points : Int {
         get {
-            return user!["score"] as! Int
+            return user![UserKey.Score] as! Int
         }
     }
     
     var currentRank = 1
     
     private init(){ }
+}
+
+struct UserKey{
+    static let Role = "role"
+    static let Score = "score"
+    static let QuestionsCorrect = "questionsCorrect"
+    static let QuestionsIncorrect = "questionsIncorrect"
 }

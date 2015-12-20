@@ -34,8 +34,8 @@ class iPadAnswersViewController : DeviceViewController {
         rank.text = String(studentRank)
         points.text = String(studentPoints)
         
-        let correctAnswers = userData.user!["questionsCorrect"] as! Double
-        let incorrectAnswers = userData.user!["questionsIncorrect"] as! Double
+        let correctAnswers = userData.user![UserKey.QuestionsCorrect] as! Double
+        let incorrectAnswers = userData.user![UserKey.QuestionsIncorrect] as! Double
         DeviceViewHelper.drawPieChart(correctAnswers, incorrect: incorrectAnswers, isInitialLoad: true, progressPieChart: progressPieChart)
     }
     
@@ -58,8 +58,8 @@ class iPadAnswersViewController : DeviceViewController {
     @IBAction func submitButtonSelected(sender: UIButton) {
         self.points.text = String(userData.points)
         DeviceViewHelper.setRankLabel(self.rank, offset: "")
-        let correctAnswers = userData.user!["questionsCorrect"] as! Double
-        let incorrectAnswers = userData.user!["questionsIncorrect"] as! Double
+        let correctAnswers = userData.user![UserKey.QuestionsCorrect] as! Double
+        let incorrectAnswers = userData.user![UserKey.QuestionsIncorrect] as! Double
         DeviceViewHelper.drawPieChart(correctAnswers, incorrect: incorrectAnswers, isInitialLoad: false, progressPieChart: progressPieChart)
     }
     

@@ -34,7 +34,7 @@ class DeviceLogInViewController: UIViewController {
             if user != nil {
                 // Do stuff after successful login.
                 print("success")
-                if user!["role"] as! String == "Student"{
+                if user![UserKey.Role] as! String == UserRoles.Student{
                     print("YOU'RE A STUDENT")
                         if let studentVC = self.storyboard!.instantiateViewControllerWithIdentifier("StudentViewController") as? PulseTabViewController {
                             self.presentViewController(studentVC, animated: true, completion: nil)
