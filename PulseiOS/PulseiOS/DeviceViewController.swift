@@ -24,15 +24,8 @@ class DeviceViewController: UIViewController, DPLTargetViewController {
     var studentsAnswer : String?
     var questionType : String?
     
-    @IBOutlet weak var topLeftMultipleChoice: UIView!
-    @IBOutlet weak var topRightMultipleChoice: UIView!
-    @IBOutlet weak var bottomLeftMultipleChoice: UIView!
-    @IBOutlet weak var bottomRightMultipleChoice: UIView!
+    @IBOutlet var multipleChoices: [UIButton]!
     
-    @IBOutlet weak var topLeftMultipleChoiceButton: UIButton!
-    @IBOutlet weak var bottomLeftMultipleChoiceButton: UIButton!
-    @IBOutlet weak var topRightMultipleChoiceButton: UIButton!
-    @IBOutlet weak var bottomRightMultipleChoiceButton: UIButton!
     
     @IBOutlet weak var submitButton: UIButton!
     @IBOutlet weak var answerTextBox: UITextField!
@@ -52,7 +45,6 @@ class DeviceViewController: UIViewController, DPLTargetViewController {
     }
     
     func initScene(){
-        
         makeMultipleChoicesRound()
         
         let query = ClassSession_Beta.query()!
@@ -76,13 +68,11 @@ class DeviceViewController: UIViewController, DPLTargetViewController {
     }
     
     func makeMultipleChoicesRound(){
-        let multipleChoices = [topLeftMultipleChoice,topRightMultipleChoice,bottomLeftMultipleChoice,bottomRightMultipleChoice]
-        
-        for view in multipleChoices{
-            view.layer.cornerRadius = 10.0
-            view.layer.borderColor = UIColor.grayColor().CGColor
-            view.layer.borderWidth = 0.5
-            view.clipsToBounds = true
+        for button in multipleChoices{
+            button.layer.cornerRadius = 10.0
+            button.layer.borderColor = UIColor.grayColor().CGColor
+            button.layer.borderWidth = 0.5
+            button.clipsToBounds = true
         }
     }
     
@@ -105,10 +95,10 @@ class DeviceViewController: UIViewController, DPLTargetViewController {
     
     func hideAllAnswers(){
         answerTextBox.hidden = true
-        topLeftMultipleChoice.hidden = true
-        topRightMultipleChoice.hidden = true
-        bottomLeftMultipleChoice.hidden = true
-        bottomRightMultipleChoice.hidden = true
+        
+        for button in multipleChoices{
+            button.hidden = true
+        }
     }
     
     func showFillInTheBlank(){
@@ -118,15 +108,14 @@ class DeviceViewController: UIViewController, DPLTargetViewController {
     }
     
     func showMultipleChoiceOptions(){
-        topLeftMultipleChoice.hidden = false
-        topRightMultipleChoice.hidden = false
-        bottomLeftMultipleChoice.hidden = false
-        bottomRightMultipleChoice.hidden = false
+        for button in multipleChoices{
+            button.hidden = false
+        }
         
-        let buttons = [topLeftMultipleChoiceButton, bottomLeftMultipleChoiceButton,topRightMultipleChoiceButton,bottomRightMultipleChoiceButton]
         var answers = questions[currentQuestion!].answers
         correctAnswer = answers[0]
         
+        // randomize correct answer location
         let newIndex = Int(arc4random_uniform(UInt32(4)))
         let tmp = answers[0]
         answers[0] = answers[newIndex]
@@ -134,7 +123,7 @@ class DeviceViewController: UIViewController, DPLTargetViewController {
         
         for var i = 0; i < 4; i++ {
             let answer = answers[i]
-            buttons[i].setTitle(answer, forState: .Normal)
+            multipleChoices[i].setTitle(answer, forState: .Normal)
         }
     }
     
@@ -167,17 +156,16 @@ class DeviceViewController: UIViewController, DPLTargetViewController {
     }
     
     func enableAllButtons(){
-        topLeftMultipleChoiceButton.enabled = true
-        topLeftMultipleChoiceButton.setTitleColor(UIColor.blackColor(), forState: .Normal)
-        
-        bottomLeftMultipleChoiceButton.enabled = true
-        bottomLeftMultipleChoiceButton.setTitleColor(UIColor.blackColor(), forState: .Normal)
-        
-        topRightMultipleChoiceButton.enabled = true
-        topRightMultipleChoiceButton.setTitleColor(UIColor.blackColor(), forState: .Normal)
-        
-        bottomRightMultipleChoiceButton.enabled = true
-        bottomRightMultipleChoiceButton.setTitleColor(UIColor.blackColor(), forState: .Normal)
+        for button in multipleChoices{
+            button.enabled = true
+            button.setTitleColor(UIColor.blackColor(), forState: .Normal)
+        }
+    }
+    
+    func disableAllButtons(){
+        for button in multipleChoices{
+            button.enabled = false
+        }
     }
     
     @IBAction func submitButtonPressed(sender: UIButton) {
@@ -222,24 +210,16 @@ class DeviceViewController: UIViewController, DPLTargetViewController {
         if isCorrectAnswer {
             previouslyClickedButton!.backgroundColor = ColorConstants.GreenCorrectColor
         } else {
+            
             var correctView = UIButton()
-            switch correctAnswer!{
-            case topLeftMultipleChoiceButton.titleLabel!.text!:
-                correctView = topLeftMultipleChoiceButton
-                break
-            case bottomLeftMultipleChoiceButton.titleLabel!.text!:
-                correctView = bottomLeftMultipleChoiceButton
-                break
-            case topRightMultipleChoiceButton.titleLabel!.text!:
-                correctView = topRightMultipleChoiceButton
-                break
-            case bottomRightMultipleChoiceButton.titleLabel!.text!:
-                correctView = bottomRightMultipleChoiceButton
-                break
-            default:
-                break
-                
+            
+            for button in multipleChoices {
+                if correctAnswer! == button.titleLabel!.text! {
+                    correctView = button
+                    break
+                }
             }
+
             correctView.backgroundColor = ColorConstants.GreenCorrectColor
             correctView.setTitleColor(UIColor.whiteColor(), forState: .Normal)
             correctButton = correctView
@@ -247,10 +227,7 @@ class DeviceViewController: UIViewController, DPLTargetViewController {
             
         }
         previouslyClickedButton!.setTitleColor(UIColor.whiteColor(), forState: .Normal)
-        topLeftMultipleChoiceButton.enabled = false
-        bottomLeftMultipleChoiceButton.enabled = false
-        topRightMultipleChoiceButton.enabled = false
-        bottomRightMultipleChoiceButton.enabled = false
+        disableAllButtons()
     }
     
     func configureFillInTheBlankAfterSubmit(isCorrectAnswer: Bool) {
