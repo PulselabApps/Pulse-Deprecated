@@ -33,10 +33,12 @@
 		F163BF411BEECA7F0051D505 /* Checked-100.png in Resources */ = {isa = PBXBuildFile; fileRef = F163BF401BEECA7F0051D505 /* Checked-100.png */; };
 		F167687C1BF830140032BC39 /* iPhoneAnswersViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F167687B1BF830140032BC39 /* iPhoneAnswersViewController.swift */; };
 		F1888FBC1BF6F1C000A3B75D /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1888FBB1BF6F1C000A3B75D /* Constants.swift */; };
+		F1B957A61C2C26D100761C28 /* Settings.png in Resources */ = {isa = PBXBuildFile; fileRef = F1B957A51C2C26D100761C28 /* Settings.png */; };
+		F1B957A81C2C274A00761C28 /* Settings_Classes.png in Resources */ = {isa = PBXBuildFile; fileRef = F1B957A71C2C274A00761C28 /* Settings_Classes.png */; };
+		F1B957AA1C2C27C500761C28 /* Add_Classes.png in Resources */ = {isa = PBXBuildFile; fileRef = F1B957A91C2C27C500761C28 /* Add_Classes.png */; };
 		F1C7CB751C0A264100E20D8E /* Answers.png in Resources */ = {isa = PBXBuildFile; fileRef = F1C7CB741C0A264100E20D8E /* Answers.png */; };
 		F1C7CB771C0A269800E20D8E /* Score.png in Resources */ = {isa = PBXBuildFile; fileRef = F1C7CB761C0A269800E20D8E /* Score.png */; };
 		F1C7CB791C0A272000E20D8E /* PulseTabViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1C7CB781C0A272000E20D8E /* PulseTabViewController.swift */; };
-		F1C7CB7D1C0A2C8800E20D8E /* Settings.png in Resources */ = {isa = PBXBuildFile; fileRef = F1C7CB7C1C0A2C8800E20D8E /* Settings.png */; };
 		F1C7CB7F1C0A2D1500E20D8E /* Question.png in Resources */ = {isa = PBXBuildFile; fileRef = F1C7CB7E1C0A2D1500E20D8E /* Question.png */; };
 		F1C7CB811C0CA6E000E20D8E /* iPhoneScoresViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1C7CB801C0CA6E000E20D8E /* iPhoneScoresViewController.swift */; };
 		F1C7CB831C0CA93F00E20D8E /* DeviceViewHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1C7CB821C0CA93F00E20D8E /* DeviceViewHelper.swift */; };
@@ -113,10 +115,12 @@
 		F163BF401BEECA7F0051D505 /* Checked-100.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Checked-100.png"; sourceTree = "<group>"; };
 		F167687B1BF830140032BC39 /* iPhoneAnswersViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = iPhoneAnswersViewController.swift; sourceTree = "<group>"; };
 		F1888FBB1BF6F1C000A3B75D /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		F1B957A51C2C26D100761C28 /* Settings.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Settings.png; sourceTree = "<group>"; };
+		F1B957A71C2C274A00761C28 /* Settings_Classes.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Settings_Classes.png; sourceTree = "<group>"; };
+		F1B957A91C2C27C500761C28 /* Add_Classes.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Add_Classes.png; sourceTree = "<group>"; };
 		F1C7CB741C0A264100E20D8E /* Answers.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Answers.png; sourceTree = "<group>"; };
 		F1C7CB761C0A269800E20D8E /* Score.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Score.png; sourceTree = "<group>"; };
 		F1C7CB781C0A272000E20D8E /* PulseTabViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PulseTabViewController.swift; sourceTree = "<group>"; };
-		F1C7CB7C1C0A2C8800E20D8E /* Settings.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Settings.png; sourceTree = "<group>"; };
 		F1C7CB7E1C0A2D1500E20D8E /* Question.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Question.png; sourceTree = "<group>"; };
 		F1C7CB801C0CA6E000E20D8E /* iPhoneScoresViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = iPhoneScoresViewController.swift; sourceTree = "<group>"; };
 		F1C7CB821C0CA93F00E20D8E /* DeviceViewHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DeviceViewHelper.swift; sourceTree = "<group>"; };
@@ -327,6 +331,15 @@
 			name = PulseTabViewController;
 			sourceTree = "<group>";
 		};
+		F1B957A41C2C26B000761C28 /* ClassesViewController Assets */ = {
+			isa = PBXGroup;
+			children = (
+				F1B957A91C2C27C500761C28 /* Add_Classes.png */,
+				F1B957A71C2C274A00761C28 /* Settings_Classes.png */,
+			);
+			name = "ClassesViewController Assets";
+			sourceTree = "<group>";
+		};
 		F1BE1FAF1BEF00960021C06A /* LogInViewController Assets */ = {
 			isa = PBXGroup;
 			children = (
@@ -340,7 +353,7 @@
 			isa = PBXGroup;
 			children = (
 				F1C7CB7E1C0A2D1500E20D8E /* Question.png */,
-				F1C7CB7C1C0A2C8800E20D8E /* Settings.png */,
+				F1B957A51C2C26D100761C28 /* Settings.png */,
 				F1C7CB741C0A264100E20D8E /* Answers.png */,
 				F1C7CB761C0A269800E20D8E /* Score.png */,
 			);
@@ -376,6 +389,7 @@
 			isa = PBXGroup;
 			children = (
 				F163BF391BEECA220051D505 /* ViewController Assets */,
+				F1B957A41C2C26B000761C28 /* ClassesViewController Assets */,
 				F1BE1FAF1BEF00960021C06A /* LogInViewController Assets */,
 				F1C7CB731C0A261500E20D8E /* TabViewControllerAssets */,
 			);
@@ -518,8 +532,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				F163BF411BEECA7F0051D505 /* Checked-100.png in Resources */,
+				F1B957A81C2C274A00761C28 /* Settings_Classes.png in Resources */,
 				4AC149BF1BEF1EC400EF52FA /* Help-100.png in Resources */,
 				12D31D391BEE791100B03E7C /* LaunchScreen.storyboard in Resources */,
+				F1B957AA1C2C27C500761C28 /* Add_Classes.png in Resources */,
 				4AE1687D1BEEEBB100150474 /* logo.png in Resources */,
 				12D31D361BEE791100B03E7C /* Assets.xcassets in Resources */,
 				F1C7CB7F1C0A2D1500E20D8E /* Question.png in Resources */,
@@ -527,7 +543,7 @@
 				F158C8E61BF7F6AA001E6A89 /* iPhonePulseApp.storyboard in Resources */,
 				F163BF3F1BEECA7A0051D505 /* Checked Filled-100.png in Resources */,
 				12D31D341BEE791100B03E7C /* iPadPulseApp.storyboard in Resources */,
-				F1C7CB7D1C0A2C8800E20D8E /* Settings.png in Resources */,
+				F1B957A61C2C26D100761C28 /* Settings.png in Resources */,
 				F1C7CB751C0A264100E20D8E /* Answers.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

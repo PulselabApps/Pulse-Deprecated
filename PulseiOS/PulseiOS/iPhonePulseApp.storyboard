@@ -83,7 +83,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="x5g-Ga-1ZC" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="115" y="185"/>
+            <point key="canvasLocation" x="-1196" y="185"/>
         </scene>
         <!--Answer-->
         <scene sceneID="POJ-sK-9im">
@@ -371,6 +371,59 @@
             </objects>
             <point key="canvasLocation" x="471" y="185"/>
         </scene>
+        <!--Classes-->
+        <scene sceneID="u0P-dl-Lie">
+            <objects>
+                <viewController id="2qB-0L-sTi" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="PB1-4N-9VV"/>
+                        <viewControllerLayoutGuide type="bottom" id="bqp-yc-k9i"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="U3D-5h-eX2">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="b4s-ob-pBo">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="519"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="DL0-oQ-vrM">
+                                        <rect key="frame" x="0.0" y="92" width="320" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="DL0-oQ-vrM" id="K3R-dV-5dw">
+                                            <rect key="frame" x="0.0" y="0.0" width="320" height="43.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </prototypes>
+                            </tableView>
+                            <tabBar contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="J0e-YN-O3d">
+                                <rect key="frame" x="0.0" y="519" width="320" height="49"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                <items>
+                                    <tabBarItem systemItem="more" id="B2a-rJ-p91"/>
+                                    <tabBarItem title="Settings" image="Settings.png" id="5a0-Hv-6DT"/>
+                                </items>
+                            </tabBar>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="b4s-ob-pBo" firstAttribute="centerY" secondItem="U3D-5h-eX2" secondAttribute="centerY" constant="-24.5" id="Fiq-4L-ris"/>
+                            <constraint firstItem="b4s-ob-pBo" firstAttribute="width" secondItem="U3D-5h-eX2" secondAttribute="width" id="Ida-KU-ysC"/>
+                            <constraint firstItem="b4s-ob-pBo" firstAttribute="centerX" secondItem="U3D-5h-eX2" secondAttribute="centerX" id="jS1-xR-uuK"/>
+                            <constraint firstItem="b4s-ob-pBo" firstAttribute="height" secondItem="U3D-5h-eX2" secondAttribute="height" constant="-49" id="mkL-EA-faX"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" title="Classes" id="cyq-R7-Q0D">
+                        <barButtonItem key="rightBarButtonItem" image="Add_Classes.png" id="kRH-gf-YlF">
+                            <color key="tintColor" red="0.29803922770000002" green="0.29803922770000002" blue="0.29803922770000002" alpha="1" colorSpace="calibratedRGB"/>
+                        </barButtonItem>
+                    </navigationItem>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="5Tc-jM-jdc" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-423" y="185"/>
+        </scene>
         <!--Question-->
         <scene sceneID="udY-Ma-BPF">
             <objects>
@@ -421,8 +474,27 @@
             </objects>
             <point key="canvasLocation" x="688" y="1156"/>
         </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="apv-qG-gFI">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="JMF-c8-0G9" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="lrq-Xy-o5b">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="2qB-0L-sTi" kind="relationship" relationship="rootViewController" id="3qj-HX-u0s"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="zzH-SJ-VKV" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-835" y="185"/>
+        </scene>
     </scenes>
     <resources>
+        <image name="Add_Classes.png" width="32" height="32"/>
         <image name="Answers.png" width="32" height="32"/>
         <image name="Checked-100.png" width="100" height="100"/>
         <image name="Question.png" width="32" height="32"/>
