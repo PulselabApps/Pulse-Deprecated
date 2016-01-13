@@ -14,7 +14,7 @@
             buildForArchiving = "YES">
             <BuildableReference
                BuildableIdentifier = 'primary'
-               BlueprintIdentifier = '1CA6AA9117F03DB61EEB1926'
+               BlueprintIdentifier = 'DAA1B0F7E67EA2B49128D882'
                BlueprintName = 'Pods-PulseiOSUITests'
                ReferencedContainer = 'container:Pods.xcodeproj'
                BuildableName = 'Pods_PulseiOSUITests.framework'>
