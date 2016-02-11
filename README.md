@@ -1,4 +1,4 @@
-# Pulse
+# Pulse -- Deprecated
 
 ###### **Build Status (master)** :
 - [![Build Status](https://travis-ci.com/PulselabApps/Pulse.svg?token=sauqEDKxdV5cD6YPypoK&branch=master)](https://travis-ci.com/PulselabApps/Pulse)
